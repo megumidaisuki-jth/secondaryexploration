@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "experiment_id": "scaffold-smoke",
+  "base_seed": 20260731,
+  "replicate_count": 4,
+  "output_root": "outputs/scaffold-smoke"
+}

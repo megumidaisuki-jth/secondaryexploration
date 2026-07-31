@@ -16,5 +16,33 @@ here.
 The authoritative approved-design draft is:
 
 - [Paper 2 research and system design](docs/superpowers/specs/2026-07-31-secondaryexploration-design.md)
+- [First implementation slice](docs/superpowers/plans/2026-07-31-project-scaffold-config-rng.md)
 
-Implementation starts only after the written design has been reviewed.
+## Current implementation status
+
+The repository currently provides only the reproducibility foundation:
+validated experiment configuration, content fingerprints, and deterministic
+namespaced random seeds. No hypergraph generator, router, payment simulator,
+scientific metric, or scientific result has been implemented yet.
+
+The package supports Python 3.10 or later and has no third-party runtime or
+test dependency. Run the complete test suite from the repository root with:
+
+```powershell
+python -m unittest discover -s tests -v
+```
+
+## Reproducibility contract
+
+The tracked smoke configuration is
+[`configs/pilot/scaffold-smoke.json`](configs/pilot/scaffold-smoke.json). The
+loader rejects missing or unknown fields, duplicate JSON keys, unsafe output
+paths, invalid numeric ranges, and non-UTF-8 input. Its fingerprint is the
+SHA-256 digest of canonical JSON, so a scientifically relevant configuration
+change creates a different experiment identity.
+
+Stochastic components derive independent 64-bit seeds from the tuple
+`(base_seed, namespace, index)` using the versioned SHA-256 framing rule in
+`secondaryexploration/randomness.py`. Reusing the same tuple replays the same
+standard-library random sequence; components must use distinct semantic
+namespaces such as `topology` and `traffic`.
