@@ -290,6 +290,15 @@ Each parent graph produces:
 - larger FHS arities as sensitivity conditions;
 - the demand-aware HPN variant.
 
+The primary NCH implementation uses a frozen canonical-order local-ratio
+2-approximate vertex cover and creates closed-neighborhood hyperedges
+`{c} union N(c)`. This is an explicit correction to the uploaded paper's
+literal open-neighborhood pseudocode, which can create one-member channels and
+orphan cover nodes. Primary FHS selects the canonical maximum-residual-degree
+node, runs canonical BFS visiting at most `m_max` total nodes including the
+seed, and removes all residual edges induced by that visited set. Both source
+interpretations and every tie rule are recorded in formal manifests.
+
 A single hyperedge containing all nodes is retained only as a theoretical
 connectivity upper bound. It is never presented as an ordinary deployable
 competitor.
