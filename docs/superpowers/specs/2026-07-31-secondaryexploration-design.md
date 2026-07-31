@@ -221,6 +221,12 @@ independent of arity. Among feasible paths:
    directional balance;
 3. resolve any remaining tie by reproducible uniform random choice.
 
+For a route step paid by coordinate `(e,v)` with amount `a`, the normalized
+post-payment directional balance is exactly
+`(x[e,v] - a) / sum_u x[e,u]`. Implementations compare these values with exact
+rational arithmetic; normalization by total hyperedge capital makes the
+criterion comparable across heterogeneous channel sizes.
+
 Search failure defines `tau_nopath`; a precomputed `K`-path candidate set is
 not permitted in primary experiments.
 
