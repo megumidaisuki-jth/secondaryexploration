@@ -258,6 +258,16 @@ not permitted in primary experiments.
 
 Small instances near nine nodes support exact enumeration and counterexamples.
 
+For `m` hyperedges, the canonical chain uses sliding windows of length `k` and
+stride `k-r`. Hyperedges `d` positions apart therefore intersect in
+`max(0,k-d(k-r))` nodes; when `r>k/2`, nonconsecutive overlap is retained and
+reported rather than silently excluded. The matched sunflower uses `r` common
+core nodes and `k-r` disjoint private nodes per hyperedge. Both families have
+`r+m(k-r)` nodes, `m` hyperedges, and `mk` incidences. The `k=2,r=1` cases are
+the deterministic binary path/star anchors; this label does not assert
+cross-arity resource matching, which is handled separately through shared
+parent graphs.
+
 ### 9.2 Synthetic parent-graph ensembles
 
 Use Erdős-Rényi, Barabási-Albert, and stochastic-block parent graphs. Within

@@ -20,6 +20,7 @@ The authoritative approved-design draft is:
 - [Hypergraph state-engine contract](docs/plans/2026-07-31-hypergraph-state-engine.md)
 - [Full feasible-router contract](docs/plans/2026-07-31-full-feasible-router.md)
 - [Core request-clock and service-event contract](docs/plans/2026-07-31-core-request-clock.md)
+- [Deterministic topology-anchor contract](docs/plans/2026-07-31-deterministic-topology-anchors.md)
 
 ## Current implementation status
 
@@ -28,9 +29,11 @@ immutable hypergraph balance/state engine, complete balance-aware feasible
 path search with exact tie-breaking, and a finite core request-clock simulator.
 The simulator records explicitly censored `tau_dep`, `tau_nopath`, and
 `tau_rej` events while continuing after failures to measure recovery, failure
-episodes, and cumulative success. No topology generator, traffic generator,
-statistical estimator, formal experiment result, or scientific claim has been
-implemented yet.
+episodes, and cumulative success. Deterministic `k`-uniform overlap-chain,
+common-core sunflower, and binary path/star anchors now provide audited exact
+resource counts and equal-per-node-capital states. No random topology
+generator, NCH/FHS transformation, traffic generator, statistical estimator,
+formal experiment result, or scientific claim has been implemented yet.
 
 The package supports Python 3.10 or later and has no third-party runtime or
 test dependency. Run the complete test suite from the repository root with:
