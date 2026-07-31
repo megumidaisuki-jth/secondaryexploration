@@ -70,10 +70,19 @@ paper-specific claims must not be reused across the two papers.
 | Incidence budget | `sum_e |e|`, used as a topology-construction resource measure. |
 | RMST | Restricted mean survival time under a prespecified observation horizon. |
 
+The request clock is one-based, with horizon `T` equal to the number of
+attempted requests. An explicit observation flag distinguishes an event at
+request `T` from right-censoring at `T`. To preserve the paper-1 boundary
+convention, an initially zero directional balance sets `tau_dep=0`; otherwise
+`tau_dep` can only be created by an accepted atomic payment that newly reaches
+zero.
+
 `tau_nopath` and `tau_rej` coincide only in the core experiment, where the
 router has complete state information, searches the full feasible hypergraph,
 and has no non-liquidity rejection cause. Sensitivity experiments must keep the
-two events separate.
+two events separate. Core recovery after first rejection is the first later
+accepted request of any source-destination pair, so it measures restoration of
+network service rather than necessarily restoration of the failed pair.
 
 ## 4. Core research questions
 
