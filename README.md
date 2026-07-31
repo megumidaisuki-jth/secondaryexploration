@@ -17,13 +17,14 @@ The authoritative approved-design draft is:
 
 - [Paper 2 research and system design](docs/superpowers/specs/2026-07-31-secondaryexploration-design.md)
 - [First implementation slice](docs/superpowers/plans/2026-07-31-project-scaffold-config-rng.md)
+- [Hypergraph state-engine contract](docs/plans/2026-07-31-hypergraph-state-engine.md)
 
 ## Current implementation status
 
-The repository currently provides only the reproducibility foundation:
-validated experiment configuration, content fingerprints, and deterministic
-namespaced random seeds. No hypergraph generator, router, payment simulator,
-scientific metric, or scientific result has been implemented yet.
+The repository currently provides the reproducibility foundation plus an
+immutable hypergraph balance/state engine for preflight-checked atomic payment
+transitions. No topology generator, feasible-path search, request-clock
+simulator, scientific metric, or scientific result has been implemented yet.
 
 The package supports Python 3.10 or later and has no third-party runtime or
 test dependency. Run the complete test suite from the repository root with:

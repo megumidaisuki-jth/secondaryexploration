@@ -10,5 +10,5 @@ readme = "README.md"
 requires-python = ">=3.10"
 dependencies = []
 
-[tool.setuptools]
-packages = ["secondaryexploration"]
+[tool.setuptools.packages.find]
+include = ["secondaryexploration*"]

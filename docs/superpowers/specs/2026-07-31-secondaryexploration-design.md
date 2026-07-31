@@ -1,8 +1,8 @@
 # Secondary Exploration: Paper 2 Research and System Design
 
 **Date:** 2026-07-31
-**Status:** Written specification derived from the approved grilling session;
-awaiting final document review before implementation
+**Status:** Approved research contract derived from the grilling session;
+implementation began on 2026-07-31
 **Repository:** `E:\second` / `megumidaisuki-jth/secondaryexploration`
 **Target venue:** IEEE Transactions on Network and Service Management (TNSM)
 
@@ -151,11 +151,12 @@ not to claim causal effects in the public Lightning network.
 
 ## 6. System architecture
 
-The implementation will be a Python 3.11+ package with small, testable modules.
-The planned boundaries are:
+The implementation is a Python 3.10+ package with small, testable modules. A
+flat package layout permits zero-install standard-library test replay in the
+current research environment; the logical boundaries are:
 
 ```text
-src/secondaryexploration/
+secondaryexploration/
   model/          # hypergraph, balances, requests, routes, atomic transitions
   topology/       # parent graphs, NCH, FHS, chain/star, binary baselines
   traffic/        # demand kernels, amounts, temporal traces, train/test splits
