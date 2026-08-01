@@ -2,6 +2,12 @@
 
 from .anchors import common_core_sunflower, uniform_overlap_chain
 from .capital import equal_node_capital_state, node_capital_totals
+from .matching import (
+    BinaryIncidenceMatch,
+    TopologyMatchingError,
+    binary_incidence_match,
+    match_binary_to_topology,
+)
 from .parent import GraphEdge, ParentGraph
 from .random_graphs import (
     MatchedParentEnsemble,
@@ -30,6 +36,7 @@ from .transformations import (
 
 
 __all__ = [
+    "BinaryIncidenceMatch",
     "GraphEdge",
     "HyperedgeSpec",
     "HypergraphTopology",
@@ -39,8 +46,10 @@ __all__ = [
     "ParentGraphModel",
     "TopologyError",
     "TopologyGenerationError",
+    "TopologyMatchingError",
     "TopologyResources",
     "binary_topology",
+    "binary_incidence_match",
     "barabasi_albert_parent_graph",
     "canonical_local_ratio_vertex_cover",
     "clique_expansion",
@@ -51,6 +60,7 @@ __all__ = [
     "equal_node_capital_state",
     "fixed_hyperedge_size",
     "matched_synthetic_parent_graphs",
+    "match_binary_to_topology",
     "node_capital_totals",
     "uncovered_parent_edges",
     "uniform_overlap_chain",

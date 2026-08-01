@@ -23,6 +23,7 @@ The authoritative approved-design draft is:
 - [Deterministic topology-anchor contract](docs/plans/2026-07-31-deterministic-topology-anchors.md)
 - [Parent-graph, NCH, and FHS contract](docs/plans/2026-07-31-parent-graph-nch-fhs.md)
 - [Matched random parent-ensemble contract](docs/plans/2026-07-31-random-parent-ensembles.md)
+- [Binary incidence-budget matching contract](docs/plans/2026-08-01-binary-incidence-matching.md)
 
 ## Current implementation status
 
@@ -38,9 +39,11 @@ graphs now feed audited direct-binary, clique-expansion, closed-neighborhood
 NCH, and bounded-BFS FHS transformations. Audited fixed-edge ER, frozen
 star-initialized BA, and fixed-count SBM generators now produce connected
 parent ensembles with exact shared node, edge, and mean-degree resources plus
-replayable rejection metadata. No incidence-matched binary selector, traffic
-generator, statistical estimator, formal experiment result, or scientific
-claim has been implemented yet.
+replayable rejection metadata. A parent-preserving binary selector now creates
+audited exact matches for feasible even incidence budgets and explicitly
+bracketed `-1/+1` sensitivity baselines for odd budgets. No traffic generator,
+statistical estimator, formal experiment result, or scientific claim has been
+implemented yet.
 
 The package supports Python 3.10 or later and has no third-party runtime or
 test dependency. Run the complete test suite from the repository root with:

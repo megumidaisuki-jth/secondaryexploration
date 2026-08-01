@@ -130,6 +130,13 @@ All primary topology comparisons match:
 This contract isolates topology effects more credibly than comparisons that
 allow capital, traffic, and construction resources to change simultaneously.
 
+Because every binary channel contributes two incidences, exact per-run binary
+matching is possible only for even source incidence budgets that also lie in
+the connected simple-graph capacity range. These feasible even cells form the
+strict cost-matched panel. Odd-budget cells report both adjacent binary
+brackets with incidence deltas `-1` and `+1`; neither is mislabeled exact, and
+no monotonic reliability assumption is made under fixed per-node capital.
+
 ### 5.3 Demand-aware HPN construction
 
 Under a fixed incidence budget and maximum hyperedge arity, construct a
@@ -297,6 +304,12 @@ Each parent graph produces:
 - FHS with core maximum arities 3 and 5;
 - larger FHS arities as sensitivity conditions;
 - the demand-aware HPN variant.
+
+The matched binary selector first chooses a seed-priority Kruskal spanning tree
+from parent edges, then adds remaining parent edges before any non-parent pair.
+Lower and upper odd-budget brackets are nested and use stable pair identifiers.
+This selector is reproducible and parent-preserving but is not claimed to draw
+a uniform random spanning tree.
 
 The primary NCH implementation uses a frozen canonical-order local-ratio
 2-approximate vertex cover and creates closed-neighborhood hyperedges
