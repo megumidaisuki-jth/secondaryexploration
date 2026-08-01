@@ -276,6 +276,14 @@ degree heterogeneity, clustering, and community structure remain the intended
 differences. Disconnected draws are rejected according to a frozen resampling
 rule.
 
+The executable contract uses connected conditional fixed-edge `G(n,m)`, a
+star-initialized BA process whose attachment count `a` yields exactly
+`a(n-a)` edges, and a microcanonical SBM with declared exact within-block and
+between-block edge counts. The BA edge count is the shared target within each
+model-size-replicate block. Every draw records model-specific parameters, the
+first accepted attempt, and a namespaced derived seed; public records replay
+and validate their complete edge sets instead of trusting provenance labels.
+
 Primary sizes are `n in {30, 60, 120, 240}`. Each model-size cell contains
 multiple independent parent-graph instances.
 

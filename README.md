@@ -22,6 +22,7 @@ The authoritative approved-design draft is:
 - [Core request-clock and service-event contract](docs/plans/2026-07-31-core-request-clock.md)
 - [Deterministic topology-anchor contract](docs/plans/2026-07-31-deterministic-topology-anchors.md)
 - [Parent-graph, NCH, and FHS contract](docs/plans/2026-07-31-parent-graph-nch-fhs.md)
+- [Matched random parent-ensemble contract](docs/plans/2026-07-31-random-parent-ensembles.md)
 
 ## Current implementation status
 
@@ -34,9 +35,12 @@ episodes, and cumulative success. Deterministic `k`-uniform overlap-chain,
 common-core sunflower, and binary path/star anchors now provide audited exact
 resource counts and equal-per-node-capital states. Canonical simple parent
 graphs now feed audited direct-binary, clique-expansion, closed-neighborhood
-NCH, and bounded-BFS FHS transformations. No random topology generator,
-incidence-matched binary selector, traffic generator, statistical estimator,
-formal experiment result, or scientific claim has been implemented yet.
+NCH, and bounded-BFS FHS transformations. Audited fixed-edge ER, frozen
+star-initialized BA, and fixed-count SBM generators now produce connected
+parent ensembles with exact shared node, edge, and mean-degree resources plus
+replayable rejection metadata. No incidence-matched binary selector, traffic
+generator, statistical estimator, formal experiment result, or scientific
+claim has been implemented yet.
 
 The package supports Python 3.10 or later and has no third-party runtime or
 test dependency. Run the complete test suite from the repository root with:
