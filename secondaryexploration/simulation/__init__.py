@@ -8,6 +8,7 @@ from .core import (
     RecoveryObservation,
     SimulationError,
     run_core_trace,
+    run_core_trace_with_request_rngs,
 )
 
 
@@ -19,4 +20,5 @@ __all__ = [
     "RecoveryObservation",
     "SimulationError",
     "run_core_trace",
+    "run_core_trace_with_request_rngs",
 ]

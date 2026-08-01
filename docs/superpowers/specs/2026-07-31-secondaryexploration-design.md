@@ -237,6 +237,20 @@ independent of arity. Among feasible paths:
    directional balance;
 3. resolve any remaining tie by reproducible uniform random choice.
 
+Within a paired block, route-choice randomness is bound to the one-based
+request index rather than consumed from one mutable sequential stream. Every
+topology therefore receives the same extensible binary quantile for request
+`i`, even when earlier requests produced different tie counts. The quantile is
+refined in deterministic 64-bit blocks only when a finite prefix straddles a
+route-bin boundary. Exact uniform-bin semantics belong to the ideal infinite
+random-bit model. The executable construction is a deterministic PRF family
+keyed by a 64-bit root seed, so it is described as computationally
+pseudorandom: it cannot have literal full support when the tie count exceeds
+`2**64`, and finite-seed bin counts can differ by a negligible amount. Over
+the uniform domain of all 64-bit leading tickets, for three bins, the
+independently audited maximum absolute discrepancy and total variation
+distance are `2 / (3 * 2**64)`, approximately `3.61e-20`.
+
 For a route step paid by coordinate `(e,v)` with amount `a`, the normalized
 post-payment directional balance is exactly
 `(x[e,v] - a) / sum_u x[e,u]`. Implementations compare these values with exact

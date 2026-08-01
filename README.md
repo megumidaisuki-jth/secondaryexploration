@@ -25,6 +25,7 @@ The authoritative approved-design draft is:
 - [Matched random parent-ensemble contract](docs/plans/2026-07-31-random-parent-ensembles.md)
 - [Binary incidence-budget matching contract](docs/plans/2026-08-01-binary-incidence-matching.md)
 - [IID traffic and request-trace contract](docs/plans/2026-08-01-iid-traffic-traces.md)
+- [Paired experiment-runner contract](docs/plans/2026-08-01-paired-experiment-runner.md)
 
 ## Current implementation status
 
@@ -45,7 +46,14 @@ audited exact matches for feasible even incidence budgets and explicitly
 bracketed `-1/+1` sensitivity baselines for odd budgets. Audited integer-weight
 uniform, community-local, exogenous-hotspot, and
 directional-drift kernels now generate replay-attested iid request traces with
-independent endpoint and amount streams. No paired experiment runner,
+independent endpoint and amount streams. A fingerprinted immutable paired-run
+manifest now enforces common nodes, exact topology/state structure, equal
+per-node initial capital, and reuse of the same request objects across every
+variant. Request-indexed extensible pseudorandom route quantiles prevent
+topology-dependent tie consumption from desynchronizing common random numbers,
+and paired results are rejected unless their exact selected routes replay from
+the manifest. The design records the finite 64-bit seed-family limitation
+instead of claiming literal infinite-entropy uniformity. No
 statistical estimator, formal experiment result, or scientific claim has been
 implemented yet.
 

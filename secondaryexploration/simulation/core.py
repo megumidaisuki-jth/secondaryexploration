@@ -319,28 +319,63 @@ def run_core_trace(
 ) -> CoreSimulationResult:
     """Run every request through complete routing and atomic settlement."""
 
-    if not isinstance(initial_state, HypergraphState):
-        raise SimulationError("initial_state must be a HypergraphState")
+    _validate_initial_state(initial_state)
     if not isinstance(rng, random.Random):
         raise SimulationError("rng must be an explicit random.Random instance")
-    if isinstance(requests, (str, bytes)):
-        raise SimulationError("requests must be an iterable of PaymentRequest objects")
+    request_trace = _validated_request_trace(requests)
+    return _run_validated_trace(
+        initial_state,
+        request_trace,
+        (rng for _ in request_trace),
+    )
+
+
+def run_core_trace_with_request_rngs(
+    initial_state: HypergraphState,
+    requests: Iterable[PaymentRequest],
+    request_rngs: Iterable[random.Random],
+) -> CoreSimulationResult:
+    """Run a trace with one explicit route-choice RNG per request.
+
+    This entry point lets paired experiments bind randomness to the request
+    index instead of consuming one topology-dependent sequential stream.
+    """
+
+    _validate_initial_state(initial_state)
+    request_trace = _validated_request_trace(requests)
+    if isinstance(request_rngs, (str, bytes)):
+        raise SimulationError("request_rngs must be an iterable of random.Random objects")
     try:
-        request_trace = tuple(requests)
+        rng_iterator = iter(request_rngs)
     except TypeError as exc:
         raise SimulationError(
-            "requests must be an iterable of PaymentRequest objects"
+            "request_rngs must be an iterable of random.Random objects"
         ) from exc
-    if any(not isinstance(request, PaymentRequest) for request in request_trace):
-        raise SimulationError("every request must be a PaymentRequest")
+    return _run_validated_trace(initial_state, request_trace, rng_iterator)
+
+
+def _run_validated_trace(
+    initial_state: HypergraphState,
+    request_trace: tuple[PaymentRequest, ...],
+    request_rngs: Iterable[random.Random],
+) -> CoreSimulationResult:
 
     state = initial_state
     first_depletion = 0 if _has_zero_balance(state) else None
     first_no_path: int | None = None
     first_rejection: int | None = None
     outcomes: list[CoreRequestOutcome] = []
+    rng_iterator = iter(request_rngs)
     for request_index, request in enumerate(request_trace, start=1):
-        search_result = find_feasible_route(state, request, rng)
+        try:
+            request_rng = next(rng_iterator)
+        except StopIteration as exc:
+            raise SimulationError(
+                "request_rngs must contain exactly one RNG per request"
+            ) from exc
+        if not isinstance(request_rng, random.Random):
+            raise SimulationError("every request RNG must be a random.Random instance")
+        search_result = find_feasible_route(state, request, request_rng)
         if search_result.route is None:
             if first_no_path is None:
                 first_no_path = request_index
@@ -366,6 +401,13 @@ def run_core_trace(
             )
         )
 
+    try:
+        next(rng_iterator)
+    except StopIteration:
+        pass
+    else:
+        raise SimulationError("request_rngs must contain exactly one RNG per request")
+
     horizon = len(outcomes)
     return CoreSimulationResult(
         initial_state=initial_state,
@@ -375,6 +417,27 @@ def run_core_trace(
         tau_nopath=_event_or_censor(first_no_path, horizon),
         tau_rej=_event_or_censor(first_rejection, horizon),
     )
+
+
+def _validate_initial_state(initial_state: object) -> None:
+    if not isinstance(initial_state, HypergraphState):
+        raise SimulationError("initial_state must be a HypergraphState")
+
+
+def _validated_request_trace(
+    requests: Iterable[PaymentRequest],
+) -> tuple[PaymentRequest, ...]:
+    if isinstance(requests, (str, bytes)):
+        raise SimulationError("requests must be an iterable of PaymentRequest objects")
+    try:
+        request_trace = tuple(requests)
+    except TypeError as exc:
+        raise SimulationError(
+            "requests must be an iterable of PaymentRequest objects"
+        ) from exc
+    if any(not isinstance(request, PaymentRequest) for request in request_trace):
+        raise SimulationError("every request must be a PaymentRequest")
+    return request_trace
 
 
 def _has_zero_balance(state: HypergraphState) -> bool:
@@ -416,4 +479,5 @@ __all__ = [
     "RecoveryObservation",
     "SimulationError",
     "run_core_trace",
+    "run_core_trace_with_request_rngs",
 ]

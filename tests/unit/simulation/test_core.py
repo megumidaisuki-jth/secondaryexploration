@@ -23,6 +23,7 @@ from secondaryexploration.simulation.core import (
     RecoveryObservation,
     SimulationError,
     run_core_trace,
+    run_core_trace_with_request_rngs,
 )
 
 
@@ -90,6 +91,32 @@ class ObservationValueTests(unittest.TestCase):
 
 
 class CoreTraceTests(unittest.TestCase):
+    def test_per_request_rng_iterable_is_lazy_and_exact_length(self) -> None:
+        initial = binary_state(2, 2)
+        requests = (
+            PaymentRequest("s", "t", 1),
+            PaymentRequest("t", "s", 1),
+        )
+        generated: list[int] = []
+
+        def rngs():
+            for index in range(2):
+                generated.append(index)
+                yield random.Random(index)
+
+        result = run_core_trace_with_request_rngs(initial, requests, rngs())
+
+        self.assertEqual(result.horizon, 2)
+        self.assertEqual(generated, [0, 1])
+        for invalid in (
+            (random.Random(0),),
+            (random.Random(0), random.Random(1), random.Random(2)),
+            (random.Random(0), object()),
+        ):
+            with self.subTest(invalid=invalid):
+                with self.assertRaisesRegex(SimulationError, "request RNG|exactly one"):
+                    run_core_trace_with_request_rngs(initial, requests, invalid)
+
     def test_empty_trace_is_fully_censored_at_zero(self) -> None:
         initial = binary_state()
 
