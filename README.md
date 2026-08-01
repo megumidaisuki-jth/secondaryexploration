@@ -31,6 +31,8 @@ The authoritative approved-design draft is:
 - [Gate V1 prior-paper reproduction contract](docs/plans/2026-08-01-gate-v1-prior-paper-reproduction.md)
 - [Gate V1 source and semantic evidence](docs/evidence/2026-08-01-gate-v1-source-and-semantic-audit.md)
 - [Gate V1 independent audit](docs/reviews/2026-08-01-gate-v1-prior-paper-independent-audit.md)
+- [Demand-aware objective contract](docs/plans/2026-08-01-demand-aware-objective.md)
+- [Demand-aware objective independent audit](docs/reviews/2026-08-01-demand-aware-objective-independent-audit.md)
 
 ## Current implementation status
 
@@ -78,6 +80,13 @@ from the public dependency, along with the success-level, NCH maximum-arity,
 and large-FHS-tail differences, remains explicit in the discrepancy ledger.
 Adversarial review of the v2 structurally framed fingerprints and full-replay
 validator found no remaining blocker.
+
+The demand-aware HPN stage now has an independently audited, exact four-term
+training objective and feasible-set validator. Amount-weighted training demand,
+all rational coefficients, parent identity, incidence budget, maximum arity,
+and topology identity are fingerprint-bound; held-out service outcomes are not
+inputs to this objective. The deterministic constructor and common capacity
+optimizer remain the next implementation slices.
 
 The package supports Python 3.10 or later and has no third-party runtime or
 test dependency. Run the complete test suite from the repository root with:
