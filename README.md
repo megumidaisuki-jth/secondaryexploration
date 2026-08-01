@@ -27,6 +27,7 @@ The authoritative approved-design draft is:
 - [IID traffic and request-trace contract](docs/plans/2026-08-01-iid-traffic-traces.md)
 - [Paired experiment-runner contract](docs/plans/2026-08-01-paired-experiment-runner.md)
 - [Survival and cost-metric contract](docs/plans/2026-08-01-survival-and-cost-metrics.md)
+- [Parent-level hierarchical-inference contract](docs/plans/2026-08-01-hierarchical-inference.md)
 
 ## Current implementation status
 
@@ -57,8 +58,12 @@ the manifest. The design records the finite 64-bit seed-family limitation
 instead of claiming literal infinite-entropy uniformity. Exact discrete-time
 Kaplan-Meier curves, fixed-horizon risks, censored quantiles, RMST, normalized
 within-block service contrasts, and component-wise topology/route cost
-witnesses are now independently audited. No confidence-interval engine,
-formal experiment result, or scientific claim has been implemented yet.
+witnesses are now independently audited. Parent-level aggregation and
+request-index-stable cluster bootstrap now produce replay-validated exact
+point estimates and Bonferroni percentile intervals while keeping exploratory
+contrasts outside the confirmatory family. The executable global gate prevents
+secondary or exploratory results from being promoted improperly. No formal
+experiment result or scientific claim has been implemented yet.
 
 The package supports Python 3.10 or later and has no third-party runtime or
 test dependency. Run the complete test suite from the repository root with:

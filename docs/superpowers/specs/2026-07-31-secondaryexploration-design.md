@@ -462,6 +462,15 @@ within-block contrasts and then resamples or models the independent parent-graph
 level. Traffic trajectories within a parent graph are not treated as
 independent topology replicates.
 
+The executable parent-bootstrap contract averages trace contrasts within each
+parent first and then gives every parent graph equal weight. Confirmatory
+contrasts share the same parent resample indices and use Bonferroni-adjusted
+percentile tails; exploratory contrasts reuse aligned resamples but remain at
+nominal tails and are excluded from the confirmatory family size. Samples must
+share an explicit analysis cell, horizon, parent IDs, and complete
+parent-trace-manifest layout. Percentile intervals are treated as asymptotic
+bootstrap approximations, not finite-sample exact confidence sets.
+
 Simulation size is determined by an independent pilot, a prespecified smallest
 effect of interest, and simultaneous-interval precision. Formal sample sizes
 are frozen; simulation does not continue until significance appears. A fully

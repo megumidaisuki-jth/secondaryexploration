@@ -12,7 +12,9 @@ from secondaryexploration.experiments import (
     run_paired_experiment,
 )
 from secondaryexploration.metrics import (
+    ContrastMetric,
     MetricError,
+    block_contrast_observation,
     service_summary,
     within_block_contrast,
 )
@@ -103,6 +105,22 @@ class PairedServiceMetricTests(unittest.TestCase):
             contrast.accepted_value_difference,
             treatment.accepted_value - reference.accepted_value,
         )
+        observation = block_contrast_observation(
+            "parent-1",
+            "trace-1",
+            "anchor-uniform",
+            contrast,
+            ContrastMetric.NORMALIZED_RESTRICTED_TAU_NOPATH,
+        )
+        self.assertEqual(observation.parent_graph_id, "parent-1")
+        self.assertEqual(observation.trace_id, "trace-1")
+        self.assertEqual(observation.analysis_cell_id, "anchor-uniform")
+        self.assertEqual(observation.manifest_fingerprint, result.manifest.fingerprint)
+        self.assertEqual(observation.horizon, result.horizon)
+        self.assertEqual(
+            observation.value,
+            contrast.normalized_restricted_tau_nopath_difference,
+        )
 
     def test_cross_manifest_and_unknown_variant_fail_closed(self) -> None:
         first = _result("first")
@@ -142,6 +160,14 @@ class PairedServiceMetricTests(unittest.TestCase):
         self.assertEqual(summary.accepted_value, 0)
         self.assertIsNone(contrast.normalized_restricted_tau_nopath_difference)
         self.assertIsNone(contrast.success_rate_difference)
+        with self.assertRaisesRegex(MetricError, "undefined"):
+            block_contrast_observation(
+                "parent-1",
+                "empty-trace",
+                "anchor-uniform",
+                contrast,
+                ContrastMetric.SUCCESS_RATE,
+            )
 
 
 if __name__ == "__main__":
