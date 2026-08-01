@@ -1,0 +1,67 @@
+{
+  "schema_version": "gate-v1-prior-paper-summary.v1",
+  "status": "pass",
+  "implementation_parent_commit": "d738023d1afaee5e723abb9e8896a29a4d4f6985",
+  "source": {
+    "paper_sha256": "bfc209a86de41064e7e963910ea6e004888e5254cfe25819468d7fd777b4be3d",
+    "upstream_commit": "2c4ffc92d704fa1b043fac395c1e5f662990d497",
+    "topology_zip_sha256": "20998f859721383a8bbb23abd512043a53f6f98e5c658f12e369620cf3093499",
+    "trace_csv_sha256": "705e619032964cb038044c3e54f2cae035759b43e75469f8b82094982d1e6cc9"
+  },
+  "source_semantics": {
+    "active_channel_rule": "at-least-one-directional-policy-present-and-enabled",
+    "parallel_channels": "collapsed structurally and summed for capacity",
+    "directional_initialization": "equal split represented in exact doubled units",
+    "nch": "NetworkX-compatible source insertion order with closed-neighborhood correction",
+    "fhs": "canonical maximum residual degree and bounded BFS; remove induced residual edges",
+    "routing": "uniform shortest available hypergraph path",
+    "hop_unit": "one traversed hyperedge",
+    "request_count": 10000,
+    "out_of_graph_request_count": 349,
+    "raw_amount_sat": 60000,
+    "exact_unit_scale_per_sat": 2,
+    "replay_request_amount_exact_units": 120000,
+    "amount_multiplier": "1/1",
+    "routing_root_seed": 20260801
+  },
+  "input_anchor": {
+    "node_count": 11268,
+    "simple_edge_count": 61966,
+    "binary_incidence_count": 123932,
+    "mean_binary_degree": 10.99858004969826,
+    "paper_reported_mean_binary_degree": 10.99,
+    "paper_construction_cost": 743592,
+    "reconstructed_construction_cost": 743592
+  },
+  "structural_reproduction": [
+    {"topology": "LN", "hyperedge_count": 61966, "incidence_count": 123932, "mean_incidence_degree": 10.99858005, "mean_arity": 2.0, "maximum_arity": 2},
+    {"topology": "NCH-published-order", "hyperedge_count": 3815, "incidence_count": 109712, "mean_incidence_degree": 9.736599219, "mean_arity": 28.758060288, "maximum_arity": 2502},
+    {"topology": "NCH-canonical", "hyperedge_count": 4256, "incidence_count": 108952, "mean_incidence_degree": 9.66915158, "mean_arity": 25.59962406, "maximum_arity": 2502},
+    {"topology": "FHS-3", "hyperedge_count": 31413, "incidence_count": 93021, "mean_incidence_degree": 8.255324814, "mean_arity": 2.961226244, "maximum_arity": 3},
+    {"topology": "FHS-5", "hyperedge_count": 16007, "incidence_count": 77038, "mean_incidence_degree": 6.836883209, "mean_arity": 4.812769413, "maximum_arity": 5},
+    {"topology": "FHS-20", "hyperedge_count": 3631, "incidence_count": 61331, "mean_incidence_degree": 5.442935747, "mean_arity": 16.890939135, "maximum_arity": 20},
+    {"topology": "FHS-50", "hyperedge_count": 1632, "incidence_count": 54642, "mean_incidence_degree": 4.849307774, "mean_arity": 33.481617647, "maximum_arity": 50},
+    {"topology": "FHS-500", "hyperedge_count": 510, "incidence_count": 33113, "mean_incidence_degree": 2.938675896, "mean_arity": 64.92745098, "maximum_arity": 500},
+    {"topology": "FHS-5000", "hyperedge_count": 516, "incidence_count": 14324, "mean_incidence_degree": 1.271210508, "mean_arity": 27.759689922, "maximum_arity": 5000}
+  ],
+  "full_trace_reproduction": [
+    {"topology": "LN", "accepted": 7993, "no_path": 1658, "unavailable_endpoint": 349, "success_rate": 0.7993, "successful_hop_sum": 21159, "average_successful_hops": 2.647191292380833, "paper_reported_average_hops": 2.6, "absolute_hop_difference": 0.047191292380833, "runtime_seconds": 118.222, "topology_sha256": "a3fa5b2b30e26db5e6e92913ef662c1f525a1ac602e05a7d6e1bf08fa442a96f", "initial_state_sha256": "351533f79301c54b643c5ab14b1070e5f97fa0fb5f024d26107d3465b66d252f", "request_trace_sha256": "7ab3e81f3cabf33fd935097deae3f5be01b9827a9ca9bfbab06fc408639ea41f", "final_balance_sha256": "6c809470dc2f16611b3798ffa20cba16956bfaa71c6381344bbc138d8cbffd27"},
+    {"topology": "NCH-published-order", "accepted": 8269, "no_path": 1382, "unavailable_endpoint": 349, "success_rate": 0.8269, "successful_hop_sum": 12961, "average_successful_hops": 1.567420486153102, "paper_reported_average_hops": 1.54, "absolute_hop_difference": 0.027420486153102, "runtime_seconds": 168.381, "topology_sha256": "a5e4add58869c5e6caae09e5af2f206570f451e462169aa841efc9ebb828a7ce", "initial_state_sha256": "c0cb07167bf88d7c3e19dd7124a51f5170fff20c8a6748eca476eefeea9d206a", "request_trace_sha256": "7ab3e81f3cabf33fd935097deae3f5be01b9827a9ca9bfbab06fc408639ea41f", "final_balance_sha256": "b9485bd86973d1972b08fc5b027bb1a64a76f5245a41a9d28315f18ea17b4987"},
+    {"topology": "FHS-5", "accepted": 8286, "no_path": 1365, "unavailable_endpoint": 349, "success_rate": 0.8286, "successful_hop_sum": 20302, "average_successful_hops": 2.4501568911416847, "paper_reported_average_hops": 2.42, "absolute_hop_difference": 0.0301568911416847, "runtime_seconds": 35.881, "topology_sha256": "7147da19a7ae8f930b0d8b16ac53f3244dc0485f5c41bde8c1eb523850cfb446", "initial_state_sha256": "63fc3b715521bb8c1525ac9fda3701b33d5b1a79abd0f3938a7e55b2d1d35628", "request_trace_sha256": "7ab3e81f3cabf33fd935097deae3f5be01b9827a9ca9bfbab06fc408639ea41f", "final_balance_sha256": "5e11b13a5ceef38aecda969d6c5d1ba8856f83c4ce1eaa6e0ebf74d234ce269f"},
+    {"topology": "FHS-50", "accepted": 8314, "no_path": 1337, "unavailable_endpoint": 349, "success_rate": 0.8314, "successful_hop_sum": 16719, "average_successful_hops": 2.010945393312485, "paper_reported_average_hops": 1.97, "absolute_hop_difference": 0.040945393312485, "runtime_seconds": 27.228, "topology_sha256": "40c7f5d1133a5986cc8879873330cf1c863dbc643ea6a9ba6daee311bc4879d1", "initial_state_sha256": "81b18274b701ba627cae5b637e5243506b95f402bcc0fa2f8b5e942983ddb759", "request_trace_sha256": "7ab3e81f3cabf33fd935097deae3f5be01b9827a9ca9bfbab06fc408639ea41f", "final_balance_sha256": "85a1e600f99c172c72c825b38276020da013fea8d995eb7a4b267c933bf2cc4c"}
+  ],
+  "directional_checks": {
+    "hpn_success_not_below_ln": true,
+    "nch_path_shorter_than_ln": true,
+    "fhs_50_path_shorter_than_fhs_5": true,
+    "path_length_values_close_to_paper": true,
+    "descriptive_absolute_hop_tolerance": 0.05,
+    "exact_success_rate_reproduced": false
+  },
+  "source_filter_discrepancy": {
+    "gate_anchor_rule": {"active_records": 65883, "simple_edges": 61966, "nodes": 11268},
+    "dependency_both_policies_at_least_one_enabled": {"simple_edges": 61542, "nodes": 11135},
+    "dependency_with_60000_sat_capacity_floor": {"simple_edges": 59849, "nodes": 10511}
+  },
+  "claim_boundary": "Semantic reproduction under a declared paper-anchor-matching filter and uploaded pseudocode with uniform shortest-available-path routing; not an unchanged rerun of the public dependency or unpublished HPN simulator."
+}

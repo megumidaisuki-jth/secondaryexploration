@@ -3,8 +3,10 @@
 from __future__ import annotations
 
 from collections.abc import Iterable, Mapping
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from math import comb
+from types import MappingProxyType
+from typing import Mapping as TypingMapping
 
 
 class TopologyError(ValueError):
@@ -102,6 +104,11 @@ class HypergraphTopology:
 
     nodes: tuple[str, ...]
     hyperedges: tuple[HyperedgeSpec, ...]
+    _incidence: TypingMapping[str, tuple[int, ...]] = field(
+        init=False,
+        repr=False,
+        compare=False,
+    )
 
     def __post_init__(self) -> None:
         if type(self.nodes) is not tuple:
@@ -135,6 +142,21 @@ class HypergraphTopology:
                 raise TopologyError(
                     f"hyperedge {edge.hyperedge_id!r} has unknown member {rendered}"
                 )
+
+        incidence_lists = {node_id: [] for node_id in self.nodes}
+        for edge_index, edge in enumerate(self.hyperedges):
+            for member in edge.members:
+                incidence_lists[member].append(edge_index)
+        object.__setattr__(
+            self,
+            "_incidence",
+            MappingProxyType(
+                {
+                    node_id: tuple(incidence_lists[node_id])
+                    for node_id in self.nodes
+                }
+            ),
+        )
 
     @classmethod
     def from_edges(
@@ -179,29 +201,31 @@ class HypergraphTopology:
     @property
     def node_incidence_degrees(self) -> tuple[tuple[str, int], ...]:
         return tuple(
-            (
-                node_id,
-                sum(node_id in edge.members for edge in self.hyperedges),
-            )
+            (node_id, len(self._incidence[node_id]))
             for node_id in self.nodes
         )
 
     def incidence_degree(self, node_id: str) -> int:
-        if node_id not in set(self.nodes):
+        if node_id not in self._incidence:
             raise TopologyError(f"unknown node {node_id!r}")
-        return sum(node_id in edge.members for edge in self.hyperedges)
+        return len(self._incidence[node_id])
 
     @property
     def is_connected(self) -> bool:
-        visited = {self.nodes[0]}
-        while True:
-            expanded = set(visited)
-            for edge in self.hyperedges:
-                if visited.intersection(edge.members):
-                    expanded.update(edge.members)
-            if expanded == visited:
-                return len(visited) == len(self.nodes)
-            visited = expanded
+        visited_nodes = {self.nodes[0]}
+        visited_edges: set[int] = set()
+        frontier = [self.nodes[0]]
+        while frontier:
+            current = frontier.pop()
+            for edge_index in self._incidence[current]:
+                if edge_index in visited_edges:
+                    continue
+                visited_edges.add(edge_index)
+                for member in self.hyperedges[edge_index].members:
+                    if member not in visited_nodes:
+                        visited_nodes.add(member)
+                        frontier.append(member)
+        return len(visited_nodes) == len(self.nodes)
 
 
 def _validate_identifier(value: object, field: str) -> None:

@@ -9,6 +9,7 @@ from secondaryexploration.topology import (
     TopologyError,
     common_core_sunflower,
     equal_node_capital_state,
+    node_budget_capital_state,
     node_capital_totals,
     uniform_overlap_chain,
 )
@@ -62,6 +63,43 @@ class EqualNodeCapitalTests(unittest.TestCase):
 
         with self.assertRaisesRegex(TopologyError, "isolated"):
             equal_node_capital_state(topology, per_node_capital=10)
+
+    def test_heterogeneous_budgets_are_preserved_with_bounded_rounding(self) -> None:
+        topology = HypergraphTopology.from_edges(
+            nodes=("a", "b", "c"),
+            hyperedges={
+                "edge-1": ("a", "b"),
+                "edge-2": ("a", "c"),
+                "edge-3": ("a", "b", "c"),
+            },
+        )
+
+        state = node_budget_capital_state(
+            topology,
+            {"a": 8, "b": 5, "c": 4},
+        )
+
+        self.assertEqual(
+            node_capital_totals(state),
+            (("a", 8), ("b", 5), ("c", 4)),
+        )
+        a_allocations = tuple(
+            edge.balance_of("a")
+            for edge in state.hyperedges
+            if "a" in edge.members
+        )
+        self.assertEqual(a_allocations, (3, 3, 2))
+
+    def test_heterogeneous_budget_contract_rejects_bad_mappings(self) -> None:
+        topology = HypergraphTopology.from_edges(
+            nodes=("a", "b"),
+            hyperedges={"edge": ("a", "b")},
+        )
+
+        for budgets in ({"a": 1}, {"a": 1, "b": 0}, {"a": 1, "b": 1.0}):
+            with self.subTest(budgets=budgets):
+                with self.assertRaises(TopologyError):
+                    node_budget_capital_state(topology, budgets)  # type: ignore[arg-type]
 
     def test_capital_inputs_and_state_type_are_validated(self) -> None:
         topology = uniform_overlap_chain(2, 1, 2)

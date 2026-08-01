@@ -3,8 +3,10 @@
 from __future__ import annotations
 
 from collections.abc import Iterable
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from fractions import Fraction
+from types import MappingProxyType
+from typing import Mapping
 
 from .structure import TopologyError, _validate_identifier
 
@@ -46,6 +48,11 @@ class ParentGraph:
 
     nodes: tuple[str, ...]
     edges: tuple[GraphEdge, ...]
+    _adjacency: Mapping[str, tuple[str, ...]] = field(
+        init=False,
+        repr=False,
+        compare=False,
+    )
 
     def __post_init__(self) -> None:
         if type(self.nodes) is not tuple:
@@ -76,6 +83,21 @@ class ParentGraph:
             if unknown:
                 rendered = ", ".join(repr(endpoint) for endpoint in unknown)
                 raise TopologyError(f"parent edge has unknown endpoint {rendered}")
+
+        adjacency_sets = {node_id: set() for node_id in self.nodes}
+        for edge in self.edges:
+            adjacency_sets[edge.left].add(edge.right)
+            adjacency_sets[edge.right].add(edge.left)
+        object.__setattr__(
+            self,
+            "_adjacency",
+            MappingProxyType(
+                {
+                    node_id: tuple(sorted(adjacency_sets[node_id]))
+                    for node_id in self.nodes
+                }
+            ),
+        )
 
     @classmethod
     def from_edges(
@@ -131,15 +153,9 @@ class ParentGraph:
         return len(self.edges)
 
     def neighbors(self, node_id: str) -> tuple[str, ...]:
-        if node_id not in set(self.nodes):
+        if node_id not in self._adjacency:
             raise TopologyError(f"unknown node {node_id!r}")
-        adjacent: set[str] = set()
-        for edge in self.edges:
-            if edge.left == node_id:
-                adjacent.add(edge.right)
-            elif edge.right == node_id:
-                adjacent.add(edge.left)
-        return tuple(sorted(adjacent))
+        return self._adjacency[node_id]
 
     def degree(self, node_id: str) -> int:
         return len(self.neighbors(node_id))
@@ -158,7 +174,7 @@ class ParentGraph:
         frontier = [self.nodes[0]]
         while frontier:
             current = frontier.pop()
-            for neighbor in self.neighbors(current):
+            for neighbor in self._adjacency[current]:
                 if neighbor not in visited:
                     visited.add(neighbor)
                     frontier.append(neighbor)

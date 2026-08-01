@@ -1,7 +1,11 @@
 """Balance-free topology construction and resource accounting."""
 
 from .anchors import common_core_sunflower, uniform_overlap_chain
-from .capital import equal_node_capital_state, node_capital_totals
+from .capital import (
+    equal_node_capital_state,
+    node_budget_capital_state,
+    node_capital_totals,
+)
 from .matching import (
     BinaryIncidenceMatch,
     TopologyMatchingError,
@@ -58,6 +62,7 @@ __all__ = [
     "connected_gnm_parent_graph",
     "connected_sbm_parent_graph",
     "equal_node_capital_state",
+    "node_budget_capital_state",
     "fixed_hyperedge_size",
     "matched_synthetic_parent_graphs",
     "match_binary_to_topology",

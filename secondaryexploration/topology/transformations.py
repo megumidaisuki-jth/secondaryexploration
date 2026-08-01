@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from collections import deque
+import heapq
 from itertools import combinations
 
 from .parent import GraphEdge, ParentGraph
@@ -84,13 +85,19 @@ def fixed_hyperedge_size(
         )
 
     residual = {node_id: set(parent.neighbors(node_id)) for node_id in parent.nodes}
+    degree_heap = [(-len(residual[node_id]), node_id) for node_id in parent.nodes]
+    heapq.heapify(degree_heap)
     hyperedges: dict[str, tuple[str, ...]] = {}
     iteration = 0
-    while any(residual[node_id] for node_id in parent.nodes):
-        center = min(
-            (node_id for node_id in parent.nodes if residual[node_id]),
-            key=lambda node_id: (-len(residual[node_id]), node_id),
-        )
+    while True:
+        center: str | None = None
+        while degree_heap:
+            negative_degree, candidate = heapq.heappop(degree_heap)
+            if residual[candidate] and -negative_degree == len(residual[candidate]):
+                center = candidate
+                break
+        if center is None:
+            break
         visited = _bounded_bfs(residual, center, maximum_arity)
         selected = set(visited)
         if len(selected) < 2:
@@ -105,6 +112,9 @@ def fixed_hyperedge_size(
                     removed_edges += 1
         if removed_edges == 0:
             raise TopologyError("FHS iteration did not remove a residual edge")
+
+        for node_id in selected:
+            heapq.heappush(degree_heap, (-len(residual[node_id]), node_id))
 
         hyperedges[f"fhs-{iteration:08d}"] = tuple(sorted(selected))
         iteration += 1
@@ -128,13 +138,14 @@ def uncovered_parent_edges(
         raise TopologyError("topology must be a HypergraphTopology")
     if parent.nodes != topology.nodes:
         raise TopologyError("parent and topology must have the same canonical nodes")
+    incidence = {node_id: set() for node_id in topology.nodes}
+    for edge_index, hyperedge in enumerate(topology.hyperedges):
+        for member in hyperedge.members:
+            incidence[member].add(edge_index)
     return tuple(
         edge
         for edge in parent.edges
-        if not any(
-            edge.left in hyperedge.members and edge.right in hyperedge.members
-            for hyperedge in topology.hyperedges
-        )
+        if incidence[edge.left].isdisjoint(incidence[edge.right])
     )
 
 

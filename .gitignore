@@ -25,3 +25,4 @@ Thumbs.db
 
 # Generated experiment artifacts
 outputs/
+tmp/

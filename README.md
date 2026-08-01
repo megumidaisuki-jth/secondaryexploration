@@ -28,6 +28,9 @@ The authoritative approved-design draft is:
 - [Paired experiment-runner contract](docs/plans/2026-08-01-paired-experiment-runner.md)
 - [Survival and cost-metric contract](docs/plans/2026-08-01-survival-and-cost-metrics.md)
 - [Parent-level hierarchical-inference contract](docs/plans/2026-08-01-hierarchical-inference.md)
+- [Gate V1 prior-paper reproduction contract](docs/plans/2026-08-01-gate-v1-prior-paper-reproduction.md)
+- [Gate V1 source and semantic evidence](docs/evidence/2026-08-01-gate-v1-source-and-semantic-audit.md)
+- [Gate V1 independent audit](docs/reviews/2026-08-01-gate-v1-prior-paper-independent-audit.md)
 
 ## Current implementation status
 
@@ -63,7 +66,18 @@ request-index-stable cluster bootstrap now produce replay-validated exact
 point estimates and Bonferroni percentile intervals while keeping exploratory
 contrasts outside the confirmatory family. The executable global gate prevents
 secondary or exploratory results from being promoted improperly. No formal
-experiment result or scientific claim has been implemented yet.
+paper-2 confirmatory result or scientific claim has been implemented yet.
+Verification Gate V1 has passed independent audit for its hash-attested
+reproduction of the uploaded HPN paper's public 2022 input: the exact LN
+node/edge/cost anchors and the principal NCH/FHS success/path-length directions
+are recovered on the full 10,000-request trace. An independent numerical audit
+reproduced every tracked trajectory and balance hash. The comparison result now
+binds the topology, initial state, and request trace by fingerprint and has an
+explicit full-replay validator. The anchor-matching graph filter's difference
+from the public dependency, along with the success-level, NCH maximum-arity,
+and large-FHS-tail differences, remains explicit in the discrepancy ledger.
+Adversarial review of the v2 structurally framed fingerprints and full-replay
+validator found no remaining blocker.
 
 The package supports Python 3.10 or later and has no third-party runtime or
 test dependency. Run the complete test suite from the repository root with:
