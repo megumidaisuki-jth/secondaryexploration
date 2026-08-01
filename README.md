@@ -26,6 +26,7 @@ The authoritative approved-design draft is:
 - [Binary incidence-budget matching contract](docs/plans/2026-08-01-binary-incidence-matching.md)
 - [IID traffic and request-trace contract](docs/plans/2026-08-01-iid-traffic-traces.md)
 - [Paired experiment-runner contract](docs/plans/2026-08-01-paired-experiment-runner.md)
+- [Survival and cost-metric contract](docs/plans/2026-08-01-survival-and-cost-metrics.md)
 
 ## Current implementation status
 
@@ -53,9 +54,11 @@ variant. Request-indexed extensible pseudorandom route quantiles prevent
 topology-dependent tie consumption from desynchronizing common random numbers,
 and paired results are rejected unless their exact selected routes replay from
 the manifest. The design records the finite 64-bit seed-family limitation
-instead of claiming literal infinite-entropy uniformity. No
-statistical estimator, formal experiment result, or scientific claim has been
-implemented yet.
+instead of claiming literal infinite-entropy uniformity. Exact discrete-time
+Kaplan-Meier curves, fixed-horizon risks, censored quantiles, RMST, normalized
+within-block service contrasts, and component-wise topology/route cost
+witnesses are now independently audited. No confidence-interval engine,
+formal experiment result, or scientific claim has been implemented yet.
 
 The package supports Python 3.10 or later and has no third-party runtime or
 test dependency. Run the complete test suite from the repository root with:
