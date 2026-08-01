@@ -33,6 +33,8 @@ The authoritative approved-design draft is:
 - [Gate V1 independent audit](docs/reviews/2026-08-01-gate-v1-prior-paper-independent-audit.md)
 - [Demand-aware objective contract](docs/plans/2026-08-01-demand-aware-objective.md)
 - [Demand-aware objective independent audit](docs/reviews/2026-08-01-demand-aware-objective-independent-audit.md)
+- [Demand-aware constructor contract](docs/plans/2026-08-01-demand-aware-constructor.md)
+- [Demand-aware constructor independent audit](docs/reviews/2026-08-01-demand-aware-constructor-independent-audit.md)
 
 ## Current implementation status
 
@@ -85,8 +87,13 @@ The demand-aware HPN stage now has an independently audited, exact four-term
 training objective and feasible-set validator. Amount-weighted training demand,
 all rational coefficients, parent identity, incidence budget, maximum arity,
 and topology identity are fingerprint-bound; held-out service outcomes are not
-inputs to this objective. The deterministic constructor and common capacity
-optimizer remain the next implementation slices.
+inputs to this objective. Its independently audited deterministic constructor
+enumerates exhaustive parent-connected candidates on small graphs and uses a
+declared bounded candidate heuristic on formal-size graphs. Exact equal-
+incidence moves can change memberships, arity distribution, and hyperedge
+count; complete replay binds the seed, candidate pool, common search plan,
+proposal stream, accepted steps, and final score. The common capacity optimizer
+is the next implementation slice.
 
 The package supports Python 3.10 or later and has no third-party runtime or
 test dependency. Run the complete test suite from the repository root with:

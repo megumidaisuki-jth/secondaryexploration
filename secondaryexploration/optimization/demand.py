@@ -34,6 +34,21 @@ class DirectedDemandMatrix:
         repr=False,
         compare=False,
     )
+    _total_bidirectional_volume: int = field(
+        init=False,
+        repr=False,
+        compare=False,
+    )
+    _total_directional_imbalance: int = field(
+        init=False,
+        repr=False,
+        compare=False,
+    )
+    _fingerprint: str = field(
+        init=False,
+        repr=False,
+        compare=False,
+    )
 
     def __post_init__(self) -> None:
         if type(self.nodes) is not tuple or len(self.nodes) < 2:
@@ -76,6 +91,33 @@ class DirectedDemandMatrix:
                 }
             ),
         )
+        object.__setattr__(
+            self,
+            "_total_bidirectional_volume",
+            sum(
+                min(self._lookup[(left, right)], self._lookup[(right, left)])
+                for left, right in combinations(self.nodes, 2)
+            ),
+        )
+        object.__setattr__(
+            self,
+            "_total_directional_imbalance",
+            sum(
+                abs(self._lookup[(left, right)] - self._lookup[(right, left)])
+                for left, right in combinations(self.nodes, 2)
+            ),
+        )
+        digest = hashlib.sha256()
+        digest.update(b"secondaryexploration.directed-demand.v1\x00")
+        _hash_count(digest, len(self.nodes))
+        for node_id in self.nodes:
+            _hash_field(digest, node_id)
+        _hash_count(digest, len(self.values))
+        for source, destination, amount in self.values:
+            _hash_field(digest, source)
+            _hash_field(digest, destination)
+            _hash_integer(digest, amount)
+        object.__setattr__(self, "_fingerprint", digest.hexdigest())
 
     @classmethod
     def from_requests(
@@ -135,31 +177,15 @@ class DirectedDemandMatrix:
 
     @property
     def fingerprint(self) -> str:
-        digest = hashlib.sha256()
-        digest.update(b"secondaryexploration.directed-demand.v1\x00")
-        _hash_count(digest, len(self.nodes))
-        for node_id in self.nodes:
-            _hash_field(digest, node_id)
-        _hash_count(digest, len(self.values))
-        for source, destination, amount in self.values:
-            _hash_field(digest, source)
-            _hash_field(digest, destination)
-            _hash_integer(digest, amount)
-        return digest.hexdigest()
+        return self._fingerprint
 
     @property
     def total_bidirectional_volume(self) -> int:
-        return sum(
-            min(self.amount(left, right), self.amount(right, left))
-            for left, right in combinations(self.nodes, 2)
-        )
+        return self._total_bidirectional_volume
 
     @property
     def total_directional_imbalance(self) -> int:
-        return sum(
-            abs(self.amount(left, right) - self.amount(right, left))
-            for left, right in combinations(self.nodes, 2)
-        )
+        return self._total_directional_imbalance
 
 
 @dataclass(frozen=True, slots=True)
@@ -196,6 +222,11 @@ class DemandAwareTrainingManifest:
     maximum_arity: int
     weights: DemandAwareObjectiveWeights
     objective_version: str = DEMAND_OBJECTIVE_VERSION
+    _fingerprint: str = field(
+        init=False,
+        repr=False,
+        compare=False,
+    )
 
     def __post_init__(self) -> None:
         _validate_digest(self.parent_fingerprint, "parent_fingerprint")
@@ -219,6 +250,23 @@ class DemandAwareTrainingManifest:
             raise OptimizationError("weights must be DemandAwareObjectiveWeights")
         if self.objective_version != DEMAND_OBJECTIVE_VERSION:
             raise OptimizationError("unsupported demand-aware objective version")
+        digest = hashlib.sha256()
+        digest.update(b"secondaryexploration.demand-training-manifest.v1\x00")
+        _hash_field(digest, self.parent_fingerprint)
+        _hash_field(digest, self.demand_fingerprint)
+        _hash_count(digest, self.node_count)
+        _hash_count(digest, self.incidence_budget)
+        _hash_count(digest, self.maximum_arity)
+        for weight in (
+            self.weights.bidirectional_capture,
+            self.weights.directional_imbalance,
+            self.weights.participation,
+            self.weights.coordination_overlap,
+        ):
+            _hash_integer(digest, weight.numerator)
+            _hash_count(digest, weight.denominator)
+        _hash_field(digest, self.objective_version)
+        object.__setattr__(self, "_fingerprint", digest.hexdigest())
 
     @classmethod
     def create(
@@ -241,23 +289,7 @@ class DemandAwareTrainingManifest:
 
     @property
     def fingerprint(self) -> str:
-        digest = hashlib.sha256()
-        digest.update(b"secondaryexploration.demand-training-manifest.v1\x00")
-        _hash_field(digest, self.parent_fingerprint)
-        _hash_field(digest, self.demand_fingerprint)
-        _hash_count(digest, self.node_count)
-        _hash_count(digest, self.incidence_budget)
-        _hash_count(digest, self.maximum_arity)
-        for weight in (
-            self.weights.bidirectional_capture,
-            self.weights.directional_imbalance,
-            self.weights.participation,
-            self.weights.coordination_overlap,
-        ):
-            _hash_integer(digest, weight.numerator)
-            _hash_count(digest, weight.denominator)
-        _hash_field(digest, self.objective_version)
-        return digest.hexdigest()
+        return self._fingerprint
 
 
 @dataclass(frozen=True, slots=True)
