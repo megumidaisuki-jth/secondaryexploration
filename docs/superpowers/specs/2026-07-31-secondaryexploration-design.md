@@ -357,6 +357,20 @@ Main comparisons use i.i.d. requests. Markov-modulated hotspot movement and
 bursty traffic retain matched long-run marginals and form temporal-dependence
 sensitivities.
 
+The executable iid contract represents every ordered source-destination pair
+with a positive integer weight. Community blocks, hotspot labels, and the two
+directional groups are exogenous canonical inputs shared by all paired
+topologies. A hotspot pair receives one multiplier per hotspot endpoint;
+directional drift assigns separate left-to-right, right-to-left, and
+within-group weights. The complete integer table and its fingerprint are
+authoritative, avoiding floating-point probability drift.
+
+Request generation derives independent `traffic.pairs` and `traffic.amounts`
+streams from one trace root. Changing an amount table therefore cannot change
+the endpoint sequence, and changing a demand kernel cannot change the amount
+sequence. The immutable generated request tuple is reused unchanged across all
+topologies in a pairing block.
+
 Amounts are normalized by per-node locked capital. Formal manifests use
 prespecified small, medium, and large stress levels; a truncated heavy-tail
 mixture is a secondary service workload. The uploaded HPN paper's amount
