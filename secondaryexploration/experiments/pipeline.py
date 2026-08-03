@@ -333,7 +333,18 @@ class SyntheticParentBlockResult:
 
     @property
     def fingerprint(self) -> str:
-        payload = {
+        encoded = json.dumps(
+            self.to_fingerprint_mapping(),
+            sort_keys=True,
+            separators=(",", ":"),
+            ensure_ascii=False,
+        ).encode("utf-8")
+        return hashlib.sha256(encoded).hexdigest()
+
+    def to_fingerprint_mapping(self) -> dict[str, object]:
+        """Return the complete canonical witness hashed by ``fingerprint``."""
+
+        return {
             "pipeline_version": self.pipeline_version,
             "manifest_fingerprint": self.manifest_fingerprint,
             "seed_ledger_fingerprint": self.seed_ledger_fingerprint,
@@ -405,13 +416,6 @@ class SyntheticParentBlockResult:
                 for item in self.held_out_runs
             ),
         }
-        encoded = json.dumps(
-            payload,
-            sort_keys=True,
-            separators=(",", ":"),
-            ensure_ascii=False,
-        ).encode("utf-8")
-        return hashlib.sha256(encoded).hexdigest()
 
 
 def run_synthetic_parent_block(

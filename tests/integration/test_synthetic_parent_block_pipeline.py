@@ -3,7 +3,10 @@
 from __future__ import annotations
 
 from dataclasses import replace
+import hashlib
+import json
 from pathlib import Path
+from tempfile import TemporaryDirectory
 import unittest
 
 from secondaryexploration.experiments import (
@@ -14,6 +17,14 @@ from secondaryexploration.experiments import (
     load_study_design_manifest,
 )
 from secondaryexploration.experiments.pipeline import run_synthetic_parent_block
+from secondaryexploration.experiments.artifacts import (
+    atomic_write_json,
+    build_study_run_summary,
+    build_synthetic_block_artifact,
+    load_synthetic_block_artifact,
+    validate_synthetic_block_artifact,
+)
+from secondaryexploration.experiments.runner import execute_synthetic_study
 from secondaryexploration.optimization import DirectedDemandMatrix
 from secondaryexploration.topology import (
     HypergraphTopology,
@@ -143,6 +154,158 @@ class SyntheticParentBlockPipelineTests(unittest.TestCase):
                 clique_cost_references=(altered_reference,)
                 + result.clique_cost_references[1:],
             )
+
+        environment = {
+            "python_implementation": "cpython",
+            "python_version": "3.12.0",
+            "platform_system": "test-platform",
+            "machine": "test-machine",
+        }
+        artifact = build_synthetic_block_artifact(
+            result,
+            code_revision="a" * 40,
+            environment=environment,
+            generation_ns=123,
+            validation_ns=456,
+        )
+        self.assertEqual(artifact["result_fingerprint"], result.fingerprint)
+        self.assertEqual(len(artifact["variants"]), 10)
+        self.assertEqual(len(artifact["held_out"]), 7)
+        validate_synthetic_block_artifact(
+            artifact,
+            manifest=manifest,
+            ledger=ledger,
+            parent_seed=parent_seed,
+            parent_model=ParentGraphModel.ER_GNM.value,
+            code_revision="a" * 40,
+            environment=environment,
+        )
+
+        with TemporaryDirectory() as directory:
+            artifact_path = Path(directory) / "block.json"
+            atomic_write_json(artifact_path, artifact)
+            loaded = load_synthetic_block_artifact(
+                artifact_path,
+                manifest=manifest,
+                ledger=ledger,
+                parent_seed=parent_seed,
+                parent_model=ParentGraphModel.ER_GNM.value,
+                code_revision="a" * 40,
+                environment=environment,
+            )
+            self.assertTrue(loaded == json.loads(json.dumps(artifact)))
+
+            summary = build_study_run_summary(
+                manifest,
+                ledger,
+                code_revision="a" * 40,
+                environment=environment,
+                block_artifacts=[artifact],
+            )
+            self.assertEqual(summary["status"], "in_progress")
+            self.assertEqual(summary["expected_block_count"], 3)
+            self.assertEqual(summary["total_generation_ns"], 123)
+
+        tampered = json.loads(json.dumps(artifact))
+        tampered["variants"][0]["unknown_result"] = 1
+        _refingerprint(tampered)
+        with self.assertRaises(StudyManifestError):
+            validate_synthetic_block_artifact(tampered)
+
+        attacks = []
+        fake_result = json.loads(json.dumps(artifact))
+        fake_result["result_fingerprint"] = "f" * 64
+        attacks.append(("result", fake_result, {}))
+        false_science = json.loads(json.dumps(artifact))
+        false_science["held_out"][0]["variants"][0]["accepted_request_count"] = -999
+        attacks.append(("summary", false_science, {}))
+        plausible_science = json.loads(json.dumps(artifact))
+        plausible_variant = plausible_science["held_out"][0]["variants"][0]
+        changed_count = (
+            plausible_variant["accepted_request_count"] - 1
+            if plausible_variant["accepted_request_count"] > 0
+            else 1
+        )
+        plausible_variant["accepted_request_count"] = changed_count
+        plausible_variant["accepted_value"] = changed_count
+        plausible_variant["success_rate"] = [changed_count, plausible_variant["horizon"]]
+        attacks.append(("plausible-summary", plausible_science, {}))
+        wrong_family = json.loads(json.dumps(artifact))
+        wrong_family["held_out"][0]["variants"][0]["family"] = "wrong-family"
+        attacks.append(("held-out-family", wrong_family, {}))
+        coordinated_demand = json.loads(json.dumps(artifact))
+        coordinated_demand["training"]["demand_fingerprint"] = "f" * 64
+        coordinated_demand["result_witness"]["training_demand"] = "f" * 64
+        coordinated_demand["result_fingerprint"] = _fingerprint_json(
+            coordinated_demand["result_witness"]
+        )
+        attacks.append(("coordinated-demand", coordinated_demand, {"context": True}))
+        fake_draw = json.loads(json.dumps(artifact))
+        fake_draw["block"]["draw_seed"] = 0
+        attacks.append(("draw", fake_draw, {"context": True}))
+        mixed_training = json.loads(json.dumps(artifact))
+        mixed_training["training"]["trace_seeds"][0]["split"] = "test"
+        attacks.append(("training", mixed_training, {"context": True}))
+        mixed_held_out = json.loads(json.dumps(artifact))
+        mixed_held_out["held_out"][0]["trace_seed"]["parent_replicate"] = 999
+        attacks.append(("held-out", mixed_held_out, {"context": True}))
+        bad_resources = json.loads(json.dumps(artifact))
+        bad_resources["variants"][0]["resources"]["incidence_count"] = 0
+        attacks.append(("resources", bad_resources, {"context": True}))
+        for name, attack, options in attacks:
+            with self.subTest(artifact_attack=name):
+                _refingerprint(attack)
+                expected = (
+                    {
+                        "manifest": manifest,
+                        "ledger": ledger,
+                        "parent_seed": parent_seed,
+                        "parent_model": ParentGraphModel.ER_GNM.value,
+                        "code_revision": "a" * 40,
+                        "environment": environment,
+                    }
+                    if options
+                    else {}
+                )
+                with self.assertRaises(StudyManifestError):
+                    validate_synthetic_block_artifact(attack, **expected)
+
+        with self.assertRaisesRegex(StudyManifestError, "complete regeneration"):
+            build_study_run_summary(
+                replace(manifest, study_id="mixed-manifest"),
+                ledger,
+                code_revision="a" * 40,
+                environment=environment,
+                block_artifacts=[artifact],
+            )
+
+        with TemporaryDirectory() as directory:
+            nonfinite_path = Path(directory) / "nonfinite.json"
+            with self.assertRaisesRegex(StudyManifestError, "strict canonical JSON"):
+                atomic_write_json(nonfinite_path, {"value": float("nan")})
+            self.assertFalse(nonfinite_path.exists())
+            with self.assertRaisesRegex(StudyManifestError, "full lowercase Git SHA-1"):
+                execute_synthetic_study(
+                    _PILOT,
+                    workspace_root=directory,
+                    code_revision="bad",
+                )
+
+
+def _refingerprint(artifact: dict[str, object]) -> None:
+    artifact.pop("artifact_fingerprint", None)
+    artifact["artifact_fingerprint"] = _fingerprint_json(artifact)
+
+
+def _fingerprint_json(value: object) -> str:
+    encoded = json.dumps(
+        value,
+        sort_keys=True,
+        separators=(",", ":"),
+        ensure_ascii=False,
+        allow_nan=False,
+    ).encode("utf-8")
+    return hashlib.sha256(encoded).hexdigest()
 
 
 if __name__ == "__main__":

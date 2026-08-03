@@ -39,6 +39,8 @@ The authoritative approved-design draft is:
 - [Common capacity optimizer independent audit](docs/reviews/2026-08-03-common-capacity-optimizer-independent-audit.md)
 - [Study manifest and train-once pipeline contract](docs/plans/2026-08-03-study-design-manifest.md)
 - [Study manifest and pipeline independent audit](docs/reviews/2026-08-03-study-pipeline-independent-audit.md)
+- [Resumable pilot-artifact runner contract](docs/plans/2026-08-03-resumable-pilot-artifacts.md)
+- [Resumable pilot-artifact runner independent audit](docs/reviews/2026-08-03-resumable-pilot-artifacts-independent-audit.md)
 
 ## Current implementation status
 
@@ -113,6 +115,14 @@ tickets. Independent attacks confirmed that changing a held-out distribution
 changes held-out results but leaves every trained object unchanged. Formal and
 confirmation manifests, pilot runtime artifacts, and precision-based replicate
 freezing are the next implementation slice.
+
+The pilot execution layer now has an independently audited resumable runner.
+Each block is exactly replay-validated before an atomic checkpoint is exposed;
+its compact scientific summary is cross-derived from a complete canonical
+result witness rather than trusted independently. Resume rejects corrupt or
+mixed manifest, ledger, parent, model, revision, and runtime identities. A
+canonical progress summary derives its legal block registry internally and can
+report `complete` only after every registered parent/model block is present.
 
 The package supports Python 3.10 or later and has no third-party runtime or
 test dependency. Run the complete test suite from the repository root with:
