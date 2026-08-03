@@ -35,6 +35,8 @@ The authoritative approved-design draft is:
 - [Demand-aware objective independent audit](docs/reviews/2026-08-01-demand-aware-objective-independent-audit.md)
 - [Demand-aware constructor contract](docs/plans/2026-08-01-demand-aware-constructor.md)
 - [Demand-aware constructor independent audit](docs/reviews/2026-08-01-demand-aware-constructor-independent-audit.md)
+- [Common capacity optimizer contract](docs/plans/2026-08-01-common-capacity-optimizer.md)
+- [Common capacity optimizer independent audit](docs/reviews/2026-08-03-common-capacity-optimizer-independent-audit.md)
 
 ## Current implementation status
 
@@ -92,8 +94,14 @@ enumerates exhaustive parent-connected candidates on small graphs and uses a
 declared bounded candidate heuristic on formal-size graphs. Exact equal-
 incidence moves can change memberships, arity distribution, and hyperedge
 count; complete replay binds the seed, candidate pool, common search plan,
-proposal stream, accepted steps, and final score. The common capacity optimizer
-is the next implementation slice.
+proposal stream, accepted steps, and final score. An independently audited
+common capacity optimizer now preserves every node's integer capital while
+applying the same load/risk initializer, robust regime-level lower-quantile
+objective, unbiased proposal tickets, projected coordinate rule, and exact
+evaluation budget to every topology. The uniform allocation remains an explicit
+baseline, and complete replay binds every training scenario, proposal, score,
+and accepted step. Formal-scale experiment manifests are the next implementation
+slice.
 
 The package supports Python 3.10 or later and has no third-party runtime or
 test dependency. Run the complete test suite from the repository root with:
