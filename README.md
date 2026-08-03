@@ -37,6 +37,8 @@ The authoritative approved-design draft is:
 - [Demand-aware constructor independent audit](docs/reviews/2026-08-01-demand-aware-constructor-independent-audit.md)
 - [Common capacity optimizer contract](docs/plans/2026-08-01-common-capacity-optimizer.md)
 - [Common capacity optimizer independent audit](docs/reviews/2026-08-03-common-capacity-optimizer-independent-audit.md)
+- [Study manifest and train-once pipeline contract](docs/plans/2026-08-03-study-design-manifest.md)
+- [Study manifest and pipeline independent audit](docs/reviews/2026-08-03-study-pipeline-independent-audit.md)
 
 ## Current implementation status
 
@@ -100,8 +102,17 @@ applying the same load/risk initializer, robust regime-level lower-quantile
 objective, unbiased proposal tickets, projected coordinate rule, and exact
 evaluation budget to every topology. The uniform allocation remains an explicit
 baseline, and complete replay binds every training scenario, proposal, score,
-and accepted step. Formal-scale experiment manifests are the next implementation
-slice.
+and accepted step. A strict phase-separated study manifest and semantic seed
+ledger now freeze the synthetic pilot inputs, four training regimes, seven
+held-out regimes, topology families, resource budgets, and routing seeds. The
+audited train-once parent-block pipeline constructs NCH, FHS3, FHS5, and
+demand-aware sources; deduplicates incidence-matched binary service baselines;
+keeps clique expansions cost-only; applies one common capacity protocol; and
+then evaluates all held-out traces with paired request objects and routing
+tickets. Independent attacks confirmed that changing a held-out distribution
+changes held-out results but leaves every trained object unchanged. Formal and
+confirmation manifests, pilot runtime artifacts, and precision-based replicate
+freezing are the next implementation slice.
 
 The package supports Python 3.10 or later and has no third-party runtime or
 test dependency. Run the complete test suite from the repository root with:
@@ -118,6 +129,12 @@ loader rejects missing or unknown fields, duplicate JSON keys, unsafe output
 paths, invalid numeric ranges, and non-UTF-8 input. Its fingerprint is the
 SHA-256 digest of canonical JSON, so a scientifically relevant configuration
 change creates a different experiment identity.
+
+The tracked study-pipeline pilot is
+[`configs/pilot/synthetic-pipeline-v1.json`](configs/pilot/synthetic-pipeline-v1.json).
+Its strict schema freezes all result-independent scientific controls and
+rejects unknown result fields, invalid phase provenance, incomplete traffic
+registries, or parent resampling ceilings unsupported by the generator.
 
 Stochastic components derive independent 64-bit seeds from the tuple
 `(base_seed, namespace, index)` using the versioned SHA-256 framing rule in
