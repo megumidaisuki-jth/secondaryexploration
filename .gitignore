@@ -26,3 +26,5 @@ Thumbs.db
 # Generated experiment artifacts
 outputs/
 tmp/
+*-run.stdout.log
+*-run.stderr.log

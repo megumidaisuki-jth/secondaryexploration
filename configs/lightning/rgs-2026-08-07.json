@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "source_id": "ldk-rgs-mainnet-2026-08-07T00:00:00Z",
+  "panel_year": 2026,
+  "download_url": "https://rapidsync.lightningdevkit.org/snapshot/v2/0",
+  "rgs_version": 2,
+  "expected_chain_hash_wire": "6fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d6190000000000",
+  "latest_seen_timestamp": 1786060800,
+  "retrieved_at_utc": "2026-08-07T01:56:58Z",
+  "http_last_modified": "Fri, 07 Aug 2026 00:55:06 GMT",
+  "http_etag": "\"6a752cea-36430b\"",
+  "content_length": 3556107,
+  "sha256": "a0d495d951f44e350c35bd7ba9fb11ca59391fa8bc113a8d9efaf07fc0a611a0",
+  "trust_model": "single-observer-semi-trusted-gossip-view"
+}
