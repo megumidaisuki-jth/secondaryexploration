@@ -8,6 +8,7 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import re
 import tempfile
 
 from secondaryexploration.metrics import RunCostMetrics
@@ -29,6 +30,31 @@ from .study import (
 
 BLOCK_ARTIFACT_SCHEMA_VERSION = "synthetic-block-artifact.v1"
 STUDY_RUN_SUMMARY_SCHEMA_VERSION = "synthetic-study-run-summary.v1"
+_RUN_SUMMARY_TOP_LEVEL_FIELDS = {
+    "schema_version",
+    "status",
+    "manifest_fingerprint",
+    "seed_ledger_fingerprint",
+    "code_revision",
+    "environment",
+    "expected_block_count",
+    "completed_block_count",
+    "total_generation_ns",
+    "total_exact_validation_ns",
+    "blocks",
+    "summary_fingerprint",
+}
+_RUN_SUMMARY_BLOCK_FIELDS = {
+    "block_key",
+    "path",
+    "artifact_fingerprint",
+    "result_fingerprint",
+    "generation_ns",
+    "validation_ns",
+}
+_BLOCK_KEY_PATTERN = re.compile(
+    r"n[0-9]{4,}-r[0-9]{4,}-(?:er_gnm|barabasi_albert|sbm_fixed_count)\Z"
+)
 _BLOCK_TOP_LEVEL_FIELDS = {
     "schema_version",
     "pipeline_version",
@@ -583,7 +609,141 @@ def build_study_run_summary(
         "blocks": records,
     }
     summary["summary_fingerprint"] = _mapping_fingerprint(summary)
+    validate_study_run_summary(
+        summary,
+        manifest=manifest,
+        ledger=ledger,
+        code_revision=code_revision,
+        environment=environment,
+    )
     return summary
+
+
+def validate_study_run_summary(
+    summary: object,
+    *,
+    manifest: StudyDesignManifest | None = None,
+    ledger: StudySeedLedger | None = None,
+    code_revision: str | None = None,
+    environment: Mapping[str, object] | None = None,
+    block_artifacts: list[Mapping[str, object]] | None = None,
+) -> None:
+    """Reject malformed, corrupted, or context-mismatched run indexes."""
+
+    top = _expect_mapping(summary, _RUN_SUMMARY_TOP_LEVEL_FIELDS, "run summary")
+    if top["schema_version"] != STUDY_RUN_SUMMARY_SCHEMA_VERSION:
+        raise StudyManifestError("unsupported run summary schema_version")
+    if top["status"] not in {"in_progress", "complete"}:
+        raise StudyManifestError("run summary status is unsupported")
+    for name in (
+        "manifest_fingerprint",
+        "seed_ledger_fingerprint",
+        "summary_fingerprint",
+    ):
+        _validate_digest(top[name], name)
+    validate_code_revision(top["code_revision"])
+    canonical_environment = _canonical_environment(top["environment"])
+    for name in (
+        "expected_block_count",
+        "completed_block_count",
+        "total_generation_ns",
+        "total_exact_validation_ns",
+    ):
+        _validate_nonnegative_int(top[name], name)
+    if top["expected_block_count"] < 1:
+        raise StudyManifestError("expected_block_count must be positive")
+    if top["completed_block_count"] > top["expected_block_count"]:
+        raise StudyManifestError("completed blocks exceed expected_block_count")
+    expected_status = (
+        "complete"
+        if top["completed_block_count"] == top["expected_block_count"]
+        else "in_progress"
+    )
+    if top["status"] != expected_status:
+        raise StudyManifestError("run summary status does not match block counts")
+
+    records = _expect_list(top["blocks"], "run summary blocks", nonempty=False)
+    if len(records) != top["completed_block_count"]:
+        raise StudyManifestError("run summary block count does not match records")
+    keys: list[str] = []
+    generation_total = 0
+    validation_total = 0
+    for item in records:
+        record = _expect_mapping(item, _RUN_SUMMARY_BLOCK_FIELDS, "summary block")
+        block_key = record["block_key"]
+        if (
+            not isinstance(block_key, str)
+            or _BLOCK_KEY_PATTERN.fullmatch(block_key) is None
+        ):
+            raise StudyManifestError("summary block_key is malformed")
+        if record["path"] != f"blocks/{block_key}.json":
+            raise StudyManifestError("summary block path is not canonical")
+        keys.append(block_key)
+        for name in ("artifact_fingerprint", "result_fingerprint"):
+            _validate_digest(record[name], name)
+        _validate_duration(record["generation_ns"], "generation_ns")
+        _validate_duration(record["validation_ns"], "validation_ns")
+        generation_total += record["generation_ns"]
+        validation_total += record["validation_ns"]
+    if keys != sorted(keys) or len(set(keys)) != len(keys):
+        raise StudyManifestError("run summary block records must be canonical and unique")
+    if generation_total != top["total_generation_ns"]:
+        raise StudyManifestError("run summary generation total does not match records")
+    if validation_total != top["total_exact_validation_ns"]:
+        raise StudyManifestError("run summary validation total does not match records")
+    without_fingerprint = dict(top)
+    del without_fingerprint["summary_fingerprint"]
+    if top["summary_fingerprint"] != _mapping_fingerprint(without_fingerprint):
+        raise StudyManifestError("run summary fingerprint does not match its content")
+
+    if manifest is not None and top["manifest_fingerprint"] != manifest.fingerprint:
+        raise StudyManifestError("run summary does not match the expected study manifest")
+    if ledger is not None and top["seed_ledger_fingerprint"] != ledger.fingerprint:
+        raise StudyManifestError("run summary does not match the expected seed ledger")
+    if code_revision is not None and top["code_revision"] != code_revision:
+        raise StudyManifestError("run summary does not match the expected code revision")
+    if environment is not None and canonical_environment != _canonical_environment(environment):
+        raise StudyManifestError("run summary does not match the expected environment")
+    if manifest is not None and ledger is not None:
+        validate_study_seed_ledger(ledger, manifest)
+        expected_keys = tuple(
+            sorted(
+                f"n{seed.node_count:04d}-r{seed.parent_replicate:04d}-{model}"
+                for seed in ledger.parent_seeds
+                for model in _PARENT_MODEL_VALUES
+            )
+        )
+        if top["expected_block_count"] != len(expected_keys):
+            raise StudyManifestError("run summary expected count does not match ledger")
+        if not set(keys).issubset(expected_keys):
+            raise StudyManifestError("run summary contains an unregistered block")
+        if top["status"] == "complete" and tuple(keys) != expected_keys:
+            raise StudyManifestError("complete run summary omits registered blocks")
+    if block_artifacts is not None:
+        if manifest is None or ledger is None:
+            raise StudyManifestError(
+                "manifest and ledger are required to bind summary block artifacts"
+            )
+        rebuilt = build_study_run_summary(
+            manifest,
+            ledger,
+            code_revision=top["code_revision"],
+            environment=canonical_environment,
+            block_artifacts=block_artifacts,
+        )
+        if dict(top) != rebuilt:
+            raise StudyManifestError("run summary does not match its block artifacts")
+
+
+def load_study_run_summary(
+    path: str | Path,
+    **expected: object,
+) -> dict[str, object]:
+    """Load strict UTF-8 JSON and validate a synthetic-study run index."""
+
+    summary = _load_strict_json(path)
+    validate_study_run_summary(summary, **expected)
+    return dict(summary)
 
 
 def atomic_write_json(path: str | Path, value: Mapping[str, object]) -> None:
@@ -1514,7 +1674,9 @@ __all__ = [
     "atomic_write_json",
     "build_study_run_summary",
     "build_synthetic_block_artifact",
+    "load_study_run_summary",
     "load_synthetic_block_artifact",
     "validate_code_revision",
+    "validate_study_run_summary",
     "validate_synthetic_block_artifact",
 ]

@@ -21,7 +21,9 @@ from secondaryexploration.experiments.artifacts import (
     atomic_write_json,
     build_study_run_summary,
     build_synthetic_block_artifact,
+    load_study_run_summary,
     load_synthetic_block_artifact,
+    validate_study_run_summary,
     validate_synthetic_block_artifact,
 )
 from secondaryexploration.experiments.runner import execute_synthetic_study
@@ -205,6 +207,48 @@ class SyntheticParentBlockPipelineTests(unittest.TestCase):
             self.assertEqual(summary["status"], "in_progress")
             self.assertEqual(summary["expected_block_count"], 3)
             self.assertEqual(summary["total_generation_ns"], 123)
+            summary_path = Path(directory) / "run-summary.json"
+            atomic_write_json(summary_path, summary)
+            self.assertEqual(
+                load_study_run_summary(
+                    summary_path,
+                    manifest=manifest,
+                    ledger=ledger,
+                    code_revision="a" * 40,
+                    environment=environment,
+                    block_artifacts=[artifact],
+                ),
+                summary,
+            )
+
+            bad_summary = json.loads(json.dumps(summary))
+            bad_summary["total_generation_ns"] += 1
+            bad_summary["summary_fingerprint"] = _fingerprint_json(
+                {
+                    key: value
+                    for key, value in bad_summary.items()
+                    if key != "summary_fingerprint"
+                }
+            )
+            with self.assertRaisesRegex(StudyManifestError, "generation total"):
+                validate_study_run_summary(bad_summary)
+
+            mismatched_summary = json.loads(json.dumps(summary))
+            mismatched_summary["blocks"][0]["artifact_fingerprint"] = "f" * 64
+            mismatched_summary["summary_fingerprint"] = _fingerprint_json(
+                {
+                    key: value
+                    for key, value in mismatched_summary.items()
+                    if key != "summary_fingerprint"
+                }
+            )
+            with self.assertRaisesRegex(StudyManifestError, "block artifacts"):
+                validate_study_run_summary(
+                    mismatched_summary,
+                    manifest=manifest,
+                    ledger=ledger,
+                    block_artifacts=[artifact],
+                )
 
         tampered = json.loads(json.dumps(artifact))
         tampered["variants"][0]["unknown_result"] = 1
