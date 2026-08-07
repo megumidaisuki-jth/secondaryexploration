@@ -1,6 +1,6 @@
 # Lightning structural-panel source audit
 
-**Date:** 2026-08-07  
+**Date:** 2026-08-07
 **Scope:** immutable source identity and admissible claims for the 2020, 2022,
 2023, and 2026 Lightning cross-sections
 
@@ -79,19 +79,40 @@ The topology archive SHA-256 is
 
 ### 2020 and 2023
 
-The candidate source is Harvard Dataverse dataset
+The accepted source is Harvard Dataverse dataset
 `doi:10.7910/DVN/2OAVO6`, *Geolocated Lightning Network topology snapshots:
 A dataset covering 2019–2023*. Dataset version 1.1 was released at
-`2026-02-15T00:02:00Z`. Its `snapshots.geo.zip` file has Dataverse file id
-`12510549`, declared size `562,027,011` bytes, and declared MD5
-`e6edd6fd7acae460abd0f70f71c9dbec`.
+`2026-02-15T00:02:00Z`. Its strict contract is
+[`configs/lightning/dataverse-2020-2023.json`](../../configs/lightning/dataverse-2020-2023.json).
 
-This dataset is a candidate, not yet an accepted panel input. Acceptance
-requires downloading the archive, verifying the repository checksum,
-enumerating the internal snapshot timestamps, selecting the 2020 and 2023
-cross-sections by an explicit date rule, hashing the selected members with
-SHA-256, and verifying their graph semantics. No historical result may be run
-before that contract is committed.
+The `snapshots.geo.zip` archive has Dataverse file id `12510549`, size
+`562,027,011` bytes, 337 members, repository MD5
+`e6edd6fd7acae460abd0f70f71c9dbec`, and independently computed SHA-256
+`f380b71796edd86019ddc0b7822938559bfd40a2f650b21ccb66f14ef10e9320`.
+The repository MD5 matched, and a full ZIP CRC pass found no damaged member.
+
+The frozen selection rule is the latest quality-controlled snapshot available
+within each requested calendar year. It selects:
+
+| Panel | Member | Bytes | SHA-256 | Nodes | Simple edges |
+|---|---|---:|---|---:|---:|
+| 2020 | `20201230.gml.geo` | 12,283,518 | `351b5ffd35f5b275a22b113275b9016ab721777e273a6d509871040950702cc8` | 6,553 | 29,087 |
+| 2023 | `20230716.gml.geo` | 32,928,305 | `ee1b054a6ba2cb0ea3184f9f68f5cca7d8e70d17ff2d9e44e5e8871be8a8b855` | 15,100 | 64,212 |
+
+The archive's published scripts reconstruct gossip at target dates, discard
+updates older than two weeks, convert the directed policy view to an
+undirected graph, remove retained edges with nonpositive advertised HTLC
+maximum, and remove zero-degree nodes. Our standard-library reader preserves
+that published cleaned-graph semantics and verifies that node indices are
+contiguous, public-key labels are unique, endpoints exist, HTLC maxima are
+positive, and the result is a simple graph without isolated records.
+
+These GML files do **not** contain funding-output capacity. Their
+`htlc_maximum_msat` field is an advertised directional policy ceiling and must
+not be relabeled as channel capacity or liquidity. Consequently, 2020 and
+2023 are admissible only for the equal-per-node-capital panel. The
+public-capacity-derived sensitivity is limited to the separately attested 2022
+and RGS-v2 2026 sources.
 
 ## Source references
 
@@ -108,7 +129,8 @@ before that contract is committed.
 
 ## Next gate
 
-The next Lightning-data gate is historical archive acceptance. Only after
-the 2020 and 2023 member hashes and parsing rules are frozen should the
-core/bridge/periphery subgraph sampler be implemented. This preserves the
-ordering `source identity -> graph semantics -> sampling -> experiments`.
+The source-identity and graph-semantics gates are now closed for all four
+cross-sections. The next gate is the deterministic core/bridge/periphery
+subgraph sampler. It must preserve the ordering
+`source identity -> graph semantics -> sampling -> experiments` and must keep
+capital-panel availability explicit by year.

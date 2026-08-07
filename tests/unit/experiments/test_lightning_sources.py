@@ -7,10 +7,14 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+import zipfile
 
 from secondaryexploration.experiments import (
     BITCOIN_MAINNET_CHAIN_HASH_WIRE,
+    HistoricalGmlSourceManifest,
     LightningSourceError,
+    load_historical_gml_source_manifest,
+    load_manifested_historical_gml_panel,
     load_manifested_rapid_gossip_snapshot,
     load_rapid_gossip_snapshot,
     load_rapid_gossip_source_manifest,
@@ -69,6 +73,86 @@ def _snapshot(version: int) -> bytes:
     # The loader only interprets the announcement prefix but requires an update
     # count field to prove the prefix is not truncated.
     return prefix + nodes + _u32(1) + announcement + _u32(0)
+
+
+def _historical_gml() -> bytes:
+    first, second, third = (_node(index).hex() for index in (1, 2, 3))
+    return f'''graph [
+  node [
+    id 0
+    label "{first}"
+    geojson [
+      country "US"
+    ]
+  ]
+  node [
+    id 1
+    label "{second}"
+  ]
+  node [
+    id 2
+    label "{third}"
+  ]
+  edge [
+    source 0
+    target 1
+    scid "42x1x0/0"
+    htlc_maximum_msat 1000
+  ]
+  edge [
+    source 1
+    target 2
+    scid "43x1x0/1"
+    htlc_maximum_msat "2000"
+  ]
+]
+'''.encode("utf-8")
+
+
+def _historical_fixture(root: Path) -> tuple[Path, Path]:
+    archive_path = root / "snapshots.geo.zip"
+    payloads = {
+        "20201230.gml.geo": _historical_gml(),
+        "20230716.gml.geo": _historical_gml(),
+    }
+    with zipfile.ZipFile(archive_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+        for name, payload in payloads.items():
+            archive.writestr(name, payload)
+    archive_bytes = archive_path.read_bytes()
+    manifest_path = root / "historical.json"
+    manifest_path.write_text(
+        json.dumps(
+            {
+                "schema_version": 1,
+                "source_id": "fixture-historical",
+                "dataset_doi": "10.7910/DVN/2OAVO6",
+                "dataset_version": "1.1",
+                "release_time_utc": "2026-02-15T00:02:00Z",
+                "archive_url": "https://example.test/snapshots.geo.zip",
+                "dataverse_file_id": 12510549,
+                "archive_content_length": len(archive_bytes),
+                "archive_member_count": 2,
+                "archive_md5": hashlib.md5(archive_bytes).hexdigest(),
+                "archive_sha256": hashlib.sha256(archive_bytes).hexdigest(),
+                "selection_rule": "latest-quality-controlled-snapshot-within-calendar-year",
+                "members": [
+                    {
+                        "panel_year": year,
+                        "member_name": name,
+                        "content_length": len(payloads[name]),
+                        "sha256": hashlib.sha256(payloads[name]).hexdigest(),
+                        "capital_semantics": "unavailable-equal-node-capital-only",
+                    }
+                    for year, name in (
+                        (2020, "20201230.gml.geo"),
+                        (2023, "20230716.gml.geo"),
+                    )
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+    return archive_path, manifest_path
 
 
 class RapidGossipSourceTests(unittest.TestCase):
@@ -182,6 +266,53 @@ class RapidGossipSourceTests(unittest.TestCase):
             path.write_text('{"unknown":1}', encoding="utf-8")
             with self.assertRaisesRegex(LightningSourceError, "unknown=\\['unknown'\\]"):
                 load_rapid_gossip_source_manifest(path)
+
+
+class HistoricalGmlSourceTests(unittest.TestCase):
+    def test_manifested_archive_recovers_simple_parent_and_policy_bound(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            archive_path, manifest_path = _historical_fixture(Path(directory))
+            manifest = load_historical_gml_source_manifest(manifest_path)
+            panel = load_manifested_historical_gml_panel(manifest, archive_path, 2020)
+
+        self.assertIsInstance(manifest, HistoricalGmlSourceManifest)
+        self.assertEqual(panel.panel_year, 2020)
+        self.assertEqual(len(panel.node_ids), 3)
+        self.assertEqual(panel.parent.edge_count, 2)
+        self.assertEqual(tuple(edge.htlc_maximum_msat for edge in panel.edges), (1000, 2000))
+
+    def test_manifest_rejects_nested_unknown_member_fields(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            _, manifest_path = _historical_fixture(Path(directory))
+            payload = json.loads(manifest_path.read_text(encoding="utf-8"))
+            payload["members"][0]["unknown"] = True
+            manifest_path.write_text(json.dumps(payload), encoding="utf-8")
+
+            with self.assertRaisesRegex(LightningSourceError, "unknown=\\['unknown'\\]"):
+                load_historical_gml_source_manifest(manifest_path)
+
+    def test_archive_hash_mismatch_blocks_member_loading(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            archive_path, manifest_path = _historical_fixture(Path(directory))
+            manifest = load_historical_gml_source_manifest(manifest_path)
+            bad_manifest = HistoricalGmlSourceManifest(
+                manifest.schema_version,
+                manifest.source_id,
+                manifest.dataset_doi,
+                manifest.dataset_version,
+                manifest.release_time_utc,
+                manifest.archive_url,
+                manifest.dataverse_file_id,
+                manifest.archive_content_length,
+                manifest.archive_member_count,
+                manifest.archive_md5,
+                "0" * 64,
+                manifest.selection_rule,
+                manifest.members,
+            )
+
+            with self.assertRaisesRegex(LightningSourceError, "archive SHA-256 mismatch"):
+                load_manifested_historical_gml_panel(bad_manifest, archive_path, 2023)
 
 
 if __name__ == "__main__":

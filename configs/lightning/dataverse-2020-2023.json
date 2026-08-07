@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "source_id": "harvard-dataverse-ln-geolocated-v1.1",
+  "dataset_doi": "10.7910/DVN/2OAVO6",
+  "dataset_version": "1.1",
+  "release_time_utc": "2026-02-15T00:02:00Z",
+  "archive_url": "https://dataverse.harvard.edu/api/access/datafile/12510549",
+  "dataverse_file_id": 12510549,
+  "archive_content_length": 562027011,
+  "archive_member_count": 337,
+  "archive_md5": "e6edd6fd7acae460abd0f70f71c9dbec",
+  "archive_sha256": "f380b71796edd86019ddc0b7822938559bfd40a2f650b21ccb66f14ef10e9320",
+  "selection_rule": "latest-quality-controlled-snapshot-within-calendar-year",
+  "members": [
+    {
+      "panel_year": 2020,
+      "member_name": "20201230.gml.geo",
+      "content_length": 12283518,
+      "sha256": "351b5ffd35f5b275a22b113275b9016ab721777e273a6d509871040950702cc8",
+      "capital_semantics": "unavailable-equal-node-capital-only"
+    },
+    {
+      "panel_year": 2023,
+      "member_name": "20230716.gml.geo",
+      "content_length": 32928305,
+      "sha256": "ee1b054a6ba2cb0ea3184f9f68f5cca7d8e70d17ff2d9e44e5e8871be8a8b855",
+      "capital_semantics": "unavailable-equal-node-capital-only"
+    }
+  ]
+}
