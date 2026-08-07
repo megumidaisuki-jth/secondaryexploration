@@ -306,6 +306,91 @@ def sample_lightning_subgraph(
 ) -> LightningSubgraphSample:
     """Select one exact-size connected induced sample using hash-ordered BFS."""
 
+    canonical_strata = _validated_sampling_inputs(
+        parent,
+        source_fingerprint,
+        panel_year,
+        stratum,
+        replicate_index,
+        requested_size,
+        strata,
+    )
+    return _sample_from_validated_strata(
+        source_fingerprint,
+        panel_year,
+        stratum,
+        replicate_index,
+        requested_size,
+        base_seed,
+        canonical_strata,
+    )
+
+
+def sample_lightning_subgraphs(
+    parent: ParentGraph,
+    source_fingerprint: str,
+    panel_year: int,
+    replicate_count: int,
+    requested_sizes: tuple[int, ...],
+    base_seed: int,
+    *,
+    strata: LightningStrataRecord | None = None,
+) -> tuple[LightningSubgraphSample, ...]:
+    """Sample the complete stratum/replicate/size grid after one strata check."""
+
+    if type(replicate_count) is not int or replicate_count <= 0:
+        raise StratifiedSamplingError("replicate_count must be positive")
+    if type(requested_sizes) is not tuple or not requested_sizes:
+        raise StratifiedSamplingError(
+            "requested_sizes must be a nonempty canonical tuple of sizes at least two"
+        )
+    if any(type(size) is not int or size < 2 for size in requested_sizes):
+        raise StratifiedSamplingError(
+            "requested_sizes must be a nonempty canonical tuple of sizes at least two"
+        )
+    if requested_sizes != tuple(sorted(set(requested_sizes))):
+        raise StratifiedSamplingError(
+            "requested_sizes must be a nonempty canonical tuple of sizes at least two"
+        )
+    canonical_strata = _validated_sampling_inputs(
+        parent,
+        source_fingerprint,
+        panel_year,
+        LIGHTNING_STRATA[0],
+        0,
+        requested_sizes[-1],
+        strata,
+    )
+    if any(
+        replicate_count > len(canonical_strata.candidates(stratum))
+        for stratum in LIGHTNING_STRATA
+    ):
+        raise StratifiedSamplingError("replicate_count exceeds a stratum candidate pool")
+    return tuple(
+        _sample_from_validated_strata(
+            source_fingerprint,
+            panel_year,
+            stratum,
+            replicate_index,
+            requested_size,
+            base_seed,
+            canonical_strata,
+        )
+        for stratum in LIGHTNING_STRATA
+        for replicate_index in range(replicate_count)
+        for requested_size in requested_sizes
+    )
+
+
+def _validated_sampling_inputs(
+    parent: ParentGraph,
+    source_fingerprint: str,
+    panel_year: int,
+    stratum: str,
+    replicate_index: int,
+    requested_size: int,
+    strata: LightningStrataRecord | None,
+) -> LightningStrataRecord:
     _validate_digest(source_fingerprint, "source_fingerprint")
     if type(panel_year) is not int or panel_year < 2018:
         raise StratifiedSamplingError("panel_year is invalid")
@@ -323,6 +408,19 @@ def sample_lightning_subgraph(
     candidates = strata.candidates(stratum)
     if replicate_index >= len(candidates):
         raise StratifiedSamplingError("replicate_index exceeds the stratum candidate pool")
+    return strata
+
+
+def _sample_from_validated_strata(
+    source_fingerprint: str,
+    panel_year: int,
+    stratum: str,
+    replicate_index: int,
+    requested_size: int,
+    base_seed: int,
+    strata: LightningStrataRecord,
+) -> LightningSubgraphSample:
+    candidates = strata.candidates(stratum)
     namespace = f"lightning.subgraph.v1.{panel_year}.{stratum}.{source_fingerprint}"
     try:
         anchor_seed = derive_seed(base_seed, f"{namespace}.anchors", 0)
@@ -568,6 +666,7 @@ __all__ = [
     "largest_connected_parent",
     "parent_graph_fingerprint",
     "sample_lightning_subgraph",
+    "sample_lightning_subgraphs",
     "stratify_lightning_parent",
     "validate_lightning_strata_record",
     "validate_lightning_subgraph_sample",

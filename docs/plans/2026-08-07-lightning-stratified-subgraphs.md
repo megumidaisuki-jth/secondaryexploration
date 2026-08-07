@@ -76,6 +76,11 @@ Full validation recomputes the LCC, strata, seed, anchor, discovery prefix,
 induced edges, and fingerprint from the original source parent. Any mismatch
 fails closed.
 
+The batch entry point validates or computes the canonical strata record once,
+then emits the complete stratum/replicate/size grid in a fixed order. This
+retains fail-closed generation without repeating full-graph core and Tarjan
+work for every size.
+
 ## Capital availability
 
 All four years support equal-per-node capital. Public-capacity-derived node

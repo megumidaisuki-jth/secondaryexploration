@@ -12,6 +12,7 @@ from secondaryexploration.topology import (
     largest_connected_parent,
     parent_graph_fingerprint,
     sample_lightning_subgraph,
+    sample_lightning_subgraphs,
     stratify_lightning_parent,
     validate_lightning_strata_record,
     validate_lightning_subgraph_sample,
@@ -169,6 +170,60 @@ class LightningStrataTests(unittest.TestCase):
 
 
 class LightningSubgraphSampleTests(unittest.TestCase):
+    def test_batch_grid_matches_individual_samples_in_canonical_order(self) -> None:
+        parent = _layered_parent()
+        source = "9" * 64
+        strata = stratify_lightning_parent(parent)
+
+        samples = sample_lightning_subgraphs(
+            parent,
+            source,
+            2026,
+            3,
+            (8, 16),
+            20260807,
+            strata=strata,
+        )
+
+        self.assertEqual(len(samples), 18)
+        self.assertEqual(
+            tuple(
+                (sample.stratum, sample.replicate_index, sample.requested_size)
+                for sample in samples
+            ),
+            tuple(
+                (stratum, replicate_index, requested_size)
+                for stratum in ("core", "bridge", "peripheral")
+                for replicate_index in range(3)
+                for requested_size in (8, 16)
+            ),
+        )
+        for sample in samples:
+            expected = sample_lightning_subgraph(
+                parent,
+                source,
+                2026,
+                sample.stratum,
+                sample.replicate_index,
+                sample.requested_size,
+                20260807,
+                strata=strata,
+            )
+            self.assertEqual(sample, expected)
+
+    def test_batch_grid_rejects_noncanonical_sizes_and_excess_replicates(self) -> None:
+        parent = _layered_parent()
+        source = "8" * 64
+
+        with self.assertRaisesRegex(StratifiedSamplingError, "canonical tuple"):
+            sample_lightning_subgraphs(
+                parent, source, 2026, 1, (16, 8), 20260807
+            )
+        with self.assertRaisesRegex(StratifiedSamplingError, "candidate pool"):
+            sample_lightning_subgraphs(
+                parent, source, 2026, 100, (8,), 20260807
+            )
+
     def test_forged_cached_strata_are_rejected_before_sampling(self) -> None:
         parent = _layered_parent()
         canonical = stratify_lightning_parent(parent)
