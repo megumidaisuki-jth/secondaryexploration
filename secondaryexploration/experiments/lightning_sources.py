@@ -6,6 +6,7 @@ from dataclasses import dataclass
 import hashlib
 import json
 from pathlib import Path
+import re
 import zipfile
 
 from secondaryexploration.topology import GraphEdge, ParentGraph
@@ -15,6 +16,9 @@ BITCOIN_MAINNET_CHAIN_HASH_WIRE = (
     "6fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d6190000000000"
 )
 _RGS_PREFIX = b"LDK"
+_SCID_DIRECTION_PATTERN = re.compile(
+    r"(?:0|[1-9][0-9]*)x(?:0|[1-9][0-9]*)x(?:0|[1-9][0-9]*)/[01]\Z"
+)
 RGS_SOURCE_MANIFEST_SCHEMA_VERSION = 1
 HISTORICAL_GML_MANIFEST_SCHEMA_VERSION = 1
 
@@ -156,8 +160,11 @@ class HistoricalGmlEdge:
     htlc_maximum_msat: int
 
     def __post_init__(self) -> None:
-        if type(self.scid_direction) is not str or not self.scid_direction:
-            raise LightningSourceError("historical edge SCID must be nonempty")
+        if (
+            type(self.scid_direction) is not str
+            or _SCID_DIRECTION_PATTERN.fullmatch(self.scid_direction) is None
+        ):
+            raise LightningSourceError("historical edge SCID/direction is malformed")
         if self.node1 == self.node2:
             raise LightningSourceError("historical self edges are unsupported")
         if type(self.htlc_maximum_msat) is not int or self.htlc_maximum_msat <= 0:
@@ -178,7 +185,12 @@ class HistoricalGmlPanel:
         _validate_digest(self.member_sha256)
         if not self.node_ids or len(set(self.node_ids)) != len(self.node_ids):
             raise LightningSourceError("historical node identifiers must be nonempty and unique")
-        if any(len(node_id) != 66 or node_id[:2] not in {"02", "03"} for node_id in self.node_ids):
+        if any(
+            len(node_id) != 66
+            or node_id[:2] not in {"02", "03"}
+            or any(character not in "0123456789abcdef" for character in node_id)
+            for node_id in self.node_ids
+        ):
             raise LightningSourceError("historical node label is not a compressed public key")
         if not self.edges:
             raise LightningSourceError("historical panel edge set must be nonempty")
@@ -186,6 +198,8 @@ class HistoricalGmlPanel:
         canonical_edges = [GraphEdge.from_endpoints(edge.node1, edge.node2) for edge in self.edges]
         if len(set(canonical_edges)) != len(canonical_edges):
             raise LightningSourceError("historical GML must be a simple graph")
+        if len({edge.scid_direction for edge in self.edges}) != len(self.edges):
+            raise LightningSourceError("historical edge SCID/direction must be unique")
         if any(edge.node1 not in known or edge.node2 not in known for edge in self.edges):
             raise LightningSourceError("historical edge endpoint is missing from node records")
         incident = {endpoint for edge in self.edges for endpoint in (edge.node1, edge.node2)}
@@ -603,8 +617,21 @@ def load_manifested_historical_gml_panel(
         raise LightningSourceError("historical archive SHA-256 mismatch")
     try:
         with zipfile.ZipFile(path) as archive:
-            if len(archive.infolist()) != manifest.archive_member_count:
+            infos = archive.infolist()
+            if len(infos) != manifest.archive_member_count:
                 raise LightningSourceError("historical archive member count mismatch")
+            names = [info.filename for info in infos]
+            if len(set(names)) != len(names):
+                raise LightningSourceError("historical archive member names must be unique")
+            annual_names = sorted(
+                name
+                for name in names
+                if re.fullmatch(rf"{panel_year}[0-9]{{4}}\.gml\.geo", name)
+            )
+            if not annual_names or annual_names[-1] != member.member_name:
+                raise LightningSourceError(
+                    "historical member is not the latest available snapshot in its year"
+                )
             info = archive.getinfo(member.member_name)
             if info.file_size != member.content_length:
                 raise LightningSourceError("historical member content length mismatch")
@@ -655,6 +682,15 @@ def _parse_historical_gml(
                     )
                 current_kind = key
                 current = {}
+            elif depth == 2:
+                if current_kind != "node" or key != "geojson":
+                    raise LightningSourceError(
+                        f"unsupported nested historical GML block at line {line_number}"
+                    )
+            else:
+                raise LightningSourceError(
+                    f"historical GML nesting is too deep at line {line_number}"
+                )
             depth += 1
             continue
         if stripped == "]":

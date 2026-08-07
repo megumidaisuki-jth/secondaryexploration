@@ -109,12 +109,19 @@ def _historical_gml() -> bytes:
 '''.encode("utf-8")
 
 
-def _historical_fixture(root: Path) -> tuple[Path, Path]:
+def _historical_fixture(
+    root: Path,
+    historical_payload: bytes | None = None,
+    extra_members: dict[str, bytes] | None = None,
+) -> tuple[Path, Path]:
     archive_path = root / "snapshots.geo.zip"
+    historical_payload = historical_payload or _historical_gml()
     payloads = {
-        "20201230.gml.geo": _historical_gml(),
-        "20230716.gml.geo": _historical_gml(),
+        "20201230.gml.geo": historical_payload,
+        "20230716.gml.geo": historical_payload,
     }
+    if extra_members:
+        payloads.update(extra_members)
     with zipfile.ZipFile(archive_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
         for name, payload in payloads.items():
             archive.writestr(name, payload)
@@ -131,7 +138,7 @@ def _historical_fixture(root: Path) -> tuple[Path, Path]:
                 "archive_url": "https://example.test/snapshots.geo.zip",
                 "dataverse_file_id": 12510549,
                 "archive_content_length": len(archive_bytes),
-                "archive_member_count": 2,
+                "archive_member_count": len(payloads),
                 "archive_md5": hashlib.md5(archive_bytes).hexdigest(),
                 "archive_sha256": hashlib.sha256(archive_bytes).hexdigest(),
                 "selection_rule": "latest-quality-controlled-snapshot-within-calendar-year",
@@ -313,6 +320,44 @@ class HistoricalGmlSourceTests(unittest.TestCase):
 
             with self.assertRaisesRegex(LightningSourceError, "archive SHA-256 mismatch"):
                 load_manifested_historical_gml_panel(bad_manifest, archive_path, 2023)
+
+    def test_invalid_pubkey_scid_duplicate_scid_and_nested_block_fail_closed(self) -> None:
+        valid = _historical_gml()
+        first_pubkey = _node(1).hex().encode("ascii")
+        cases = {
+            "compressed public key": valid.replace(
+                first_pubkey,
+                first_pubkey[:-1] + b"z",
+                1,
+            ),
+            "SCID/direction is malformed": valid.replace(b"42x1x0/0", b"bad-scid"),
+            "SCID/direction must be unique": valid.replace(b"43x1x0/1", b"42x1x0/0"),
+            "unsupported nested historical GML block": valid.replace(
+                b"geojson [",
+                b"mystery [",
+                1,
+            ),
+        }
+        for message, payload in cases.items():
+            with self.subTest(message=message), tempfile.TemporaryDirectory() as directory:
+                archive_path, manifest_path = _historical_fixture(
+                    Path(directory),
+                    historical_payload=payload,
+                )
+                manifest = load_historical_gml_source_manifest(manifest_path)
+                with self.assertRaisesRegex(LightningSourceError, message):
+                    load_manifested_historical_gml_panel(manifest, archive_path, 2020)
+
+    def test_loader_proves_selected_member_is_latest_within_year(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            archive_path, manifest_path = _historical_fixture(
+                Path(directory),
+                extra_members={"20201231.gml.geo": _historical_gml()},
+            )
+            manifest = load_historical_gml_source_manifest(manifest_path)
+
+            with self.assertRaisesRegex(LightningSourceError, "not the latest available"):
+                load_manifested_historical_gml_panel(manifest, archive_path, 2020)
 
 
 if __name__ == "__main__":
