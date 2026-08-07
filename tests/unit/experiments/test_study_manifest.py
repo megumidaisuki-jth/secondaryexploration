@@ -23,6 +23,7 @@ from secondaryexploration.experiments import (
 
 _ROOT = Path(__file__).resolve().parents[3]
 _PILOT = _ROOT / "configs" / "pilot" / "synthetic-pipeline-v1.json"
+_CALIBRATION = _ROOT / "configs" / "pilot" / "synthetic-calibration-v1.json"
 
 
 class StudyManifestUnitTests(unittest.TestCase):
@@ -52,6 +53,69 @@ class StudyManifestUnitTests(unittest.TestCase):
             sum(regime.role is TrafficRegimeRole.TRAINING for regime in self.manifest.regimes),
             4,
         )
+
+    def test_calibration_pilot_is_disjoint_and_changes_only_declared_levers(self) -> None:
+        calibration = load_study_design_manifest(_CALIBRATION)
+        ledger = build_study_seed_ledger(calibration)
+        self.assertEqual(
+            calibration.fingerprint,
+            "cd15e32990c65b8737105f660e592525b2fc347ff7a51f2eb991e02ac023da89",
+        )
+        self.assertEqual(
+            ledger.fingerprint,
+            "fd045f93429e068ad19e2e3db35397dfbbfa8fa1ee272a2fd7cabd22cc16fe1c",
+        )
+        self.assertNotEqual(calibration.base_seed, self.manifest.base_seed)
+        self.assertEqual(calibration.parent_replicates, 3)
+        self.assertEqual(calibration.requests_per_node, 12)
+        self.assertEqual(calibration.topology_search.proposal_budget, 5_000)
+        self.assertEqual(len(ledger.parent_seeds), 6)
+        self.assertEqual(len(ledger.trace_seeds), 66)
+
+        ignored = {
+            "study_id",
+            "base_seed",
+            "output_root",
+            "parent_replicates",
+            "requests_per_node",
+            "topology_search",
+        }
+        pilot_mapping = self.manifest.to_canonical_mapping()
+        calibration_mapping = calibration.to_canonical_mapping()
+        self.assertEqual(
+            {key: value for key, value in pilot_mapping.items() if key not in ignored},
+            {
+                key: value
+                for key, value in calibration_mapping.items()
+                if key not in ignored
+            },
+        )
+        self.assertEqual(calibration.topology_search.maximum_rounds, 2)
+        self.assertEqual(calibration.topology_search.maximum_move_edges, 3)
+
+        def actual_seeds(study_ledger):
+            return {
+                *(
+                    seed
+                    for parent in study_ledger.parent_seeds
+                    for seed in (
+                        parent.ensemble_base_seed,
+                        parent.capacity_search_seed,
+                        parent.binary_matching_seed,
+                    )
+                ),
+                *(
+                    seed
+                    for trace in study_ledger.trace_seeds
+                    for seed in (trace.trace_root_seed, trace.routing_root_seed)
+                ),
+            }
+
+        pilot_seeds = actual_seeds(self.ledger)
+        calibration_seeds = actual_seeds(ledger)
+        self.assertEqual(len(pilot_seeds), 50)
+        self.assertEqual(len(calibration_seeds), 150)
+        self.assertTrue(pilot_seeds.isdisjoint(calibration_seeds))
 
     def test_canonical_json_round_trip_preserves_identity(self) -> None:
         with TemporaryDirectory() as directory:

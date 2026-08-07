@@ -12,6 +12,7 @@ artifact and result by SHA-256 fingerprint.
 - Runner revision: `618c93dea95d6a5767241f6b06fb6efd34ac1241`
 - Run-summary fingerprint: `516edfeba09e12e9b6c576ae7efd7b453cfbcac65b5aa21f8325095fd4d5ac79`
 - Evidence fingerprint: `bbb7f921d45a9ac0307d0a6e5205dca0f3baa1d9e12c816ccba960ba3b2d1076`
+- Training-only search diagnostic fingerprint: `1baceb77d3f98afe9ee425f2e3b1fe9c3f111a9351abe886f5b7c96bcbf9c781`
 - Runtime: CPython 3.12.13 on AMD64 Windows
 
 Rebuild the tracked evidence from the local validated artifacts with:
@@ -61,6 +62,11 @@ pilot; `tau_dep` and dynamic costs were not identical. Consequently, the current
 support a demand-aware improvement claim. A broader search-neighbourhood or
 budget study must be separately registered before the formal design is frozen;
 the present outputs must not be rewritten retrospectively.
+
+`search-coverage.json` freezes the training-only proposal-budget diagnostic
+used to select the separate calibration pilot. Without constructing or reading
+held-out traces, deterministic replay changed 1/6, 3/6, and 4/6 seed
+topologies at budgets 120, 1,000, and 5,000, respectively.
 
 ## Interpretation boundary
 
