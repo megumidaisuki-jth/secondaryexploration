@@ -8,6 +8,7 @@ import hashlib
 import json
 from pathlib import Path
 import platform
+import subprocess
 import sys
 from time import perf_counter_ns
 
@@ -43,6 +44,35 @@ _REGISTERED_PARENT_MODELS = (
     ParentGraphModel.BARABASI_ALBERT,
     ParentGraphModel.SBM_FIXED_COUNT,
 )
+_CALIBRATION_MANIFEST_FINGERPRINT = (
+    "cd15e32990c65b8737105f660e592525b2fc347ff7a51f2eb991e02ac023da89"
+)
+_PRIMARY_SIZE_CELL_MAPPINGS = (
+    {
+        "node_count": 30,
+        "attachment_count": 3,
+        "block_count": 4,
+        "sbm_within_edge_count": 60,
+    },
+    {
+        "node_count": 60,
+        "attachment_count": 3,
+        "block_count": 4,
+        "sbm_within_edge_count": 128,
+    },
+    {
+        "node_count": 120,
+        "attachment_count": 3,
+        "block_count": 4,
+        "sbm_within_edge_count": 263,
+    },
+    {
+        "node_count": 240,
+        "attachment_count": 3,
+        "block_count": 4,
+        "sbm_within_edge_count": 533,
+    },
+)
 
 
 def execute_synthetic_study(
@@ -52,6 +82,7 @@ def execute_synthetic_study(
     code_revision: str,
     precision_path: str | Path | None = None,
     calibration_evidence_path: str | Path | None = None,
+    calibration_manifest_path: str | Path | None = None,
     resume: bool = True,
     progress: ProgressCallback | None = None,
 ) -> Path:
@@ -70,6 +101,7 @@ def execute_synthetic_study(
         code_revision=code_revision,
         precision_path=precision_path,
         calibration_evidence_path=calibration_evidence_path,
+        calibration_manifest_path=calibration_manifest_path,
     )
     block_root = output_root / "blocks"
     completed_artifacts: list[dict[str, object]] = []
@@ -141,6 +173,7 @@ def preflight_synthetic_study(
     code_revision: str,
     precision_path: str | Path | None = None,
     calibration_evidence_path: str | Path | None = None,
+    calibration_manifest_path: str | Path | None = None,
 ) -> dict[str, object]:
     """Replay every launch gate without creating an output directory or block."""
 
@@ -157,6 +190,7 @@ def preflight_synthetic_study(
         code_revision=code_revision,
         precision_path=precision_path,
         calibration_evidence_path=calibration_evidence_path,
+        calibration_manifest_path=calibration_manifest_path,
     )
     return {
         "status": "preflight-valid-no-execution",
@@ -172,6 +206,7 @@ def preflight_synthetic_study(
         "expected_block_count": expected_count,
         "output_root": manifest.output_root,
         "output_already_exists": output_root.exists(),
+        "execution_code_snapshot_verified": True,
     }
 
 
@@ -182,6 +217,7 @@ def _prepare_synthetic_study(
     code_revision: str,
     precision_path: str | Path | None,
     calibration_evidence_path: str | Path | None,
+    calibration_manifest_path: str | Path | None,
 ):
     manifest = load_study_design_manifest(manifest_path)
     validate_code_revision(code_revision)
@@ -195,15 +231,27 @@ def _prepare_synthetic_study(
         raise StudyManifestError("workspace_root must be an existing directory")
     environment = runtime_environment()
     precision = None
+    calibration_manifest = None
     if manifest.phase is StudyPhase.PILOT:
-        if precision_path is not None or calibration_evidence_path is not None:
+        if any(
+            item is not None
+            for item in (
+                precision_path,
+                calibration_evidence_path,
+                calibration_manifest_path,
+            )
+        ):
             raise StudyManifestError(
                 "pilot execution cannot consume a formal precision freeze"
             )
     else:
-        if precision_path is None or calibration_evidence_path is None:
+        if (
+            precision_path is None
+            or calibration_evidence_path is None
+            or calibration_manifest_path is None
+        ):
             raise StudyManifestError(
-                "formal and confirmation execution require precision and calibration evidence"
+                "formal and confirmation execution require precision, calibration evidence, and calibration manifest"
             )
         resolved_precision = _resolve_read_path(root, precision_path, "precision_path")
         resolved_calibration = _resolve_read_path(
@@ -216,11 +264,20 @@ def _prepare_synthetic_study(
             resolved_precision,
             calibration_evidence=calibration,
         )
+        calibration_manifest = load_study_design_manifest(
+            _resolve_read_path(
+                root,
+                calibration_manifest_path,
+                "calibration_manifest_path",
+            )
+        )
+        _verify_execution_code_snapshot(root, code_revision)
     validate_frozen_execution_context(
         manifest,
         code_revision=code_revision,
         environment=environment,
         precision_evidence=precision,
+        calibration_manifest=calibration_manifest,
     )
     output_root = (root / manifest.output_root).resolve()
     try:
@@ -271,6 +328,7 @@ def validate_frozen_execution_context(
     code_revision: str,
     environment: Mapping[str, object],
     precision_evidence: Mapping[str, object] | None,
+    calibration_manifest: StudyDesignManifest | None = None,
 ) -> None:
     """Fail closed unless a non-pilot run matches every precision freeze field."""
 
@@ -279,11 +337,15 @@ def validate_frozen_execution_context(
     validate_code_revision(code_revision)
     environment_fingerprint = runtime_environment_fingerprint(environment)
     if manifest.phase is StudyPhase.PILOT:
-        if precision_evidence is not None:
+        if precision_evidence is not None or calibration_manifest is not None:
             raise StudyManifestError("pilot execution cannot use formal precision evidence")
         return
-    if precision_evidence is None:
-        raise StudyManifestError("non-pilot execution requires formal precision evidence")
+    if precision_evidence is None or calibration_manifest is None:
+        raise StudyManifestError(
+            "non-pilot execution requires formal precision and calibration manifest evidence"
+        )
+    if calibration_manifest.fingerprint != _CALIBRATION_MANIFEST_FINGERPRINT:
+        raise StudyManifestError("execution requires the audited calibration manifest")
     if manifest.code_revision != code_revision:
         raise StudyManifestError("code_revision does not match the frozen study manifest")
     if manifest.environment_fingerprint != environment_fingerprint:
@@ -328,6 +390,82 @@ def validate_frozen_execution_context(
         )
     if observed_rows != expected_rows:
         raise StudyManifestError("manifest parent counts differ from formal precision evidence")
+    expected_manifest = calibration_manifest.to_canonical_mapping()
+    expected_manifest.update(
+        {
+            "study_id": (
+                "synthetic-formal-v1"
+                if manifest.phase is StudyPhase.FORMAL
+                else "synthetic-confirmation-v1"
+            ),
+            "phase": manifest.phase.value,
+            "base_seed": expected_seed,
+            "output_root": (
+                "outputs/formal/synthetic-formal-v1"
+                if manifest.phase is StudyPhase.FORMAL
+                else "outputs/confirmation/synthetic-confirmation-v1"
+            ),
+            "basis_fingerprint": precision_evidence["precision_fingerprint"],
+            "code_revision": code_revision,
+            "environment_fingerprint": environment_fingerprint,
+            "size_cells": _PRIMARY_SIZE_CELL_MAPPINGS,
+            "parent_replicates": manifest.parent_replicates,
+        }
+    )
+    if manifest.to_canonical_mapping() != expected_manifest:
+        raise StudyManifestError("manifest differs from the exact frozen phase contract")
+
+
+def _verify_execution_code_snapshot(root: Path, code_revision: str) -> None:
+    """Prove that execution-relevant source equals the declared Git commit."""
+
+    commands = (
+        ("rev-parse", "--verify", f"{code_revision}^{{commit}}"),
+        (
+            "diff",
+            "--quiet",
+            code_revision,
+            "--",
+            "secondaryexploration",
+            ":(exclude)secondaryexploration/analysis/formal_freeze.py",
+        ),
+    )
+    for arguments in commands:
+        try:
+            result = subprocess.run(
+                ("git", "-C", str(root), *arguments),
+                check=False,
+                capture_output=True,
+                text=True,
+            )
+        except OSError as exc:
+            raise StudyManifestError("Git is required to verify execution code") from exc
+        if result.returncode != 0:
+            raise StudyManifestError(
+                "execution source does not match the declared clean code revision"
+            )
+    try:
+        untracked = subprocess.run(
+            (
+                "git",
+                "-C",
+                str(root),
+                "ls-files",
+                "--others",
+                "--exclude-standard",
+                "--",
+                "secondaryexploration",
+            ),
+            check=False,
+            capture_output=True,
+            text=True,
+        )
+    except OSError as exc:
+        raise StudyManifestError("Git is required to verify execution code") from exc
+    if untracked.returncode != 0 or untracked.stdout.strip():
+        raise StudyManifestError(
+            "untracked execution source prevents code revision verification"
+        )
 
 
 def _resolve_read_path(root: Path, value: str | Path, label: str) -> Path:
@@ -379,6 +517,11 @@ def _parser() -> argparse.ArgumentParser:
         help="audited calibration JSON required to replay the precision freeze",
     )
     parser.add_argument(
+        "--calibration-manifest",
+        default=None,
+        help="audited calibration manifest required to reconstruct a non-pilot phase",
+    )
+    parser.add_argument(
         "--no-resume",
         action="store_true",
         help="fail if any expected block artifact already exists",
@@ -400,6 +543,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             code_revision=arguments.code_revision,
             precision_path=arguments.precision,
             calibration_evidence_path=arguments.calibration_evidence,
+            calibration_manifest_path=arguments.calibration_manifest,
         )
         print(
             json.dumps(
@@ -417,6 +561,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         code_revision=arguments.code_revision,
         precision_path=arguments.precision,
         calibration_evidence_path=arguments.calibration_evidence,
+        calibration_manifest_path=arguments.calibration_manifest,
         resume=not arguments.no_resume,
         progress=lambda message: print(message, flush=True),
     )

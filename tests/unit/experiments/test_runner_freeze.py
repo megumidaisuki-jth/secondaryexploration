@@ -6,6 +6,7 @@ from dataclasses import replace
 from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest
+from unittest.mock import patch
 
 from secondaryexploration.analysis.precision import (
     load_audited_calibration_evidence,
@@ -42,6 +43,10 @@ def _precision() -> dict[str, object]:
         _PRECISION,
         calibration_evidence=calibration,
     )
+
+
+def _calibration_manifest():
+    return load_study_design_manifest(_CALIBRATION_MANIFEST)
 
 
 def _formal_manifest(phase: StudyPhase = StudyPhase.FORMAL):
@@ -82,13 +87,17 @@ class FrozenRunnerContextTests(unittest.TestCase):
         with TemporaryDirectory(dir=_ROOT) as directory:
             manifest_path = Path(directory) / "formal.json"
             manifest_path.write_text(manifest.canonical_json, encoding="utf-8")
-            result = preflight_synthetic_study(
-                manifest_path,
-                workspace_root=_ROOT,
-                code_revision=_CODE_REVISION,
-                precision_path=_PRECISION,
-                calibration_evidence_path=_CALIBRATION_EVIDENCE,
-            )
+            with patch(
+                "secondaryexploration.experiments.runner._verify_execution_code_snapshot"
+            ):
+                result = preflight_synthetic_study(
+                    manifest_path,
+                    workspace_root=_ROOT,
+                    code_revision=_CODE_REVISION,
+                    precision_path=_PRECISION,
+                    calibration_evidence_path=_CALIBRATION_EVIDENCE,
+                    calibration_manifest_path=_CALIBRATION_MANIFEST,
+                )
 
         self.assertEqual(result["status"], "preflight-valid-no-execution")
         self.assertEqual(result["expected_block_count"], 240)
@@ -106,6 +115,7 @@ class FrozenRunnerContextTests(unittest.TestCase):
                     code_revision=_CODE_REVISION,
                     environment=environment,
                     precision_evidence=precision,
+                    calibration_manifest=_calibration_manifest(),
                 )
 
     def test_basis_seed_horizon_count_revision_and_environment_fail_closed(self) -> None:
@@ -133,6 +143,7 @@ class FrozenRunnerContextTests(unittest.TestCase):
                         code_revision=revision,
                         environment=attacked_environment,
                         precision_evidence=precision,
+                        calibration_manifest=_calibration_manifest(),
                     )
 
         with self.assertRaisesRegex(StudyManifestError, "requires"):
@@ -141,7 +152,29 @@ class FrozenRunnerContextTests(unittest.TestCase):
                 code_revision=_CODE_REVISION,
                 environment=environment,
                 precision_evidence=None,
+                calibration_manifest=None,
             )
+
+    def test_non_gate_manifest_fields_cannot_be_changed(self) -> None:
+        precision = _precision()
+        environment = runtime_environment()
+        manifest = _formal_manifest()
+        attacks = (
+            replace(manifest, study_id="synthetic-formal-attacked"),
+            replace(manifest, output_root="outputs/formal/attacked"),
+            replace(manifest, maximum_parent_attempts=999),
+            replace(manifest, per_node_capital=121),
+        )
+        for attacked in attacks:
+            with self.subTest(study_id=attacked.study_id, output=attacked.output_root):
+                with self.assertRaisesRegex(StudyManifestError, "exact frozen"):
+                    validate_frozen_execution_context(
+                        attacked,
+                        code_revision=_CODE_REVISION,
+                        environment=environment,
+                        precision_evidence=precision,
+                        calibration_manifest=_calibration_manifest(),
+                    )
 
     def test_pilot_rejects_formal_precision_but_needs_no_frozen_environment(self) -> None:
         pilot = load_study_design_manifest(_CALIBRATION_MANIFEST)
@@ -152,6 +185,7 @@ class FrozenRunnerContextTests(unittest.TestCase):
             code_revision=_CODE_REVISION,
             environment=environment,
             precision_evidence=None,
+            calibration_manifest=None,
         )
         with self.assertRaisesRegex(StudyManifestError, "pilot"):
             validate_frozen_execution_context(
@@ -159,6 +193,7 @@ class FrozenRunnerContextTests(unittest.TestCase):
                 code_revision=_CODE_REVISION,
                 environment=environment,
                 precision_evidence=_precision(),
+                calibration_manifest=_calibration_manifest(),
             )
 
 
