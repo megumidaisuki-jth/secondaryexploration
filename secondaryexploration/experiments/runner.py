@@ -6,6 +6,7 @@ import argparse
 from collections.abc import Callable, Mapping, Sequence
 import hashlib
 import json
+import os
 from pathlib import Path
 import platform
 import subprocess
@@ -85,8 +86,10 @@ def execute_synthetic_study(
     calibration_manifest_path: str | Path | None = None,
     resume: bool = True,
     progress: ProgressCallback | None = None,
+    worker_count: int = 1,
+    worker_index: int = 0,
 ) -> Path:
-    """Execute, exactly replay, checkpoint, and index every declared block."""
+    """Execute an exact serial study or one non-indexing deterministic shard."""
 
     (
         manifest,
@@ -94,7 +97,7 @@ def execute_synthetic_study(
         output_root,
         environment,
         _precision,
-        expected_count,
+        _expected_count,
     ) = _prepare_synthetic_study(
         manifest_path,
         workspace_root=workspace_root,
@@ -103,67 +106,275 @@ def execute_synthetic_study(
         calibration_evidence_path=calibration_evidence_path,
         calibration_manifest_path=calibration_manifest_path,
     )
-    block_root = output_root / "blocks"
-    completed_artifacts: list[dict[str, object]] = []
+    jobs = _select_worker_jobs(ledger, worker_count, worker_index)
 
-    for parent_seed in ledger.parent_seeds:
-        for parent_model in _REGISTERED_PARENT_MODELS:
-            block_key = _block_key(parent_seed.node_count, parent_seed.parent_replicate, parent_model)
-            artifact_path = block_root / f"{block_key}.json"
-            if artifact_path.exists():
-                if not resume:
-                    raise StudyManifestError(
-                        f"block artifact already exists with resume disabled: {artifact_path}"
-                    )
-                _notify(progress, f"resume {block_key}")
-                artifact = load_synthetic_block_artifact(
-                    artifact_path,
-                    manifest=manifest,
-                    ledger=ledger,
-                    parent_seed=parent_seed,
-                    parent_model=parent_model.value,
-                    code_revision=code_revision,
-                    environment=environment,
-                )
-            else:
-                _notify(progress, f"generate {block_key}")
-                started = perf_counter_ns()
-                result = run_synthetic_parent_block(
-                    manifest,
-                    parent_seed,
-                    parent_model,
-                )
-                generation_ns = perf_counter_ns() - started
-                _notify(progress, f"validate {block_key}")
-                validation_started = perf_counter_ns()
-                validate_synthetic_parent_block_result(
-                    result,
-                    manifest,
-                    parent_seed,
-                    parent_model,
-                )
-                validation_ns = perf_counter_ns() - validation_started
-                artifact = build_synthetic_block_artifact(
-                    result,
-                    code_revision=code_revision,
-                    environment=environment,
-                    generation_ns=generation_ns,
-                    validation_ns=validation_ns,
-                )
-                atomic_write_json(artifact_path, artifact)
-                _notify(progress, f"checkpoint {block_key}")
-            completed_artifacts.append(artifact)
-            summary = build_study_run_summary(
-                manifest,
-                ledger,
+    def _checkpoint(completed: list[dict[str, object]]) -> None:
+        summary = build_study_run_summary(
+            manifest,
+            ledger,
+            code_revision=code_revision,
+            environment=environment,
+            block_artifacts=completed,
+        )
+        atomic_write_json(output_root / "run-summary.json", summary)
+
+    completed_artifacts = _execute_registered_jobs(
+        manifest,
+        ledger,
+        output_root,
+        environment,
+        code_revision=code_revision,
+        jobs=jobs,
+        resume=resume,
+        progress=progress,
+        use_exclusive_locks=worker_count > 1,
+        checkpoint=_checkpoint if worker_count == 1 else None,
+    )
+    if worker_count > 1:
+        _notify(progress, f"shard-complete {len(completed_artifacts)}/{len(jobs)}")
+        return output_root / "blocks"
+
+    _notify(progress, f"complete {len(completed_artifacts)}/{len(jobs)}")
+    return output_root / "run-summary.json"
+
+
+def finalize_synthetic_study(
+    manifest_path: str | Path,
+    *,
+    workspace_root: str | Path,
+    code_revision: str,
+    precision_path: str | Path | None = None,
+    calibration_evidence_path: str | Path | None = None,
+    calibration_manifest_path: str | Path | None = None,
+) -> Path:
+    """Publish one complete index after strict loading of every expected block."""
+
+    (
+        manifest,
+        ledger,
+        output_root,
+        environment,
+        _precision,
+        _expected_count,
+    ) = _prepare_synthetic_study(
+        manifest_path,
+        workspace_root=workspace_root,
+        code_revision=code_revision,
+        precision_path=precision_path,
+        calibration_evidence_path=calibration_evidence_path,
+        calibration_manifest_path=calibration_manifest_path,
+    )
+    artifacts: list[dict[str, object]] = []
+    block_root = output_root / "blocks"
+    for parent_seed, parent_model in _registered_block_jobs(ledger):
+        block_key = _block_key(parent_seed.node_count, parent_seed.parent_replicate, parent_model)
+        artifact_path = block_root / f"{block_key}.json"
+        if not artifact_path.is_file():
+            raise StudyManifestError(
+                f"cannot finalize without every registered block artifact: {artifact_path}"
+            )
+        artifacts.append(
+            load_synthetic_block_artifact(
+                artifact_path,
+                manifest=manifest,
+                ledger=ledger,
+                parent_seed=parent_seed,
+                parent_model=parent_model.value,
                 code_revision=code_revision,
                 environment=environment,
-                block_artifacts=completed_artifacts,
             )
-            atomic_write_json(output_root / "run-summary.json", summary)
+        )
+    summary = build_study_run_summary(
+        manifest,
+        ledger,
+        code_revision=code_revision,
+        environment=environment,
+        block_artifacts=artifacts,
+    )
+    if summary["status"] != "complete":
+        raise StudyManifestError("finalization did not rebuild a complete summary")
+    summary_path = output_root / "run-summary.json"
+    atomic_write_json(summary_path, summary)
+    return summary_path
 
-    _notify(progress, f"complete {len(completed_artifacts)}/{expected_count}")
-    return output_root / "run-summary.json"
+
+def _registered_block_jobs(ledger) -> tuple[tuple[object, ParentGraphModel], ...]:
+    """Return the one canonical ordering of independent parent-model blocks."""
+
+    return tuple(
+        (parent_seed, parent_model)
+        for parent_seed in ledger.parent_seeds
+        for parent_model in _REGISTERED_PARENT_MODELS
+    )
+
+
+def _select_worker_jobs(
+    ledger,
+    worker_count: int,
+    worker_index: int,
+) -> tuple[tuple[object, ParentGraphModel], ...]:
+    """Return a deterministic disjoint ordinal partition of registered blocks."""
+
+    if type(worker_count) is not int or worker_count < 1:
+        raise StudyManifestError("worker_count must be a positive integer")
+    if type(worker_index) is not int or not 0 <= worker_index < worker_count:
+        raise StudyManifestError("worker_index must be in [0, worker_count)")
+    return _registered_block_jobs(ledger)[worker_index::worker_count]
+
+
+def _execute_registered_jobs(
+    manifest: StudyDesignManifest,
+    ledger,
+    output_root: Path,
+    environment: Mapping[str, object],
+    *,
+    code_revision: str,
+    jobs: tuple[tuple[object, ParentGraphModel], ...],
+    resume: bool,
+    progress: ProgressCallback | None,
+    use_exclusive_locks: bool,
+    checkpoint: Callable[[list[dict[str, object]]], None] | None,
+) -> list[dict[str, object]]:
+    """Execute registered jobs, fully replaying before each atomic checkpoint."""
+
+    block_root = output_root / "blocks"
+    completed: list[dict[str, object]] = []
+    for parent_seed, parent_model in jobs:
+        block_key = _block_key(parent_seed.node_count, parent_seed.parent_replicate, parent_model)
+        artifact_path = block_root / f"{block_key}.json"
+        if artifact_path.exists():
+            if not resume:
+                raise StudyManifestError(
+                    f"block artifact already exists with resume disabled: {artifact_path}"
+                )
+            _notify(progress, f"resume {block_key}")
+            artifact = _load_registered_artifact(
+                artifact_path,
+                manifest,
+                ledger,
+                parent_seed,
+                parent_model,
+                code_revision,
+                environment,
+            )
+        else:
+            lock_path: Path | None = None
+            try:
+                if use_exclusive_locks:
+                    lock_path = _acquire_block_lock(block_root, block_key)
+                    if artifact_path.exists():
+                        if not resume:
+                            raise StudyManifestError(
+                                "block artifact appeared while resume was disabled: "
+                                f"{artifact_path}"
+                            )
+                        _notify(progress, f"resume {block_key}")
+                        artifact = _load_registered_artifact(
+                            artifact_path,
+                            manifest,
+                            ledger,
+                            parent_seed,
+                            parent_model,
+                            code_revision,
+                            environment,
+                        )
+                    else:
+                        artifact = _generate_registered_artifact(
+                            manifest,
+                            parent_seed,
+                            parent_model,
+                            artifact_path,
+                            code_revision,
+                            environment,
+                            progress,
+                        )
+                else:
+                    artifact = _generate_registered_artifact(
+                        manifest,
+                        parent_seed,
+                        parent_model,
+                        artifact_path,
+                        code_revision,
+                        environment,
+                        progress,
+                    )
+            finally:
+                if lock_path is not None:
+                    lock_path.unlink(missing_ok=True)
+        completed.append(artifact)
+        if checkpoint is not None:
+            checkpoint(completed)
+    return completed
+
+
+def _generate_registered_artifact(
+    manifest: StudyDesignManifest,
+    parent_seed,
+    parent_model: ParentGraphModel,
+    artifact_path: Path,
+    code_revision: str,
+    environment: Mapping[str, object],
+    progress: ProgressCallback | None,
+) -> dict[str, object]:
+    block_key = _block_key(parent_seed.node_count, parent_seed.parent_replicate, parent_model)
+    _notify(progress, f"generate {block_key}")
+    started = perf_counter_ns()
+    result = run_synthetic_parent_block(manifest, parent_seed, parent_model)
+    generation_ns = perf_counter_ns() - started
+    _notify(progress, f"validate {block_key}")
+    validation_started = perf_counter_ns()
+    validate_synthetic_parent_block_result(result, manifest, parent_seed, parent_model)
+    validation_ns = perf_counter_ns() - validation_started
+    artifact = build_synthetic_block_artifact(
+        result,
+        code_revision=code_revision,
+        environment=environment,
+        generation_ns=generation_ns,
+        validation_ns=validation_ns,
+    )
+    atomic_write_json(artifact_path, artifact)
+    _notify(progress, f"checkpoint {block_key}")
+    return artifact
+
+
+def _load_registered_artifact(
+    artifact_path: Path,
+    manifest: StudyDesignManifest,
+    ledger,
+    parent_seed,
+    parent_model: ParentGraphModel,
+    code_revision: str,
+    environment: Mapping[str, object],
+) -> dict[str, object]:
+    return load_synthetic_block_artifact(
+        artifact_path,
+        manifest=manifest,
+        ledger=ledger,
+        parent_seed=parent_seed,
+        parent_model=parent_model.value,
+        code_revision=code_revision,
+        environment=environment,
+    )
+
+
+def _acquire_block_lock(block_root: Path, block_key: str) -> Path:
+    """Create a non-stealable per-key lock or fail before duplicate generation."""
+
+    lock_path = block_root / ".locks" / f"{block_key}.lock"
+    lock_path.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        descriptor = os.open(str(lock_path), os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+    except FileExistsError as exc:
+        raise StudyManifestError(
+            f"registered block is already exclusively locked: {block_key}"
+        ) from exc
+    try:
+        with os.fdopen(descriptor, "w", encoding="utf-8") as handle:
+            handle.write(f"pid={os.getpid()}\n")
+    except BaseException:
+        lock_path.unlink(missing_ok=True)
+        raise
+    return lock_path
 
 
 def preflight_synthetic_study(
@@ -174,12 +385,14 @@ def preflight_synthetic_study(
     precision_path: str | Path | None = None,
     calibration_evidence_path: str | Path | None = None,
     calibration_manifest_path: str | Path | None = None,
+    worker_count: int = 1,
+    worker_index: int = 0,
 ) -> dict[str, object]:
     """Replay every launch gate without creating an output directory or block."""
 
     (
         manifest,
-        _ledger,
+        ledger,
         output_root,
         environment,
         precision,
@@ -192,6 +405,7 @@ def preflight_synthetic_study(
         calibration_evidence_path=calibration_evidence_path,
         calibration_manifest_path=calibration_manifest_path,
     )
+    selected_jobs = _select_worker_jobs(ledger, worker_count, worker_index)
     return {
         "status": "preflight-valid-no-execution",
         "study_id": manifest.study_id,
@@ -204,6 +418,9 @@ def preflight_synthetic_study(
         "environment": dict(environment),
         "environment_fingerprint": runtime_environment_fingerprint(environment),
         "expected_block_count": expected_count,
+        "selected_block_count": len(selected_jobs),
+        "worker_count": worker_count,
+        "worker_index": worker_index,
         "output_root": manifest.output_root,
         "output_already_exists": output_root.exists(),
         "execution_code_snapshot_verified": True,
@@ -527,6 +744,23 @@ def _parser() -> argparse.ArgumentParser:
         help="fail if any expected block artifact already exists",
     )
     parser.add_argument(
+        "--worker-count",
+        type=int,
+        default=1,
+        help="deterministic shard count; shards never write the shared run summary",
+    )
+    parser.add_argument(
+        "--worker-index",
+        type=int,
+        default=0,
+        help="zero-based deterministic shard index",
+    )
+    parser.add_argument(
+        "--finalize-only",
+        action="store_true",
+        help="strictly load all expected artifacts and atomically publish one complete summary",
+    )
+    parser.add_argument(
         "--preflight-only",
         action="store_true",
         help="validate every launch gate and exit without writing or running blocks",
@@ -536,6 +770,16 @@ def _parser() -> argparse.ArgumentParser:
 
 def main(argv: Sequence[str] | None = None) -> int:
     arguments = _parser().parse_args(argv)
+    if arguments.finalize_only and arguments.preflight_only:
+        _parser().error("--finalize-only and --preflight-only are mutually exclusive")
+    if arguments.finalize_only and (
+        arguments.worker_count != 1
+        or arguments.worker_index != 0
+        or arguments.no_resume
+    ):
+        _parser().error(
+            "--finalize-only cannot be combined with worker selection or --no-resume"
+        )
     if arguments.preflight_only:
         result = preflight_synthetic_study(
             arguments.manifest,
@@ -544,6 +788,8 @@ def main(argv: Sequence[str] | None = None) -> int:
             precision_path=arguments.precision,
             calibration_evidence_path=arguments.calibration_evidence,
             calibration_manifest_path=arguments.calibration_manifest,
+            worker_count=arguments.worker_count,
+            worker_index=arguments.worker_index,
         )
         print(
             json.dumps(
@@ -555,6 +801,17 @@ def main(argv: Sequence[str] | None = None) -> int:
             flush=True,
         )
         return 0
+    if arguments.finalize_only:
+        summary_path = finalize_synthetic_study(
+            arguments.manifest,
+            workspace_root=arguments.workspace_root,
+            code_revision=arguments.code_revision,
+            precision_path=arguments.precision,
+            calibration_evidence_path=arguments.calibration_evidence,
+            calibration_manifest_path=arguments.calibration_manifest,
+        )
+        print(summary_path, flush=True)
+        return 0
     summary_path = execute_synthetic_study(
         arguments.manifest,
         workspace_root=arguments.workspace_root,
@@ -564,6 +821,8 @@ def main(argv: Sequence[str] | None = None) -> int:
         calibration_manifest_path=arguments.calibration_manifest,
         resume=not arguments.no_resume,
         progress=lambda message: print(message, flush=True),
+        worker_count=arguments.worker_count,
+        worker_index=arguments.worker_index,
     )
     print(summary_path, flush=True)
     return 0
@@ -575,6 +834,7 @@ if __name__ == "__main__":
 
 __all__ = [
     "execute_synthetic_study",
+    "finalize_synthetic_study",
     "main",
     "preflight_synthetic_study",
     "runtime_environment",
