@@ -13,7 +13,7 @@ base seeds 2026081001 and 2026081002, respectively. Their output roots and
 manifest fingerprints are distinct.
 
 The manifests bind runner revision
-`d853926b2704db4f035184997388c8b382e5b7d9` and the CPython 3.12.13 Windows
+`425710a418b1b28e6c5cd813dff18aeeaa6303c3` and the CPython 3.12.13 Windows
 AMD64 environment fingerprint. Formal execution must provide the precision
 artifact and calibration evidence again; the runner strictly replays them and
 checks basis, phase seed, horizon, parent count, revision and environment
@@ -30,8 +30,8 @@ simulation runner.
 
 Frozen manifest fingerprints:
 
-- formal: `d06a5f4bb146fa56fb53408fb48db1b69e5b522e7235b826b2ddcd6a0f3b76ad`;
-- confirmation: `427c9840d5fd037ae6b66d0f45d68d8188b42b2ac72702d4391c0d2b536a38c8`.
+- formal: `ac7152fc11b79c61b1ec14dc24b26d0ee60d159b00ddaa396e166651212191a6`;
+- confirmation: `dd3caac05a77e89ff69f24dde32930365334b39d4b6cdd5b5d773f5380c3fb5a`.
 
 Write-free launch validation uses:
 
@@ -39,7 +39,7 @@ Write-free launch validation uses:
 python -m secondaryexploration.experiments.runner `
   configs\formal\synthetic-formal-v1.json `
   --workspace-root . `
-  --code-revision d853926b2704db4f035184997388c8b382e5b7d9 `
+  --code-revision 425710a418b1b28e6c5cd813dff18aeeaa6303c3 `
   --precision results\planning\formal-precision-v1.json `
   --calibration-evidence results\pilot\synthetic-calibration-v1\evidence.json `
   --calibration-manifest configs\pilot\synthetic-calibration-v1.json `

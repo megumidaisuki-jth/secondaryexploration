@@ -29,7 +29,7 @@ _CALIBRATION_EVIDENCE = (
     _ROOT / "results" / "pilot" / "synthetic-calibration-v1" / "evidence.json"
 )
 _PRECISION = _ROOT / "results" / "planning" / "formal-precision-v1.json"
-_CODE_REVISION = "d853926b2704db4f035184997388c8b382e5b7d9"
+_CODE_REVISION = "425710a418b1b28e6c5cd813dff18aeeaa6303c3"
 _FORMAL = _ROOT / "configs" / "formal" / "synthetic-formal-v1.json"
 _CONFIRMATION = (
     _ROOT / "configs" / "confirmation" / "synthetic-confirmation-v1.json"
@@ -75,11 +75,11 @@ class FrozenPhaseManifestTests(unittest.TestCase):
         expected = {
             StudyPhase.FORMAL: (
                 _FORMAL,
-                "d06a5f4bb146fa56fb53408fb48db1b69e5b522e7235b826b2ddcd6a0f3b76ad",
+                "ac7152fc11b79c61b1ec14dc24b26d0ee60d159b00ddaa396e166651212191a6",
             ),
             StudyPhase.CONFIRMATION: (
                 _CONFIRMATION,
-                "427c9840d5fd037ae6b66d0f45d68d8188b42b2ac72702d4391c0d2b536a38c8",
+                "dd3caac05a77e89ff69f24dde32930365334b39d4b6cdd5b5d773f5380c3fb5a",
             ),
         }
         for phase, (path, fingerprint) in expected.items():

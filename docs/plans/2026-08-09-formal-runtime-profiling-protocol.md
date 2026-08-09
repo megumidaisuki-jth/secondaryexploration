@@ -3,7 +3,7 @@
 ## Purpose and non-interference guarantee
 
 The formal and confirmation manifests are frozen at the execution revision
-`d853926b2704db4f035184997388c8b382e5b7d9`.  No formal phase may be launched
+`425710a418b1b28e6c5cd813dff18aeeaa6303c3`.  No formal phase may be launched
 until the size-120 and size-240 paths have a measured resource envelope.
 
 `tools/profile_synthetic_block.py` profiles an exact registered
