@@ -156,15 +156,20 @@ def _build_residual_arcs(
         node_id: [] for node_id in state.nodes
     }
     for edge in state.hyperedges:
-        for payer in edge.members:
-            payer_balance = edge.balance_of(payer)
+        # ``balances`` is already the canonical member ordering.  Iterating it
+        # directly avoids rebuilding ``members``, rescanning for
+        # ``balance_of``, and recomputing the conserved edge total for every
+        # payer/payee pair in this hot path.
+        edge_balances = edge.balances
+        edge_total = sum(balance for _, balance in edge_balances)
+        for payer, payer_balance in edge_balances:
             if payer_balance < amount:
                 continue
             residual_fraction = Fraction(
                 payer_balance - amount,
-                edge.total_balance,
+                edge_total,
             )
-            for payee in edge.members:
+            for payee, _ in edge_balances:
                 if payee == payer:
                     continue
                 outgoing_lists[payer].append(
