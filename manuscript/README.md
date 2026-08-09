@@ -46,7 +46,8 @@ synthetic and structural-panel conditions.
 
 - Complete formal and confirmation evidence before drafting Results.
 - Integrate the verified Methods citation package, extend the related-work
-  search, and add the accepted Lightning-panel Methods after its licence
-  contract is frozen.
+  search, and add the Lightning-panel Methods from the frozen source-identity,
+  rights and sampling contracts while keeping the unresolved 2026 preservation
+  gate explicit.
 - Select the exact IEEE TNSM LaTeX template and section word budget before
   typesetting.

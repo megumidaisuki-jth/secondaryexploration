@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "contract_id": "lightning-source-rights-v1",
+  "checked_at_utc": "2026-08-09T15:32:57Z",
+  "policy": {
+    "public_access_is_not_treated_as_redistribution_permission": true,
+    "software_licenses_are_not_extended_to_server_output_data": true,
+    "raw_third_party_files_are_not_committed_to_this_repository": true,
+    "readers_retrieve_raw_sources_from_named_upstream_locations_where_the_frozen_bytes_remain_available": true,
+    "a_dynamic_endpoint_is_not_treated_as_persistent_access_to_a_historical_capture": true
+  },
+  "sources": [
+    {
+      "panel_years": [
+        2020,
+        2023
+      ],
+      "source_id": "harvard-dataverse-ln-geolocated-v1.1",
+      "source_type": "reused-public-dataset",
+      "title": "Geolocated Lightning Network topology snapshots: A dataset covering 2019–2023",
+      "creators": [
+        "Danila Valko",
+        "Jorge Marx Gómez"
+      ],
+      "repository": "Harvard Dataverse",
+      "dataset_doi": "10.7910/DVN/2OAVO6",
+      "dataset_version": "1.1",
+      "publication_year": 2025,
+      "selected_file_id": 12510549,
+      "selected_file_name": "snapshots.geo.zip",
+      "selected_file_restricted": false,
+      "license_status": "explicit-open-license",
+      "license_spdx": "CC-BY-4.0",
+      "license_uri": "https://creativecommons.org/licenses/by/4.0/legalcode",
+      "access_url": "https://dataverse.harvard.edu/api/access/datafile/12510549",
+      "metadata_evidence": [
+        "https://dataverse.harvard.edu/api/datasets/:persistentId/?persistentId=doi:10.7910/DVN/2OAVO6&version=1.1",
+        "https://api.datacite.org/dois/10.7910/DVN/2OAVO6"
+      ],
+      "project_redistribution_policy": "not-bundled-refer-to-versioned-repository-and-attribute"
+    },
+    {
+      "panel_years": [
+        2022
+      ],
+      "source_id": "prior-paper:2c4ffc92d704fa1b043fac395c1e5f662990d497",
+      "source_type": "reused-public-third-party-no-explicit-license",
+      "title": "Public inputs accompanying Addressing Scalability Issues of Blockchains With Hypergraph Payment Networks",
+      "repository": "iAradK/improving-Blockchain-Scalability-with-Hypergraph-Payment-Networks",
+      "repository_url": "https://github.com/iAradK/improving-Blockchain-Scalability-with-Hypergraph-Payment-Networks",
+      "upstream_commit": "2c4ffc92d704fa1b043fac395c1e5f662990d497",
+      "files": [
+        {
+          "path": "LN_data_2022.zip",
+          "sha256": "20998f859721383a8bbb23abd512043a53f6f98e5c658f12e369620cf3093499"
+        },
+        {
+          "path": "Lightning_2022_10k_transactions.csv",
+          "sha256": "705e619032964cb038044c3e54f2cae035759b43e75469f8b82094982d1e6cc9"
+        }
+      ],
+      "license_status": "no-explicit-license-detected-at-frozen-commit-or-current-repository-root",
+      "license_spdx": null,
+      "license_uri": null,
+      "access_url": "https://github.com/iAradK/improving-Blockchain-Scalability-with-Hypergraph-Payment-Networks/tree/2c4ffc92d704fa1b043fac395c1e5f662990d497",
+      "metadata_evidence": [
+        "https://api.github.com/repos/iAradK/improving-Blockchain-Scalability-with-Hypergraph-Payment-Networks/contents?ref=2c4ffc92d704fa1b043fac395c1e5f662990d497",
+        "https://api.github.com/repos/iAradK/improving-Blockchain-Scalability-with-Hypergraph-Payment-Networks/license"
+      ],
+      "project_redistribution_policy": "raw-files-not-redistributed-upstream-retrieval-and-hash-verification-only"
+    },
+    {
+      "panel_years": [
+        2026
+      ],
+      "source_id": "ldk-rgs-mainnet-2026-08-07T00:00:00Z",
+      "source_type": "public-service-output-no-explicit-payload-license",
+      "title": "Lightning Dev Kit Rapid Gossip Sync v2 mainnet snapshot",
+      "service_operator": "Lightning Dev Kit",
+      "snapshot_url": "https://rapidsync.lightningdevkit.org/snapshot/v2/0",
+      "retrieved_at_utc": "2026-08-07T01:56:58Z",
+      "sha256": "a0d495d951f44e350c35bd7ba9fb11ca59391fa8bc113a8d9efaf07fc0a611a0",
+      "payload_license_status": "no-explicit-snapshot-payload-license-detected",
+      "payload_license_spdx": null,
+      "payload_license_uri": null,
+      "server_software_license": "MIT-OR-Apache-2.0",
+      "server_software_license_scope": "software-repository-only-not-treated-as-payload-license",
+      "access_url": "https://rapidsync.lightningdevkit.org/snapshot/v2/0",
+      "access_url_semantics": "dynamic-current-full-snapshot-not-a-persistent-link-to-the-2026-08-07-capture",
+      "exact_capture_access_status": "not-currently-publicly-resolvable-after-rgs-cache-rotation",
+      "dynamic_endpoint_check": {
+        "checked_at_utc": "2026-08-09T15:32:57Z",
+        "content_length": 3549749,
+        "sha256": "31216098c18febe9d04a8d3f95266fac602d6f19ef76bf599912feb7c0132a51",
+        "matches_frozen_capture": false
+      },
+      "metadata_evidence": [
+        "https://lightningdevkit.org/blog/announcing-rapid-gossip-sync",
+        "https://github.com/lightningdevkit/rapid-gossip-sync-server/blob/main/LICENSE.md",
+        "https://github.com/lightningdevkit/rapid-gossip-sync-server/blob/main/README.md",
+        "https://github.com/lightningdevkit/rapid-gossip-sync-server/blob/main/src/snapshot.rs"
+      ],
+      "project_redistribution_policy": "captured-payload-not-redistributed-pending-explicit-permission-or-data-license",
+      "publication_eligibility": "diagnostic-only-until-exact-capture-is-lawfully-preserved-or-panel-is-removed"
+    }
+  ],
+  "contract_fingerprint": "10d190aeca3c15ed29dd20ff5da6b0b07c1620508f2545208c85a58c3ea7b5aa"
+}

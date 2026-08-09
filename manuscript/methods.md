@@ -96,6 +96,53 @@ the same design with a disjoint root seed. ER-GNM, BA and fixed-count SBM are
 treated as distinct strata rather than exchangeable draws from one pooled
 graph distribution.
 
+## Lightning structural cross-sections
+
+We maintain a separate structural-sensitivity route based on four public
+Lightning cross-sections. The 2020 and 2023 graphs are the latest
+quality-controlled within-year snapshots selected from version 1.1 of the
+Harvard Dataverse geolocated-topology dataset. The 2022 graph is reconstructed
+from the uploaded study's companion repository at commit
+`2c4ffc92d704fa1b043fac395c1e5f662990d497` using the frozen active-channel
+filter. The 2026 graph is parsed from a hash-attested Lightning Dev Kit Rapid
+Gossip Sync v2 response captured on 7 August 2026. RGS is treated as one
+semi-trusted collector's approximate public gossip view, not a consensus
+snapshot. The historical GML policy ceiling is not relabelled as funding
+capacity, and RGS routing-policy updates are not interpreted as private
+balances.
+
+Sampling starts from the largest connected component of each source graph.
+Core and peripheral candidate pools are the upper and lower
+`ceil(|V|/5)` rank tails, respectively, under exact core number, degree and
+canonical node identifier. Bridge candidates are articulation vertices after
+excluding both rank-tail pools. Three distinct anchors are selected in each
+stratum by source-bound hash ranking. From every anchor, seed-keyed
+breadth-first discovery generates connected induced subgraphs at
+`n in {30,60,120,240}`. The growth seed excludes size, so the four sizes for a
+given source, stratum and anchor are exact discovery-order prefixes rather than
+independent draws. Full replay recomputes the source largest component,
+strata, anchor, discovery order, induced edges and all fingerprints.
+
+This procedure yields a 144-member diagnostic composition grid: four source
+years, three anchor strata, three anchors and four nested sizes. It is not a
+formal sample size. Samples from one source may overlap, and neither different
+anchors nor different sizes are treated as independent realizations of the
+worldwide Lightning Network. A stratum label describes the anchor in the full
+source component; it does not assert that the entire induced sample is core,
+bridge or peripheral. Node-identifier boundary ties and cross-anchor overlap
+are retained as explicit sensitivity diagnostics. Equal per-node capital is
+available for all years, whereas public-capacity-derived initialization is
+restricted to 2022 and 2026. These structural panels remain outside the
+synthetic parent-stratified confirmatory bootstrap and cannot estimate real
+Lightning payment-failure rates or causal year effects.
+
+The 2026 capture has an additional availability restriction. The RGS
+zero-timestamp endpoint is dynamic, no explicit snapshot-payload licence was
+identified, and the historical bytes are not persistently resolvable after
+server cache rotation. This panel therefore remains diagnostic-only until the
+exact capture can be lawfully preserved in a durable repository; otherwise it
+will be removed from publication claims.
+
 ## Payment-topology construction and resource matching
 
 Each parent graph produces four source HPN families: a closed-neighborhood Node
@@ -310,8 +357,8 @@ and rejection are interchangeable events.
   IEEE-numbered bibliography when the LaTeX structure is fixed, and extend it
   with the Lightning source-semantics and related-work references needed by
   the Introduction and structural-panel subsection.
-- Add the Lightning structural-panel acquisition and sampling subsection after
-  the four accepted source snapshots and their licences are finalized.
+- Resolve the 2026 RGS preservation gate by obtaining permission to archive
+  the exact capture or removing that panel from publication claims.
 - Convert this Markdown draft to the target IEEE TNSM LaTeX structure after
   the journal template and Methods word allocation are fixed.
 - Add hardware and total phase-runtime reporting only after formal and
@@ -324,5 +371,6 @@ and rejection are interchangeable events.
 | Comparisons hold capital, request traces and registered resource panels fixed | Formal manifests, paired-run manifests and strict artifact loaders | Supported by implemented contract |
 | Demand-aware construction uses training demand only | Constructor API, held-out seed separation and complete replay | Supported by implemented contract |
 | Traffic traces are not independent topology replicates | Parent-level aggregation and stratified bootstrap contract | Supported by implemented contract |
+| Lightning samples are structural cross-sections rather than independent network replicates | Hash-attested source manifests, diagnostic sampling registry and source-rights contract | Supported for source and sampling provenance; 2026 remains diagnostic-only pending preservation |
 | Formal and confirmation conclusions remain independent | Disjoint seed ledgers, separate phase evidence and replication state machine | Supported by implemented contract |
 | Any topology improves service reliability | Complete formal and confirmation endpoint evidence | Not yet available; no claim made |

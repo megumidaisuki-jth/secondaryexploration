@@ -47,6 +47,8 @@ The result-free working manuscript materials are:
 - [Manuscript workspace and drafting status](manuscript/README.md)
 - [Methods working draft](manuscript/methods.md)
 - [Canonical terminology ledger](manuscript/terminology.md)
+- [Data Availability working draft](manuscript/data-availability.md)
+- [Lightning source rights and redistribution audit](docs/evidence/2026-08-09-lightning-source-rights-audit.md)
 
 ## Current implementation status
 
