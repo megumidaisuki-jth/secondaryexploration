@@ -38,6 +38,15 @@ from .survival import (
     SurvivalPoint,
     kaplan_meier,
 )
+from .stratified_inference import (
+    StratifiedContrastSample,
+    StratifiedSimultaneousIntervalFamily,
+    StratumContrastSample,
+    apply_stratified_confirmatory_hierarchy,
+    bootstrap_stratified_parent_indices,
+    stratified_hierarchical_percentile_intervals,
+    stratified_simultaneous_percentile_intervals,
+)
 
 
 __all__ = [
@@ -60,17 +69,24 @@ __all__ = [
     "ParentContrastMean",
     "RegisteredInference",
     "SimultaneousIntervalFamily",
+    "StratifiedContrastSample",
+    "StratifiedSimultaneousIntervalFamily",
+    "StratumContrastSample",
     "VariantServiceSummary",
     "WithinBlockContrast",
     "kaplan_meier",
     "apply_confirmatory_hierarchy",
+    "apply_stratified_confirmatory_hierarchy",
     "block_contrast_observation",
     "bootstrap_parent_indices",
+    "bootstrap_stratified_parent_indices",
     "empirical_quantile",
     "group_parent_contrasts",
     "hierarchical_contrast_sample",
     "hierarchical_percentile_intervals",
     "service_summary",
     "simultaneous_percentile_intervals",
+    "stratified_hierarchical_percentile_intervals",
+    "stratified_simultaneous_percentile_intervals",
     "within_block_contrast",
 ]
