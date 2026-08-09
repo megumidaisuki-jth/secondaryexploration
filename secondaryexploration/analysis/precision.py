@@ -235,6 +235,14 @@ def load_formal_precision_evidence(
     return raw
 
 
+def load_audited_calibration_evidence(path: str | Path) -> dict[str, object]:
+    """Strictly load the one audited calibration accepted by this freeze."""
+
+    raw = _load_strict_json(path, "calibration evidence")
+    _validate_calibration_source(raw)
+    return raw
+
+
 def generate_formal_precision_evidence(
     calibration_path: str | Path,
     *,
@@ -530,6 +538,7 @@ __all__ = [
     "FORMAL_PRECISION_SCHEMA_VERSION",
     "build_formal_precision_evidence",
     "generate_formal_precision_evidence",
+    "load_audited_calibration_evidence",
     "load_formal_precision_evidence",
     "validate_formal_precision_evidence",
 ]
