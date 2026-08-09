@@ -13,6 +13,7 @@ import argparse
 import ctypes
 from ctypes import wintypes
 import json
+import os
 from pathlib import Path
 import sys
 from time import perf_counter_ns
@@ -30,6 +31,10 @@ from secondaryexploration.experiments import (
 from secondaryexploration.experiments.pipeline import (
     run_synthetic_parent_block,
     validate_synthetic_parent_block_result,
+)
+from secondaryexploration.experiments.runner import (
+    runtime_environment,
+    runtime_environment_fingerprint,
 )
 from secondaryexploration.topology import ParentGraphModel
 
@@ -88,12 +93,38 @@ def _parse_args() -> argparse.Namespace:
         action="store_true",
         help="profile generation only; by default the complete exact replay also runs",
     )
+    parser.add_argument("--batch-id", required=True)
+    parser.add_argument("--profile-id", required=True)
     return parser.parse_args()
+
+
+def _validate_batch_identity(args: argparse.Namespace) -> None:
+    if (
+        len(args.batch_id) != 64
+        or any(character not in "0123456789abcdef" for character in args.batch_id)
+    ):
+        raise SystemExit("batch-id must be a lowercase SHA-256 value")
+    model_labels = {
+        "er_gnm": "er",
+        "barabasi_albert": "ba",
+        "sbm_fixed_count": "sbm",
+    }
+    mode = "generation" if args.skip_replay else "full"
+    expected = (
+        f"n{args.node_count}-{model_labels[args.model]}-"
+        f"r{args.parent_replicate}-{mode}"
+    )
+    if args.profile_id != expected:
+        raise SystemExit("profile-id differs from the requested diagnostic cell")
 
 
 def main() -> None:
     args = _parse_args()
+    _validate_batch_identity(args)
     manifest = load_study_design_manifest(args.manifest)
+    environment_fingerprint = runtime_environment_fingerprint(runtime_environment())
+    if environment_fingerprint != manifest.environment_fingerprint:
+        raise SystemExit("runtime environment differs from the frozen manifest")
     ledger = build_study_seed_ledger(manifest)
     matching_seeds = tuple(
         seed
@@ -118,8 +149,12 @@ def main() -> None:
     print(
         json.dumps(
             {
-                "diagnostic": "exact-synthetic-parent-block-profile.v1",
+                "diagnostic": "exact-synthetic-parent-block-profile.v2",
+                "batch_id": args.batch_id,
+                "profile_id": args.profile_id,
+                "process_id": os.getpid(),
                 "manifest_fingerprint": manifest.fingerprint,
+                "environment_fingerprint": environment_fingerprint,
                 "node_count": args.node_count,
                 "parent_replicate": args.parent_replicate,
                 "parent_model": model.value,

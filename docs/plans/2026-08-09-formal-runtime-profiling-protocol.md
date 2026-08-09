@@ -19,12 +19,21 @@ The ER runs measure the replay multiplier at each large size, while the six
 generation measurements cover every large-size parent-model stratum.  No
 generation-only record is mislabelled as a complete runner block.
 
-The grid is launched concurrently at profiler revision
-`80f529e0f12e196974f5c684cdd6e1cf794ba55a` as a six-worker throughput smoke
-test.  Each stdout is redirected to a unique `tmp/profiling/*.stdout.json`
-file and each stderr to a corresponding zero-length `*.stderr.txt` file.  The
-profiler records its own Windows peak working set.  The six profiler processes
-never invoke the formal artifact writer.
+The accepted grid is launched by one revision-bound parent process as a
+six-worker throughput smoke test.  One frozen batch ID is passed to every
+child; each stdout repeats that batch ID, its registered profile ID and its OS
+process ID.  The parent writes a live launch witness before waiting, then a
+finalization witness binding every PID, exit code, redirected filename and
+stdout/stderr SHA-256 after all children exit.  Each stdout is redirected to a
+unique `tmp/profiling/*.stdout.json` file and each stderr to a corresponding
+zero-length `*.stderr.txt` file.  The profiler records its own Windows peak
+working set.  The six profiler processes never invoke the formal artifact
+writer.
+
+The first six-worker attempt under revision `80f529e0...` was terminated after
+an independent audit found that its v1 stdout lacked batch/PID binding.  It
+completed no accepted record, its empty partial logs were removed, and none of
+its timing contributes to the gate.
 
 An earlier optimized size-240 ER generation-only process completed between
 145 and 152 minutes of observed wall time, but its stdout pipe became
@@ -38,16 +47,37 @@ throughput reference for the concurrent smoke test.
 Use the environment pinned by the formal manifest, not the system Python:
 
 ```powershell
-$py = 'C:\Users\jiate\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe'
-& $py -m cProfile -o tmp/profiling/n120-er-r0-full.pstats `
-  tools/profile_synthetic_block.py configs/formal/synthetic-formal-v1.json `
-  --node-count 120 --parent-replicate 0 --model er_gnm
+$runtimePython = 'C:\Users\jiate\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe'
+& $runtimePython tools/launch_runtime_profile_batch.py `
+  --profile-dir tmp/profiling `
+  --launcher-revision <runtime-tool-revision>
 ```
 
-The script emits one JSON record containing the generation and validation wall
-times, the exact result fingerprint and an explicit confirmation that no formal
-artifact was written.  Store stdout, stderr, `pstats` top cumulative-time rows,
-CPU time, and peak working set in the profiling record.
+The launcher emits the frozen six JSON records, one live-launch witness and one
+finalization witness.  Each profile contains generation and validation wall
+times, the exact result fingerprint, the Windows process peak working set and
+an explicit confirmation that no formal artifact was written.  After all six
+workers finish, build the gate artifact with the same committed tool revision:
+
+```powershell
+& $runtimePython tools/formal_runtime_evidence.py `
+  configs/formal/synthetic-formal-v1.json `
+  --profile-dir tmp/profiling `
+  --calibration-manifest configs/pilot/synthetic-calibration-v1.json `
+  --calibration-evidence results/pilot/synthetic-calibration-v1/evidence.json `
+  --precision results/planning/formal-precision-v1.json `
+  --evidence-revision <runtime-tool-revision> `
+  --output results/diagnostics/formal-runtime-profile-evidence-v1.json
+```
+
+The launch gate binds the six stdout/stderr pairs, their exact live-launch
+batch record, their finalization hashes, and the strictly replayed pre-resume
+formal state.  Earlier `cProfile` files and top
+cumulative-time rows remain auxiliary optimization diagnostics: they were
+produced under earlier code/manifests or instrumentation overhead and are not
+inputs to the post-optimization resource gate.  Per-process CPU time is not
+claimed for the low-overhead six-worker batch; generation and validation
+fields are measured monotonic wall times.
 
 ## Decision rules
 
@@ -92,3 +122,12 @@ above.  Six formal workers are permitted only when all of the following hold:
 Passing this gate authorizes exactly six resumable whole-block shards.  It
 does not authorize eight workers, change the frozen simulation inputs, or
 convert nested traffic traces into independent units.
+
+The generated gate artifact freezes the exact pre-resume timepoint: the 15
+retained block fingerprints, empty lock directory and absent run summary.
+After formal execution resumes, strict reconstruction against the mutable
+output directory is expected to fail because that historical state has
+changed.  Long-term audit therefore uses the immutable fingerprints embedded
+in the committed gate artifact together with the retained Git revision and
+raw profiling batch; it must not pretend the later output directory is still
+the pre-resume directory state.
