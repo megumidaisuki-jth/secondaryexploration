@@ -18,6 +18,7 @@ from secondaryexploration.analysis.precision import (
 from secondaryexploration.experiments import (
     StudyManifestError,
     StudyPhase,
+    build_study_seed_ledger,
     load_study_design_manifest,
 )
 
@@ -49,6 +50,23 @@ def _sources():
         calibration_evidence=calibration,
     )
     return calibration_manifest, precision
+
+
+def _all_seeds(manifest) -> set[int]:
+    ledger = build_study_seed_ledger(manifest)
+    return {
+        seed
+        for item in ledger.parent_seeds
+        for seed in (
+            item.ensemble_base_seed,
+            item.capacity_search_seed,
+            item.binary_matching_seed,
+        )
+    } | {
+        seed
+        for item in ledger.trace_seeds
+        for seed in (item.trace_root_seed, item.routing_root_seed)
+    }
 
 
 class FrozenPhaseManifestTests(unittest.TestCase):
@@ -101,6 +119,11 @@ class FrozenPhaseManifestTests(unittest.TestCase):
         self.assertNotEqual(formal.base_seed, confirmation.base_seed)
         self.assertNotEqual(formal.output_root, confirmation.output_root)
         self.assertNotEqual(formal.fingerprint, confirmation.fingerprint)
+        formal_seeds = _all_seeds(formal)
+        confirmation_seeds = _all_seeds(confirmation)
+        self.assertEqual(len(formal_seeds), 2_000)
+        self.assertEqual(len(confirmation_seeds), 2_000)
+        self.assertTrue(formal_seeds.isdisjoint(confirmation_seeds))
 
     def test_generator_replays_sources_and_writes_a_loadable_manifest(self) -> None:
         with TemporaryDirectory(dir=_ROOT) as directory:

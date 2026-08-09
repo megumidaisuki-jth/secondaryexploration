@@ -6,7 +6,7 @@ from dataclasses import replace
 from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 from secondaryexploration.analysis.precision import (
     load_audited_calibration_evidence,
@@ -24,6 +24,7 @@ from secondaryexploration.experiments.runner import (
     preflight_synthetic_study,
     validate_frozen_execution_context,
 )
+from secondaryexploration.experiments import runner as runner_module
 
 
 _ROOT = Path(__file__).resolve().parents[3]
@@ -80,6 +81,20 @@ def _formal_manifest(phase: StudyPhase = StudyPhase.FORMAL):
 
 
 class FrozenRunnerContextTests(unittest.TestCase):
+    def test_code_snapshot_rejects_old_or_missing_revision(self) -> None:
+        ok = Mock(returncode=0, stdout="", stderr="")
+        differs = Mock(returncode=1, stdout="", stderr="")
+        missing = Mock(returncode=128, stdout="", stderr="")
+
+        with patch.object(runner_module.subprocess, "run", side_effect=(ok, ok, ok)):
+            runner_module._verify_execution_code_snapshot(_ROOT, "a" * 40)
+        with patch.object(runner_module.subprocess, "run", side_effect=(ok, differs)):
+            with self.assertRaisesRegex(StudyManifestError, "does not match"):
+                runner_module._verify_execution_code_snapshot(_ROOT, "b" * 40)
+        with patch.object(runner_module.subprocess, "run", return_value=missing):
+            with self.assertRaisesRegex(StudyManifestError, "does not match"):
+                runner_module._verify_execution_code_snapshot(_ROOT, "c" * 40)
+
     def test_preflight_replays_formal_sources_without_creating_outputs(self) -> None:
         manifest = _formal_manifest()
         output_root = _ROOT / manifest.output_root
