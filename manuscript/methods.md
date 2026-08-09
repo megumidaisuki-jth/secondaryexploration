@@ -306,9 +306,10 @@ and rejection are interchangeable events.
 
 ## Assumptions or missing inputs
 
-- Add verified citations for the uploaded HPN study, NCH/FHS definitions,
-  ER-GNM, Barabási–Albert, fixed-count SBM, Kaplan–Meier/RMST and bootstrap
-  methodology before submission.
+- Convert the verified eight-record Methods citation ledger into the final
+  IEEE-numbered bibliography when the LaTeX structure is fixed, and extend it
+  with the Lightning source-semantics and related-work references needed by
+  the Introduction and structural-panel subsection.
 - Add the Lightning structural-panel acquisition and sampling subsection after
   the four accepted source snapshots and their licences are finalized.
 - Convert this Markdown draft to the target IEEE TNSM LaTeX structure after

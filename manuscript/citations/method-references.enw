@@ -1,0 +1,104 @@
+%0 Journal Article
+%T Addressing Scalability Issues of Blockchains With Hypergraph Payment Networks
+%A Kotzer, Arad
+%A Ladóczki, Bence
+%A Tapolcai, János
+%A Rottenstreich, Ori
+%J IEEE Transactions on Network and Service Management
+%V 22
+%N 3
+%P 2427-2440
+%D 2025
+%@ 1932-4537
+%R 10.1109/tnsm.2025.3542960
+%U https://doi.org/10.1109/tnsm.2025.3542960
+
+%0 Book Section
+%T A Local-Ratio Theorem for Approximating the Weighted Vertex Cover Problem
+%A Bar-Yehuda, R.
+%A Even, S.
+%B Analysis and Design of Algorithms for Combinatorial Problems
+%S North-Holland Mathematics Studies
+%V 109
+%P 27-45
+%D 1985
+%@ 0304-0208
+%@ 9780444876997
+%I Elsevier
+%R 10.1016/s0304-0208(08)73101-3
+%U https://doi.org/10.1016/s0304-0208(08)73101-3
+
+%0 Journal Article
+%T Emergence of Scaling in Random Networks
+%A Barabási, Albert-László
+%A Albert, Réka
+%J Science
+%V 286
+%N 5439
+%P 509-512
+%D 1999
+%@ 0036-8075
+%R 10.1126/science.286.5439.509
+%U https://doi.org/10.1126/science.286.5439.509
+
+%0 Journal Article
+%T Stochastic blockmodels: First steps
+%A Holland, Paul W.
+%A Laskey, Kathryn Blackmond
+%A Leinhardt, Samuel
+%J Social Networks
+%V 5
+%N 2
+%P 109-137
+%D 1983
+%@ 0378-8733
+%R 10.1016/0378-8733(83)90021-7
+%U https://doi.org/10.1016/0378-8733(83)90021-7
+
+%0 Journal Article
+%T Nonparametric Estimation from Incomplete Observations
+%A Kaplan, E. L.
+%A Meier, Paul
+%J Journal of the American Statistical Association
+%V 53
+%N 282
+%P 457-481
+%D 1958
+%@ 0162-1459
+%R 10.1080/01621459.1958.10501452
+%U https://doi.org/10.1080/01621459.1958.10501452
+
+%0 Journal Article
+%T Restricted mean survival time: an alternative to the hazard ratio for the design and analysis of randomized trials with a time-to-event outcome
+%A Royston, Patrick
+%A Parmar, Mahesh KB
+%J BMC Medical Research Methodology
+%V 13
+%N 1
+%P 152
+%D 2013
+%@ 1471-2288
+%R 10.1186/1471-2288-13-152
+%U https://doi.org/10.1186/1471-2288-13-152
+
+%0 Journal Article
+%T Bootstrap Methods: Another Look at the Jackknife
+%A Efron, B.
+%J The Annals of Statistics
+%V 7
+%N 1
+%P 1-26
+%D 1979
+%@ 0090-5364
+%R 10.1214/aos/1176344552
+%U https://doi.org/10.1214/aos/1176344552
+
+%0 Journal Article
+%T On Random Graphs I
+%A Erdős, Paul
+%A Rényi, Alfréd
+%J Publicationes Mathematicae Debrecen
+%V 6
+%P 290-297
+%D 1959
+%U https://users.renyi.hu/~p_erdos/1959-11.pdf

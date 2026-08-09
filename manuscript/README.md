@@ -45,6 +45,8 @@ synthetic and structural-panel conditions.
 ## Next manuscript inputs
 
 - Complete formal and confirmation evidence before drafting Results.
-- Add verified literature citations and the accepted Lightning-panel Methods.
+- Integrate the verified Methods citation package, extend the related-work
+  search, and add the accepted Lightning-panel Methods after its licence
+  contract is frozen.
 - Select the exact IEEE TNSM LaTeX template and section word budget before
   typesetting.
