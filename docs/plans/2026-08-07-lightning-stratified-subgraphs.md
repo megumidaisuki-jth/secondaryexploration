@@ -72,6 +72,11 @@ that a bridge anchor remains an articulation after truncation. Rank-tail ties
 are resolved by node id; overlap and boundary-tie sensitivity therefore remain
 required diagnostics rather than hidden independence assumptions.
 
+The diagnostic registry therefore also recomputes candidate membership with a
+source-fingerprint-bound SHA-256 tie break while leaving the frozen primary
+node-ID samples unchanged. This is a composition sensitivity, not a second
+outcome-selected primary analysis.
+
 Full validation recomputes the LCC, strata, seed, anchor, discovery prefix,
 induced edges, and fingerprint from the original source parent. Any mismatch
 fails closed.

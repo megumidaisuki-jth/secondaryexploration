@@ -13,7 +13,7 @@ network observations.
 - Diagnostic anchors per year/stratum: 3
 - Base seed: `2026080702`
 - Registry fingerprint:
-  `888fe37309ff1511483e72060e7ba16771fea12c3493c9f77a4997c31ac55e41`
+  `b51af2a7689fbd79c0b1354815d037e9fa3c31d000da12758f1c45dd77eaf211`
 
 The machine-readable artifact is
 `lightning-sampling-registry-v1.json`. It binds each source, parent graph,
@@ -41,6 +41,22 @@ example, all 1,306 selected 2020 peripheral candidates lie in a
 class contains 6,592 nodes for 3,015 selected candidates. The formal Lightning
 analysis must therefore report a boundary-tie sensitivity based on a
 source-bound hash ordering in addition to the frozen node-id ordering.
+
+The registry now performs that candidate-pool sensitivity without changing the
+frozen primary samples. Candidate-set Jaccard overlap between node-ID and
+source-bound SHA-256 tie breaking is:
+
+| Year | Core | Bridge | Peripheral |
+|---:|---:|---:|---:|
+| 2020 | 1,297/1,315 (0.986) | 95/97 (0.979) | 603/2,009 (0.300) |
+| 2022 | 2,241/2,243 (0.999) | 406/406 (1.000) | 1,222/3,262 (0.375) |
+| 2023 | 2,947/3,083 (0.956) | 345/345 (1.000) | 1,365/4,665 (0.293) |
+| 2026 | 1,244/1,246 (0.998) | 231/231 (1.000) | 590/1,900 (0.311) |
+
+Thus core and bridge membership is stable, whereas peripheral membership is
+tie-break-sensitive. Formal peripheral conclusions must be repeated under the
+alternative source-bound ordering; the primary node-ID result alone is not a
+robustness claim.
 
 ## Rebuild
 

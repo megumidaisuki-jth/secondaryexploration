@@ -282,6 +282,10 @@ def _build_panel_record(
             stratum: len(strata.candidates(stratum)) for stratum in LIGHTNING_STRATA
         },
         "boundary_ties": _boundary_ties(strata),
+        "tie_break_sensitivity": _tie_break_sensitivity(
+            strata,
+            panel.source_fingerprint,
+        ),
         "samples": sample_records,
         "overlap_diagnostics": _overlap_diagnostics(samples),
     }
@@ -320,6 +324,63 @@ def _tie_record(
         "total_nodes_at_boundary_score": len(tied),
         "selected_nodes_at_boundary_score": len(tied & selected),
     }
+
+
+def _tie_break_sensitivity(strata: object, source_fingerprint: str) -> dict[str, object]:
+    core_numbers = dict(strata.core_numbers)
+    degrees = dict(strata.degrees)
+    ranked = sorted(
+        strata.lcc.nodes,
+        key=lambda node_id: (
+            core_numbers[node_id],
+            degrees[node_id],
+            _source_bound_node_priority(source_fingerprint, node_id),
+        ),
+    )
+    alternative_peripheral = set(ranked[: strata.pool_width])
+    alternative_core = set(ranked[-strata.pool_width :])
+    articulation = {item.node_id for item in strata.bridge_metrics}
+    alternative_bridge = articulation - alternative_core - alternative_peripheral
+    alternative = {
+        "core": alternative_core,
+        "bridge": alternative_bridge,
+        "peripheral": alternative_peripheral,
+    }
+    comparisons = {}
+    for stratum in LIGHTNING_STRATA:
+        primary = set(strata.candidates(stratum))
+        candidate = alternative[stratum]
+        intersection = primary & candidate
+        union = primary | candidate
+        added = tuple(sorted(candidate - primary))
+        removed = tuple(sorted(primary - candidate))
+        comparisons[stratum] = {
+            "primary_count": len(primary),
+            "alternative_count": len(candidate),
+            "intersection_count": len(intersection),
+            "union_count": len(union),
+            "jaccard": [len(intersection), len(union)],
+            "added_count": len(added),
+            "removed_count": len(removed),
+            "added_nodes_fingerprint": _sequence_fingerprint(added),
+            "removed_nodes_fingerprint": _sequence_fingerprint(removed),
+        }
+    return {
+        "primary_policy": "core-degree-node-id",
+        "alternative_policy": "core-degree-source-bound-sha256",
+        "comparisons": comparisons,
+    }
+
+
+def _source_bound_node_priority(source_fingerprint: str, node_id: str) -> bytes:
+    digest = hashlib.sha256(
+        b"secondaryexploration.lightning-strata-tie-sensitivity.v1\x00"
+    )
+    digest.update(bytes.fromhex(source_fingerprint))
+    encoded = node_id.encode("utf-8")
+    digest.update(len(encoded).to_bytes(4, "big"))
+    digest.update(encoded)
+    return digest.digest()
 
 
 def _overlap_diagnostics(samples: Sequence[object]) -> list[dict[str, object]]:

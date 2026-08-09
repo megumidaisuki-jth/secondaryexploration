@@ -66,6 +66,22 @@ class LightningRegistryTests(unittest.TestCase):
         self.assertEqual(
             len(registry["panels"][0]["overlap_diagnostics"]), 6
         )
+        sensitivity = registry["panels"][0]["tie_break_sensitivity"]
+        self.assertEqual(sensitivity["primary_policy"], "core-degree-node-id")
+        self.assertEqual(
+            sensitivity["alternative_policy"],
+            "core-degree-source-bound-sha256",
+        )
+        for stratum in ("core", "bridge", "peripheral"):
+            comparison = sensitivity["comparisons"][stratum]
+            self.assertEqual(
+                comparison["jaccard"],
+                [comparison["intersection_count"], comparison["union_count"]],
+            )
+            if stratum != "bridge":
+                self.assertEqual(
+                    comparison["added_count"], comparison["removed_count"]
+                )
 
     def test_content_or_source_tampering_is_rejected(self) -> None:
         registry = build_lightning_sampling_registry(
