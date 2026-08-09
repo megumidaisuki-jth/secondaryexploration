@@ -57,53 +57,21 @@ def execute_synthetic_study(
 ) -> Path:
     """Execute, exactly replay, checkpoint, and index every declared block."""
 
-    manifest = load_study_design_manifest(manifest_path)
-    validate_code_revision(code_revision)
-    if (
-        manifest.code_revision is not None
-        and code_revision != manifest.code_revision
-    ):
-        raise StudyManifestError(
-            "code_revision does not match the frozen study manifest"
-        )
-    ledger = build_study_seed_ledger(manifest)
-    root = Path(workspace_root).resolve()
-    if not root.is_dir():
-        raise StudyManifestError("workspace_root must be an existing directory")
-    environment = runtime_environment()
-    precision = None
-    if manifest.phase is StudyPhase.PILOT:
-        if precision_path is not None or calibration_evidence_path is not None:
-            raise StudyManifestError("pilot execution cannot consume a formal precision freeze")
-    else:
-        if precision_path is None or calibration_evidence_path is None:
-            raise StudyManifestError(
-                "formal and confirmation execution require precision and calibration evidence"
-            )
-        resolved_precision = _resolve_read_path(root, precision_path, "precision_path")
-        resolved_calibration = _resolve_read_path(
-            root,
-            calibration_evidence_path,
-            "calibration_evidence_path",
-        )
-        calibration = load_audited_calibration_evidence(resolved_calibration)
-        precision = load_formal_precision_evidence(
-            resolved_precision,
-            calibration_evidence=calibration,
-        )
-    validate_frozen_execution_context(
+    (
         manifest,
+        ledger,
+        output_root,
+        environment,
+        _precision,
+        expected_count,
+    ) = _prepare_synthetic_study(
+        manifest_path,
+        workspace_root=workspace_root,
         code_revision=code_revision,
-        environment=environment,
-        precision_evidence=precision,
+        precision_path=precision_path,
+        calibration_evidence_path=calibration_evidence_path,
     )
-    output_root = (root / manifest.output_root).resolve()
-    try:
-        output_root.relative_to(root)
-    except ValueError as exc:
-        raise StudyManifestError("manifest output_root escapes workspace_root") from exc
     block_root = output_root / "blocks"
-    expected_count = len(ledger.parent_seeds) * len(_REGISTERED_PARENT_MODELS)
     completed_artifacts: list[dict[str, object]] = []
 
     for parent_seed in ledger.parent_seeds:
@@ -164,6 +132,103 @@ def execute_synthetic_study(
 
     _notify(progress, f"complete {len(completed_artifacts)}/{expected_count}")
     return output_root / "run-summary.json"
+
+
+def preflight_synthetic_study(
+    manifest_path: str | Path,
+    *,
+    workspace_root: str | Path,
+    code_revision: str,
+    precision_path: str | Path | None = None,
+    calibration_evidence_path: str | Path | None = None,
+) -> dict[str, object]:
+    """Replay every launch gate without creating an output directory or block."""
+
+    (
+        manifest,
+        _ledger,
+        output_root,
+        environment,
+        precision,
+        expected_count,
+    ) = _prepare_synthetic_study(
+        manifest_path,
+        workspace_root=workspace_root,
+        code_revision=code_revision,
+        precision_path=precision_path,
+        calibration_evidence_path=calibration_evidence_path,
+    )
+    return {
+        "status": "preflight-valid-no-execution",
+        "study_id": manifest.study_id,
+        "phase": manifest.phase.value,
+        "manifest_fingerprint": manifest.fingerprint,
+        "precision_fingerprint": (
+            None if precision is None else precision["precision_fingerprint"]
+        ),
+        "code_revision": code_revision,
+        "environment": dict(environment),
+        "environment_fingerprint": runtime_environment_fingerprint(environment),
+        "expected_block_count": expected_count,
+        "output_root": manifest.output_root,
+        "output_already_exists": output_root.exists(),
+    }
+
+
+def _prepare_synthetic_study(
+    manifest_path: str | Path,
+    *,
+    workspace_root: str | Path,
+    code_revision: str,
+    precision_path: str | Path | None,
+    calibration_evidence_path: str | Path | None,
+):
+    manifest = load_study_design_manifest(manifest_path)
+    validate_code_revision(code_revision)
+    if manifest.code_revision is not None and code_revision != manifest.code_revision:
+        raise StudyManifestError(
+            "code_revision does not match the frozen study manifest"
+        )
+    ledger = build_study_seed_ledger(manifest)
+    root = Path(workspace_root).resolve()
+    if not root.is_dir():
+        raise StudyManifestError("workspace_root must be an existing directory")
+    environment = runtime_environment()
+    precision = None
+    if manifest.phase is StudyPhase.PILOT:
+        if precision_path is not None or calibration_evidence_path is not None:
+            raise StudyManifestError(
+                "pilot execution cannot consume a formal precision freeze"
+            )
+    else:
+        if precision_path is None or calibration_evidence_path is None:
+            raise StudyManifestError(
+                "formal and confirmation execution require precision and calibration evidence"
+            )
+        resolved_precision = _resolve_read_path(root, precision_path, "precision_path")
+        resolved_calibration = _resolve_read_path(
+            root,
+            calibration_evidence_path,
+            "calibration_evidence_path",
+        )
+        calibration = load_audited_calibration_evidence(resolved_calibration)
+        precision = load_formal_precision_evidence(
+            resolved_precision,
+            calibration_evidence=calibration,
+        )
+    validate_frozen_execution_context(
+        manifest,
+        code_revision=code_revision,
+        environment=environment,
+        precision_evidence=precision,
+    )
+    output_root = (root / manifest.output_root).resolve()
+    try:
+        output_root.relative_to(root)
+    except ValueError as exc:
+        raise StudyManifestError("manifest output_root escapes workspace_root") from exc
+    expected_count = len(ledger.parent_seeds) * len(_REGISTERED_PARENT_MODELS)
+    return manifest, ledger, output_root, environment, precision, expected_count
 
 
 def runtime_environment() -> dict[str, object]:
@@ -318,11 +383,34 @@ def _parser() -> argparse.ArgumentParser:
         action="store_true",
         help="fail if any expected block artifact already exists",
     )
+    parser.add_argument(
+        "--preflight-only",
+        action="store_true",
+        help="validate every launch gate and exit without writing or running blocks",
+    )
     return parser
 
 
 def main(argv: Sequence[str] | None = None) -> int:
     arguments = _parser().parse_args(argv)
+    if arguments.preflight_only:
+        result = preflight_synthetic_study(
+            arguments.manifest,
+            workspace_root=arguments.workspace_root,
+            code_revision=arguments.code_revision,
+            precision_path=arguments.precision,
+            calibration_evidence_path=arguments.calibration_evidence,
+        )
+        print(
+            json.dumps(
+                result,
+                sort_keys=True,
+                separators=(",", ":"),
+                ensure_ascii=False,
+            ),
+            flush=True,
+        )
+        return 0
     summary_path = execute_synthetic_study(
         arguments.manifest,
         workspace_root=arguments.workspace_root,
@@ -343,6 +431,7 @@ if __name__ == "__main__":
 __all__ = [
     "execute_synthetic_study",
     "main",
+    "preflight_synthetic_study",
     "runtime_environment",
     "runtime_environment_fingerprint",
     "validate_frozen_execution_context",

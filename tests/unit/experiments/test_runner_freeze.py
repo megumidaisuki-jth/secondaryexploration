@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from dataclasses import replace
 from pathlib import Path
+from tempfile import TemporaryDirectory
 import unittest
 
 from secondaryexploration.analysis.precision import (
@@ -19,6 +20,7 @@ from secondaryexploration.experiments import (
 from secondaryexploration.experiments.runner import (
     runtime_environment,
     runtime_environment_fingerprint,
+    preflight_synthetic_study,
     validate_frozen_execution_context,
 )
 
@@ -73,6 +75,26 @@ def _formal_manifest(phase: StudyPhase = StudyPhase.FORMAL):
 
 
 class FrozenRunnerContextTests(unittest.TestCase):
+    def test_preflight_replays_formal_sources_without_creating_outputs(self) -> None:
+        manifest = _formal_manifest()
+        output_root = _ROOT / manifest.output_root
+        existed_before = output_root.exists()
+        with TemporaryDirectory(dir=_ROOT) as directory:
+            manifest_path = Path(directory) / "formal.json"
+            manifest_path.write_text(manifest.canonical_json, encoding="utf-8")
+            result = preflight_synthetic_study(
+                manifest_path,
+                workspace_root=_ROOT,
+                code_revision=_CODE_REVISION,
+                precision_path=_PRECISION,
+                calibration_evidence_path=_CALIBRATION_EVIDENCE,
+            )
+
+        self.assertEqual(result["status"], "preflight-valid-no-execution")
+        self.assertEqual(result["expected_block_count"], 240)
+        self.assertEqual(result["manifest_fingerprint"], manifest.fingerprint)
+        self.assertEqual(output_root.exists(), existed_before)
+
     def test_formal_and_confirmation_match_the_strict_precision_freeze(self) -> None:
         precision = _precision()
         environment = runtime_environment()
