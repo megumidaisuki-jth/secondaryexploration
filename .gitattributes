@@ -1,0 +1,2 @@
+results/diagnostics/formal-runtime-profile-batch-v1/* -text
+results/diagnostics/formal-runtime-profile-batch-v1/*.stdout.json whitespace=-blank-at-eol

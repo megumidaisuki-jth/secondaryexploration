@@ -86,6 +86,14 @@ inputs to the post-optimization resource gate.  Per-process CPU time is not
 claimed for the low-overhead six-worker batch; generation and validation
 fields are measured monotonic wall times.
 
+The immutable raw batch is retained at
+`results/diagnostics/formal-runtime-profile-batch-v1/`.  It contains exactly
+the six stdout/stderr pairs plus the launch and finalization witnesses.  The
+accepted evidence is retained at
+`results/diagnostics/formal-runtime-profile-evidence-v1.json`.  A strict load
+must rebuild the complete evidence from that archived batch and the frozen
+study inputs; validation of the outer evidence object alone is insufficient.
+
 ## Decision rules
 
 1. The profiling record is valid only if stdout contains one successful JSON
@@ -108,8 +116,13 @@ fields are measured monotonic wall times.
 
 ## Frozen launch gate
 
-Formal execution remains paused until all six current records pass the rules
-above.  Six formal workers are permitted only when all of the following hold:
+The accepted batch completed at 2026-08-09 13:49:35 UTC.  All six workers
+exited zero, and the finalization witness fingerprint is
+`06a2e857a977c138b0a04361fe266ab84f7110bb01faaf14b894e63b26bb9a29`.
+The strict gate artifact has status `launch-gate-pass-six-workers` and
+fingerprint
+`96dd1b812745b16c7a169b49bca22412d12d357f31c469901b166d2db8d94a0f`.
+Six formal workers are permitted because all of the following hold:
 
 1. every record has the current formal-manifest fingerprint, replicate 0,
    correct model and size, a positive generation time and peak working set,
@@ -129,6 +142,14 @@ above.  Six formal workers are permitted only when all of the following hold:
 Passing this gate authorizes exactly six resumable whole-block shards.  It
 does not authorize eight workers, change the frozen simulation inputs, or
 convert nested traffic traces into independent units.
+
+The limiting throughput measurement was size-240 ER generation at
+10,101,215,192,000 ns (168.354 minutes), below the prespecified 190-minute
+ceiling by 21.646 minutes.  The largest observed per-process peak working set
+was 373,944,320 bytes.  Six times that peak is 2,243,665,920 bytes, or 13.24%
+of the machine's 16,948,453,376 bytes of physical memory.  The gate also
+strict-loaded the exact 15 retained formal blocks, found zero lock files and
+confirmed that no run summary existed before resume.
 
 The generated gate artifact freezes the exact pre-resume timepoint: the 15
 retained block fingerprints, empty lock directory and absent run summary.
