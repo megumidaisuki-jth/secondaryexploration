@@ -112,9 +112,16 @@ demand-aware sources; deduplicates incidence-matched binary service baselines;
 keeps clique expansions cost-only; applies one common capacity protocol; and
 then evaluates all held-out traces with paired request objects and routing
 tickets. Independent attacks confirmed that changing a held-out distribution
-changes held-out results but leaves every trained object unchanged. Formal and
-confirmation manifests, pilot runtime artifacts, and precision-based replicate
-freezing are the next implementation slice.
+changes held-out results but leaves every trained object unchanged. The
+calibration pilot is complete and independently audited. Its 18 exact
+parent-model blocks feed a replayed calibration evidence artifact whose
+parent-stratified censoring gate keeps the registered restricted-time and
+fixed-horizon-risk route primary; lower-quantile inference opens only in the
+two fully identified size-60 SBM/FHS3 cells. The recommended-A precision
+freeze requires 20 independent parents per model, size, and phase. Distinct
+formal and confirmation manifests now bind those counts, disjoint phase seeds,
+the audited calibration basis, the frozen execution revision, and the pinned
+CPython environment.
 
 The pilot execution layer now has an independently audited resumable runner.
 Each block is exactly replay-validated before an atomic checkpoint is exposed;
@@ -123,6 +130,17 @@ result witness rather than trusted independently. Resume rejects corrupt or
 mixed manifest, ledger, parent, model, revision, and runtime identities. A
 canonical progress summary derives its legal block registry internally and can
 report `complete` only after every registered parent/model block is present.
+
+The large-size runtime launch gate is also complete. One witnessed concurrent
+batch measured every size-120/240 model stratum, including complete exact
+replay for ER, and retained its raw stdout/stderr hash chain for strict
+third-party reconstruction. The audited envelope authorizes exactly six
+whole-block formal shards: size-240 ER generation completed below the frozen
+190-minute ceiling, while six times the largest measured working set remained
+well below half of physical memory. Formal execution has therefore entered
+its six-shard resumable phase from the 15 previously validated size-30 blocks;
+confirmation execution and inferential analysis remain gated on completion
+and strict finalization of the formal phase.
 
 The package supports Python 3.10 or later and has no third-party runtime or
 test dependency. Run the complete test suite from the repository root with:

@@ -13,9 +13,9 @@ workers.  The potential execution strategy must therefore partition whole
 parent-model blocks, never requests, traces, topology variants, or bootstrap
 resamples.
 
-## Proposed interface
+## Accepted interface
 
-After the large-size profiling gate is met, a new runner revision may add two
+The large-size profiling gate has passed, and the frozen runner implements two
 mutually exclusive modes:
 
 * `--worker-count N --worker-index K`: preflight all formal identity gates,
@@ -52,7 +52,7 @@ run summary.
    statistical sample remains the registered parent graph within its model
    stratum, exactly as in the frozen inference plan.
 
-## Verification plan before use
+## Verification contract
 
 * Unit-test the partition for every worker count from 1 through a bound larger
   than the 240 formal keys: no duplicate keys, exact coverage, deterministic
@@ -69,3 +69,23 @@ run summary.
 * Because this changes `secondaryexploration/experiments/runner.py`, rerun the
   full test suite, obtain an independent audit, and regenerate both manifests
   with a new clean code revision before launching either formal phase.
+
+## Non-inferential progress checkpoints
+
+Shard workers deliberately do not publish a partial scientific summary.
+Operational progress is instead frozen with
+`tools/formal_progress_checkpoint.py`.  The checkpoint strictly loads every
+completed artifact under the manifest, seed ledger, calibration, precision,
+execution revision and runtime environment, then records only canonical block
+keys, file SHA-256 values, artifact/result fingerprints and completion counts.
+It neither copies endpoint values nor computes contrasts, so it cannot be used
+for optional stopping or early claim selection.
+
+A historical checkpoint must remain replayable after later blocks finish.
+The loader therefore requires every checkpointed block to retain exactly the
+same bytes and scientific fingerprints while allowing the current canonical
+block registry to be a strict superset.  Unknown block entries, a missing or
+changed checkpointed artifact, source-identity drift, count drift, key
+reordering and fingerprint tampering all fail closed.  Such a checkpoint is a
+progress and integrity witness only; it never replaces the complete 240-block
+finalizer or the frozen inference gates.
