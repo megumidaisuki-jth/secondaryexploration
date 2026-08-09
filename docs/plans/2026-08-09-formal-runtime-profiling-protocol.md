@@ -30,6 +30,13 @@ zero-length `*.stderr.txt` file.  The profiler records its own Windows peak
 working set.  The six profiler processes never invoke the formal artifact
 writer.
 
+The accepted batch was launched on 2026-08-09 at 08:20:38 UTC from runtime
+tool revision `a4d049446c6659ad38d8dcf66cfe605b5274e4fe`.  Its frozen batch ID is
+`3abb46668ce27037c792230f610188828bec6f88e8d244b61353f865b81c8ec1`,
+its live-launch witness fingerprint is
+`f147f17f649fc64d6227d4177bc44838834e11b6165c4bf8834526f54e253057`,
+and the six observed starts span 28 milliseconds.
+
 The first six-worker attempt under revision `80f529e0...` was terminated after
 an independent audit found that its v1 stdout lacked batch/PID binding.  It
 completed no accepted record, its empty partial logs were removed, and none of
@@ -50,7 +57,7 @@ Use the environment pinned by the formal manifest, not the system Python:
 $runtimePython = 'C:\Users\jiate\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe'
 & $runtimePython tools/launch_runtime_profile_batch.py `
   --profile-dir tmp/profiling `
-  --launcher-revision <runtime-tool-revision>
+  --launcher-revision a4d049446c6659ad38d8dcf66cfe605b5274e4fe
 ```
 
 The launcher emits the frozen six JSON records, one live-launch witness and one
@@ -66,7 +73,7 @@ workers finish, build the gate artifact with the same committed tool revision:
   --calibration-manifest configs/pilot/synthetic-calibration-v1.json `
   --calibration-evidence results/pilot/synthetic-calibration-v1/evidence.json `
   --precision results/planning/formal-precision-v1.json `
-  --evidence-revision <runtime-tool-revision> `
+  --evidence-revision a4d049446c6659ad38d8dcf66cfe605b5274e4fe `
   --output results/diagnostics/formal-runtime-profile-evidence-v1.json
 ```
 
