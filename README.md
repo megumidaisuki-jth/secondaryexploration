@@ -42,6 +42,12 @@ The authoritative approved-design draft is:
 - [Resumable pilot-artifact runner contract](docs/plans/2026-08-03-resumable-pilot-artifacts.md)
 - [Resumable pilot-artifact runner independent audit](docs/reviews/2026-08-03-resumable-pilot-artifacts-independent-audit.md)
 
+The result-free working manuscript materials are:
+
+- [Manuscript workspace and drafting status](manuscript/README.md)
+- [Methods working draft](manuscript/methods.md)
+- [Canonical terminology ledger](manuscript/terminology.md)
+
 ## Current implementation status
 
 The repository currently provides the reproducibility foundation, an
