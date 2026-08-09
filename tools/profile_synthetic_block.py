@@ -10,6 +10,8 @@ launching a formal phase.
 from __future__ import annotations
 
 import argparse
+import ctypes
+from ctypes import wintypes
 import json
 from pathlib import Path
 import sys
@@ -30,6 +32,45 @@ from secondaryexploration.experiments.pipeline import (
     validate_synthetic_parent_block_result,
 )
 from secondaryexploration.topology import ParentGraphModel
+
+
+def _peak_working_set_bytes() -> int | None:
+    """Return the process peak working set on Windows when available."""
+
+    if sys.platform != "win32":
+        return None
+
+    class ProcessMemoryCounters(ctypes.Structure):
+        _fields_ = [
+            ("cb", ctypes.c_ulong),
+            ("PageFaultCount", ctypes.c_ulong),
+            ("PeakWorkingSetSize", ctypes.c_size_t),
+            ("WorkingSetSize", ctypes.c_size_t),
+            ("QuotaPeakPagedPoolUsage", ctypes.c_size_t),
+            ("QuotaPagedPoolUsage", ctypes.c_size_t),
+            ("QuotaPeakNonPagedPoolUsage", ctypes.c_size_t),
+            ("QuotaNonPagedPoolUsage", ctypes.c_size_t),
+            ("PagefileUsage", ctypes.c_size_t),
+            ("PeakPagefileUsage", ctypes.c_size_t),
+        ]
+
+    counters = ProcessMemoryCounters()
+    counters.cb = ctypes.sizeof(counters)
+    get_current_process = ctypes.windll.kernel32.GetCurrentProcess
+    get_current_process.restype = wintypes.HANDLE
+    get_process_memory_info = ctypes.windll.psapi.GetProcessMemoryInfo
+    get_process_memory_info.argtypes = (
+        wintypes.HANDLE,
+        ctypes.POINTER(ProcessMemoryCounters),
+        wintypes.DWORD,
+    )
+    get_process_memory_info.restype = wintypes.BOOL
+    success = get_process_memory_info(
+        get_current_process(),
+        ctypes.byref(counters),
+        counters.cb,
+    )
+    return int(counters.PeakWorkingSetSize) if success else None
 
 
 def _parse_args() -> argparse.Namespace:
@@ -85,6 +126,7 @@ def main() -> None:
                 "result_fingerprint": result.fingerprint,
                 "generation_ns": generation_ns,
                 "validation_ns": validation_ns,
+                "peak_working_set_bytes": _peak_working_set_bytes(),
                 "wrote_formal_artifacts": False,
             },
             sort_keys=True,
