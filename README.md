@@ -150,6 +150,13 @@ its six-shard resumable phase from the 15 previously validated size-30 blocks;
 confirmation execution and inferential analysis remain gated on completion
 and strict finalization of the formal phase.
 
+The six workers were interrupted by a system-initiated shutdown after 78
+blocks had been atomically published. The exact 60-block historical checkpoint
+replayed successfully, six unpublished stale locks were identity-checked and
+removed, and the same frozen shards resumed under a fresh log namespace. The
+[recovery evidence](docs/evidence/2026-08-10-formal-restart-recovery.md)
+records this process without reading scientific endpoints.
+
 The package supports Python 3.10 or later and has no third-party runtime or
 test dependency. Run the complete test suite from the repository root with:
 
