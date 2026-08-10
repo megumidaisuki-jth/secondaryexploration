@@ -2,11 +2,12 @@
 
 ## Draft status
 
-The current paper type is **algorithmic**, the drafted section is **Methods**,
-the source workflow is **Chinese-to-English**, and the target style is the
-generic journal route calibrated toward IEEE Transactions on Network and
-Service Management. The Methods draft is intentionally result-free while the
-formal and confirmation phases remain incomplete.
+The current paper type is **algorithmic**, and result-free working drafts now
+cover **Introduction**, **Related Work** and **Methods**. The source workflow is
+**Chinese-to-English**, and the target style is the generic journal route
+calibrated toward IEEE Transactions on Network and Service Management. Result
+and effect-direction language remains gated on complete formal and confirmation
+evidence.
 
 ## One-sentence argument
 
@@ -42,12 +43,27 @@ synthetic and structural-panel conditions.
 - It presents censoring and phase separation before inferential decisions, so
   the claim boundary is visible rather than deferred to the Discussion.
 
+## Prepared artifacts
+
+- [Methods working draft](methods.md)
+- [Terminology ledger](terminology.md)
+- [Introduction and Related Work outline](introduction-outline.md)
+- [Introduction and Related Work working draft](introduction.md)
+- [Methods citation claims](citations/method-claims.md) and
+  [EndNote export](citations/method-references.enw)
+- [Introduction and Related Work citation claims](citations/intro-related-work-claims.md)
+  and [EndNote export](citations/intro-related-work-references.enw)
+- [Data Availability working draft](data-availability.md)
+- [IEEE TNSM submission and page-budget contract](tnsm-submission-contract.md)
+
 ## Next manuscript inputs
 
 - Complete formal and confirmation evidence before drafting Results.
-- Integrate the verified Methods citation package, extend the related-work
-  search, and add the Lightning-panel Methods from the frozen source-identity,
-  rights and sampling contracts while keeping the unresolved 2026 preservation
-  gate explicit.
-- Select the exact IEEE TNSM LaTeX template and section word budget before
-  typesetting.
+- Compress the verified result-free opening and Methods only after the complete
+  evidence determines which implementation and sensitivity details must remain
+  in the 10-page main article.
+- Keep the unresolved 2026 Lightning snapshot preservation gate explicit; the
+  corresponding structural panel remains diagnostic-only unless that gate is
+  resolved.
+- Obtain the exact LaTeX package through the frozen IEEE TNSM selector route at
+  the start of typesetting and record its download date and SHA-256.

@@ -1,0 +1,248 @@
+%0 Journal Article
+%T Blockchain-Based Payment Channel Networks: Challenges and Recent Advances
+%A Papadis, Nikolaos
+%A Tassiulas, Leandros
+%J IEEE Access
+%V 8
+%P 227596-227609
+%D 2020
+%@ 2169-3536
+%R 10.1109/ACCESS.2020.3046020
+%U https://doi.org/10.1109/ACCESS.2020.3046020
+
+%0 Conference Paper
+%T High Throughput Cryptocurrency Routing in Payment Channel Networks
+%A Sivaraman, Vibhaalakshmi
+%A Venkatakrishnan, Shaileshh Bojja
+%A Ruan, Kathleen
+%A Negi, Parimarjan
+%A Yang, Lei
+%A Mittal, Radhika
+%A Fanti, Giulia
+%A Alizadeh, Mohammad
+%B 17th USENIX Symposium on Networked Systems Design and Implementation (NSDI 20)
+%P 777-796
+%D 2020
+%@ 978-1-939133-13-7
+%I USENIX Association
+%U https://www.usenix.org/conference/nsdi20/presentation/sivaraman
+
+%0 Conference Paper
+%T Flash: Efficient Dynamic Routing for Offchain Networks
+%A Wang, Peng
+%A Xu, Hong
+%A Jin, Xin
+%A Wang, Tao
+%B Proceedings of the 15th International Conference on Emerging Networking Experiments and Technologies
+%P 370-381
+%D 2019
+%I Association for Computing Machinery
+%R 10.1145/3359989.3365411
+%U https://doi.org/10.1145/3359989.3365411
+
+%0 Conference Paper
+%T Revive: Rebalancing Off-Blockchain Payment Networks
+%A Khalil, Rami
+%A Gervais, Arthur
+%B Proceedings of the 2017 ACM SIGSAC Conference on Computer and Communications Security
+%P 439-453
+%D 2017
+%I Association for Computing Machinery
+%R 10.1145/3133956.3134033
+%U https://doi.org/10.1145/3133956.3134033
+
+%0 Book Section
+%T Algorithmic Channel Design
+%A Avarikioti, Georgia
+%A Wang, Yuyi
+%A Wattenhofer, Roger
+%B 29th International Symposium on Algorithms and Computation (ISAAC 2018)
+%S Leibniz International Proceedings in Informatics (LIPIcs)
+%V 123
+%P 16:1-16:12
+%D 2018
+%@ 1868-8969
+%@ 978-3-95977-094-1
+%I Schloss Dagstuhl -- Leibniz-Zentrum für Informatik
+%R 10.4230/LIPIcs.ISAAC.2018.16
+%U https://doi.org/10.4230/LIPIcs.ISAAC.2018.16
+
+%0 Conference Paper
+%T Demand-aware Channel Topologies for Off-chain Payments
+%A Khamis, Julia
+%A Rottenstreich, Ori
+%B 2021 International Conference on COMmunication Systems & NETworkS (COMSNETS)
+%P 272-280
+%D 2021
+%I Institute of Electrical and Electronics Engineers
+%R 10.1109/COMSNETS51098.2021.9352899
+%U https://doi.org/10.1109/COMSNETS51098.2021.9352899
+
+%0 Journal Article
+%T Topologies for Blockchain Payment Channel Networks: Models and Constructions
+%A Khamis, Julia
+%A Kotzer, Arad
+%A Rottenstreich, Ori
+%J IEEE/ACM Transactions on Networking
+%V 32
+%N 6
+%P 4781-4797
+%D 2024
+%R 10.1109/TNET.2024.3445274
+%U https://doi.org/10.1109/TNET.2024.3445274
+
+%0 Journal Article
+%T Survivable Payment Channel Networks
+%A Podiatchev, Yekaterina
+%A Orda, Ariel
+%A Rottenstreich, Ori
+%J IEEE Transactions on Network and Service Management
+%V 21
+%N 6
+%P 6218-6232
+%D 2024
+%@ 1932-4537
+%R 10.1109/TNSM.2024.3456229
+%U https://doi.org/10.1109/TNSM.2024.3456229
+
+%0 Generic
+%T Modeling Effective Lifespan of Payment Channels
+%A Shabgahi, Soheil Zibakhsh
+%A Hosseini, Seyed Mahdi
+%A Shariatpanahi, Seyed Pooya
+%A Bahrak, Behnam
+%D 2022
+%R 10.48550/arXiv.2301.01240
+%U https://arxiv.org/abs/2301.01240
+
+%0 Journal Article
+%T AERO: An Adaptive and Efficient Routing for Off-Chain Payment Channel Networks
+%A Huang, Longxia
+%A Huo, Changzhi
+%A Ge, Chengzhi
+%A Yang, Mengmeng
+%J Computer Networks
+%V 257
+%P 111009
+%D 2025
+%@ 1389-1286
+%R 10.1016/j.comnet.2024.111009
+%U https://doi.org/10.1016/j.comnet.2024.111009
+
+%0 Journal Article
+%T Addressing Scalability Issues of Blockchains With Hypergraph Payment Networks
+%A Kotzer, Arad
+%A Ladóczki, Bence
+%A Tapolcai, János
+%A Rottenstreich, Ori
+%J IEEE Transactions on Network and Service Management
+%V 22
+%N 3
+%P 2427-2440
+%D 2025
+%@ 1932-4537
+%R 10.1109/TNSM.2025.3542960
+%U https://doi.org/10.1109/TNSM.2025.3542960
+
+%0 Journal Article
+%T Path Planning in Payment Channel Networks with Multi-Party Channels
+%A Corcoran, Padraig
+%A Lewis, Rhyd
+%J Distributed Ledger Technologies: Research and Practice
+%V 4
+%N 4
+%P 1-14
+%D 2025
+%R 10.1145/3702248
+%U https://doi.org/10.1145/3702248
+
+%0 Book Section
+%T Boosting Payment Channel Network Liquidity with Topology Optimization and Transaction Selection
+%A Chatterjee, Krishnendu
+%A Křišťan, Jan Matyáš
+%A Schmid, Stefan
+%A Svoboda, Jakub
+%A Yeo, Michelle
+%B 39th International Symposium on Distributed Computing (DISC 2025)
+%S Leibniz International Proceedings in Informatics (LIPIcs)
+%V 356
+%P 23:1-23:22
+%D 2025
+%@ 1868-8969
+%@ 978-3-95977-402-4
+%I Schloss Dagstuhl -- Leibniz-Zentrum für Informatik
+%R 10.4230/LIPIcs.DISC.2025.23
+%U https://doi.org/10.4230/LIPIcs.DISC.2025.23
+
+%0 Generic
+%T A Mathematical Theory of Payment Channel Networks
+%A Pickhardt, Rene
+%D 2026
+%R 10.48550/arXiv.2601.04835
+%U https://arxiv.org/abs/2601.04835
+
+%0 Generic
+%T Hypergraph based Multi-Party Payment Channel
+%A Nainwal, Ayush
+%A Kamble, Atharva
+%A Awathare, Nitin
+%D 2025
+%R 10.48550/arXiv.2512.11775
+%U https://arxiv.org/abs/2512.11775
+
+%0 Generic
+%T Starfish: Rebalancing Multi-Party Off-Chain Payment Channels
+%A Xu, Minghui
+%A Yu, Wenxuan
+%A Shang, Guangyong
+%A Qi, Guangpeng
+%A Duan, Dongliang
+%A Wang, Shan
+%A Li, Kun
+%A Zhang, Yue
+%A Cheng, Xiuzhen
+%D 2025
+%R 10.48550/arXiv.2504.20536
+%U https://arxiv.org/abs/2504.20536
+
+%0 Journal Article
+%T The Evolving Topology of the Lightning Network: Centralization, Efficiency, Robustness, Synchronization, and Anonymity
+%A Martinazzi, Stefano
+%A Flori, Andrea
+%J PLOS ONE
+%V 15
+%N 1
+%P e0225966
+%D 2020
+%@ 1932-6203
+%R 10.1371/journal.pone.0225966
+%U https://doi.org/10.1371/journal.pone.0225966
+
+%0 Journal Article
+%T Empirical Evaluation of Nodes and Channels of the Lightning Network
+%A Zabka, Philipp
+%A Foerster, Klaus-Tycho
+%A Schmid, Stefan
+%A Decker, Christian
+%J Pervasive and Mobile Computing
+%V 83
+%P 101584
+%D 2022
+%@ 1574-1192
+%R 10.1016/j.pmcj.2022.101584
+%U https://doi.org/10.1016/j.pmcj.2022.101584
+
+%0 Journal Article
+%T A Centrality Analysis of the Lightning Network
+%A Zabka, Philipp
+%A Förster, Klaus-T.
+%A Decker, Christian
+%A Schmid, Stefan
+%J Telecommunications Policy
+%V 48
+%N 2
+%P 102696
+%D 2024
+%@ 0308-5961
+%R 10.1016/j.telpol.2023.102696
+%U https://doi.org/10.1016/j.telpol.2023.102696
