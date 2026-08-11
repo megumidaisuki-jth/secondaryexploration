@@ -296,6 +296,32 @@ class FormalProgressCheckpointTests(unittest.TestCase):
                     expected.parent, checkpoint, workspace_root=root
                 )
 
+    def test_main_rejects_file_output_before_expensive_replay(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            arguments = SimpleNamespace(
+                manifest=root / "manifest.json",
+                calibration_manifest=root / "calibration-manifest.json",
+                calibration_evidence=root / "calibration-evidence.json",
+                precision=root / "precision.json",
+                code_revision=target._EXECUTION_REVISION,
+                workspace_root=root,
+                output=(
+                    root
+                    / target._CHECKPOINT_ROOT
+                    / "checkpoint-000174.json"
+                ),
+                verify_existing=False,
+            )
+            parser = SimpleNamespace(parse_args=lambda argv: arguments)
+            with (
+                patch.object(target, "_parser", return_value=parser),
+                patch.object(target, "build_formal_progress_checkpoint") as build,
+            ):
+                with self.assertRaisesRegex(StudyManifestError, "directory is not frozen"):
+                    target.main([])
+            build.assert_not_called()
+
     def test_expected_checkpoint_path_rejects_dangling_leaf_symlink(self):
         checkpoint = _checkpoint()
         with tempfile.TemporaryDirectory() as directory:

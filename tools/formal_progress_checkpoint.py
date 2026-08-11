@@ -482,9 +482,9 @@ def _write_new_checkpoint(
     expected = _expected_checkpoint_path(
         workspace_root, checkpoint["completed_block_count"]
     )
-    if output_directory.resolve() != expected.parent:
-        raise StudyManifestError("formal progress output directory is not frozen")
-    parent = expected.parent
+    parent = _validate_checkpoint_output_directory(
+        output_directory, workspace_root=workspace_root
+    )
     parent.mkdir(parents=True, exist_ok=True)
     if parent.is_symlink() or not parent.is_dir():
         raise StudyManifestError("formal progress output directory is invalid")
@@ -521,6 +521,19 @@ def _write_new_checkpoint(
             if temporary.exists():
                 temporary.unlink()
     return expected
+
+
+def _validate_checkpoint_output_directory(
+    output_directory: Path, *, workspace_root: Path
+) -> Path:
+    """Reject a non-canonical output argument before any expensive replay."""
+
+    expected_parent = _expected_checkpoint_path(workspace_root, 0).parent
+    if output_directory.is_symlink() or output_directory.resolve() != expected_parent:
+        raise StudyManifestError("formal progress output directory is not frozen")
+    if output_directory.exists() and not output_directory.is_dir():
+        raise StudyManifestError("formal progress output directory is invalid")
+    return expected_parent
 
 
 def _expected_checkpoint_path(workspace_root: Path, completed_count: int) -> Path:
@@ -574,6 +587,9 @@ def main(argv: Sequence[str] | None = None) -> int:
                 "formal progress output path is not count-addressed"
             )
     else:
+        _validate_checkpoint_output_directory(
+            arguments.output, workspace_root=arguments.workspace_root
+        )
         checkpoint = build_formal_progress_checkpoint(**kwargs)
         checkpoint_path = _write_new_checkpoint(
             arguments.output,
