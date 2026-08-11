@@ -164,6 +164,12 @@ per-batch memory and provenance gates, and exact final registry replay. The
 [second recovery record](docs/evidence/2026-08-11-formal-memory-recovery.md)
 documents the correction.
 
+Formal execution subsequently reached an independently replayed
+[174-block result-blind checkpoint](docs/evidence/2026-08-11-formal-checkpoint-174.md).
+That record verifies the canonical registry and complete raw hash chain but
+contains no endpoint, contrast, interval, direction or inferential readout;
+the formal phase remains incomplete until all 240 blocks are present.
+
 Legacy whole-phase finalization and inference are prohibited because they
 retain all 240 complete artifacts. Their replacement is the separately
 revision-bound
