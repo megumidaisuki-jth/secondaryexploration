@@ -187,6 +187,13 @@ global table and eight evidence-gated paragraph jobs. It prohibits selective
 row omission, phase pooling, significance-only labels and numerical reporting
 from manually copied values.
 
+The result-blind
+[confirmation bounded-memory amendment](docs/plans/2026-08-11-confirmation-memory-operational-amendment.md)
+freezes the post-formal launch gate, non-result readiness witness, 240
+single-block schedule, six-process ceiling and cross-phase recovery rules. It
+does not authorize confirmation until the scheduler implementation, complete
+formal readiness chain and independent audit are committed.
+
 The package supports Python 3.10 or later and has no third-party runtime or
 test dependency. Run the complete test suite from the repository root with:
 
