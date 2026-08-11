@@ -5,6 +5,15 @@ required before launch.
 
 Date: 2026-08-11
 
+The result-blind readiness bridge is implemented in
+`tools/confirmation_launch_readiness.py`. Its build path performs the complete
+formal raw-source and phase-evidence replay; its scheduler-facing load path
+does not parse phase evidence and instead revalidates the Git-pinned readiness
+witness, seven direct source hashes and the endpoint-free finalization registry
+of all 240 formal block byte hashes. This implementation does not by itself
+authorize confirmation; the separate bounded scheduler and the eventual
+Git-pinned readiness artifact remain required.
+
 ## Purpose and unchanged scientific contract
 
 The confirmation phase remains the already frozen
@@ -74,6 +83,16 @@ The following constants are already frozen:
   `c2083ff1762ec7407412e702f99bf2c58ef244e4702accc90553112fb876a2d1`;
 - base seed: `2026081002`; and
 - output root: `outputs/confirmation/synthetic-confirmation-v1`.
+
+The canonical readiness inputs are
+`configs/formal/synthetic-formal-v1.json`,
+`outputs/formal/synthetic-formal-v1/run-summary.json`,
+`results/inference/formal-phase-evidence.json`,
+`results/diagnostics/formal-streaming-finalization/formal-finalization-witness.json`,
+`configs/pilot/synthetic-calibration-v1.json`,
+`results/pilot/synthetic-calibration-v1/evidence.json`, and
+`results/planning/formal-precision-v1.json`. The sole readiness output is
+`results/diagnostics/confirmation-launch-readiness/formal-ready.json`.
 
 The readiness-analysis and orchestration revisions are filled only after their
 implementations, tests and independent audits pass.

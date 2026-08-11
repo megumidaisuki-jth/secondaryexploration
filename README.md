@@ -194,6 +194,12 @@ single-block schedule, six-process ceiling and cross-phase recovery rules. It
 does not authorize confirmation until the scheduler implementation, complete
 formal readiness chain and independent audit are committed.
 
+The audited readiness bridge in
+[`tools/confirmation_launch_readiness.py`](tools/confirmation_launch_readiness.py)
+performs the complete formal strict replay before emitting the small non-result
+witness. Its scheduler-facing loader rehashes the Git-pinned witness and all
+240 formal block bytes without parsing the formal phase-evidence JSON.
+
 The package supports Python 3.10 or later and has no third-party runtime or
 test dependency. Run the complete test suite from the repository root with:
 
