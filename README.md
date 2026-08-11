@@ -194,6 +194,14 @@ single-block schedule, six-process ceiling and cross-phase recovery rules. It
 does not authorize confirmation until the scheduler implementation, complete
 formal readiness chain and independent audit are committed.
 
+The bounded confirmation implementation in
+[`tools/confirmation_bounded_scheduler.py`](tools/confirmation_bounded_scheduler.py)
+has passed its result-blind unit and independent code audits. It remains an
+implementation candidate rather than a launch authorization until the active
+formal run ends, the formal entry point adopts the same bidirectional
+cross-phase process scanner, and the complete formal readiness witness is
+published under the final audited orchestration revision.
+
 The audited readiness bridge in
 [`tools/confirmation_launch_readiness.py`](tools/confirmation_launch_readiness.py)
 performs the complete formal strict replay before emitting the small non-result
