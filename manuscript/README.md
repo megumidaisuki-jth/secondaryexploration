@@ -3,7 +3,8 @@
 ## Draft status
 
 The current paper type is **algorithmic**, and result-free working drafts now
-cover **Introduction**, **Related Work** and **Methods**. The source workflow is
+cover **Introduction**, **Related Work**, **Methods**, and a result-gated
+**Discussion/Conclusion scaffold**. The source workflow is
 **Chinese-to-English**, and the target style is the generic journal route
 calibrated toward IEEE Transactions on Network and Service Management. Result
 and effect-direction language remains gated on complete formal and confirmation
@@ -49,6 +50,7 @@ synthetic and structural-panel conditions.
 - [Terminology ledger](terminology.md)
 - [Introduction and Related Work outline](introduction-outline.md)
 - [Introduction and Related Work working draft](introduction.md)
+- [Result-gated Discussion and Conclusion scaffold](discussion-conclusion-scaffold.md)
 - [Methods citation claims](citations/method-claims.md) and
   [EndNote export](citations/method-references.enw)
 - [Introduction and Related Work citation claims](citations/intro-related-work-claims.md)
@@ -58,12 +60,13 @@ synthetic and structural-panel conditions.
 
 ## Next manuscript inputs
 
-- Complete formal and confirmation evidence before drafting Results.
+- Complete formal and confirmation evidence before drafting Results or filling
+  any bracketed Discussion/Conclusion evidence slot.
 - Compress the verified result-free opening and Methods only after the complete
   evidence determines which implementation and sensitivity details must remain
   in the 10-page main article.
-- Keep the unresolved 2026 Lightning snapshot preservation gate explicit; the
-  corresponding structural panel remains diagnostic-only unless that gate is
-  resolved.
+- Keep the unresolved 2026 Lightning snapshot preservation gate explicit. The
+  panel is excluded even from diagnostic publication until that gate is
+  resolved and remains diagnostic-only, never confirmatory, if preserved.
 - Obtain the exact LaTeX package through the frozen IEEE TNSM selector route at
   the start of typesetting and record its download date and SHA-256.

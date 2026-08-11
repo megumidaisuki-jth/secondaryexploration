@@ -17,9 +17,12 @@ captured from the Lightning Dev Kit Rapid Gossip Sync v2 service on 7 August
 licence was identified for generated snapshot payloads; the captured payload
 is therefore not redistributed. The service's zero-timestamp URL is dynamic
 and no longer constitutes persistent access to the exact historical capture.
-Accordingly, the 2026 panel will remain diagnostic-only unless permission is
-obtained to preserve the exact payload in a durable repository; otherwise it
-will be removed from publication claims. Exact source URLs, versions,
+Accordingly, the 2026 panel will be excluded even from diagnostic publication
+unless permission is obtained to preserve the exact payload in a durable
+repository. Preservation would make the panel eligible only for the declared
+structural diagnostic; it would remain outside the synthetic confirmatory
+bootstrap. Otherwise it will be removed from publication claims. Exact source
+URLs, versions,
 retrieval metadata, selected archive members and cryptographic hashes are
 provided in the source-rights and source-identity contracts.
 

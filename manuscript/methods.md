@@ -247,8 +247,13 @@ initial capital and is evaluated with the same request objects. Variant order,
 topology structure, initial state, request trace and route selections are bound
 by SHA-256 fingerprints. Each generated parent-model block is regenerated from
 its frozen inputs and exact-compared before its artifact is atomically written.
-Resumable six-way sharding partitions only whole parent-model blocks; traffic
-traces, requests and topology variants are never split between workers.
+Memory-bounded resumable scheduling assigns each of the 240 canonical
+parent-model blocks to one logical singleton shard and permits at most six
+child processes to run concurrently. A global create-only lease prevents
+overlapping formal schedulers, and a pre-batch available-memory gate stops new
+launches below the audited reserve. This operational partition never splits
+traffic traces, requests or topology variants between workers and does not
+enter any scientific artifact field.
 
 ## Outcomes and censoring
 
@@ -342,6 +347,24 @@ identify the artifact field layout; no effect aggregation, confidence interval,
 hierarchy decision or phase comparison was computed. The analysis code remains
 outside the frozen simulation execution package. This timing is disclosed as
 an amendment and is not presented as part of the earlier precision freeze.
+
+A memory-only operational amendment followed a system restart at 166 completed
+formal blocks, before any formal endpoint value or contrast was interpreted,
+aggregated or summarized. Strict replay of many existing artifacts in each
+long-lived worker caused cumulative memory growth that was not represented by
+the single-block runtime profile. The bounded scheduler therefore uses one
+block per child under an independent orchestration revision while retaining
+the existing 166 artifacts byte-for-byte and continuing future blocks under
+the unchanged execution revision, manifests and seeds.
+
+At the same result-blind checkpoint, a separate streaming finalization and
+inference amendment prohibited the legacy whole-phase loaders and introduced
+an independently revision-bound analysis tool. Finalization and inference now
+strict-load one artifact at a time and retain only the registered summary or
+analysis projection. The operational and analysis changes alter process
+lifetime, memory use and provenance records, not the estimands, bootstrap
+streams, multiplicity, phase gates or the registered scientific run-summary,
+phase-evidence and replication-evidence schemas.
 
 The primary conclusions are restricted to the registered synthetic graph
 strata and protocol assumptions. Lightning-derived panels are structural
