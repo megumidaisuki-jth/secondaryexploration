@@ -180,6 +180,13 @@ canonical order, streams one raw artifact at a time, keeps parent-model strata
 separate, and intentionally provides no interval, p value, causal claim or
 confirmatory success state.
 
+The result-blind
+[Results reporting contract](docs/plans/2026-08-11-results-reporting-contract.md)
+precommits the complete source-data registry, two main result figures, one
+global table and eight evidence-gated paragraph jobs. It prohibits selective
+row omission, phase pooling, significance-only labels and numerical reporting
+from manually copied values.
+
 The package supports Python 3.10 or later and has no third-party runtime or
 test dependency. Run the complete test suite from the repository root with:
 

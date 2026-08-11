@@ -4,7 +4,7 @@
 
 The current paper type is **algorithmic**, and result-free working drafts now
 cover **Introduction**, **Related Work**, **Methods**, and a result-gated
-**Discussion/Conclusion scaffold**. The source workflow is
+**Results scaffold** plus **Discussion/Conclusion scaffold**. The source workflow is
 **Chinese-to-English**, and the target style is the generic journal route
 calibrated toward IEEE Transactions on Network and Service Management. Result
 and effect-direction language remains gated on complete formal and confirmation
@@ -51,6 +51,7 @@ synthetic and structural-panel conditions.
 - [Introduction and Related Work outline](introduction-outline.md)
 - [Introduction and Related Work working draft](introduction.md)
 - [Result-gated Discussion and Conclusion scaffold](discussion-conclusion-scaffold.md)
+- [Result-gated Results scaffold](results-scaffold.md)
 - [Methods citation claims](citations/method-claims.md) and
   [EndNote export](citations/method-references.enw)
 - [Introduction and Related Work citation claims](citations/intro-related-work-claims.md)
@@ -61,7 +62,9 @@ synthetic and structural-panel conditions.
 ## Next manuscript inputs
 
 - Complete formal and confirmation evidence before drafting Results or filling
-  any bracketed Discussion/Conclusion evidence slot.
+  any bracketed Results, Discussion or Conclusion evidence slot. Follow the
+  frozen [Results reporting contract](../docs/plans/2026-08-11-results-reporting-contract.md)
+  so all registered rows remain visible.
 - Compress the verified result-free opening and Methods only after the complete
   evidence determines which implementation and sensitivity details must remain
   in the 10-page main article.
