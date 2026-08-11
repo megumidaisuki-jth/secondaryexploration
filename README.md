@@ -142,20 +142,36 @@ report `complete` only after every registered parent/model block is present.
 The large-size runtime launch gate is also complete. One witnessed concurrent
 batch measured every size-120/240 model stratum, including complete exact
 replay for ER, and retained its raw stdout/stderr hash chain for strict
-third-party reconstruction. The audited envelope authorizes exactly six
-whole-block formal shards: size-240 ER generation completed below the frozen
-190-minute ceiling, while six times the largest measured working set remained
-well below half of physical memory. Formal execution has therefore entered
-its six-shard resumable phase from the 15 previously validated size-30 blocks;
-confirmation execution and inferential analysis remain gated on completion
-and strict finalization of the formal phase.
+third-party reconstruction. Size-240 ER generation completed below the frozen
+190-minute ceiling, and the single-block measurements support at most six
+concurrent singleton processes. They do not authorize long-lived processes to
+retain many replayed artifacts.
 
-The six workers were interrupted by a system-initiated shutdown after 78
-blocks had been atomically published. The exact 60-block historical checkpoint
-replayed successfully, six unpublished stale locks were identity-checked and
-removed, and the same frozen shards resumed under a fresh log namespace. The
+The original six workers were first interrupted by a system-initiated
+shutdown after 78 blocks had been atomically published. The exact 60-block
+historical checkpoint replayed successfully, six unpublished stale locks were
+identity-checked and removed, and the frozen shards resumed under a fresh log
+namespace. The first
 [recovery evidence](docs/evidence/2026-08-10-formal-restart-recovery.md)
-records this process without reading scientific endpoints.
+records this process without reading scientific endpoints. A second shutdown
+left 166 valid blocks. Strict replay then exposed a cumulative-memory defect:
+each long-lived shard retained all previously loaded artifacts. The frozen
+scientific runner and all 166 artifacts remain unchanged, but formal execution
+now proceeds through an independently audited
+[bounded singleton scheduler](docs/plans/2026-08-11-formal-memory-operational-amendment.md):
+240 logical one-block shards, at most six live children, a global lease,
+per-batch memory and provenance gates, and exact final registry replay. The
+[second recovery record](docs/evidence/2026-08-11-formal-memory-recovery.md)
+documents the correction.
+
+Legacy whole-phase finalization and inference are prohibited because they
+retain all 240 complete artifacts. Their replacement is the separately
+revision-bound
+[streaming finalization and inference amendment](docs/plans/2026-08-11-formal-streaming-finalization-inference-amendment.md),
+which strictly replays one artifact at a time while preserving the existing v1
+summary, estimands, bootstrap, multiplicity, and confirmation contracts.
+Confirmation execution and inferential analysis remain gated on complete
+formal execution and audited streaming finalization.
 
 The package supports Python 3.10 or later and has no third-party runtime or
 test dependency. Run the complete test suite from the repository root with:

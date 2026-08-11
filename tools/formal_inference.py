@@ -32,12 +32,16 @@ from secondaryexploration.experiments import (
     load_study_design_manifest,
 )
 from secondaryexploration.experiments.artifacts import (
+    STUDY_RUN_SUMMARY_SCHEMA_VERSION,
     atomic_write_json,
-    build_study_run_summary,
     load_study_run_summary,
     load_synthetic_block_artifact,
+    validate_study_run_summary,
 )
-from secondaryexploration.experiments.runner import validate_frozen_execution_context
+from secondaryexploration.experiments.runner import (
+    runtime_environment,
+    validate_frozen_execution_context,
+)
 from secondaryexploration.metrics import (
     BeneficialDirection,
     BlockContrastObservation,
@@ -165,26 +169,73 @@ def build_phase_evidence(
 ) -> dict[str, object]:
     """Build all 40 registered intervals from exact phase sources."""
 
+    trace_rows = _extract_trace_contrasts(manifest, artifacts)
+    projection = {
+        "stream_projection_version": 1,
+        "trace_contrasts": trace_rows,
+        "activity_flags": _artifact_activity_flags(artifacts),
+        "artifact_fingerprints": [
+            item["artifact_fingerprint"]
+            for item in sorted(artifacts, key=_artifact_sort_key)
+        ],
+    }
+    return build_phase_evidence_from_projection(
+        manifest,
+        ledger,
+        summary,
+        projection,
+        calibration,
+        precision,
+        analysis_revision=analysis_revision,
+    )
+
+
+def build_phase_evidence_from_projection(
+    manifest,
+    ledger,
+    summary: Mapping[str, object],
+    projection: Mapping[str, object],
+    calibration: Mapping[str, object],
+    precision: Mapping[str, object],
+    *,
+    analysis_revision: str,
+) -> dict[str, object]:
+    """Build the exact phase evidence from a bounded-memory raw projection."""
+
     _validate_digest(analysis_revision, "analysis_revision", length=40)
     if manifest.phase not in {StudyPhase.FORMAL, StudyPhase.CONFIRMATION}:
         raise StudyManifestError("phase evidence requires formal or confirmation")
-    if summary["status"] != "complete" or len(artifacts) != 240:
+    if summary["status"] != "complete" or summary["completed_block_count"] != 240:
         raise StudyManifestError("phase evidence requires the complete 240 blocks")
-    trace_rows = _extract_trace_contrasts(manifest, artifacts)
+    if set(projection) != {
+        "stream_projection_version",
+        "trace_contrasts",
+        "activity_flags",
+        "artifact_fingerprints",
+    } or projection["stream_projection_version"] != 1:
+        raise StudyManifestError("phase stream projection fields differ")
+    trace_rows = projection["trace_contrasts"]
+    if not isinstance(trace_rows, list):
+        raise StudyManifestError("phase trace projection must be a list")
+    activity_flags = projection["activity_flags"]
+    if not isinstance(activity_flags, Mapping) or len(activity_flags) != 240:
+        raise StudyManifestError("phase activity projection must contain 240 blocks")
+    artifact_fingerprints = projection["artifact_fingerprints"]
+    if not isinstance(artifact_fingerprints, list) or len(artifact_fingerprints) != 240:
+        raise StudyManifestError("phase artifact projection must contain 240 digests")
     parent_rows = _aggregate_parent_contrasts(trace_rows)
     hierarchies = _build_hierarchies(manifest, precision, trace_rows)
     event_coverage = _build_event_coverage(trace_rows)
-    activity = _build_activity_sensitivity(manifest, artifacts, parent_rows)
+    activity = _build_activity_sensitivity_from_flags(
+        manifest, activity_flags, parent_rows
+    )
     source_fingerprints = {
         "manifest": manifest.fingerprint,
         "seed_ledger": ledger.fingerprint,
         "run_summary": summary["summary_fingerprint"],
         "calibration_evidence": calibration["evidence_fingerprint"],
         "formal_precision": precision["precision_fingerprint"],
-        "block_artifacts": [
-            item["artifact_fingerprint"]
-            for item in sorted(artifacts, key=_artifact_sort_key)
-        ],
+        "block_artifacts": list(artifact_fingerprints),
         "paired_manifests": sorted(
             {row["paired_manifest_fingerprint"] for row in trace_rows}
         ),
@@ -221,7 +272,7 @@ def build_phase_evidence(
 def validate_phase_evidence(
     evidence: object,
     *,
-    sources: tuple[object, object, Mapping[str, object], list[Mapping[str, object]], Mapping[str, object], Mapping[str, object], str]
+    sources: tuple[object, object, Mapping[str, object], object, Mapping[str, object], Mapping[str, object], str]
     | None = None,
 ) -> None:
     """Validate structure and optionally replay the complete phase evidence."""
@@ -241,19 +292,32 @@ def validate_phase_evidence(
         raise StudyManifestError("phase evidence block registry must contain 240 blocks")
     _validate_phase_nested(top)
     if sources is not None:
-        manifest, ledger, summary, artifacts, calibration, precision, revision = sources
+        manifest, ledger, summary, raw_source, calibration, precision, revision = sources
         if not isinstance(summary, Mapping) or "code_revision" not in summary:
             raise StudyManifestError("strict phase replay summary context is missing")
         _verify_analysis_snapshot(_ROOT, revision, summary["code_revision"])
-        expected = build_phase_evidence(
-            manifest,
-            ledger,
-            summary,
-            artifacts,
-            calibration,
-            precision,
-            analysis_revision=revision,
-        )
+        if isinstance(raw_source, Mapping) and raw_source.get(
+            "stream_projection_version"
+        ) == 1:
+            expected = build_phase_evidence_from_projection(
+                manifest,
+                ledger,
+                summary,
+                raw_source,
+                calibration,
+                precision,
+                analysis_revision=revision,
+            )
+        else:
+            expected = build_phase_evidence(
+                manifest,
+                ledger,
+                summary,
+                raw_source,
+                calibration,
+                precision,
+                analysis_revision=revision,
+            )
         if dict(top) != expected:
             raise StudyManifestError("phase evidence complete replay mismatch")
 
@@ -928,26 +992,70 @@ def build_replication_evidence(
     """Strict-load both raw phase chains and apply the frozen state machine."""
 
     formal_sources = load_phase_sources(*formal_source_paths)
-    confirmation_sources = load_phase_sources(*confirmation_source_paths)
-    if formal_sources[2]["code_revision"] != confirmation_sources[2]["code_revision"]:
-        raise StudyManifestError("phase execution revisions differ")
     formal = load_phase_evidence(
         formal_evidence_path,
         sources=formal_sources,
         analysis_revision=analysis_revision,
     )
+    formal_execution_revision = formal_sources[2]["code_revision"]
+    formal_projection = _replication_phase_projection(formal)
+    del formal, formal_sources
+
+    confirmation_sources = load_phase_sources(*confirmation_source_paths)
     confirmation = load_phase_evidence(
         confirmation_evidence_path,
         sources=confirmation_sources,
         analysis_revision=analysis_revision,
     )
-    return _build_replication_evidence_from_loaded_sources(
-        formal,
-        confirmation,
-        formal_sources=(*formal_sources, analysis_revision),
-        confirmation_sources=(*confirmation_sources, analysis_revision),
+    if formal_execution_revision != confirmation_sources[2]["code_revision"]:
+        raise StudyManifestError("phase execution revisions differ")
+    confirmation_projection = _replication_phase_projection(confirmation)
+    del confirmation, confirmation_sources
+    _validate_cross_phase_sources(
+        formal_projection, confirmation_projection, analysis_revision
+    )
+    return _build_replication_from_validated_phases(
+        formal_projection,
+        confirmation_projection,
         analysis_revision=analysis_revision,
     )
+
+
+def _replication_phase_projection(evidence: Mapping[str, object]) -> dict[str, object]:
+    """Drop raw rows and bootstrap arrays after one phase has strict-replayed."""
+
+    return {
+        "phase": evidence["phase"],
+        "analysis_revision": evidence["analysis_revision"],
+        "analysis_contract": dict(evidence["analysis_contract"]),
+        "evidence_fingerprint": evidence["evidence_fingerprint"],
+        "source_fingerprints": {
+            key: list(value) if isinstance(value, list) else value
+            for key, value in evidence["source_fingerprints"].items()
+        },
+        "hierarchies": [
+            {
+                "intervals": [
+                    {
+                        field: interval[field]
+                        for field in (
+                            "contrast_id",
+                            "metric",
+                            "node_count",
+                            "tier",
+                            "beneficial_direction",
+                            "estimate",
+                            "lower",
+                            "upper",
+                            "gate_state",
+                        )
+                    }
+                    for interval in family["intervals"]
+                ]
+            }
+            for family in evidence["hierarchies"]
+        ],
+    }
 
 
 def _build_replication_evidence_from_loaded_sources(
@@ -1523,14 +1631,23 @@ def _build_event_coverage(trace_rows):
     return result
 
 
-def _build_activity_sensitivity(manifest, artifacts, parent_rows):
-    changed = {
+def _artifact_activity_flags(artifacts):
+    return {
         _block_key(item["block"]): (
             item["training"]["demand_aware"]["topology_fingerprint"]
             != item["training"]["demand_aware"]["seed_topology_fingerprint"]
         )
         for item in artifacts
     }
+
+
+def _build_activity_sensitivity(manifest, artifacts, parent_rows):
+    return _build_activity_sensitivity_from_flags(
+        manifest, _artifact_activity_flags(artifacts), parent_rows
+    )
+
+
+def _build_activity_sensitivity_from_flags(manifest, changed, parent_rows):
     source_rows = [row for row in parent_rows if row["source_family"] == "demand-aware"]
     output = []
     for node_count in (30, 60, 120, 240):
@@ -1591,6 +1708,226 @@ def _build_activity_sensitivity(manifest, artifacts, parent_rows):
     return output
 
 
+def _summary_from_stream_records(
+    manifest,
+    ledger,
+    *,
+    code_revision: str,
+    environment: Mapping[str, object],
+    records: Sequence[Mapping[str, object]],
+) -> dict[str, object]:
+    """Build the exact v1 summary from already strict-validated light records."""
+
+    expected_count = len(ledger.parent_seeds) * len(_MODELS)
+    ordered = sorted((dict(row) for row in records), key=lambda row: row["block_key"])
+    summary: dict[str, object] = {
+        "schema_version": STUDY_RUN_SUMMARY_SCHEMA_VERSION,
+        "status": "complete" if len(ordered) == expected_count else "in_progress",
+        "manifest_fingerprint": manifest.fingerprint,
+        "seed_ledger_fingerprint": ledger.fingerprint,
+        "code_revision": code_revision,
+        "environment": dict(environment),
+        "expected_block_count": expected_count,
+        "completed_block_count": len(ordered),
+        "total_generation_ns": sum(row["generation_ns"] for row in ordered),
+        "total_exact_validation_ns": sum(row["validation_ns"] for row in ordered),
+        "blocks": ordered,
+    }
+    summary["summary_fingerprint"] = _mapping_fingerprint(summary)
+    validate_study_run_summary(
+        summary,
+        manifest=manifest,
+        ledger=ledger,
+        code_revision=code_revision,
+        environment=environment,
+    )
+    return summary
+
+
+def _sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        while chunk := handle.read(1024 * 1024):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def _exact_phase_block_paths(
+    output_root: Path, expected_keys: Sequence[str]
+) -> dict[str, Path]:
+    """Require one regular artifact per key and no active/foreign block entry."""
+
+    if output_root.is_symlink():
+        raise StudyManifestError("phase output root cannot be a symlink")
+    block_root = output_root / "blocks"
+    if not block_root.is_dir() or block_root.is_symlink():
+        raise StudyManifestError("phase block root is missing or redirected")
+    lock_root = block_root / ".locks"
+    if lock_root.is_symlink() or not lock_root.is_dir() or any(lock_root.iterdir()):
+        raise StudyManifestError("phase lock root must exist and be empty")
+    expected = set(expected_keys)
+    observed = {}
+    for entry in block_root.iterdir():
+        if entry.name == ".locks":
+            continue
+        if entry.is_symlink() or not entry.is_file() or entry.suffix != ".json":
+            raise StudyManifestError("unknown or transient phase block entry")
+        if entry.stem not in expected:
+            raise StudyManifestError("foreign phase block artifact")
+        observed[entry.stem] = entry
+    if set(observed) != expected:
+        raise StudyManifestError("phase block registry is not complete")
+    return observed
+
+
+def build_streaming_run_summary(
+    manifest,
+    ledger,
+    *,
+    output_root: Path,
+    code_revision: str,
+    environment: Mapping[str, object],
+    artifact_loader=load_synthetic_block_artifact,
+) -> tuple[dict[str, object], list[dict[str, object]]]:
+    """Strict-load at most one full artifact and return summary plus byte registry."""
+
+    jobs = sorted(
+        (
+            f"n{seed.node_count:04d}-r{seed.parent_replicate:04d}-{model}",
+            seed,
+            model,
+        )
+        for seed in ledger.parent_seeds
+        for model in _MODELS
+    )
+    paths = _exact_phase_block_paths(output_root, [row[0] for row in jobs])
+    records = []
+    byte_registry = []
+    for key, parent_seed, model in jobs:
+        path = paths[key]
+        before = _sha256_file(path)
+        artifact = artifact_loader(
+            path,
+            manifest=manifest,
+            ledger=ledger,
+            parent_seed=parent_seed,
+            parent_model=model,
+            code_revision=code_revision,
+            environment=environment,
+        )
+        if _block_key(artifact["block"]) != key:
+            raise StudyManifestError("streamed artifact key differs from registry")
+        timing = artifact["timing_ns"]
+        records.append(
+            {
+                "block_key": key,
+                "path": f"blocks/{key}.json",
+                "artifact_fingerprint": artifact["artifact_fingerprint"],
+                "result_fingerprint": artifact["result_fingerprint"],
+                "generation_ns": timing["generation"],
+                "validation_ns": timing["exact_validation"],
+            }
+        )
+        byte_registry.append({"block_key": key, "file_sha256": before})
+        del artifact
+    summary = _summary_from_stream_records(
+        manifest,
+        ledger,
+        code_revision=code_revision,
+        environment=environment,
+        records=records,
+    )
+    final_paths = _exact_phase_block_paths(output_root, [row[0] for row in jobs])
+    if final_paths != paths:
+        raise StudyManifestError("phase block registry changed during finalization")
+    for row in byte_registry:
+        if _sha256_file(final_paths[row["block_key"]]) != row["file_sha256"]:
+            raise StudyManifestError("phase block changed during streaming finalization")
+    return summary, byte_registry
+
+
+def generate_streaming_summary(args) -> Path:
+    """Publish the exact v1 complete summary without retaining all raw artifacts."""
+
+    root = Path(args.workspace_root).resolve()
+    manifest_path, calibration_manifest_path, calibration_path, precision_path = [
+        _inside(root, value)
+        for value in (
+            args.manifest,
+            args.calibration_manifest,
+            args.calibration_evidence,
+            args.precision,
+        )
+    ]
+    manifest = load_study_design_manifest(manifest_path)
+    ledger = build_study_seed_ledger(manifest)
+    calibration = load_audited_calibration_evidence(calibration_path)
+    precision = load_formal_precision_evidence(
+        precision_path, calibration_evidence=calibration
+    )
+    calibration_manifest = load_study_design_manifest(calibration_manifest_path)
+    environment = runtime_environment()
+    validate_frozen_execution_context(
+        manifest,
+        code_revision=manifest.code_revision,
+        environment=environment,
+        precision_evidence=precision,
+        calibration_manifest=calibration_manifest,
+    )
+    _verify_analysis_snapshot(root, args.analysis_revision, manifest.code_revision)
+    output_root = (root / manifest.output_root).resolve()
+    try:
+        output_root.relative_to(root)
+    except ValueError as exc:
+        raise StudyManifestError("phase output root escapes workspace") from exc
+    summary, byte_registry = build_streaming_run_summary(
+        manifest,
+        ledger,
+        output_root=output_root,
+        code_revision=manifest.code_revision,
+        environment=environment,
+    )
+    if summary["status"] != "complete" or summary["completed_block_count"] != 240:
+        raise StudyManifestError("streaming finalization requires exactly 240 blocks")
+    target = output_root / "run-summary.json"
+    if target.is_symlink():
+        raise StudyManifestError("run summary target cannot be a symlink")
+    raw_witness_path = Path(args.witness)
+    raw_witness_path = (
+        raw_witness_path
+        if raw_witness_path.is_absolute()
+        else root / raw_witness_path
+    )
+    if raw_witness_path.is_symlink():
+        raise StudyManifestError("finalization witness target cannot be a symlink")
+    witness_path = _inside(root, raw_witness_path, must_exist=False)
+    witness_root = (root / "results/diagnostics/formal-streaming-finalization").resolve()
+    try:
+        witness_path.relative_to(witness_root)
+    except ValueError as exc:
+        raise StudyManifestError("finalization witness path is outside its frozen root") from exc
+    witness = {
+        "schema_version": "formal-streaming-finalization-witness.v1",
+        "status": "complete-memory-bounded-strict-replay",
+        "phase": manifest.phase.value,
+        "analysis_revision": args.analysis_revision,
+        "execution_revision": manifest.code_revision,
+        "manifest_fingerprint": manifest.fingerprint,
+        "summary_fingerprint": summary["summary_fingerprint"],
+        "block_count": len(byte_registry),
+        "block_byte_registry": byte_registry,
+        "limitations": [
+            "summary-code-revision-is-scientific-execution-revision",
+            "witness-analysis-revision-identifies-streaming-tooling",
+            "no-scientific-endpoint-or-contrast-is-emitted-by-finalization",
+        ],
+    }
+    witness["witness_fingerprint"] = _mapping_fingerprint(witness)
+    _write_new_or_identical(target, summary, "run summary")
+    _write_new_or_identical(witness_path, witness, "finalization witness")
+    return target
+
+
 def load_phase_sources(
     manifest_path: Path,
     summary_path: Path,
@@ -1629,9 +1966,14 @@ def load_phase_sources(
         raise StudyManifestError("summary differs from the canonical 240-block registry")
     seeds = {(item.node_count, item.parent_replicate): item for item in ledger.parent_seeds}
     output_root = summary_path.parent.resolve()
-    artifacts = []
+    paths_by_key = _exact_phase_block_paths(output_root, expected_keys)
+    trace_rows = []
+    activity_flags = {}
+    artifact_fingerprints = []
+    rebuilt_records = []
+    byte_registry = []
     for record in summary["blocks"]:
-        path = (output_root / record["path"]).resolve()
+        path = paths_by_key[record["block_key"]]
         try:
             path.relative_to(output_root)
         except ValueError as exc:
@@ -1639,6 +1981,7 @@ def load_phase_sources(
         parts = record["block_key"].split("-", 2)
         node_count = int(parts[0][1:])
         replicate = int(parts[1][1:])
+        before = _sha256_file(path)
         artifact = load_synthetic_block_artifact(
             path,
             manifest=manifest,
@@ -1648,19 +1991,46 @@ def load_phase_sources(
             code_revision=summary["code_revision"],
             environment=summary["environment"],
         )
-        if artifact["artifact_fingerprint"] != record["artifact_fingerprint"]:
-            raise StudyManifestError("summary artifact fingerprint mismatch")
-        artifacts.append(artifact)
-    rebuilt = build_study_run_summary(
+        timing = artifact["timing_ns"]
+        rebuilt_record = {
+            "block_key": record["block_key"],
+            "path": f"blocks/{record['block_key']}.json",
+            "artifact_fingerprint": artifact["artifact_fingerprint"],
+            "result_fingerprint": artifact["result_fingerprint"],
+            "generation_ns": timing["generation"],
+            "validation_ns": timing["exact_validation"],
+        }
+        if rebuilt_record != record:
+            raise StudyManifestError("summary block record differs from streamed artifact")
+        trace_rows.extend(_extract_trace_contrasts(manifest, [artifact]))
+        activity_flags.update(_artifact_activity_flags([artifact]))
+        artifact_fingerprints.append(artifact["artifact_fingerprint"])
+        rebuilt_records.append(rebuilt_record)
+        byte_registry.append((record["block_key"], before))
+        del artifact
+    trace_rows.sort(key=_trace_sort_key)
+    rebuilt = _summary_from_stream_records(
         manifest,
         ledger,
         code_revision=summary["code_revision"],
         environment=summary["environment"],
-        block_artifacts=artifacts,
+        records=rebuilt_records,
     )
     if rebuilt != summary:
         raise StudyManifestError("complete run summary does not replay exactly")
-    return manifest, ledger, summary, artifacts, calibration, precision
+    final_paths = _exact_phase_block_paths(output_root, expected_keys)
+    if final_paths != paths_by_key:
+        raise StudyManifestError("phase block registry changed during source projection")
+    for key, digest in byte_registry:
+        if _sha256_file(final_paths[key]) != digest:
+            raise StudyManifestError("phase block changed during source projection")
+    projection = {
+        "stream_projection_version": 1,
+        "trace_contrasts": trace_rows,
+        "activity_flags": activity_flags,
+        "artifact_fingerprints": artifact_fingerprints,
+    }
+    return manifest, ledger, summary, projection, calibration, precision
 
 
 def generate_phase_evidence(args) -> Path:
@@ -1679,7 +2049,7 @@ def generate_phase_evidence(args) -> Path:
     _verify_analysis_snapshot(
         root, args.analysis_revision, sources[2]["code_revision"]
     )
-    evidence = build_phase_evidence(
+    evidence = build_phase_evidence_from_projection(
         *sources, analysis_revision=args.analysis_revision
     )
     validate_phase_evidence(
@@ -1952,11 +2322,12 @@ def _verify_analysis_snapshot(root, revision, execution_revision):
 
 def _load_strict_json(path: Path, label: str):
     try:
-        value = json.loads(
-            path.read_text(encoding="utf-8"),
-            object_pairs_hook=_unique_object,
-            parse_constant=_reject_constant,
-        )
+        with path.open("r", encoding="utf-8", newline="") as handle:
+            value = json.load(
+                handle,
+                object_pairs_hook=_unique_object,
+                parse_constant=_reject_constant,
+            )
     except StudyManifestError:
         raise
     except (OSError, UnicodeError, json.JSONDecodeError) as exc:
@@ -2006,6 +2377,17 @@ def _write_new_or_identical(path: Path, value, label: str) -> None:
 def _parser():
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest="command", required=True)
+    finalizer = commands.add_parser(
+        "finalize", help="stream one complete phase into the exact v1 run summary"
+    )
+    finalizer.add_argument("manifest")
+    finalizer.add_argument("calibration_manifest")
+    finalizer.add_argument("calibration_evidence")
+    finalizer.add_argument("precision")
+    finalizer.add_argument("--analysis-revision", required=True)
+    finalizer.add_argument("--workspace-root", default=".")
+    finalizer.add_argument("--witness", required=True)
+
     phase = commands.add_parser("phase", help="build one strict phase evidence artifact")
     phase.add_argument("manifest")
     phase.add_argument("summary")
@@ -2036,11 +2418,12 @@ def _parser():
 
 def main(argv: Sequence[str] | None = None) -> int:
     args = _parser().parse_args(argv)
-    target = (
-        generate_phase_evidence(args)
-        if args.command == "phase"
-        else generate_replication_evidence(args)
-    )
+    if args.command == "finalize":
+        target = generate_streaming_summary(args)
+    elif args.command == "phase":
+        target = generate_phase_evidence(args)
+    else:
+        target = generate_replication_evidence(args)
     print(target, flush=True)
     return 0
 
