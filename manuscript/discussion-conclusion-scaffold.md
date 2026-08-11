@@ -189,10 +189,11 @@ complete:
 
 - Formal and confirmation effect directions, intervals, gate states and
   replication states are intentionally absent.
-- The topology/balance/cost descriptive projection has not yet been frozen or
-  generated. No mechanism-consistency slot may be filled until it is; the
-  projection remains exploratory and will report no confirmatory interval or
-  p value.
+- The topology/balance/cost descriptive projection contract and implementation
+  are frozen result-blind but have not yet been generated. No
+  mechanism-consistency slot may be filled until complete phase evidence has
+  passed its strict raw-source replay; the projection remains exploratory and
+  reports no confirmatory interval or p value.
 - The final Discussion must be compressed jointly with Results to fit the
   0.8-page Discussion/limitations/conclusion allocation.
 - No new reference is added here; final interpretation must use the verified

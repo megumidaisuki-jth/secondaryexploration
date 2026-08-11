@@ -173,6 +173,13 @@ summary, estimands, bootstrap, multiplicity, and confirmation contracts.
 Confirmation execution and inferential analysis remain gated on complete
 formal execution and audited streaming finalization.
 
+Mechanism-adjacent interpretation is separately gated by the result-blind
+[descriptive topology, balance and cost projection](docs/plans/2026-08-11-formal-descriptive-mechanism-projection.md).
+It emits all 13 frozen source-versus-resource-matched-binary descriptors in
+canonical order, streams one raw artifact at a time, keeps parent-model strata
+separate, and intentionally provides no interval, p value, causal claim or
+confirmatory success state.
+
 The package supports Python 3.10 or later and has no third-party runtime or
 test dependency. Run the complete test suite from the repository root with:
 
