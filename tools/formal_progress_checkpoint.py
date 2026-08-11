@@ -62,6 +62,7 @@ _LIMITATIONS = [
     "checkpoint-does-not-replace-complete-phase-finalization-or-inference-gates",
 ]
 _CHECKPOINT_ROOT = Path("results/diagnostics/formal-progress-checkpoints")
+_CHECKPOINT_NAME = re.compile(r"checkpoint-[0-9]{6}\.json")
 _ATOMIC_TEMP = re.compile(
     r"^\.(n\d{4}-r\d{4}-(?:er_gnm|barabasi_albert|sbm_fixed_count))"
     r"\.json\.[^.]+\.tmp$"
@@ -528,12 +529,43 @@ def _validate_checkpoint_output_directory(
 ) -> Path:
     """Reject a non-canonical output argument before any expensive replay."""
 
+    lexical_root = Path(os.path.abspath(str(workspace_root)))
+    lexical_output = Path(os.path.abspath(str(output_directory)))
+    lexical_expected = lexical_root / _CHECKPOINT_ROOT
     expected_parent = _expected_checkpoint_path(workspace_root, 0).parent
-    if output_directory.is_symlink() or output_directory.resolve() != expected_parent:
+    if lexical_output != lexical_expected:
         raise StudyManifestError("formal progress output directory is not frozen")
+    _assert_plain_lexical_path(lexical_output)
     if output_directory.exists() and not output_directory.is_dir():
         raise StudyManifestError("formal progress output directory is invalid")
     return expected_parent
+
+
+def _validate_existing_checkpoint_path(path: Path, *, workspace_root: Path) -> None:
+    """Reject redirected or non-count-addressed replay input before loading it."""
+
+    _validate_checkpoint_output_directory(path.parent, workspace_root=workspace_root)
+    lexical_path = Path(os.path.abspath(str(path)))
+    if not _CHECKPOINT_NAME.fullmatch(lexical_path.name):
+        raise StudyManifestError("formal progress input path is not count-addressed")
+    _assert_plain_lexical_path(lexical_path)
+    if not lexical_path.is_file():
+        raise StudyManifestError("formal progress checkpoint is not a regular file")
+
+
+def _assert_plain_lexical_path(path: Path) -> None:
+    current = Path(path.anchor)
+    for part in path.parts[1:]:
+        current = current / part
+        try:
+            metadata = os.lstat(current)
+        except FileNotFoundError:
+            continue
+        attributes = getattr(metadata, "st_file_attributes", 0)
+        if stat.S_ISLNK(metadata.st_mode) or (
+            attributes & getattr(stat, "FILE_ATTRIBUTE_REPARSE_POINT", 0)
+        ):
+            raise StudyManifestError("formal progress path contains a redirected component")
 
 
 def _expected_checkpoint_path(workspace_root: Path, completed_count: int) -> Path:
@@ -578,6 +610,9 @@ def main(argv: Sequence[str] | None = None) -> int:
         "workspace_root": arguments.workspace_root,
     }
     if arguments.verify_existing:
+        _validate_existing_checkpoint_path(
+            arguments.output, workspace_root=arguments.workspace_root
+        )
         checkpoint = load_formal_progress_checkpoint(arguments.output, **kwargs)
         expected = _expected_checkpoint_path(
             arguments.workspace_root, checkpoint["completed_block_count"]

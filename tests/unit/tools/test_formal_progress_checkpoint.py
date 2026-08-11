@@ -322,6 +322,46 @@ class FormalProgressCheckpointTests(unittest.TestCase):
                     target.main([])
             build.assert_not_called()
 
+    def test_verify_existing_rejects_redirect_before_expensive_replay(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            parent = root / target._CHECKPOINT_ROOT
+            parent.mkdir(parents=True)
+            checkpoint_path = parent / "checkpoint-000174.json"
+            checkpoint_path.write_text("{}", encoding="utf-8")
+            arguments = SimpleNamespace(
+                manifest=root / "manifest.json",
+                calibration_manifest=root / "calibration-manifest.json",
+                calibration_evidence=root / "calibration-evidence.json",
+                precision=root / "precision.json",
+                code_revision=target._EXECUTION_REVISION,
+                workspace_root=root,
+                output=checkpoint_path,
+                verify_existing=True,
+            )
+            parser = SimpleNamespace(parse_args=lambda argv: arguments)
+            real_lstat = target.os.lstat
+
+            def lstat(path):
+                result = real_lstat(path)
+                if Path(path) != parent:
+                    return result
+                return SimpleNamespace(
+                    st_mode=result.st_mode,
+                    st_file_attributes=getattr(
+                        target.stat, "FILE_ATTRIBUTE_REPARSE_POINT", 1024
+                    ),
+                )
+
+            with (
+                patch.object(target, "_parser", return_value=parser),
+                patch.object(target.os, "lstat", side_effect=lstat),
+                patch.object(target, "load_formal_progress_checkpoint") as load,
+            ):
+                with self.assertRaisesRegex(StudyManifestError, "redirected component"):
+                    target.main([])
+            load.assert_not_called()
+
     def test_expected_checkpoint_path_rejects_dangling_leaf_symlink(self):
         checkpoint = _checkpoint()
         with tempfile.TemporaryDirectory() as directory:
