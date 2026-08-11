@@ -214,6 +214,12 @@ performs the complete formal strict replay before emitting the small non-result
 witness. Its scheduler-facing loader rehashes the Git-pinned witness and all
 240 formal block bytes without parsing the formal phase-evidence JSON.
 
+The result-blind
+[formal-to-confirmation transition runbook](docs/plans/2026-08-11-formal-to-confirmation-transition-runbook.md)
+fixes the post-240 command order, revision identities, human embargo,
+authorization commit and automatic confirmation launch conditions. It is a
+checklist, not a launch authorization.
+
 The package supports Python 3.10 or later and has no third-party runtime or
 test dependency. Run the complete test suite from the repository root with:
 
