@@ -169,6 +169,10 @@ Formal execution subsequently reached an independently replayed
 That record verifies the canonical registry and complete raw hash chain but
 contains no endpoint, contrast, interval, direction or inferential readout;
 the formal phase remains incomplete until all 240 blocks are present.
+The subsequent
+[180-block result-blind checkpoint](docs/evidence/2026-08-13-formal-checkpoint-180.md)
+also passed a captured official historical replay while allowing the current
+registry to remain a valid strict superset.
 
 A later user-initiated Windows shutdown interrupted the first size-240 layer
 after 186 artifacts. Batch 031 was fail-closed with zero accepted indices; its
