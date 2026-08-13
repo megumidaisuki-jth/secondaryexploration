@@ -170,6 +170,14 @@ That record verifies the canonical registry and complete raw hash chain but
 contains no endpoint, contrast, interval, direction or inferential readout;
 the formal phase remains incomplete until all 240 blocks are present.
 
+A later user-initiated Windows shutdown interrupted the first size-240 layer
+after 186 artifacts. Batch 031 was fail-closed with zero accepted indices; its
+six stale operational locks were removed only after PID, witness, hash,
+filesystem and shutdown-event checks plus an independent result-blind review.
+The same frozen session then resumed at the canonical pending prefix 186--191.
+The [third recovery record](docs/evidence/2026-08-13-formal-shutdown-recovery.md)
+documents this event without reading scientific endpoints.
+
 Legacy whole-phase finalization and inference are prohibited because they
 retain all 240 complete artifacts. Their replacement is the separately
 revision-bound
