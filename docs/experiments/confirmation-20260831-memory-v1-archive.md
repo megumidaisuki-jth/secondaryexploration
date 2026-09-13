@@ -3,6 +3,7 @@ experiment_id: confirmation-20260831-memory-v1
 study_id: synthetic-confirmation-v1
 phase: confirmation
 status: structurally_complete_pending_independent_audit
+paper_ready: false
 completed_utc: 2026-09-13T14:35:32Z
 raw_block_count: 240
 raw_data_bytes: 4024126383
@@ -63,14 +64,19 @@ final resumed batch.
 | Item | Repository path | Preservation method |
 | --- | --- | --- |
 | 240 raw blocks (4,024,126,383 bytes) | `outputs/confirmation/synthetic-confirmation-v1/blocks/` | Git LFS pointers and LFS objects |
-| Scheduler session and 44 batch traces | `results/diagnostics/confirmation-bounded-scheduler/confirmation-20260831-memory-v1/` | ordinary Git |
+| Scheduler session and 41 finalized batch witnesses | `results/diagnostics/confirmation-bounded-scheduler/confirmation-20260831-memory-v1/` | ordinary Git |
 | Final batch witness | `results/diagnostics/confirmation-bounded-scheduler/confirmation-20260831-memory-v1/batch-044.final.json` | ordinary Git; SHA-256 in frontmatter |
 | Completion witness | `results/diagnostics/confirmation-bounded-scheduler/confirmation-20260831-memory-v1/completion.json` | ordinary Git; SHA-256 in frontmatter |
 
-The completion witness is the authoritative byte registry for the archived
-blocks. It must be retained with the blocks and must not be edited. At archive
-time there were 696 scheduler-diagnostic files, zero live scheduler processes,
-zero block locks, and zero temporary entries.
+Every Git LFS pointer records the SHA-256 object identity and exact byte size of
+its raw block. The completion witness records the canonical whole-registry
+fingerprint. These two layers must be retained together and must not be edited.
+At archive time there were 696 scheduler-diagnostic files, 41 finalized batch
+witnesses numbered through `batch-044`, zero live scheduler processes, zero
+block locks, and zero temporary entries. Batch numbers 027, 032, 033 and 041 do
+not have a final witness because those launches were interrupted/recovered;
+their launch, worker and recovery traces remain archived. They are not missing
+raw blocks: the terminal registry contains all 240 canonical block names.
 
 ## Execution and recovery history
 
@@ -107,7 +113,30 @@ task was then disabled to protect the finished raw data from accidental reruns.
 
 The archived blocks, manifest, scheduler witnesses, code revisions, runtime
 fingerprint, and LFS provenance are sufficient to reproduce the computation
-without rerunning it. The remaining work is analytical rather than simulation:
-independent audit, frozen finalization, phase evidence, cross-phase evidence,
-and manuscript tables/figures. Any statement in the manuscript must cite the
-post-audit derived evidence rather than raw block contents alone.
+without rerunning it. They are not yet a paper-ready result package. The
+following fixed outputs are still intentionally absent at raw-data archive
+time and must be generated from the saved blocks:
+
+| Required paper asset | Fixed path or scope | Archive-time state |
+| --- | --- | --- |
+| Confirmation run summary | `outputs/confirmation/synthetic-confirmation-v1/run-summary.json` | not generated |
+| Confirmation finalization witness | `results/diagnostics/formal-streaming-finalization/confirmation-finalization-witness.json` | not generated |
+| Confirmation phase evidence | `results/inference/confirmation-phase-evidence.json` | not generated |
+| Formal descriptive projection | `results/inference/formal-descriptive-mechanism-v1.json` | not generated |
+| Confirmation descriptive projection | `results/inference/confirmation-descriptive-mechanism-v1.json` | not generated |
+| Forty-record cross-phase replication evidence | `results/inference/formal-confirmation-replication-evidence.json` | not generated |
+| Canonical machine-readable source-data export | all registered contrasts, parent strata, coverage, activity, 13 descriptors, runtime and fingerprints | not generated |
+| Paper figures and tables | Figures 1–3, Table 1 and supplementary/source-data tables | not generated |
+
+The eventual source-data export must retain all 40 registered contrasts in
+each phase, all 40 cross-phase records, all parent-model values, all `q=0.10`
+coverage cells, every demand-aware changed/unchanged activity cell, all 13
+descriptive metrics across four source families, four sizes, three parent-model
+strata and both phases, plus runtime and source fingerprints. No row may be
+discarded based on direction, interval, gate state or replication state.
+
+Accordingly, no simulation rerun is needed. The remaining work is analytical:
+independent result-blind audit, frozen streaming finalization, phase evidence,
+both descriptive projections, cross-phase evidence, canonical source-data
+export, and manuscript tables/figures. Any statement in the manuscript must
+cite those post-audit derived artifacts rather than raw block contents alone.
