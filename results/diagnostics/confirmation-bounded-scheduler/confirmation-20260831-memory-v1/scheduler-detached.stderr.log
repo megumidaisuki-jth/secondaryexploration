@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "E:\second\tools\confirmation_bounded_scheduler.py", line 1919, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "E:\second\tools\confirmation_bounded_scheduler.py", line 1905, in main
+    completion = run_scheduler(
+                 ^^^^^^^^^^^^^^
+  File "E:\second\tools\confirmation_bounded_scheduler.py", line 1871, in run_scheduler
+    lease_path, lease = acquire_global_lease(
+                        ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\second\tools\confirmation_bounded_scheduler.py", line 1168, in acquire_global_lease
+    raise StudyManifestError("recorded scheduler lease owner remains live")
+secondaryexploration.experiments.study.StudyManifestError: recorded scheduler lease owner remains live

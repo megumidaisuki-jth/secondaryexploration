@@ -1,0 +1,1 @@
+generate n0240-r0002-barabasi_albert

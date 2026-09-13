@@ -1,0 +1,5 @@
+generate n0030-r0006-sbm_fixed_count
+validate n0030-r0006-sbm_fixed_count
+checkpoint n0030-r0006-sbm_fixed_count
+shard-complete 1/1
+E:\second\outputs\confirmation\synthetic-confirmation-v1\blocks

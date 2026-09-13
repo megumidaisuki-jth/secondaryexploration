@@ -1,0 +1,5 @@
+generate n0240-r0016-er_gnm
+validate n0240-r0016-er_gnm
+checkpoint n0240-r0016-er_gnm
+shard-complete 1/1
+E:\second\outputs\confirmation\synthetic-confirmation-v1\blocks

@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "E:\second\secondaryexploration\experiments\runner.py", line 832, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "E:\second\secondaryexploration\experiments\runner.py", line 815, in main
+    summary_path = execute_synthetic_study(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\second\secondaryexploration\experiments\runner.py", line 101, in execute_synthetic_study
+    ) = _prepare_synthetic_study(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\second\secondaryexploration\experiments\runner.py", line 492, in _prepare_synthetic_study
+    validate_frozen_execution_context(
+  File "E:\second\secondaryexploration\experiments\runner.py", line 569, in validate_frozen_execution_context
+    raise StudyManifestError("runtime environment does not match the frozen manifest")
+secondaryexploration.experiments.study.StudyManifestError: runtime environment does not match the frozen manifest

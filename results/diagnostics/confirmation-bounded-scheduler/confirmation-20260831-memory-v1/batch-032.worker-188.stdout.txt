@@ -1,0 +1,2 @@
+generate n0240-r0002-sbm_fixed_count
+validate n0240-r0002-sbm_fixed_count

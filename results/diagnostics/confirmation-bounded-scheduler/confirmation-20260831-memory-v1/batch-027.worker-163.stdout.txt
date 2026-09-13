@@ -1,0 +1,2 @@
+generate n0120-r0014-barabasi_albert
+validate n0120-r0014-barabasi_albert

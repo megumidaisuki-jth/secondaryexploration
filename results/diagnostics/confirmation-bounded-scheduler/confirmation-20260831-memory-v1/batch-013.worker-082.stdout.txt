@@ -1,0 +1,5 @@
+generate n0060-r0007-barabasi_albert
+validate n0060-r0007-barabasi_albert
+checkpoint n0060-r0007-barabasi_albert
+shard-complete 1/1
+E:\second\outputs\confirmation\synthetic-confirmation-v1\blocks

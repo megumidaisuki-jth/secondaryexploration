@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "E:\second\tools\confirmation_bounded_scheduler.py", line 1919, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "E:\second\tools\confirmation_bounded_scheduler.py", line 1905, in main
+    completion = run_scheduler(
+                 ^^^^^^^^^^^^^^
+  File "E:\second\tools\confirmation_bounded_scheduler.py", line 1877, in run_scheduler
+    return _run_scheduler_body(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\second\tools\confirmation_bounded_scheduler.py", line 1648, in _run_scheduler_body
+    preflight = preflight_synthetic_study(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\second\secondaryexploration\experiments\runner.py", line 400, in preflight_synthetic_study
+    ) = _prepare_synthetic_study(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\second\secondaryexploration\experiments\runner.py", line 492, in _prepare_synthetic_study
+    validate_frozen_execution_context(
+  File "E:\second\secondaryexploration\experiments\runner.py", line 569, in validate_frozen_execution_context
+    raise StudyManifestError("runtime environment does not match the frozen manifest")
+secondaryexploration.experiments.study.StudyManifestError: runtime environment does not match the frozen manifest
