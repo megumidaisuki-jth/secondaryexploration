@@ -21,6 +21,12 @@ archive_commit: b5c0d9043f704570230de9072c2b165b41cdc8e5
 
 # Confirmation experiment archive
 
+Subsequent checkpoint (2026-09-17): the Confirmation summary and finalization
+witness have now been generated and their byte bindings verified. The tables
+below retain the original raw-archive-time state. See
+`docs/evidence/2026-09-17-post-confirmation-analysis.md` for the ongoing analysis
+pipeline and remaining independent replay/reporting gates.
+
 ## Purpose and boundary
 
 This is the archived raw-data record for the pre-registered Confirmation phase
