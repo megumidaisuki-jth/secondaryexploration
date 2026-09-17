@@ -52,12 +52,15 @@ supervisor exit, inspect child processes before attempting a resume; a child
 may still be running. Do not remove files or receipts to force a resume.
 
 The Windows task `SecondaryExploration-PostConfirmation-20260917` is on-demand,
-with no scheduled trigger and no execution time limit. It runs the supervisor
-through `tools/launch_post_confirmation.ps1`, using a hidden process with
-separate timestamped startup stdout/stderr logs. The first direct task attempt
+with no scheduled trigger and no execution time limit. Its action invokes
+Windows PowerShell's `Start-Process` command directly, with `-WindowStyle Hidden`
+and explicit stdout/stderr paths (`task-launch.*.log` in the diagnostic folder).
+It does not change the machine's script execution policy. The first direct task attempt
 ended during preflight with Windows status `0xC000013A` (interrupted); no
-analysis child was launched in that attempt. The hidden launcher is the second
-attempt, after checking that the first process had exited.
+analysis child was launched in that attempt. A second, script-file launcher
+was rejected by Windows PowerShell's execution policy and returned code 1;
+the unused script was removed. The third attempt uses the direct command
+action, after checking that neither earlier process remained.
 
 This decouples analysis execution from the chat's terminal lifetime.
 `status.json` describes current
