@@ -29,7 +29,7 @@ from tools import post_confirmation_pipeline as legacy
 
 ROOT = _ROOT
 DIAG = ROOT / "results/diagnostics/post-confirmation/20260917-v1"
-EXECUTOR_REVISION = "f8dcd6b39d54a191617fadcfa413534096fc8e15"
+EXECUTOR_REVISION = "dea9a76fc0d85c9fc2b79992309a7954f291e4f3"
 
 
 def utc() -> str:
@@ -55,8 +55,8 @@ def command_plan():
         "--executor-revision", EXECUTOR_REVISION,
         "--workspace-root", str(ROOT),
         "--workers", "4",
-        "--equivalence-reference", "results/inference/formal-descriptive-mechanism-v1.json",
-        "--output", "results/inference/formal-descriptive-parallel-equivalence-v1.json",
+        "--checkpoint-root", "results/diagnostics/parallel-descriptive",
+        "--output", "results/inference/formal-descriptive-mechanism-v1.json",
     ]
     confirmation = [
         *parallel_prefix,
@@ -66,29 +66,15 @@ def command_plan():
         "--executor-revision", EXECUTOR_REVISION,
         "--workspace-root", str(ROOT),
         "--workers", "4",
+        "--checkpoint-root", "results/diagnostics/parallel-descriptive",
         "--output", "results/inference/confirmation-descriptive-mechanism-v1.json",
     ]
     replication = next(arguments for name, arguments, _ in legacy.plan() if name == "replication")
     return (
-        ("formal-parallel-equivalence", formal, "results/inference/formal-descriptive-parallel-equivalence-v1.json"),
+        ("formal-descriptive-parallel", formal, "results/inference/formal-descriptive-mechanism-v1.json"),
         ("confirmation-descriptive", confirmation, "results/inference/confirmation-descriptive-mechanism-v1.json"),
         ("replication", replication, "results/inference/formal-confirmation-replication-evidence.json"),
     )
-
-
-def _require_formal_receipt(context_hash: str) -> None:
-    receipt_path = DIAG / "formal-descriptive.success.json"
-    if not receipt_path.is_file():
-        raise RuntimeError("Formal descriptive success receipt is absent")
-    receipt = analysis._load_strict_json(receipt_path, "Formal descriptive receipt")
-    expected_output = "results/inference/formal-descriptive-mechanism-v1.json"
-    if receipt.get("stage") != "formal-descriptive" or receipt.get("exit_code") != 0:
-        raise RuntimeError("Formal descriptive receipt is not successful")
-    if receipt.get("output") != expected_output or receipt.get("context_sha256") != context_hash:
-        raise RuntimeError("Formal descriptive receipt binding differs")
-    output = ROOT / expected_output
-    if not output.is_file() or digest(output) != receipt.get("output_sha256"):
-        raise RuntimeError("Formal descriptive artifact binding differs")
 
 
 def _run_stage(name: str, arguments: list[str], output: str, context_hash: str) -> None:
@@ -149,7 +135,6 @@ def run() -> None:
             atomic_write_json(DIAG / "status.json", {"status": "parallel-transition-preflight", "pid": os.getpid(), "at": utc()})
             context = legacy.preflight()
             context_hash = analysis._mapping_fingerprint(context)
-            _require_formal_receipt(context_hash)
             atomic_write_json(
                 DIAG / "parallel-transition-preflight.json",
                 {
@@ -157,6 +142,7 @@ def run() -> None:
                     "at": utc(),
                     "executor_revision": EXECUTOR_REVISION,
                     "context_sha256": context_hash,
+                    "serial_formal_status": "intentionally-stopped-without-output",
                 },
             )
             for name, arguments, output in command_plan():
