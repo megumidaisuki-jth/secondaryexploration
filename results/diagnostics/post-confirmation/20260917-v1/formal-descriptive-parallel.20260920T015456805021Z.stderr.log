@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "E:\second\tools\parallel_descriptive_projection.py", line 405, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "E:\second\tools\parallel_descriptive_projection.py", line 399, in main
+    target = run(_parser().parse_args(argv))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\second\tools\parallel_descriptive_projection.py", line 343, in run
+    checkpoint_base = primary._inside(root, args.checkpoint_root)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\second\tools\formal_inference.py", line 2280, in _inside
+    raise StudyManifestError(f"analysis input does not exist: {resolved}")
+secondaryexploration.experiments.study.StudyManifestError: analysis input does not exist: E:\second\results\diagnostics\parallel-descriptive
