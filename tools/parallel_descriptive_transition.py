@@ -29,7 +29,7 @@ from tools import post_confirmation_pipeline as legacy
 
 ROOT = _ROOT
 DIAG = ROOT / "results/diagnostics/post-confirmation/20260917-v1"
-EXECUTOR_REVISION = "dea9a76fc0d85c9fc2b79992309a7954f291e4f3"
+EXECUTOR_REVISION = "c636cad28403c82113bdce8dcc0103ffa8c89ff9"
 
 
 def utc() -> str:
