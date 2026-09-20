@@ -10,8 +10,9 @@ phase.  It does not replace the later independent scientific replay audit.
 from __future__ import annotations
 
 import argparse
-from concurrent.futures import ProcessPoolExecutor
+from concurrent.futures import ProcessPoolExecutor, as_completed
 from collections.abc import Mapping, Sequence
+from datetime import datetime, timezone
 import json
 import os
 from pathlib import Path
@@ -47,6 +48,7 @@ _TOOL_PATHS = (
     "docs/plans/2026-09-19-parallel-descriptive-executor.md",
 )
 _WORKER: dict[str, object] = {}
+CHECKPOINT_SCHEMA = "parallel-descriptive-block-checkpoint.v1"
 
 
 def _digest(path: Path) -> str:
@@ -85,8 +87,57 @@ def _worker_initializer(manifest_path: str) -> None:
     )
 
 
-def _project_one(task: tuple[int, str, str, int, int, str, str, Mapping[str, object]]):
-    index, key, path_text, node_count, replicate, parent_model, code_revision, environment = task
+def _utc() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
+def _checkpoint_context(manifest, ledger, summary, calibration, precision, workers: int, executor_revision: str) -> dict[str, object]:
+    return {
+        "schema_version": CHECKPOINT_SCHEMA,
+        "executor_revision": executor_revision,
+        "frozen_projection_revision": FROZEN_PROJECTION_REVISION,
+        "phase": manifest.phase.value,
+        "workers": workers,
+        "manifest": manifest.fingerprint,
+        "seed_ledger": ledger.fingerprint,
+        "run_summary": summary["summary_fingerprint"],
+        "calibration": calibration["evidence_fingerprint"],
+        "precision": precision["precision_fingerprint"],
+    }
+
+
+def _load_checkpoint(path: Path, *, index: int, key: str, context_sha256: str, expected_record: Mapping[str, object]) -> dict[str, object]:
+    value = primary._load_strict_json(path, "parallel block checkpoint")
+    required = {"schema_version", "context_sha256", "index", "block_key", "rebuilt", "registry", "rows"}
+    if set(value) != required or value["schema_version"] != CHECKPOINT_SCHEMA:
+        raise StudyManifestError("parallel block checkpoint schema differs")
+    if value["context_sha256"] != context_sha256 or value["index"] != index or value["block_key"] != key:
+        raise StudyManifestError("parallel block checkpoint identity differs")
+    if value["rebuilt"] != expected_record:
+        raise StudyManifestError("parallel block checkpoint summary record differs")
+    registry = value["registry"]
+    if not isinstance(registry, Mapping) or registry.get("block_key") != key:
+        raise StudyManifestError("parallel block checkpoint registry differs")
+    if not isinstance(value["rows"], list):
+        raise StudyManifestError("parallel block checkpoint rows differ")
+    return value
+
+
+def _write_progress(path: Path, *, context_sha256: str, phase: str, completed: int, total: int, last_key: str | None) -> None:
+    atomic_write_json(path, {
+        "schema_version": "parallel-descriptive-progress.v1",
+        "context_sha256": context_sha256,
+        "phase": phase,
+        "completed_block_count": completed,
+        "total_block_count": total,
+        "last_completed_block_key": last_key,
+        "updated_at": _utc(),
+        "status": "complete" if completed == total else "running",
+    })
+
+
+def _project_one(task: tuple[int, str, str, int, int, str, str, Mapping[str, object], str, str]):
+    index, key, path_text, node_count, replicate, parent_model, code_revision, environment, checkpoint_text, context_sha256 = task
     manifest = _WORKER["manifest"]
     ledger = _WORKER["ledger"]
     seeds = _WORKER["seeds"]
@@ -120,7 +171,17 @@ def _project_one(task: tuple[int, str, str, int, int, str, str, Mapping[str, obj
         "file_sha256": before,
     }
     rows = frozen._project_block(manifest, artifact)
-    return index, rebuilt, registry, rows
+    checkpoint = Path(checkpoint_text)
+    atomic_write_json(checkpoint, {
+        "schema_version": CHECKPOINT_SCHEMA,
+        "context_sha256": context_sha256,
+        "index": index,
+        "block_key": key,
+        "rebuilt": rebuilt,
+        "registry": registry,
+        "rows": rows,
+    })
+    return index, key
 
 
 def build_parallel_projection(
@@ -133,6 +194,8 @@ def build_parallel_projection(
     manifest_path: Path,
     output_root: Path,
     workers: int,
+    checkpoint_root: Path,
+    executor_revision: str,
 ):
     if workers < 1 or workers > 4:
         raise StudyManifestError("parallel worker count must be in [1, 4]")
@@ -142,10 +205,26 @@ def build_parallel_projection(
     if expected_keys != primary._expected_block_keys():
         raise StudyManifestError("summary block registry is not canonical")
     paths = primary._exact_phase_block_paths(output_root, expected_keys)
+    checkpoint_root.mkdir(parents=True, exist_ok=True)
+    context = _checkpoint_context(manifest, ledger, summary, calibration, precision, workers, executor_revision)
+    context_sha256 = primary._mapping_fingerprint(context)
+    context_path = checkpoint_root / "context.json"
+    if context_path.exists():
+        if primary._load_strict_json(context_path, "parallel checkpoint context") != context:
+            raise StudyManifestError("parallel checkpoint context differs; refusing resume")
+    else:
+        atomic_write_json(context_path, context)
+    progress_path = checkpoint_root / "progress.json"
     tasks = []
+    completed_keys: list[str] = []
     for index, record in enumerate(summary["blocks"]):
         key = record["block_key"]
         parts = key.split("-", 2)
+        checkpoint = checkpoint_root / f"{index:03d}-{key}.json"
+        if checkpoint.exists():
+            _load_checkpoint(checkpoint, index=index, key=key, context_sha256=context_sha256, expected_record=record)
+            completed_keys.append(key)
+            continue
         tasks.append((
             index,
             key,
@@ -155,23 +234,36 @@ def build_parallel_projection(
             parts[2],
             summary["code_revision"],
             summary["environment"],
+            str(checkpoint),
+            context_sha256,
         ))
-    with ProcessPoolExecutor(
-        max_workers=workers,
-        initializer=_worker_initializer,
-        initargs=(str(manifest_path),),
-    ) as pool:
-        completed = list(pool.map(_project_one, tasks))
-    completed.sort(key=lambda item: item[0])
+    _write_progress(progress_path, context_sha256=context_sha256, phase=manifest.phase.value,
+                    completed=len(completed_keys), total=len(summary["blocks"]),
+                    last_key=completed_keys[-1] if completed_keys else None)
+    if tasks:
+        with ProcessPoolExecutor(
+            max_workers=workers,
+            initializer=_worker_initializer,
+            initargs=(str(manifest_path),),
+        ) as pool:
+            futures = [pool.submit(_project_one, task) for task in tasks]
+            for future in as_completed(futures):
+                _, key = future.result()
+                completed_keys.append(key)
+                _write_progress(progress_path, context_sha256=context_sha256, phase=manifest.phase.value,
+                                completed=len(completed_keys), total=len(summary["blocks"]), last_key=key)
     rows = []
     rebuilt_records = []
     byte_registry = []
     artifact_fingerprints = []
-    for _, rebuilt, registry, projected_rows in completed:
-        rows.extend(projected_rows)
-        rebuilt_records.append(rebuilt)
-        byte_registry.append(registry)
-        artifact_fingerprints.append(registry["artifact_fingerprint"])
+    for index, record in enumerate(summary["blocks"]):
+        key = record["block_key"]
+        checkpoint = checkpoint_root / f"{index:03d}-{key}.json"
+        saved = _load_checkpoint(checkpoint, index=index, key=key, context_sha256=context_sha256, expected_record=record)
+        rows.extend(saved["rows"])
+        rebuilt_records.append(saved["rebuilt"])
+        byte_registry.append(saved["registry"])
+        artifact_fingerprints.append(saved["registry"]["artifact_fingerprint"])
     if rebuilt_records != summary["blocks"]:
         raise StudyManifestError("summary differs from parallel source artifacts")
     rebuilt_summary = primary._summary_from_stream_records(
@@ -248,6 +340,8 @@ def _load_inputs(args):
 
 def run(args) -> Path:
     root, paths, manifest, ledger, summary, calibration, precision = _load_inputs(args)
+    checkpoint_base = primary._inside(root, args.checkpoint_root)
+    checkpoint_root = checkpoint_base / manifest.phase.value
     evidence = build_parallel_projection(
         manifest,
         ledger,
@@ -257,6 +351,8 @@ def run(args) -> Path:
         manifest_path=paths[0],
         output_root=paths[1].parent.resolve(),
         workers=args.workers,
+        checkpoint_root=checkpoint_root,
+        executor_revision=args.executor_revision,
     )
     target = primary._evidence_target(root, args.output, paths)
     if args.equivalence_reference:
@@ -277,7 +373,7 @@ def run(args) -> Path:
             "candidate_projection_fingerprint": evidence["projection_fingerprint"],
             "source_summary_fingerprint": summary["summary_fingerprint"],
         }
-        atomic_write_json(target, receipt)
+        primary._write_new_or_identical(target, receipt, "parallel descriptive equivalence receipt")
     else:
         primary._write_new_or_identical(target, evidence, "parallel descriptive projection")
     return target
@@ -293,6 +389,7 @@ def _parser():
     parser.add_argument("--executor-revision", required=True)
     parser.add_argument("--workspace-root", default=".")
     parser.add_argument("--workers", type=int, default=min(4, max(1, (os.cpu_count() or 1) // 2)))
+    parser.add_argument("--checkpoint-root", default="results/diagnostics/parallel-descriptive")
     parser.add_argument("--equivalence-reference")
     parser.add_argument("--output", required=True)
     return parser
