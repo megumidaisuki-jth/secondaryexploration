@@ -340,7 +340,12 @@ def _load_inputs(args):
 
 def run(args) -> Path:
     root, paths, manifest, ledger, summary, calibration, precision = _load_inputs(args)
-    checkpoint_base = primary._inside(root, args.checkpoint_root)
+    checkpoint_base = (root / args.checkpoint_root).resolve()
+    try:
+        checkpoint_base.relative_to(root)
+    except ValueError as exc:
+        raise StudyManifestError("checkpoint root escapes workspace") from exc
+    checkpoint_base.mkdir(parents=True, exist_ok=True)
     checkpoint_root = checkpoint_base / manifest.phase.value
     evidence = build_parallel_projection(
         manifest,
