@@ -153,14 +153,90 @@ def run_stage(name: str, arguments: list[str], output: str) -> None:
     write_json(receipt, record)
 
 
+def _stage_is_reusable(name: str, arguments: list[str], output: str) -> bool:
+    receipt = DIAG / f"{name}.success.json"
+    command = [sys.executable, *arguments]
+    target = ROOT / output
+    if not receipt.exists():
+        return False
+    prior = json.loads(receipt.read_text(encoding="utf-8"))
+    if prior.get("command") == command and target.is_file() and prior.get("output_sha256") == digest(target):
+        return True
+    raise RuntimeError(f"prior audit receipt drift for {name}")
+
+
+def run_parallel_stages(stages: tuple[tuple[str, list[str], str], ...]) -> None:
+    """Run up to two independent immutable-output replays concurrently."""
+
+    pending = [stage for stage in stages if not _stage_is_reusable(*stage)]
+    if not pending:
+        return
+    if len(pending) > 2:
+        raise RuntimeError("parallel audit group exceeds its two-process memory bound")
+    started = utc()
+    write_json(
+        DIAG / "status.json",
+        {
+            "status": "running",
+            "stage": "parallel-group",
+            "active_stages": [name for name, _arguments, _output in pending],
+            "started_at": started,
+            "workers": len(pending),
+        },
+    )
+    jobs = []
+    try:
+        for name, arguments, output in pending:
+            stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+            stdout = DIAG / f"{name}.{stamp}.stdout.log"
+            stderr = DIAG / f"{name}.{stamp}.stderr.log"
+            out = stdout.open("xb")
+            err = stderr.open("xb")
+            child = subprocess.Popen([sys.executable, *arguments], cwd=ROOT, stdout=out, stderr=err)
+            jobs.append((name, arguments, output, stamp, stdout, stderr, out, err, child))
+        failures = []
+        for name, arguments, output, stamp, stdout, stderr, out, err, child in jobs:
+            code = child.wait()
+            out.close()
+            err.close()
+            target = ROOT / output
+            record: dict[str, object] = {
+                "stage": name,
+                "command": [sys.executable, *arguments],
+                "started_at": started,
+                "completed_at": utc(),
+                "exit_code": code,
+                "stdout_sha256": digest(stdout),
+                "stderr_sha256": digest(stderr),
+                "output": output,
+            }
+            if code == 0 and target.is_file():
+                record["output_sha256"] = digest(target)
+                record["output_bytes"] = target.stat().st_size
+                write_json(DIAG / f"{name}.success.json", record)
+            else:
+                write_json(DIAG / f"{name}.{stamp}.failure.json", record)
+                failures.append(f"{name} exited {code}")
+        if failures:
+            raise RuntimeError("; ".join(failures))
+    finally:
+        for _name, _arguments, _output, _stamp, _stdout, _stderr, out, err, _child in jobs:
+            if not out.closed:
+                out.close()
+            if not err.closed:
+                err.close()
+
+
 def main() -> int:
     DIAG.mkdir(parents=True, exist_ok=True)
     with (DIAG / "audit.lock").open("a+b") as lock:
         lock.seek(0)
         msvcrt.locking(lock.fileno(), msvcrt.LK_NBLCK, 1)
         try:
-            for name, arguments, output in plan():
-                run_stage(name, arguments, output)
+            stages = plan()
+            run_parallel_stages(stages[:2])
+            run_parallel_stages(stages[2:4])
+            run_stage(*stages[4])
         except Exception as error:
             write_json(DIAG / "status.json", {"status": "stopped-on-error", "at": utc(), "error": str(error)})
             raise
