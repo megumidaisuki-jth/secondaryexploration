@@ -1,10 +1,11 @@
 """Run a resumable, result-blind replay audit of the final evidence package.
 
-Each stage invokes the frozen public analysis command against its canonical
-output.  The frozen writers refuse a non-identical existing output, so a zero
-exit means that the fresh replay reconstructed exactly the archived artifact.
-This wrapper adds only operational receipts and never parses scientific
-endpoints.
+Each stage invokes a frozen public analysis command against its canonical
+output.  The descriptive stages use four bounded workers with a fresh audit
+checkpoint root.  The frozen writers refuse a non-identical existing output,
+so a zero exit means that the fresh replay reconstructed exactly the archived
+artifact.  This wrapper adds only operational receipts and never parses
+scientific endpoints.
 """
 
 from __future__ import annotations
@@ -21,7 +22,8 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 DIAG = ROOT / "results" / "diagnostics" / "independent-replay" / "20260922-v1"
 ANALYSIS_REVISION = "9ecaadec84f8bebe799fb507969de8e0a0947b66"
-PROJECTION_REVISION = "a85c952afa120f86a9ace96a031819c0d131d2b4"
+PARALLEL_EXECUTOR_REVISION = "c636cad28403c82113bdce8dcc0103ffa8c89ff9"
+AUDIT_CHECKPOINT_ROOT = "results/diagnostics/independent-replay/20260922-v1/checkpoints"
 
 
 def utc() -> str:
@@ -79,12 +81,14 @@ def plan() -> tuple[tuple[str, list[str], str], ...]:
         (
             "formal-descriptive",
             [
-                "tools/formal_descriptive_projection.py",
+                "tools/parallel_descriptive_projection.py",
                 "configs/formal/synthetic-formal-v1.json",
                 "outputs/formal/synthetic-formal-v1/run-summary.json",
                 *common,
-                "--projection-revision", PROJECTION_REVISION,
+                "--executor-revision", PARALLEL_EXECUTOR_REVISION,
                 "--workspace-root", str(ROOT),
+                "--workers", "4",
+                "--checkpoint-root", AUDIT_CHECKPOINT_ROOT,
                 "--output", "results/inference/formal-descriptive-mechanism-v1.json",
             ],
             "results/inference/formal-descriptive-mechanism-v1.json",
@@ -92,12 +96,14 @@ def plan() -> tuple[tuple[str, list[str], str], ...]:
         (
             "confirmation-descriptive",
             [
-                "tools/formal_descriptive_projection.py",
+                "tools/parallel_descriptive_projection.py",
                 "configs/confirmation/synthetic-confirmation-v1.json",
                 "outputs/confirmation/synthetic-confirmation-v1/run-summary.json",
                 *common,
-                "--projection-revision", PROJECTION_REVISION,
+                "--executor-revision", PARALLEL_EXECUTOR_REVISION,
                 "--workspace-root", str(ROOT),
+                "--workers", "4",
+                "--checkpoint-root", AUDIT_CHECKPOINT_ROOT,
                 "--output", "results/inference/confirmation-descriptive-mechanism-v1.json",
             ],
             "results/inference/confirmation-descriptive-mechanism-v1.json",
@@ -235,7 +241,8 @@ def main() -> int:
         try:
             stages = plan()
             run_parallel_stages(stages[:2])
-            run_parallel_stages(stages[2:4])
+            run_stage(*stages[2])
+            run_stage(*stages[3])
             run_stage(*stages[4])
         except Exception as error:
             write_json(DIAG / "status.json", {"status": "stopped-on-error", "at": utc(), "error": str(error)})
