@@ -53,7 +53,21 @@ foreach ($processId in @($ids) | Sort-Object -Descending) {{
         text=True,
     )
     if completed.returncode != 0:
-        raise RuntimeError(completed.stderr.strip() or "failed to stop replay process tree")
+        verify = subprocess.run(
+            [
+                "powershell.exe",
+                "-NoProfile",
+                "-NonInteractive",
+                "-Command",
+                "$p=@(Get-CimInstance Win32_Process | Where-Object {$_.CommandLine -match "
+                "'independent_replay_audit\\.py|parallel_descriptive_projection\\.py'}); "
+                "if($p.Count -gt 0){exit 1}else{exit 0}",
+            ],
+            cwd=ROOT,
+            check=False,
+        )
+        if verify.returncode != 0:
+            raise RuntimeError(completed.stderr.strip() or "failed to stop replay process tree")
 
 
 def checkpoint_state() -> dict[str, object]:
