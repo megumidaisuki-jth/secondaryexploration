@@ -4,3 +4,11 @@ results/diagnostics/confirmation-launch-readiness/formal-ready.json -text
 outputs/confirmation/synthetic-confirmation-v1/blocks/*.json filter=lfs diff=lfs merge=lfs -text
 outputs/confirmation/synthetic-confirmation-v1/run-summary.json -text
 results/diagnostics/formal-streaming-finalization/confirmation-finalization-witness.json -text
+
+# Preserve byte-bound reporting inputs and generated artifact hashes on Windows.
+outputs/formal/synthetic-formal-v1/run-summary.json -text
+results/inference/*.json -text
+results/source-data/synthetic-hypergraph-payment-v1/source-data.json -text
+manuscript/generated/synthetic-v1/* -text whitespace=cr-at-eol
+manuscript/generated/synthetic-v1/*.svg whitespace=cr-at-eol,-blank-at-eol
+tools/build_results_displays.py text eol=lf

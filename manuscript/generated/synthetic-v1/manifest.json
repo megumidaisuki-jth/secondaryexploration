@@ -1,0 +1,69 @@
+{
+  "schema_version": "manuscript-displays.v1",
+  "source_sha256": "50fd83d81d54cfaf7198b3307f10a51d4a1f555b94ab06975e2d3b0b3d8e30f4",
+  "source_content_fingerprint": "d82d90b43938efead325d1d2773f064b32e557d6776f3851c2cb7d37b0e5857d",
+  "generator_sha256": "408c13805f9db197c1dd1ee1a600311e2f69fdf306530fbce12735a7ee36a4cc",
+  "python": "3.10.16",
+  "matplotlib": "3.10.8",
+  "validation": "archived-source binding, structural evidence validation, exact reporting checks; no new raw replay",
+  "phase_interval_rows": 80,
+  "replication_rows": 40,
+  "global_table_rows": 8,
+  "replication_state_counts": {
+    "independently_confirmed": 40
+  },
+  "files": {
+    "numerical-registry.json": {
+      "bytes": 141651,
+      "sha256": "a0f0f53ec756d2be1f06366b8973444420def7a5a006a95e77f5afcfe5d5916c"
+    },
+    "table-1.json": {
+      "bytes": 29400,
+      "sha256": "75e0bb8befebeae94467b6e59c401351b6a3d64477884c516c0ba7a61bcc7319"
+    },
+    "table-1.md": {
+      "bytes": 2459,
+      "sha256": "98e4a1bf94babb366fe28d6ca44df360989493aaad35ee25bd30695bec4a7521"
+    },
+    "captions.md": {
+      "bytes": 3272,
+      "sha256": "7d82e3509352d6d14efb4f925eb03d17e910efeabb0137ba7d76798ad4284c27"
+    },
+    "figure-1-design.svg": {
+      "bytes": 8381,
+      "sha256": "40f162418420c29b2dfce00fc4771ba47479cd3be508692ab3c3704cea26753f"
+    },
+    "figure-1-design.pdf": {
+      "bytes": 46346,
+      "sha256": "eb389b58499733a6081b3f64bb8733c246adc377654604cb733658701809c209"
+    },
+    "figure-1-design.png": {
+      "bytes": 141237,
+      "sha256": "09e465abaa830281ae268191255a411d582d3932adbc764b4aeb9cd991c1a560"
+    },
+    "figure-2-global-contrasts.svg": {
+      "bytes": 24826,
+      "sha256": "5618f4f04f77dd5c9c6b3bdb10cd85420ae68d6919e12222d9233ff673edfd07"
+    },
+    "figure-2-global-contrasts.pdf": {
+      "bytes": 41820,
+      "sha256": "1661542918d553dc60941fb1b6153e0f6756335d320a6119ea6eca73f84cc476"
+    },
+    "figure-2-global-contrasts.png": {
+      "bytes": 70501,
+      "sha256": "93b6c44dd98d5f8bb52f01c84c6964c266ab6df8480db15f3ae321ca1f229428"
+    },
+    "figure-3-replication-matrix.svg": {
+      "bytes": 27087,
+      "sha256": "ef32b845e250660f2d9a6687b8218639ae445a5a4b921f23e2f842a356038fb3"
+    },
+    "figure-3-replication-matrix.pdf": {
+      "bytes": 30645,
+      "sha256": "a8b8cc81b44056e9f4af07298ee3c58a28a5454c091177580af9933137e58803"
+    },
+    "figure-3-replication-matrix.png": {
+      "bytes": 132916,
+      "sha256": "c6c56f88a596891bd3c54cb657ea5084fda73c359c6680e49bc89dbd98710267"
+    }
+  }
+}

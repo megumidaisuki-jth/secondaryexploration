@@ -1,0 +1,5529 @@
+{
+  "source_sha256": "50fd83d81d54cfaf7198b3307f10a51d4a1f555b94ab06975e2d3b0b3d8e30f4",
+  "source_content_fingerprint": "d82d90b43938efead325d1d2773f064b32e557d6776f3851c2cb7d37b0e5857d",
+  "phase_intervals": [
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0030.demand-aware",
+      "estimate": [
+        -31,
+        56
+      ],
+      "family_id": "failure_risk.n0030",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        -523,
+        840
+      ],
+      "metric": "failure_risk",
+      "node_count": 30,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        -29,
+        60
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/0",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.554",
+        "lower": "-0.623",
+        "upper": "-0.483"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0030.fhs3",
+      "estimate": [
+        -89,
+        280
+      ],
+      "family_id": "failure_risk.n0030",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        -323,
+        840
+      ],
+      "metric": "failure_risk",
+      "node_count": 30,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        -53,
+        210
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/1",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.318",
+        "lower": "-0.385",
+        "upper": "-0.252"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0030.fhs5",
+      "estimate": [
+        -31,
+        56
+      ],
+      "family_id": "failure_risk.n0030",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        -523,
+        840
+      ],
+      "metric": "failure_risk",
+      "node_count": 30,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        -29,
+        60
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/2",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.554",
+        "lower": "-0.623",
+        "upper": "-0.483"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0030.global",
+      "estimate": [
+        -17,
+        40
+      ],
+      "family_id": "failure_risk.n0030",
+      "gate_state": "not_applicable",
+      "inference_status": "confirmatory",
+      "lower": [
+        -803,
+        1680
+      ],
+      "metric": "failure_risk",
+      "node_count": 30,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "global",
+      "upper": [
+        -83,
+        224
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/3",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.425",
+        "lower": "-0.478",
+        "upper": "-0.371"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0030.nch",
+      "estimate": [
+        -11,
+        40
+      ],
+      "family_id": "failure_risk.n0030",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        -73,
+        210
+      ],
+      "metric": "failure_risk",
+      "node_count": 30,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        -29,
+        140
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/4",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.275",
+        "lower": "-0.348",
+        "upper": "-0.207"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0060.demand-aware",
+      "estimate": [
+        -583,
+        840
+      ],
+      "family_id": "failure_risk.n0060",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        -53,
+        70
+      ],
+      "metric": "failure_risk",
+      "node_count": 60,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        -177,
+        280
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/5",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.694",
+        "lower": "-0.757",
+        "upper": "-0.632"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0060.fhs3",
+      "estimate": [
+        -181,
+        420
+      ],
+      "family_id": "failure_risk.n0060",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        -31,
+        60
+      ],
+      "metric": "failure_risk",
+      "node_count": 60,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        -73,
+        210
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/6",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.431",
+        "lower": "-0.517",
+        "upper": "-0.348"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0060.fhs5",
+      "estimate": [
+        -83,
+        120
+      ],
+      "family_id": "failure_risk.n0060",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        -127,
+        168
+      ],
+      "metric": "failure_risk",
+      "node_count": 60,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        -53,
+        84
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/7",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.692",
+        "lower": "-0.756",
+        "upper": "-0.631"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0060.global",
+      "estimate": [
+        -313,
+        560
+      ],
+      "family_id": "failure_risk.n0060",
+      "gate_state": "not_applicable",
+      "inference_status": "confirmatory",
+      "lower": [
+        -137,
+        224
+      ],
+      "metric": "failure_risk",
+      "node_count": 60,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "global",
+      "upper": [
+        -1703,
+        3360
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/8",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.559",
+        "lower": "-0.612",
+        "upper": "-0.507"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0060.nch",
+      "estimate": [
+        -44,
+        105
+      ],
+      "family_id": "failure_risk.n0060",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        -59,
+        120
+      ],
+      "metric": "failure_risk",
+      "node_count": 60,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        -97,
+        280
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/9",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.419",
+        "lower": "-0.492",
+        "upper": "-0.346"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0120.demand-aware",
+      "estimate": [
+        -82,
+        105
+      ],
+      "family_id": "failure_risk.n0120",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        -239,
+        280
+      ],
+      "metric": "failure_risk",
+      "node_count": 120,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        -17,
+        24
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/10",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.781",
+        "lower": "-0.854",
+        "upper": "-0.708"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0120.fhs3",
+      "estimate": [
+        -173,
+        280
+      ],
+      "family_id": "failure_risk.n0120",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        -7,
+        10
+      ],
+      "metric": "failure_risk",
+      "node_count": 120,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        -449,
+        840
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/11",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.618",
+        "lower": "-0.700",
+        "upper": "-0.535"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0120.fhs5",
+      "estimate": [
+        -82,
+        105
+      ],
+      "family_id": "failure_risk.n0120",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        -239,
+        280
+      ],
+      "metric": "failure_risk",
+      "node_count": 120,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        -17,
+        24
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/12",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.781",
+        "lower": "-0.854",
+        "upper": "-0.708"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0120.global",
+      "estimate": [
+        -589,
+        840
+      ],
+      "family_id": "failure_risk.n0120",
+      "gate_state": "not_applicable",
+      "inference_status": "confirmatory",
+      "lower": [
+        -169,
+        224
+      ],
+      "metric": "failure_risk",
+      "node_count": 120,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "global",
+      "upper": [
+        -2167,
+        3360
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/13",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.701",
+        "lower": "-0.754",
+        "upper": "-0.645"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0120.nch",
+      "estimate": [
+        -5,
+        8
+      ],
+      "family_id": "failure_risk.n0120",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        -29,
+        42
+      ],
+      "metric": "failure_risk",
+      "node_count": 120,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        -473,
+        840
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/14",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.625",
+        "lower": "-0.690",
+        "upper": "-0.563"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0240.demand-aware",
+      "estimate": [
+        -155,
+        168
+      ],
+      "family_id": "failure_risk.n0240",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        -409,
+        420
+      ],
+      "metric": "failure_risk",
+      "node_count": 240,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        -6,
+        7
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/15",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.923",
+        "lower": "-0.974",
+        "upper": "-0.857"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0240.fhs3",
+      "estimate": [
+        -571,
+        840
+      ],
+      "family_id": "failure_risk.n0240",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        -209,
+        280
+      ],
+      "metric": "failure_risk",
+      "node_count": 240,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        -64,
+        105
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/16",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.680",
+        "lower": "-0.746",
+        "upper": "-0.610"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0240.fhs5",
+      "estimate": [
+        -155,
+        168
+      ],
+      "family_id": "failure_risk.n0240",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        -409,
+        420
+      ],
+      "metric": "failure_risk",
+      "node_count": 240,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        -6,
+        7
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/17",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.923",
+        "lower": "-0.974",
+        "upper": "-0.857"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0240.global",
+      "estimate": [
+        -169,
+        210
+      ],
+      "family_id": "failure_risk.n0240",
+      "gate_state": "not_applicable",
+      "inference_status": "confirmatory",
+      "lower": [
+        -943,
+        1120
+      ],
+      "metric": "failure_risk",
+      "node_count": 240,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "global",
+      "upper": [
+        -643,
+        840
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/18",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.805",
+        "lower": "-0.842",
+        "upper": "-0.765"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0240.nch",
+      "estimate": [
+        -583,
+        840
+      ],
+      "family_id": "failure_risk.n0240",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        -641,
+        840
+      ],
+      "metric": "failure_risk",
+      "node_count": 240,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        -87,
+        140
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/19",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.694",
+        "lower": "-0.763",
+        "upper": "-0.621"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0030.demand-aware",
+      "estimate": [
+        1259,
+        4800
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0030",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        7283,
+        33600
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 30,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        2389,
+        7560
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/20",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.262",
+        "lower": "0.217",
+        "upper": "0.316"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0030.fhs3",
+      "estimate": [
+        21229,
+        151200
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0030",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        31967,
+        302400
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 30,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        6721,
+        37800
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/21",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.140",
+        "lower": "0.106",
+        "upper": "0.178"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0030.fhs5",
+      "estimate": [
+        15751,
+        60480
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0030",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        2397,
+        11200
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 30,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        3397,
+        10800
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/22",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.260",
+        "lower": "0.214",
+        "upper": "0.315"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0030.global",
+      "estimate": [
+        38797,
+        201600
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0030",
+      "gate_state": "not_applicable",
+      "inference_status": "confirmatory",
+      "lower": [
+        27337,
+        172800
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 30,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "global",
+      "upper": [
+        55751,
+        241920
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/23",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.192",
+        "lower": "0.158",
+        "upper": "0.230"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0030.nch",
+      "estimate": [
+        8063,
+        75600
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0030",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        9973,
+        151200
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 30,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        47461,
+        302400
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/24",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.107",
+        "lower": "0.066",
+        "upper": "0.157"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0060.demand-aware",
+      "estimate": [
+        237989,
+        604800
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0060",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        206989,
+        604800
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 60,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        2237,
+        5040
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/25",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.394",
+        "lower": "0.342",
+        "upper": "0.444"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0060.fhs3",
+      "estimate": [
+        5527,
+        22400
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0060",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        114167,
+        604800
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 60,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        92779,
+        302400
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/26",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.247",
+        "lower": "0.189",
+        "upper": "0.307"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0060.fhs5",
+      "estimate": [
+        33991,
+        86400
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0060",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        22993,
+        67200
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 60,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        44731,
+        100800
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/27",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.393",
+        "lower": "0.342",
+        "upper": "0.444"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0060.global",
+      "estimate": [
+        148433,
+        483840
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0060",
+      "gate_state": "not_applicable",
+      "inference_status": "confirmatory",
+      "lower": [
+        643633,
+        2419200
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 60,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "global",
+      "upper": [
+        837701,
+        2419200
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/28",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.307",
+        "lower": "0.266",
+        "upper": "0.346"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0060.nch",
+      "estimate": [
+        11701,
+        60480
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0060",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        4121,
+        28800
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 60,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        3079,
+        12600
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/29",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.193",
+        "lower": "0.143",
+        "upper": "0.244"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0120.demand-aware",
+      "estimate": [
+        30893,
+        60480
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0120",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        92627,
+        201600
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 120,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        340087,
+        604800
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/30",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.511",
+        "lower": "0.459",
+        "upper": "0.562"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0120.fhs3",
+      "estimate": [
+        122477,
+        302400
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0120",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        1343,
+        3840
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 120,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        551723,
+        1209600
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/31",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.405",
+        "lower": "0.350",
+        "upper": "0.456"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0120.fhs5",
+      "estimate": [
+        308981,
+        604800
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0120",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        46339,
+        100800
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 120,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        340087,
+        604800
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/32",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.511",
+        "lower": "0.460",
+        "upper": "0.562"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0120.global",
+      "estimate": [
+        58679,
+        134400
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0120",
+      "gate_state": "not_applicable",
+      "inference_status": "confirmatory",
+      "lower": [
+        242329,
+        604800
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 120,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "global",
+      "upper": [
+        16993,
+        35840
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/33",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.437",
+        "lower": "0.401",
+        "upper": "0.474"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0120.nch",
+      "estimate": [
+        193357,
+        604800
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0120",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        108211,
+        403200
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 120,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        224387,
+        604800
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/34",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.320",
+        "lower": "0.268",
+        "upper": "0.371"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0240.demand-aware",
+      "estimate": [
+        1545769,
+        2419200
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0240",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        79073,
+        134400
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 240,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        68881,
+        100800
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/35",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.639",
+        "lower": "0.588",
+        "upper": "0.683"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0240.fhs3",
+      "estimate": [
+        217361,
+        403200
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0240",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        117353,
+        241920
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 240,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        237341,
+        403200
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/36",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.539",
+        "lower": "0.485",
+        "upper": "0.589"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0240.fhs5",
+      "estimate": [
+        1545769,
+        2419200
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0240",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        79073,
+        134400
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 240,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        68881,
+        100800
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/37",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.639",
+        "lower": "0.588",
+        "upper": "0.683"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0240.global",
+      "estimate": [
+        2740859,
+        4838400
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0240",
+      "gate_state": "not_applicable",
+      "inference_status": "confirmatory",
+      "lower": [
+        570407,
+        1075200
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 240,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "global",
+      "upper": [
+        386807,
+        645120
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/38",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.566",
+        "lower": "0.531",
+        "upper": "0.600"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0240.nch",
+      "estimate": [
+        543007,
+        1209600
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0240",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        68831,
+        172800
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 240,
+      "parent_count": 60,
+      "phase": "formal",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        301907,
+        604800
+      ],
+      "source_pointer": "/phase_data/formal/registered_intervals/39",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.449",
+        "lower": "0.398",
+        "upper": "0.499"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0030.demand-aware",
+      "estimate": [
+        -3,
+        5
+      ],
+      "family_id": "failure_risk.n0030",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        -191,
+        280
+      ],
+      "metric": "failure_risk",
+      "node_count": 30,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        -31,
+        60
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/0",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.600",
+        "lower": "-0.682",
+        "upper": "-0.517"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0030.fhs3",
+      "estimate": [
+        -101,
+        280
+      ],
+      "family_id": "failure_risk.n0030",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        -53,
+        120
+      ],
+      "metric": "failure_risk",
+      "node_count": 30,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        -79,
+        280
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/1",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.361",
+        "lower": "-0.442",
+        "upper": "-0.282"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0030.fhs5",
+      "estimate": [
+        -247,
+        420
+      ],
+      "family_id": "failure_risk.n0030",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        -187,
+        280
+      ],
+      "metric": "failure_risk",
+      "node_count": 30,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        -71,
+        140
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/2",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.588",
+        "lower": "-0.668",
+        "upper": "-0.507"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0030.global",
+      "estimate": [
+        -151,
+        336
+      ],
+      "family_id": "failure_risk.n0030",
+      "gate_state": "not_applicable",
+      "inference_status": "confirmatory",
+      "lower": [
+        -1699,
+        3360
+      ],
+      "metric": "failure_risk",
+      "node_count": 30,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "global",
+      "upper": [
+        -11,
+        28
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/3",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.449",
+        "lower": "-0.506",
+        "upper": "-0.393"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0030.nch",
+      "estimate": [
+        -209,
+        840
+      ],
+      "family_id": "failure_risk.n0030",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        -37,
+        120
+      ],
+      "metric": "failure_risk",
+      "node_count": 30,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        -167,
+        840
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/4",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.249",
+        "lower": "-0.308",
+        "upper": "-0.199"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0060.demand-aware",
+      "estimate": [
+        -587,
+        840
+      ],
+      "family_id": "failure_risk.n0060",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        -131,
+        168
+      ],
+      "metric": "failure_risk",
+      "node_count": 60,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        -523,
+        840
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/5",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.699",
+        "lower": "-0.780",
+        "upper": "-0.623"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0060.fhs3",
+      "estimate": [
+        -209,
+        420
+      ],
+      "family_id": "failure_risk.n0060",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        -157,
+        280
+      ],
+      "metric": "failure_risk",
+      "node_count": 60,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        -73,
+        168
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/6",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.498",
+        "lower": "-0.561",
+        "upper": "-0.435"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0060.fhs5",
+      "estimate": [
+        -587,
+        840
+      ],
+      "family_id": "failure_risk.n0060",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        -131,
+        168
+      ],
+      "metric": "failure_risk",
+      "node_count": 60,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        -523,
+        840
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/7",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.699",
+        "lower": "-0.780",
+        "upper": "-0.623"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0060.global",
+      "estimate": [
+        -1931,
+        3360
+      ],
+      "family_id": "failure_risk.n0060",
+      "gate_state": "not_applicable",
+      "inference_status": "confirmatory",
+      "lower": [
+        -211,
+        336
+      ],
+      "metric": "failure_risk",
+      "node_count": 60,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "global",
+      "upper": [
+        -109,
+        210
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/8",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.575",
+        "lower": "-0.628",
+        "upper": "-0.519"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0060.nch",
+      "estimate": [
+        -113,
+        280
+      ],
+      "family_id": "failure_risk.n0060",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        -199,
+        420
+      ],
+      "metric": "failure_risk",
+      "node_count": 60,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        -283,
+        840
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/9",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.404",
+        "lower": "-0.474",
+        "upper": "-0.337"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0120.demand-aware",
+      "estimate": [
+        -45,
+        56
+      ],
+      "family_id": "failure_risk.n0120",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        -731,
+        840
+      ],
+      "metric": "failure_risk",
+      "node_count": 120,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        -89,
+        120
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/10",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.804",
+        "lower": "-0.870",
+        "upper": "-0.742"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0120.fhs3",
+      "estimate": [
+        -171,
+        280
+      ],
+      "family_id": "failure_risk.n0120",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        -289,
+        420
+      ],
+      "metric": "failure_risk",
+      "node_count": 120,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        -149,
+        280
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/11",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.611",
+        "lower": "-0.688",
+        "upper": "-0.532"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0120.fhs5",
+      "estimate": [
+        -45,
+        56
+      ],
+      "family_id": "failure_risk.n0120",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        -731,
+        840
+      ],
+      "metric": "failure_risk",
+      "node_count": 120,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        -89,
+        120
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/12",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.804",
+        "lower": "-0.870",
+        "upper": "-0.742"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0120.global",
+      "estimate": [
+        -233,
+        336
+      ],
+      "family_id": "failure_risk.n0120",
+      "gate_state": "not_applicable",
+      "inference_status": "confirmatory",
+      "lower": [
+        -313,
+        420
+      ],
+      "metric": "failure_risk",
+      "node_count": 120,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "global",
+      "upper": [
+        -2171,
+        3360
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/13",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.693",
+        "lower": "-0.745",
+        "upper": "-0.646"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0120.nch",
+      "estimate": [
+        -467,
+        840
+      ],
+      "family_id": "failure_risk.n0120",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        -53,
+        84
+      ],
+      "metric": "failure_risk",
+      "node_count": 120,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        -27,
+        56
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/14",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.556",
+        "lower": "-0.631",
+        "upper": "-0.482"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0240.demand-aware",
+      "estimate": [
+        -151,
+        168
+      ],
+      "family_id": "failure_risk.n0240",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        -19,
+        20
+      ],
+      "metric": "failure_risk",
+      "node_count": 240,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        -233,
+        280
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/15",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.899",
+        "lower": "-0.950",
+        "upper": "-0.832"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0240.fhs3",
+      "estimate": [
+        -23,
+        35
+      ],
+      "family_id": "failure_risk.n0240",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        -103,
+        140
+      ],
+      "metric": "failure_risk",
+      "node_count": 240,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        -4,
+        7
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/16",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.657",
+        "lower": "-0.736",
+        "upper": "-0.571"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0240.fhs5",
+      "estimate": [
+        -151,
+        168
+      ],
+      "family_id": "failure_risk.n0240",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        -19,
+        20
+      ],
+      "metric": "failure_risk",
+      "node_count": 240,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        -233,
+        280
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/17",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.899",
+        "lower": "-0.950",
+        "upper": "-0.832"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0240.global",
+      "estimate": [
+        -661,
+        840
+      ],
+      "family_id": "failure_risk.n0240",
+      "gate_state": "not_applicable",
+      "inference_status": "confirmatory",
+      "lower": [
+        -29,
+        35
+      ],
+      "metric": "failure_risk",
+      "node_count": 240,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "global",
+      "upper": [
+        -1247,
+        1680
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/18",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.787",
+        "lower": "-0.829",
+        "upper": "-0.742"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "negative",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "failure_risk.n0240.nch",
+      "estimate": [
+        -97,
+        140
+      ],
+      "family_id": "failure_risk.n0240",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        -319,
+        420
+      ],
+      "metric": "failure_risk",
+      "node_count": 240,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        -53,
+        84
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/19",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "-0.693",
+        "lower": "-0.760",
+        "upper": "-0.631"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0030.demand-aware",
+      "estimate": [
+        89503,
+        302400
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0030",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        83,
+        336
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 30,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        1937,
+        5600
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/20",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.296",
+        "lower": "0.247",
+        "upper": "0.346"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0030.fhs3",
+      "estimate": [
+        54463,
+        302400
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0030",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        2647,
+        18900
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 30,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        22567,
+        100800
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/21",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.180",
+        "lower": "0.140",
+        "upper": "0.224"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0030.fhs5",
+      "estimate": [
+        4249,
+        14400
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0030",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        1333,
+        5400
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 30,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        52127,
+        151200
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/22",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.295",
+        "lower": "0.247",
+        "upper": "0.345"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0030.global",
+      "estimate": [
+        261439,
+        1209600
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0030",
+      "gate_state": "not_applicable",
+      "inference_status": "confirmatory",
+      "lower": [
+        221479,
+        1209600
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 30,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "global",
+      "upper": [
+        37609,
+        151200
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/23",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.216",
+        "lower": "0.183",
+        "upper": "0.249"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0030.nch",
+      "estimate": [
+        7061,
+        75600
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0030",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        4789,
+        75600
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 30,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        3433,
+        25200
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/24",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.093",
+        "lower": "0.063",
+        "upper": "0.136"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0060.demand-aware",
+      "estimate": [
+        295,
+        756
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0060",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        101861,
+        302400
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 60,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        12847,
+        28800
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/25",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.390",
+        "lower": "0.337",
+        "upper": "0.446"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0060.fhs3",
+      "estimate": [
+        165061,
+        604800
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0060",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        2131,
+        9600
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 60,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        195821,
+        604800
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/26",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.273",
+        "lower": "0.222",
+        "upper": "0.324"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0060.fhs5",
+      "estimate": [
+        59023,
+        151200
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0060",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        101989,
+        302400
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 60,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        12847,
+        28800
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/27",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.390",
+        "lower": "0.337",
+        "upper": "0.446"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0060.global",
+      "estimate": [
+        147479,
+        483840
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0060",
+      "gate_state": "not_applicable",
+      "inference_status": "confirmatory",
+      "lower": [
+        214393,
+        806400
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 60,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "global",
+      "upper": [
+        25997,
+        75600
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/28",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.305",
+        "lower": "0.266",
+        "upper": "0.344"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0060.nch",
+      "estimate": [
+        5569,
+        33600
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0060",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        6589,
+        50400
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 60,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        122869,
+        604800
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/29",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.166",
+        "lower": "0.131",
+        "upper": "0.203"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0120.demand-aware",
+      "estimate": [
+        961,
+        1792
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0120",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        20971,
+        43200
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 120,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        358291,
+        604800
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/30",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.536",
+        "lower": "0.485",
+        "upper": "0.592"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0120.fhs3",
+      "estimate": [
+        247141,
+        604800
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0120",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        106909,
+        302400
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 120,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        560143,
+        1209600
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/31",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.409",
+        "lower": "0.354",
+        "upper": "0.463"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0120.fhs5",
+      "estimate": [
+        648623,
+        1209600
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0120",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        20971,
+        43200
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 120,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        17059,
+        28800
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/32",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.536",
+        "lower": "0.485",
+        "upper": "0.592"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0120.global",
+      "estimate": [
+        237107,
+        537600
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0120",
+      "gate_state": "not_applicable",
+      "inference_status": "confirmatory",
+      "lower": [
+        1926413,
+        4838400
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 120,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "global",
+      "upper": [
+        1174069,
+        2419200
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/33",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.441",
+        "lower": "0.398",
+        "upper": "0.485"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0120.nch",
+      "estimate": [
+        342383,
+        1209600
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0120",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        1693,
+        7560
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 120,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        41903,
+        120960
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/34",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.283",
+        "lower": "0.224",
+        "upper": "0.346"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0240.demand-aware",
+      "estimate": [
+        3044,
+        4725
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0240",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        1459097,
+        2419200
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 240,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        165521,
+        241920
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/35",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.644",
+        "lower": "0.603",
+        "upper": "0.684"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0240.fhs3",
+      "estimate": [
+        313753,
+        604800
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0240",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        371023,
+        806400
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 240,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        1402183,
+        2419200
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/36",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.519",
+        "lower": "0.460",
+        "upper": "0.580"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0240.fhs5",
+      "estimate": [
+        3044,
+        4725
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0240",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        1459097,
+        2419200
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 240,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        165521,
+        241920
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/37",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.644",
+        "lower": "0.603",
+        "upper": "0.684"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0240.global",
+      "estimate": [
+        1088629,
+        1935360
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0240",
+      "gate_state": "not_applicable",
+      "inference_status": "confirmatory",
+      "lower": [
+        1709293,
+        3225600
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 240,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "global",
+      "upper": [
+        205277,
+        345600
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/38",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.562",
+        "lower": "0.530",
+        "upper": "0.594"
+      }
+    },
+    {
+      "adjusted_tail_probability": [
+        1,
+        1600
+      ],
+      "beneficial_direction": "positive",
+      "beneficial_effect_supported": true,
+      "confidence_level": [
+        159,
+        160
+      ],
+      "contrast_id": "normalized_restricted_tau_nopath.n0240.nch",
+      "estimate": [
+        153011,
+        345600
+      ],
+      "family_id": "normalized_restricted_tau_nopath.n0240",
+      "gate_state": "open",
+      "inference_status": "confirmatory",
+      "lower": [
+        40273,
+        100800
+      ],
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 240,
+      "parent_count": 60,
+      "phase": "confirmation",
+      "phase_family_scope": "one-of-eight-local-five-contrast-hierarchies",
+      "resamples": 20000,
+      "stratum_parent_counts": [
+        [
+          "barabasi_albert",
+          20
+        ],
+        [
+          "er_gnm",
+          20
+        ],
+        [
+          "sbm_fixed_count",
+          20
+        ]
+      ],
+      "tail_probability": [
+        1,
+        1600
+      ],
+      "tier": "secondary",
+      "upper": [
+        588463,
+        1209600
+      ],
+      "source_pointer": "/phase_data/confirmation/registered_intervals/39",
+      "interval_direction": "beneficial",
+      "display": {
+        "estimate": "0.443",
+        "lower": "0.400",
+        "upper": "0.486"
+      }
+    }
+  ],
+  "cross_phase_replication": [
+    {
+      "beneficial_direction": "negative",
+      "confirmation_gate_state": "open",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "failure_risk.n0030.demand-aware",
+      "formal_gate_state": "open",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "failure_risk",
+      "node_count": 30,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "secondary",
+      "source_pointer": "/cross_phase_replication_records/0"
+    },
+    {
+      "beneficial_direction": "negative",
+      "confirmation_gate_state": "open",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "failure_risk.n0030.fhs3",
+      "formal_gate_state": "open",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "failure_risk",
+      "node_count": 30,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "secondary",
+      "source_pointer": "/cross_phase_replication_records/1"
+    },
+    {
+      "beneficial_direction": "negative",
+      "confirmation_gate_state": "open",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "failure_risk.n0030.fhs5",
+      "formal_gate_state": "open",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "failure_risk",
+      "node_count": 30,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "secondary",
+      "source_pointer": "/cross_phase_replication_records/2"
+    },
+    {
+      "beneficial_direction": "negative",
+      "confirmation_gate_state": "not_applicable",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "failure_risk.n0030.global",
+      "formal_gate_state": "not_applicable",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "failure_risk",
+      "node_count": 30,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "global",
+      "source_pointer": "/cross_phase_replication_records/3"
+    },
+    {
+      "beneficial_direction": "negative",
+      "confirmation_gate_state": "open",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "failure_risk.n0030.nch",
+      "formal_gate_state": "open",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "failure_risk",
+      "node_count": 30,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "secondary",
+      "source_pointer": "/cross_phase_replication_records/4"
+    },
+    {
+      "beneficial_direction": "negative",
+      "confirmation_gate_state": "open",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "failure_risk.n0060.demand-aware",
+      "formal_gate_state": "open",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "failure_risk",
+      "node_count": 60,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "secondary",
+      "source_pointer": "/cross_phase_replication_records/5"
+    },
+    {
+      "beneficial_direction": "negative",
+      "confirmation_gate_state": "open",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "failure_risk.n0060.fhs3",
+      "formal_gate_state": "open",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "failure_risk",
+      "node_count": 60,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "secondary",
+      "source_pointer": "/cross_phase_replication_records/6"
+    },
+    {
+      "beneficial_direction": "negative",
+      "confirmation_gate_state": "open",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "failure_risk.n0060.fhs5",
+      "formal_gate_state": "open",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "failure_risk",
+      "node_count": 60,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "secondary",
+      "source_pointer": "/cross_phase_replication_records/7"
+    },
+    {
+      "beneficial_direction": "negative",
+      "confirmation_gate_state": "not_applicable",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "failure_risk.n0060.global",
+      "formal_gate_state": "not_applicable",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "failure_risk",
+      "node_count": 60,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "global",
+      "source_pointer": "/cross_phase_replication_records/8"
+    },
+    {
+      "beneficial_direction": "negative",
+      "confirmation_gate_state": "open",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "failure_risk.n0060.nch",
+      "formal_gate_state": "open",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "failure_risk",
+      "node_count": 60,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "secondary",
+      "source_pointer": "/cross_phase_replication_records/9"
+    },
+    {
+      "beneficial_direction": "negative",
+      "confirmation_gate_state": "open",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "failure_risk.n0120.demand-aware",
+      "formal_gate_state": "open",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "failure_risk",
+      "node_count": 120,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "secondary",
+      "source_pointer": "/cross_phase_replication_records/10"
+    },
+    {
+      "beneficial_direction": "negative",
+      "confirmation_gate_state": "open",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "failure_risk.n0120.fhs3",
+      "formal_gate_state": "open",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "failure_risk",
+      "node_count": 120,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "secondary",
+      "source_pointer": "/cross_phase_replication_records/11"
+    },
+    {
+      "beneficial_direction": "negative",
+      "confirmation_gate_state": "open",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "failure_risk.n0120.fhs5",
+      "formal_gate_state": "open",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "failure_risk",
+      "node_count": 120,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "secondary",
+      "source_pointer": "/cross_phase_replication_records/12"
+    },
+    {
+      "beneficial_direction": "negative",
+      "confirmation_gate_state": "not_applicable",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "failure_risk.n0120.global",
+      "formal_gate_state": "not_applicable",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "failure_risk",
+      "node_count": 120,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "global",
+      "source_pointer": "/cross_phase_replication_records/13"
+    },
+    {
+      "beneficial_direction": "negative",
+      "confirmation_gate_state": "open",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "failure_risk.n0120.nch",
+      "formal_gate_state": "open",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "failure_risk",
+      "node_count": 120,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "secondary",
+      "source_pointer": "/cross_phase_replication_records/14"
+    },
+    {
+      "beneficial_direction": "negative",
+      "confirmation_gate_state": "open",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "failure_risk.n0240.demand-aware",
+      "formal_gate_state": "open",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "failure_risk",
+      "node_count": 240,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "secondary",
+      "source_pointer": "/cross_phase_replication_records/15"
+    },
+    {
+      "beneficial_direction": "negative",
+      "confirmation_gate_state": "open",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "failure_risk.n0240.fhs3",
+      "formal_gate_state": "open",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "failure_risk",
+      "node_count": 240,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "secondary",
+      "source_pointer": "/cross_phase_replication_records/16"
+    },
+    {
+      "beneficial_direction": "negative",
+      "confirmation_gate_state": "open",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "failure_risk.n0240.fhs5",
+      "formal_gate_state": "open",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "failure_risk",
+      "node_count": 240,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "secondary",
+      "source_pointer": "/cross_phase_replication_records/17"
+    },
+    {
+      "beneficial_direction": "negative",
+      "confirmation_gate_state": "not_applicable",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "failure_risk.n0240.global",
+      "formal_gate_state": "not_applicable",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "failure_risk",
+      "node_count": 240,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "global",
+      "source_pointer": "/cross_phase_replication_records/18"
+    },
+    {
+      "beneficial_direction": "negative",
+      "confirmation_gate_state": "open",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "failure_risk.n0240.nch",
+      "formal_gate_state": "open",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "failure_risk",
+      "node_count": 240,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "secondary",
+      "source_pointer": "/cross_phase_replication_records/19"
+    },
+    {
+      "beneficial_direction": "positive",
+      "confirmation_gate_state": "open",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "normalized_restricted_tau_nopath.n0030.demand-aware",
+      "formal_gate_state": "open",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 30,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "secondary",
+      "source_pointer": "/cross_phase_replication_records/20"
+    },
+    {
+      "beneficial_direction": "positive",
+      "confirmation_gate_state": "open",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "normalized_restricted_tau_nopath.n0030.fhs3",
+      "formal_gate_state": "open",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 30,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "secondary",
+      "source_pointer": "/cross_phase_replication_records/21"
+    },
+    {
+      "beneficial_direction": "positive",
+      "confirmation_gate_state": "open",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "normalized_restricted_tau_nopath.n0030.fhs5",
+      "formal_gate_state": "open",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 30,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "secondary",
+      "source_pointer": "/cross_phase_replication_records/22"
+    },
+    {
+      "beneficial_direction": "positive",
+      "confirmation_gate_state": "not_applicable",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "normalized_restricted_tau_nopath.n0030.global",
+      "formal_gate_state": "not_applicable",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 30,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "global",
+      "source_pointer": "/cross_phase_replication_records/23"
+    },
+    {
+      "beneficial_direction": "positive",
+      "confirmation_gate_state": "open",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "normalized_restricted_tau_nopath.n0030.nch",
+      "formal_gate_state": "open",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 30,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "secondary",
+      "source_pointer": "/cross_phase_replication_records/24"
+    },
+    {
+      "beneficial_direction": "positive",
+      "confirmation_gate_state": "open",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "normalized_restricted_tau_nopath.n0060.demand-aware",
+      "formal_gate_state": "open",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 60,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "secondary",
+      "source_pointer": "/cross_phase_replication_records/25"
+    },
+    {
+      "beneficial_direction": "positive",
+      "confirmation_gate_state": "open",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "normalized_restricted_tau_nopath.n0060.fhs3",
+      "formal_gate_state": "open",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 60,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "secondary",
+      "source_pointer": "/cross_phase_replication_records/26"
+    },
+    {
+      "beneficial_direction": "positive",
+      "confirmation_gate_state": "open",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "normalized_restricted_tau_nopath.n0060.fhs5",
+      "formal_gate_state": "open",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 60,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "secondary",
+      "source_pointer": "/cross_phase_replication_records/27"
+    },
+    {
+      "beneficial_direction": "positive",
+      "confirmation_gate_state": "not_applicable",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "normalized_restricted_tau_nopath.n0060.global",
+      "formal_gate_state": "not_applicable",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 60,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "global",
+      "source_pointer": "/cross_phase_replication_records/28"
+    },
+    {
+      "beneficial_direction": "positive",
+      "confirmation_gate_state": "open",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "normalized_restricted_tau_nopath.n0060.nch",
+      "formal_gate_state": "open",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 60,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "secondary",
+      "source_pointer": "/cross_phase_replication_records/29"
+    },
+    {
+      "beneficial_direction": "positive",
+      "confirmation_gate_state": "open",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "normalized_restricted_tau_nopath.n0120.demand-aware",
+      "formal_gate_state": "open",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 120,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "secondary",
+      "source_pointer": "/cross_phase_replication_records/30"
+    },
+    {
+      "beneficial_direction": "positive",
+      "confirmation_gate_state": "open",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "normalized_restricted_tau_nopath.n0120.fhs3",
+      "formal_gate_state": "open",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 120,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "secondary",
+      "source_pointer": "/cross_phase_replication_records/31"
+    },
+    {
+      "beneficial_direction": "positive",
+      "confirmation_gate_state": "open",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "normalized_restricted_tau_nopath.n0120.fhs5",
+      "formal_gate_state": "open",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 120,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "secondary",
+      "source_pointer": "/cross_phase_replication_records/32"
+    },
+    {
+      "beneficial_direction": "positive",
+      "confirmation_gate_state": "not_applicable",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "normalized_restricted_tau_nopath.n0120.global",
+      "formal_gate_state": "not_applicable",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 120,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "global",
+      "source_pointer": "/cross_phase_replication_records/33"
+    },
+    {
+      "beneficial_direction": "positive",
+      "confirmation_gate_state": "open",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "normalized_restricted_tau_nopath.n0120.nch",
+      "formal_gate_state": "open",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 120,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "secondary",
+      "source_pointer": "/cross_phase_replication_records/34"
+    },
+    {
+      "beneficial_direction": "positive",
+      "confirmation_gate_state": "open",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "normalized_restricted_tau_nopath.n0240.demand-aware",
+      "formal_gate_state": "open",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 240,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "secondary",
+      "source_pointer": "/cross_phase_replication_records/35"
+    },
+    {
+      "beneficial_direction": "positive",
+      "confirmation_gate_state": "open",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "normalized_restricted_tau_nopath.n0240.fhs3",
+      "formal_gate_state": "open",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 240,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "secondary",
+      "source_pointer": "/cross_phase_replication_records/36"
+    },
+    {
+      "beneficial_direction": "positive",
+      "confirmation_gate_state": "open",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "normalized_restricted_tau_nopath.n0240.fhs5",
+      "formal_gate_state": "open",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 240,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "secondary",
+      "source_pointer": "/cross_phase_replication_records/37"
+    },
+    {
+      "beneficial_direction": "positive",
+      "confirmation_gate_state": "not_applicable",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "normalized_restricted_tau_nopath.n0240.global",
+      "formal_gate_state": "not_applicable",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 240,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "global",
+      "source_pointer": "/cross_phase_replication_records/38"
+    },
+    {
+      "beneficial_direction": "positive",
+      "confirmation_gate_state": "open",
+      "confirmation_interval_direction": "beneficial",
+      "confirmation_phase_success": true,
+      "confirmation_point_direction": "beneficial",
+      "contrast_id": "normalized_restricted_tau_nopath.n0240.nch",
+      "formal_gate_state": "open",
+      "formal_interval_direction": "beneficial",
+      "formal_phase_success": true,
+      "formal_point_direction": "beneficial",
+      "metric": "normalized_restricted_tau_nopath",
+      "node_count": 240,
+      "point_sign_agreement": "same_beneficial",
+      "replication_state": "independently_confirmed",
+      "tier": "secondary",
+      "source_pointer": "/cross_phase_replication_records/39"
+    }
+  ],
+  "note": "Bootstrap arrays remain in canonical Source Data; no registered contrast omitted."
+}
