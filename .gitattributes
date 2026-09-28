@@ -12,3 +12,5 @@ results/source-data/synthetic-hypergraph-payment-v1/source-data.json -text
 manuscript/generated/synthetic-v1/* -text whitespace=cr-at-eol
 manuscript/generated/synthetic-v1/*.svg whitespace=cr-at-eol,-blank-at-eol
 tools/build_results_displays.py text eol=lf
+manuscript/generated/results-writing-v1/* -text whitespace=cr-at-eol
+tools/build_results_writing_support.py text eol=lf

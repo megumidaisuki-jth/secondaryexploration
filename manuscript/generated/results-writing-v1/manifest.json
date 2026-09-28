@@ -1,0 +1,8 @@
+{
+  "source_sha256": "50fd83d81d54cfaf7198b3307f10a51d4a1f555b94ab06975e2d3b0b3d8e30f4",
+  "generator_sha256": "3e9d25c9f017f0d3267f987102af522962f57cdc53964a368f26d7f56c0efef9",
+  "files": {
+    "evidence-summary.json": "41ef12ed1bbfa7ac779598a5d9c0a8536d2063c6b42e93f0dc9184bb86d856df",
+    "descriptive-support.md": "cc09182e61913ab34cbfb926f2b0c395336d82bd346adae252911e3a29222244"
+  }
+}

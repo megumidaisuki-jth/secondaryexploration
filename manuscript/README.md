@@ -2,13 +2,16 @@
 
 ## Draft status
 
-The current paper type is **algorithmic**, and result-free working drafts now
-cover **Introduction**, **Related Work**, **Methods**, and a result-gated
-**Results scaffold** plus **Discussion/Conclusion scaffold**. The source workflow is
+The current paper type is **algorithmic**. Working drafts cover
+**Introduction**, **Related Work**, **Methods**, and an evidence-populated
+**Results** section with three main figures and Table 1. The original
+result-free Results scaffold is retained as a historical design record;
+**Discussion/Conclusion** remains a scaffold. The source workflow is
 **Chinese-to-English**, and the target style is the generic journal route
-calibrated toward IEEE Transactions on Network and Service Management. Result
-and effect-direction language remains gated on complete formal and confirmation
-evidence.
+calibrated toward IEEE Transactions on Network and Service Management. The
+formal and confirmation evidence and descriptive projections are complete;
+Results claims are linked to the archived Source Data. Template integration
+and final page-budget verification remain pending.
 
 ## One-sentence argument
 
@@ -32,7 +35,7 @@ synthetic and structural-panel conditions.
 
 - Methods 按“输入—构造—训练—留出评估—父图聚合—独立确认”的执行顺序组织，避免把设计动机、算法细节和结果主张混写在同一段。
 - 校准结果已经改变主推断路由：正式主终点是归一化受限 `tau_nopath` 与固定时域失败风险；`q=0.10` 下分位数只报告可识别性，不把删失时域冒充失败时间。
-- 当前稿件只陈述已冻结且可重放的合同。任何 *improves*、*outperforms* 或“普遍更优”表述必须等待完整 formal 与 confirmation 证据。
+- Results 已根据完整 formal 与 confirmation 证据填写，但结论只适用于已注册的合成条件；不能扩展为“普遍更优”、训练的因果收益或现实网络验证。
 - 术语统一以 [terminology.md](terminology.md) 为准，尤其不能混同 `tau_dep`、`tau_nopath` 与 `tau_rej`。
 
 ## Why this structure
@@ -52,6 +55,10 @@ synthetic and structural-panel conditions.
 - [Introduction and Related Work working draft](introduction.md)
 - [Result-gated Discussion and Conclusion scaffold](discussion-conclusion-scaffold.md)
 - [Result-gated Results scaffold](results-scaffold.md)
+- [Evidence-populated Results draft](results.md)
+- [Results claim–evidence map and reporting notes](results-writing-notes.md)
+- [Main figures, Table 1 and exact numerical registry](generated/synthetic-v1/README.md)
+- [Complete descriptive writing support](generated/results-writing-v1/descriptive-support.md)
 - [Methods citation claims](citations/method-claims.md) and
   [EndNote export](citations/method-references.enw)
 - [Introduction and Related Work citation claims](citations/intro-related-work-claims.md)
@@ -61,10 +68,11 @@ synthetic and structural-panel conditions.
 
 ## Next manuscript inputs
 
-- Complete formal and confirmation evidence before drafting Results or filling
-  any bracketed Results, Discussion or Conclusion evidence slot. Follow the
+- Review the populated Results draft, then fill the Discussion and Conclusion
+  using the complete evidence and its limitations. Follow the
   frozen [Results reporting contract](../docs/plans/2026-08-11-results-reporting-contract.md)
-  so all registered rows remain visible.
+  so all registered rows remain visible. The archived scaffolds' missing-input
+  lists describe the earlier evidence-gated state, not the current completion status.
 - Compress the verified result-free opening and Methods only after the complete
   evidence determines which implementation and sensitivity details must remain
   in the 10-page main article.
