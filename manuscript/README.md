@@ -1,5 +1,13 @@
 # Manuscript workspace
 
+## 中文完整稿（2026-09-29）
+
+按用户最新指定的《通信学报》方向，已另建 [中文完整稿](joconline/manuscript-zh.md)，
+覆盖摘要至结束语，附可编辑 Word、3 幅中文图及 15 条参考文献。
+作者、单位、通信作者和基金信息按用户要求保留待填。
+参见 [编写与证据说明](joconline/writing-notes.md) 及 [质量检查记录](joconline/qa.md)。
+以下英文工作稿说明保留为原 TNSM 路线的历史记录，不代表中文稿仍缺讨论和结论。
+
 ## Draft status
 
 The current paper type is **algorithmic**. Working drafts cover

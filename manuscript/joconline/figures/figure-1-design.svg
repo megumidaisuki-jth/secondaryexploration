@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="481.889764pt" height="175.748031pt" viewBox="0 0 481.889764 175.748031" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 175.748031 
+L 481.889764 175.748031 
+L 481.889764 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 11.902677 66.169134 
+L 144.133228 66.169134 
+L 144.133228 9.40252 
+L 11.902677 9.40252 
+z
+" clip-path="url(#pb0f4e8903c)" style="fill: #ffffff; stroke: #000000; stroke-width: 0.57; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 174.829606 66.169134 
+L 307.060157 66.169134 
+L 307.060157 9.40252 
+L 174.829606 9.40252 
+z
+" clip-path="url(#pb0f4e8903c)" style="fill: #ffffff; stroke: #000000; stroke-width: 0.57; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 337.756535 66.169134 
+L 469.987087 66.169134 
+L 469.987087 9.40252 
+L 337.756535 9.40252 
+z
+" clip-path="url(#pb0f4e8903c)" style="fill: #ffffff; stroke: #000000; stroke-width: 0.57; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 66.211654 147.979843 
+L 217.332283 147.979843 
+L 217.332283 97.891654 
+L 66.211654 97.891654 
+z
+" clip-path="url(#pb0f4e8903c)" style="fill: #ffffff; stroke: #000000; stroke-width: 0.57; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 264.55748 147.979843 
+L 415.67811 147.979843 
+L 415.67811 97.891654 
+L 264.55748 97.891654 
+z
+" clip-path="url(#pb0f4e8903c)" style="fill: #ffffff; stroke: #000000; stroke-width: 0.57; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 141.771969 81.195591 
+L 403.871811 81.195591 
+L 403.871811 66.169134 
+" clip-path="url(#pb0f4e8903c)" style="fill: none; stroke: #000000; stroke-width: 0.57; stroke-linecap: square"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 7.5px; font-family: 'Times New Roman', 'STZhongsong', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="78.017953" y="24.322854" transform="rotate(-0 78.017953 24.322854)">独立父图与构造</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 7.5px; font-family: 'Times New Roman', 'STZhongsong', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif" transform="translate(47.778304 41.705765)">3类模型 × 4种规模</text>
+    <text style="font-size: 7.5px; font-family: 'Times New Roman', 'STZhongsong', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif" transform="translate(40.517953 50.626517)">每规模每相位60个父图</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 7.5px; font-family: 'Times New Roman', 'STZhongsong', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="240.944882" y="24.435354" transform="rotate(-0 240.944882 24.435354)">资源匹配与配对请求</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 7.5px; font-family: 'Times New Roman', 'STZhongsong', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif" transform="translate(201.569882 41.739163)">4类超图及各自二元参照</text>
+    <text style="font-size: 7.5px; font-family: 'Times New Roman', 'STZhongsong', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif" transform="translate(209.069882 50.622415)">每父图7条留出轨迹</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 7.5px; font-family: 'Times New Roman', 'STZhongsong', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="403.871811" y="24.34512" transform="rotate(-0 403.871811 24.34512)">服务终点</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 7.5px; font-family: 'Times New Roman', 'STZhongsong', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif" transform="translate(373.871811 41.784281)">固定时域失败风险</text>
+    <text style="font-size: 7.5px; font-family: 'Times New Roman', 'STZhongsong', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif" transform="translate(371.996811 50.652298)">受限无路径时间 / H</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 7.5px; font-family: 'Times New Roman', 'STZhongsong', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="141.771969" y="112.879957" transform="rotate(-0 141.771969 112.879957)">正式相位</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 7.5px; font-family: 'Times New Roman', 'STZhongsong', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="141.771969" y="132.414374" transform="rotate(-0 141.771969 132.414374)">240个区块 · 40项比较</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 7.5px; font-family: 'Times New Roman', 'STZhongsong', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="340.117795" y="112.879957" transform="rotate(-0 340.117795 112.879957)">独立确认相位</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 7.5px; font-family: 'Times New Roman', 'STZhongsong', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="340.117795" y="132.414374" transform="rotate(-0 340.117795 132.414374)">240个区块 · 40项比较</text>
+   </g>
+   <g id="patch_7">
+    <path d="M 146.130441 37.785827 
+Q 159.479827 37.785827 171.878884 37.785827 
+" style="fill: none; stroke: #000000; stroke-width: 0.85; stroke-linecap: round"/>
+    <path d="M 168.878884 36.285827 
+L 171.878884 37.785827 
+L 168.878884 39.285827 
+" style="fill: none; stroke: #000000; stroke-width: 0.85; stroke-linecap: round"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 309.057371 37.785827 
+Q 322.406756 37.785827 334.805813 37.785827 
+" style="fill: none; stroke: #000000; stroke-width: 0.85; stroke-linecap: round"/>
+    <path d="M 331.805813 36.285827 
+L 334.805813 37.785827 
+L 331.805813 39.285827 
+" style="fill: none; stroke: #000000; stroke-width: 0.85; stroke-linecap: round"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 141.771969 83.196998 
+Q 141.771969 89.54519 141.771969 94.943052 
+" style="fill: none; stroke: #000000; stroke-width: 0.85; stroke-linecap: round"/>
+    <path d="M 143.271969 91.943052 
+L 141.771969 94.943052 
+L 140.271969 91.943052 
+" style="fill: none; stroke: #000000; stroke-width: 0.85; stroke-linecap: round"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 340.117795 83.196998 
+Q 340.117795 89.54519 340.117795 94.943052 
+" style="fill: none; stroke: #000000; stroke-width: 0.85; stroke-linecap: round"/>
+    <path d="M 341.617795 91.943052 
+L 340.117795 94.943052 
+L 338.617795 91.943052 
+" style="fill: none; stroke: #000000; stroke-width: 0.85; stroke-linecap: round"/>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 7.5px; font-family: 'Times New Roman', 'STZhongsong', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="240.944882" y="76.237726" transform="rotate(-0 240.944882 76.237726)">相同冻结协议 · 相位分别推断</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 7.5px; font-family: 'Times New Roman', 'STZhongsong', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="240.944882" y="168.450053" transform="rotate(-0 240.944882 168.450053)">父图分层重抽样 → 区间与总体门判定 → 全部40项跨相位复现记录</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pb0f4e8903c">
+   <rect x="4.818898" y="4.393701" width="472.251969" height="166.96063"/>
+  </clipPath>
+ </defs>
+</svg>

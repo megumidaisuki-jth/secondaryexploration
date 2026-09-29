@@ -14,3 +14,9 @@ manuscript/generated/synthetic-v1/*.svg whitespace=cr-at-eol,-blank-at-eol
 tools/build_results_displays.py text eol=lf
 manuscript/generated/results-writing-v1/* -text whitespace=cr-at-eol
 tools/build_results_writing_support.py text eol=lf
+
+# Preserve the Chinese manuscript's byte-bound artifact manifest.
+manuscript/joconline/** -text whitespace=cr-at-eol
+manuscript/joconline/figures/*.svg whitespace=cr-at-eol,-blank-at-eol
+tools/build_joconline_manuscript.py -text
+tools/render_joconline_word.ps1 -text
