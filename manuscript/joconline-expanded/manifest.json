@@ -1,0 +1,67 @@
+{
+  "schema": "joconline-manuscript.v1",
+  "source_registry_sha256": "a0f0f53ec756d2be1f06366b8973444420def7a5a006a95e77f5afcfe5d5916c",
+  "source_table_sha256": "75e0bb8befebeae94467b6e59c401351b6a3d64477884c516c0ba7a61bcc7319",
+  "builder_sha256": "a48b11149ef0f524851ef50a56d98dadac7816994674e51ccc4ea74a3a86dc6b",
+  "counts": {
+    "chinese_title_characters": 17,
+    "chinese_abstract_characters": 188,
+    "native_display_equations": 16,
+    "figures": 3,
+    "tables": 3,
+    "references": 15
+  },
+  "scientific_input_rows": {
+    "intervals": 80,
+    "replications": 40,
+    "global_comparisons": 8
+  },
+  "files": {
+    "超图支付网络服务可靠性_通信学报中文扩展稿.docx": {
+      "bytes": 844226,
+      "sha256": "9887d05ac54910dcf7b6b8330fc5454f395263c106bf22306bb81417e8732f86"
+    },
+    "manuscript-zh.md": {
+      "bytes": 58283,
+      "sha256": "18203a484e6bc756d325ba953b1f223dbcad019e25caa9ea0e7fd6b8be7584bf"
+    },
+    "figures\\figure-1-design.pdf": {
+      "bytes": 55072,
+      "sha256": "f569c0f18aa543dd695773b3c240e055b1601209cb4cb8d387c8af7bdd645483"
+    },
+    "figures\\figure-1-design.png": {
+      "bytes": 274686,
+      "sha256": "77a85a9352127530fec184c1898ac5cb9adc8b3615eedf6cebb2757c85b64c10"
+    },
+    "figures\\figure-1-design.svg": {
+      "bytes": 9996,
+      "sha256": "ff32abcefd5b9e3a36f6ad7239a70692aae4d79500775331df5535c412e40615"
+    },
+    "figures\\figure-2-global-contrasts.pdf": {
+      "bytes": 45232,
+      "sha256": "60ff3bbc083e0c3afcfcddb153167aef013c3f1b38168adaa3f655476550fd00"
+    },
+    "figures\\figure-2-global-contrasts.png": {
+      "bytes": 195870,
+      "sha256": "ccf0988be3f7ff50e41bba8fb0d492f00344f7650be0fd89d9c0db4406e322fa"
+    },
+    "figures\\figure-2-global-contrasts.svg": {
+      "bytes": 29759,
+      "sha256": "f7e03d11e00dcf92a50113e41ce3f5333b9e7551bde6a7205c678f1fb9356101"
+    },
+    "figures\\figure-3-replication-matrix.pdf": {
+      "bytes": 34862,
+      "sha256": "2fc2ca912e62cd5bdf22496eccf86db96a7d07e081781086cdbe1cc5f30ad367"
+    },
+    "figures\\figure-3-replication-matrix.png": {
+      "bytes": 414127,
+      "sha256": "d0449caffab8fe1b78243821a9351b9ed5c9723ca72583fe5e6aa0c3225a155e"
+    },
+    "figures\\figure-3-replication-matrix.svg": {
+      "bytes": 34756,
+      "sha256": "4ca92c1af2b42e058fecf05efdd90da0578bfdad8656856bc468a7487cd38e88"
+    }
+  },
+  "source_descriptive_sha256": "41ef12ed1bbfa7ac779598a5d9c0a8536d2063c6b42e93f0dc9184bb86d856df",
+  "previous_version_commit": "045d5f80530a57875cf33595b0cb69b8569d8a3d"
+}

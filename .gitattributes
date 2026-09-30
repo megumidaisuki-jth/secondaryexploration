@@ -20,3 +20,5 @@ manuscript/joconline/** -text whitespace=cr-at-eol
 manuscript/joconline/figures/*.svg whitespace=cr-at-eol,-blank-at-eol
 tools/build_joconline_manuscript.py -text
 tools/render_joconline_word.ps1 -text
+manuscript/joconline-expanded/** -text whitespace=cr-at-eol
+manuscript/joconline-expanded/figures/*.svg whitespace=cr-at-eol,-blank-at-eol

@@ -8,6 +8,8 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import argparse
+import shutil
 from fractions import Fraction
 from pathlib import Path
 
@@ -120,7 +122,7 @@ def figures(registry):
     save(fig,'figure-3-replication-matrix')
 
 
-def create_docx(table):
+def create_docx(table, descriptive=None):
     from docx import Document
     from docx.shared import Pt, Mm, RGBColor
     from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_BREAK, WD_TAB_ALIGNMENT
@@ -198,20 +200,15 @@ def create_docx(table):
             run=p.add_run(chunk)
             if sup and re.fullmatch(r'\[\d+(?:[-,]\d+)*\]',chunk):
                 run.font.superscript=True
-    def global_table():
-        cap=doc.add_paragraph('表1　总体配对效应及多重比较校正区间','Caption')
+    def render_table(caption, heads, rows, widths):
+        cap=doc.add_paragraph(caption,'Caption')
         cap.alignment=WD_ALIGN_PARAGRAPH.CENTER;cap.paragraph_format.keep_with_next=True
-        t=doc.add_table(rows=1,cols=4)
+        t=doc.add_table(rows=1,cols=len(heads))
         t.alignment=WD_TABLE_ALIGNMENT.CENTER;t.autofit=False
-        widths=(31,17,61,61)
         for c,w in zip(t.columns,widths): c.width=Mm(w)
-        heads=('终点','节点数','正式相位估计［区间］','确认相位估计［区间］')
         for c,txt in zip(t.rows[0].cells,heads): c.text=txt
-        for row in table:
+        for vals in rows:
             cells=t.add_row().cells
-            vals=['失败风险' if row['formal']['metric']=='failure_risk' else '受限无路径时间/H',str(row['formal']['node_count'])]
-            for phase in ('formal','confirmation'):
-                d=row[phase]['display']; vals.append(f"{d['estimate']} [{d['lower']}, {d['upper']}]")
             for c,txt,w in zip(cells,vals,widths): c.text=txt;c.width=Mm(w)
         for ri,row in enumerate(t.rows):
             trpr=row._tr.get_or_add_trPr()
@@ -236,6 +233,49 @@ def create_docx(table):
                     p.paragraph_format.line_spacing=Pt(13)
                     p.paragraph_format.space_before=Pt(3);p.paragraph_format.space_after=Pt(3)
                     for r in p.runs: r.font.size=Pt(9);r.bold=(ri==0)
+    def global_table():
+        rows=[]
+        for row in table:
+            vals=['失败风险' if row['formal']['metric']=='failure_risk' else '受限无路径时间/H',str(row['formal']['node_count'])]
+            for phase in ('formal','confirmation'):
+                d=row[phase]['display']; vals.append(f"{d['estimate']} [{d['lower']}, {d['upper']}]")
+            rows.append(vals)
+        render_table('表1　总体配对效应及多重比较校正区间',
+                     ('终点','节点数','正式相位估计［区间］','确认相位估计［区间］'),rows,(31,17,61,61))
+    def model_table():
+        rows=[]
+        names={'barabasi_albert':'BA','er_gnm':'ER-GNM','sbm_fixed_count':'固定边数SBM'}
+        for n in (30,60,120,240):
+            for model,label in names.items():
+                row=[str(n),label]
+                for phase in ('formal','confirmation'):
+                    r=next(r for r in descriptive['phases'][phase]['parent_stratum_summaries']
+                           if r['metric']=='failure_risk' and r['source_family']=='global'
+                           and r['node_count']==n and r['parent_model']==model)
+                    assert r['count']==20
+                    scaled=round(Fraction(*r['mean'])*1000)
+                    row.append(('-' if scaled<0 else '')+f'{abs(scaled)//1000}.{abs(scaled)%1000:03d}')
+                rows.append(row)
+        render_table('表2　总体失败风险差的父图模型分层均值',
+                     ('节点数','父图模型','正式相位','确认相位'),rows,(22,48,50,50))
+        doc.add_paragraph('注：每格为20个独立父图的描述性均值，不是新增的模型间显著性检验。','Caption')
+    def activity_table():
+        rows=[]
+        for n in (30,60,120,240):
+            row=[str(n)]
+            for phase in ('formal','confirmation'):
+                counts=[]
+                for activity in ('changed','unchanged'):
+                    r=next(r for r in descriptive['phases'][phase]['activity_sensitivity']
+                           if r['metric']=='failure_risk' and r['node_count']==n
+                           and r['topology_activity']==activity)
+                    counts.append(sum(s['parent_count'] for s in r['strata']))
+                assert sum(counts)==60
+                row.extend(map(str,counts))
+            rows.append(row)
+        render_table('表3　需求感知搜索的拓扑改变与未改变父图数量',
+                     ('节点数','正式改变','正式未改变','确认改变','确认未改变'),rows,(22,37,37,37,37))
+        doc.add_paragraph('注：每个规模、每个相位共60个父图。改变以最终拓扑相对于FHS5种子是否变化定义，不表示服务改善。','Caption')
     for block in blocks:
         if block.startswith('# '):
             p=doc.add_paragraph(block[2:],'Title');p.alignment=WD_ALIGN_PARAGRAPH.CENTER
@@ -272,7 +312,18 @@ def create_docx(table):
             p.add_run().add_picture(str(OUT/file),width=Mm(170));fig_count+=1
         elif block=='{{TABLE_GLOBAL}}':
             global_table()
-        elif re.match(r'^[图表]\d',block):
+        elif block=='{{TABLE_MODEL}}':
+            assert descriptive is not None
+            model_table()
+        elif block=='{{TABLE_ACTIVITY}}':
+            assert descriptive is not None
+            activity_table()
+        elif block.startswith('算法'):
+            p=doc.add_paragraph(block)
+            p.paragraph_format.keep_with_next=True
+            p.paragraph_format.space_before=Pt(5)
+            for r in p.runs:r.bold=True
+        elif re.match(r'^[图表]\d+[ \u3000]',block):
             if block.startswith('表1'):
                 block='注：'+block.split('。',1)[1]
             p=doc.add_paragraph(block,'Caption');p.alignment=WD_ALIGN_PARAGRAPH.JUSTIFY
@@ -300,7 +351,7 @@ def create_docx(table):
     title=blocks[0][2:]
     assert len(abstract)<=200,(len(abstract),'abstract too long')
     assert len(title)<=20
-    assert eq_count==9 and fig_count==3
+    assert eq_count==(16 if descriptive is not None else 9) and fig_count==3
     cited=[]
     content=source.split('## 参考文献')[0]
     for hit in re.findall(r'\[(\d+(?:[-,]\d+)*)\]',content):
@@ -312,18 +363,42 @@ def create_docx(table):
                 if value not in cited:cited.append(value)
     assert cited==list(range(1,16)),cited
     return {'chinese_title_characters':len(title),'chinese_abstract_characters':len(abstract),
-            'native_display_equations':eq_count,'figures':fig_count,'references':len(cited)}
+            'native_display_equations':eq_count,'figures':fig_count,'tables':3 if descriptive is not None else 1,'references':len(cited)}
 
 
 def main():
+    global OUT,FIG,DOCX
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--expanded',action='store_true')
+    args=parser.parse_args()
+    descriptive=None
+    if args.expanded:
+        OUT=ROOT/'manuscript/joconline-expanded'
+        FIG=OUT/'figures'
+        DOCX=OUT/'超图支付网络服务可靠性_通信学报中文扩展稿.docx'
+        folder=ROOT/'manuscript/generated/results-writing-v1'
+        source_manifest=json.loads((folder/'manifest.json').read_text(encoding='utf-8'))
+        assert digest(folder/'evidence-summary.json')==source_manifest['files']['evidence-summary.json']
+        descriptive=json.loads((folder/'evidence-summary.json').read_text(encoding='utf-8'))
     registry,table=inputs()
-    figures(registry)
-    counts=create_docx(table)
+    if args.expanded:
+        old=ROOT/'manuscript/joconline'
+        original=json.loads((old/'manifest.json').read_text(encoding='utf-8'))
+        FIG.mkdir(parents=True,exist_ok=True)
+        for p in (old/'figures').iterdir():
+            assert digest(p)==original['files'][str(p.relative_to(old))]['sha256']
+            shutil.copy2(p,FIG/p.name)
+    else:
+        figures(registry)
+    counts=create_docx(table,descriptive)
     files=[DOCX,OUT/'manuscript-zh.md',*sorted(FIG.glob('*'))]
     manifest={'schema':'joconline-manuscript.v1','source_registry_sha256':digest(INPUT/'numerical-registry.json'),
               'source_table_sha256':digest(INPUT/'table-1.json'),'builder_sha256':digest(__file__),
               'counts':counts,'scientific_input_rows':{'intervals':80,'replications':40,'global_comparisons':8},
               'files':{str(p.relative_to(OUT)):{'bytes':p.stat().st_size,'sha256':digest(p)} for p in files}}
+    if args.expanded:
+        manifest['source_descriptive_sha256']=digest(folder/'evidence-summary.json')
+        manifest['previous_version_commit']='045d5f80530a57875cf33595b0cb69b8569d8a3d'
     (OUT/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(json.dumps({'output':str(DOCX),**counts},ensure_ascii=False))
 
