@@ -1,0 +1,243 @@
+{
+  "date": "2026-10-04",
+  "scope": "manuscript/source-data consistency; not raw-block independent replay",
+  "input_commit": "af92520d91979b15d66e4526968b0775e46e319e",
+  "counts": {
+    "parent_aggregations": 4800,
+    "global_parent_aggregations": 960,
+    "intervals": 80,
+    "table1_estimate_interval_cells": 16,
+    "table2_cells": 24,
+    "table3_cells": 16,
+    "survival_identity_cases": 228
+  },
+  "phase_notes": {
+    "confirmation": {
+      "coverage_cells": 96,
+      "complete_coverage": 2,
+      "no_covered_parents": 24,
+      "fully_covered_cells": [
+        {
+          "node_count": 120,
+          "parent_model": "sbm_fixed_count",
+          "source_family": "fhs3",
+          "scope": "same_distribution"
+        },
+        {
+          "node_count": 240,
+          "parent_model": "sbm_fixed_count",
+          "source_family": "fhs3",
+          "scope": "same_distribution"
+        }
+      ],
+      "activity_changed": {
+        "30": 34,
+        "60": 16,
+        "120": 13,
+        "240": 1
+      },
+      "activity_unchanged_means_n240": {
+        "failure_risk": "-0.898",
+        "normalized_restricted_tau_nopath": "0.647"
+      },
+      "descriptor_signs": {
+        "final_coordinate_imbalance": [
+          16,
+          0,
+          0
+        ],
+        "final_zero_coordinate_fraction": [
+          16,
+          0,
+          0
+        ],
+        "initial_coordinate_imbalance": [
+          16,
+          0,
+          0
+        ],
+        "multiple_optimal_route_fraction_per_attempt": [
+          12,
+          0,
+          4
+        ],
+        "optimal_route_multiplicity_mass_per_attempt": [
+          9,
+          0,
+          7
+        ],
+        "quadratic_coordination_exposure_per_attempt": [
+          0,
+          0,
+          16
+        ],
+        "route_bottleneck_mass_per_attempt": [
+          16,
+          0,
+          0
+        ],
+        "route_hop_mass_per_attempt": [
+          16,
+          0,
+          0
+        ],
+        "signaled_participant_slots_per_attempt": [
+          0,
+          0,
+          16
+        ],
+        "topology_mean_pair_multiplicity_covered": [
+          0,
+          0,
+          16
+        ],
+        "topology_pair_coverage_fraction": [
+          0,
+          0,
+          16
+        ],
+        "traversed_hyperedge_count_per_attempt": [
+          16,
+          0,
+          0
+        ],
+        "unique_signaled_participants_per_attempt": [
+          0,
+          0,
+          16
+        ]
+      },
+      "coordination_range": [
+        "6.886",
+        "306.536"
+      ],
+      "block_hours": {
+        "generation_block_hours": "264.831",
+        "exact_validation_block_hours": "299.433"
+      }
+    },
+    "formal": {
+      "coverage_cells": 96,
+      "complete_coverage": 2,
+      "no_covered_parents": 34,
+      "fully_covered_cells": [
+        {
+          "node_count": 120,
+          "parent_model": "sbm_fixed_count",
+          "source_family": "fhs3",
+          "scope": "same_distribution"
+        },
+        {
+          "node_count": 240,
+          "parent_model": "sbm_fixed_count",
+          "source_family": "fhs3",
+          "scope": "same_distribution"
+        }
+      ],
+      "activity_changed": {
+        "30": 33,
+        "60": 21,
+        "120": 5,
+        "240": 1
+      },
+      "activity_unchanged_means_n240": {
+        "failure_risk": "-0.922",
+        "normalized_restricted_tau_nopath": "0.638"
+      },
+      "descriptor_signs": {
+        "final_coordinate_imbalance": [
+          16,
+          0,
+          0
+        ],
+        "final_zero_coordinate_fraction": [
+          16,
+          0,
+          0
+        ],
+        "initial_coordinate_imbalance": [
+          16,
+          0,
+          0
+        ],
+        "multiple_optimal_route_fraction_per_attempt": [
+          11,
+          0,
+          5
+        ],
+        "optimal_route_multiplicity_mass_per_attempt": [
+          9,
+          0,
+          7
+        ],
+        "quadratic_coordination_exposure_per_attempt": [
+          0,
+          0,
+          16
+        ],
+        "route_bottleneck_mass_per_attempt": [
+          16,
+          0,
+          0
+        ],
+        "route_hop_mass_per_attempt": [
+          16,
+          0,
+          0
+        ],
+        "signaled_participant_slots_per_attempt": [
+          0,
+          0,
+          16
+        ],
+        "topology_mean_pair_multiplicity_covered": [
+          0,
+          0,
+          16
+        ],
+        "topology_pair_coverage_fraction": [
+          0,
+          0,
+          16
+        ],
+        "traversed_hyperedge_count_per_attempt": [
+          16,
+          0,
+          0
+        ],
+        "unique_signaled_participants_per_attempt": [
+          0,
+          0,
+          16
+        ]
+      },
+      "coordination_range": [
+        "6.857",
+        "316.591"
+      ],
+      "block_hours": {
+        "generation_block_hours": "294.922",
+        "exact_validation_block_hours": "340.418"
+      }
+    }
+  },
+  "figures": {
+    "figure-1-design.pdf": "f569c0f18aa543dd695773b3c240e055b1601209cb4cb8d387c8af7bdd645483",
+    "figure-2-global-contrasts.pdf": "60ff3bbc083e0c3afcfcddb153167aef013c3f1b38168adaa3f655476550fd00",
+    "figure-3-replication-matrix.pdf": "2fc2ca912e62cd5bdf22496eccf86db96a7d07e081781086cdbe1cc5f30ad367"
+  },
+  "replication_records": 40,
+  "all_recorded_replications_confirmed": true,
+  "repeated_hyperedge_counterexample": "a simple route must not repeat a hyperedge",
+  "confidence_levels": {
+    "phase_family": "19/20",
+    "local_five_contrast_family": "159/160",
+    "single_interval": "799/800",
+    "per_tail": "1/1600"
+  },
+  "unit_tests": {
+    "passed": 60,
+    "command": "python -m unittest tests.unit.model.test_entities tests.unit.model.test_transition tests.unit.routing.test_search tests.unit.metrics.test_stratified_inference tests.unit.optimization.test_demand -q"
+  },
+  "manuscript_sha256": "5940108b1f3d1c9cd3cc047fa06f828e9af270e9436a1356655713cb440f3282"
+}

@@ -40,6 +40,13 @@ def main():
         inputs[rel] = record(ROOT/rel)
         require(inputs[rel]['sha256'] == source_manifest[key], f'Input changed: {rel}')
     tex = (OUT/'main.tex').read_text(encoding='utf-8')
+    corrections = json.loads((OUT/'accuracy-corrections.json').read_text(encoding='utf-8'))
+    for correction in corrections['replacements']:
+        require(correction['new'] in tex, f"Missing accuracy correction: {correction['id']}")
+        # Additive clarifications intentionally retain part of the old passage.
+        # Exclude the full corrected passage before looking for stale copies.
+        require(correction['old'] not in tex.replace(correction['new'], ''),
+                f"Stale accuracy passage: {correction['id']}")
     for table in tables().values():
         require(table in tex, 'Generated table not identical to bound input rendering')
     counts = {
@@ -65,7 +72,9 @@ def main():
     for fig in figure_paths:
         require(record(fig) == record(SRC/'figures'/fig.name), f'Figure changed: {fig.name}')
     members = [OUT/name for name in ('main.tex', 'README.md', 'qa.md',
-               'supplement-recommendations.md', 'compression-map.json')] + figure_paths
+               'supplement-recommendations.md', 'compression-map.json',
+               'accuracy-corrections.json', 'revision-notes.md',
+               'metric-definitions.md')] + figure_paths
     archive = OUT/'source-package.zip'
     with zipfile.ZipFile(archive, 'w', zipfile.ZIP_DEFLATED) as bundle:
         for path in members:
@@ -77,7 +86,7 @@ def main():
                     f'ZIP member mismatch: {path.name}')
     manifest = {
         'schema': 'joconline-latex-author-manuscript.v1',
-        'checked_date': '2026-10-03',
+        'checked_date': '2026-10-04',
         'official_publisher_template': False,
         'scientific_computation_performed': False,
         'compiler': 'existing Tectonic 0.17.0',

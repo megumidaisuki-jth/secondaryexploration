@@ -34,7 +34,7 @@ PREAMBLE = r'''% !TeX program = xelatex
  subsection={format=\normalsize\sffamily\bfseries,beforeskip=7pt,afterskip=3pt}}
 \setlength{\parindent}{2em}
 \setlength{\parskip}{0pt}
-\linespread{1.06}
+\linespread{1.04}
 \setlength{\abovedisplayskip}{5pt plus 1pt minus 1pt}
 \setlength{\belowdisplayskip}{5pt plus 1pt minus 1pt}
 \setlength{\textfloatsep}{10pt plus 2pt minus 2pt}
@@ -169,7 +169,7 @@ def tables():
         for p in ('formal','confirmation'):
             d=row[p]['display'];vals.append('$'+d['estimate']+r'\;['+d['lower']+', '+d['upper']+']$')
         lines.append(' & '.join(vals)+r'\\')
-    lines += [r'\bottomrule\end{tabular*}',r'\par\smallskip\footnotesize 每相位每行含60个独立父图；风险差为负、受限时间差为正表示有利方向。',r'\end{table*}']
+    lines += [r'\bottomrule\end{tabular*}',r'\par\smallskip\footnotesize 每相位每行含60个独立父图；区间为父图分层percentile bootstrap经Bonferroni校正的区间，每相位40项比较的名义家族水平为95\%。风险差为负、受限时间差为正表示有利方向。',r'\end{table*}']
     result['GLOBAL']='\n'.join(lines)
     lines=[r'\begin{table}[t]\centering',r'\caption{总体失败风险差的父图模型分层均值}\label{tab:2}',
            r'\small\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}clrr}\toprule',r'节点数 & 父图模型 & 正式 & 确认\\\midrule']
@@ -240,7 +240,7 @@ def build():
             n,title,filename=m.groups()
             captions={
               '1':'每规模每相位含60个独立父图；同一父图内7条留出轨迹为嵌套测量，两相位分别推断。',
-              '2':'(a)固定时域失败风险差；(b)归一化受限无路径时间差。圆点为正式相位，方点为确认相位；水平线为校正区间，虚线为零差。每个估计含60个父图，重抽样20000次。',
+              '2':'(a)固定时域失败风险差；(b)归一化受限无路径时间差。圆点为正式相位，方点为确认相位；水平线为父图分层percentile bootstrap经Bonferroni校正的区间，每相位40项比较的名义家族水平为95%；虚线为零差。每个估计含60个父图，重抽样20000次。',
               '3':'每格对应一项预定比较。“双相位”表示校正区间均有利且适用的总体门均开启；不表示超图构造之间的两两排序。'}
             out += [r'\begin{figure*}[t]\centering',r'\includegraphics[width=170mm]{figures/'+Path(filename).with_suffix('.pdf').name+'}',r'\caption{'+text(title+'。'+captions[n])+r'}\label{fig:'+n+'}',r'\end{figure*}']
             skip_caption=True
@@ -259,8 +259,17 @@ def build():
         key=str(p.relative_to(SRC))
         assert hashlib.sha256(p.read_bytes()).hexdigest()==manifest['files'][key]['sha256']
         shutil.copy2(p,OUT/'figures'/p.name)
-    (OUT/'main.tex').write_text('\n\n'.join(out)+'\n',encoding='utf-8')
+    tex = '\n\n'.join(out)+'\n'
+    # Preserve the archived mother manuscript while making accuracy corrections
+    # reproducible. Fail closed if a source passage changed or was already edited.
+    corrections = json.loads((OUT/'accuracy-corrections.json').read_text(encoding='utf-8'))
+    for correction in corrections['replacements']:
+        old, new = correction['old'], correction['new']
+        if tex.count(old) != 1:
+            raise ValueError(f"Accuracy correction anchor mismatch: {correction['id']}")
+        tex = tex.replace(old, new)
+    (OUT/'main.tex').write_text(tex,encoding='utf-8')
     (OUT/'compression-map.json').write_text(json.dumps({'source':'manuscript/joconline-expanded/manuscript-zh.md','omitted_repeated_paragraphs':omitted,'omitted_han_characters':len(re.findall(r'[\u4e00-\u9fff]',''.join(omitted)))},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-    print('Built main.tex from unchanged expanded source; 16 equations, 3 figures, 3 tables, 15 references.')
+    print('Built corrected main.tex from archived expanded source; 16 numbered equations, 3 figures, 3 tables, 15 references.')
 
 if __name__=='__main__':build()

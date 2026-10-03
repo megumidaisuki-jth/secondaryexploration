@@ -1,6 +1,6 @@
 {
   "schema": "joconline-latex-author-manuscript.v1",
-  "checked_date": "2026-10-03",
+  "checked_date": "2026-10-04",
   "official_publisher_template": false,
   "scientific_computation_performed": false,
   "compiler": "existing Tectonic 0.17.0",
@@ -36,29 +36,29 @@
     "sha256": "d48ebe43ab6ecbc06de7e3533d47f074cddad2b8f2f67adf69f4907246993136"
   },
   "builder": {
-    "bytes": 16253,
-    "sha256": "ae98efec98dc6f9bc094842239e4d775fd9c0f4a2238deba8a10f0681681af2a"
+    "bytes": 17025,
+    "sha256": "892e34050c291be36dc1b76eb1569516d98bf6e6d9808e3c2c191f314391b47a"
   },
   "packager": {
-    "bytes": 4809,
-    "sha256": "b0bdd3f2525be89dea0111e8c1e5dd490328c445e79a539030d55d0d5b8b15ea"
+    "bytes": 5449,
+    "sha256": "8a1d23bdd0b0baa0cf967e57260938f63d1f20c020d097c31432d1554da35780"
   },
   "compile_log": {
     "bytes": 28592,
-    "sha256": "42c089a7767bcde2a13dcc6997d07f0d6354adb554aebd4f5a6163511846317e"
+    "sha256": "3272692b019e18f6bf22c41f6f0de8c3a0339235ecf997120d1c00412a2c3f78"
   },
   "files": {
     "main.tex": {
-      "bytes": 57826,
-      "sha256": "f3ec4f160b52c5b56e6efa447b8656f671557dca918ce8b74fccf33f13552bba"
+      "bytes": 58004,
+      "sha256": "5940108b1f3d1c9cd3cc047fa06f828e9af270e9436a1356655713cb440f3282"
     },
     "README.md": {
-      "bytes": 3075,
-      "sha256": "6c3fdf40bf088f3a4b0055962b5ff5e9dce570a3992593a63c2fbf03750fcade"
+      "bytes": 3469,
+      "sha256": "dafd1aa82b86c06fb32d3689673bd7df25bdcdc7216a6ca37d940de9021eabbe"
     },
     "qa.md": {
-      "bytes": 2479,
-      "sha256": "bfed88fcd12eef4a38c02c3b74a76da7090fe295307a282c33d1c39ae64457a8"
+      "bytes": 3291,
+      "sha256": "462a5534fede5dfdbc6025bc98e6e64cdb714283292527911f02090ab32b9c6f"
     },
     "supplement-recommendations.md": {
       "bytes": 4316,
@@ -67,6 +67,18 @@
     "compression-map.json": {
       "bytes": 8376,
       "sha256": "1b726e41d8f9fb02b26ac5d9e342ac4718e0fe72dc487167a962b9b7f32baf94"
+    },
+    "accuracy-corrections.json": {
+      "bytes": 11476,
+      "sha256": "cb1b4e103c9a1101bf77e4f16555a77c5bf6ba4702d0459202135650fdd72868"
+    },
+    "revision-notes.md": {
+      "bytes": 4703,
+      "sha256": "0dcd02b30eac11b6b005042784c3cbec3155da5bcf35dee65794336c377a6578"
+    },
+    "metric-definitions.md": {
+      "bytes": 4485,
+      "sha256": "7e7629c3e3288e25f9f0aafd2965863df6c1c48d318e3c41706ba8c35efb0da7"
     },
     "figures/figure-1-design.pdf": {
       "bytes": 55072,
@@ -81,12 +93,12 @@
       "sha256": "2fc2ca912e62cd5bdf22496eccf86db96a7d07e081781086cdbe1cc5f30ad367"
     },
     "main.pdf": {
-      "bytes": 436064,
-      "sha256": "862477523fdd50029a98de472a78d11f3cc5a5c33c5d538426ba4796c68f45dc"
+      "bytes": 436883,
+      "sha256": "97e9083d4d8db4eb195d9abdc6c18527e425db4b4dc8291a5aa9b6ab9d412cce"
     },
     "source-package.zip": {
-      "bytes": 162776,
-      "sha256": "09610569e81f5c690194d683dc1ba0dfd2286bd02db485c1c2f10ad8472987c5"
+      "bytes": 174077,
+      "sha256": "497177e4e4dd27e5da1885d551df347dcc19d50734ef48701a9d5f223fb95362"
     }
   }
 }
