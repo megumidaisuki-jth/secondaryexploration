@@ -1,0 +1,92 @@
+{
+  "schema": "joconline-latex-author-manuscript.v1",
+  "checked_date": "2026-10-03",
+  "official_publisher_template": false,
+  "scientific_computation_performed": false,
+  "compiler": "existing Tectonic 0.17.0",
+  "native_compiler": "environment initialization failed; not used for delivered PDF",
+  "counts": {
+    "equations": 16,
+    "algorithms": 2,
+    "figures": 3,
+    "tables": 3,
+    "references": 15,
+    "pages": 10
+  },
+  "input_files": {
+    "manuscript/generated/synthetic-v1/numerical-registry.json": {
+      "bytes": 141651,
+      "sha256": "a0f0f53ec756d2be1f06366b8973444420def7a5a006a95e77f5afcfe5d5916c"
+    },
+    "manuscript/generated/synthetic-v1/table-1.json": {
+      "bytes": 29400,
+      "sha256": "75e0bb8befebeae94467b6e59c401351b6a3d64477884c516c0ba7a61bcc7319"
+    },
+    "manuscript/generated/results-writing-v1/evidence-summary.json": {
+      "bytes": 1414304,
+      "sha256": "41ef12ed1bbfa7ac779598a5d9c0a8536d2063c6b42e93f0dc9184bb86d856df"
+    }
+  },
+  "source_manuscript": {
+    "bytes": 58283,
+    "sha256": "18203a484e6bc756d325ba953b1f223dbcad019e25caa9ea0e7fd6b8be7584bf"
+  },
+  "source_manifest": {
+    "bytes": 2614,
+    "sha256": "d48ebe43ab6ecbc06de7e3533d47f074cddad2b8f2f67adf69f4907246993136"
+  },
+  "builder": {
+    "bytes": 16253,
+    "sha256": "ae98efec98dc6f9bc094842239e4d775fd9c0f4a2238deba8a10f0681681af2a"
+  },
+  "packager": {
+    "bytes": 4809,
+    "sha256": "b0bdd3f2525be89dea0111e8c1e5dd490328c445e79a539030d55d0d5b8b15ea"
+  },
+  "compile_log": {
+    "bytes": 28592,
+    "sha256": "42c089a7767bcde2a13dcc6997d07f0d6354adb554aebd4f5a6163511846317e"
+  },
+  "files": {
+    "main.tex": {
+      "bytes": 57826,
+      "sha256": "f3ec4f160b52c5b56e6efa447b8656f671557dca918ce8b74fccf33f13552bba"
+    },
+    "README.md": {
+      "bytes": 3075,
+      "sha256": "6c3fdf40bf088f3a4b0055962b5ff5e9dce570a3992593a63c2fbf03750fcade"
+    },
+    "qa.md": {
+      "bytes": 2479,
+      "sha256": "bfed88fcd12eef4a38c02c3b74a76da7090fe295307a282c33d1c39ae64457a8"
+    },
+    "supplement-recommendations.md": {
+      "bytes": 4316,
+      "sha256": "6df93bb589f2beda97359ae72eab39f5a36dc3098e387ee559800c38ee8b732c"
+    },
+    "compression-map.json": {
+      "bytes": 8376,
+      "sha256": "1b726e41d8f9fb02b26ac5d9e342ac4718e0fe72dc487167a962b9b7f32baf94"
+    },
+    "figures/figure-1-design.pdf": {
+      "bytes": 55072,
+      "sha256": "f569c0f18aa543dd695773b3c240e055b1601209cb4cb8d387c8af7bdd645483"
+    },
+    "figures/figure-2-global-contrasts.pdf": {
+      "bytes": 45232,
+      "sha256": "60ff3bbc083e0c3afcfcddb153167aef013c3f1b38168adaa3f655476550fd00"
+    },
+    "figures/figure-3-replication-matrix.pdf": {
+      "bytes": 34862,
+      "sha256": "2fc2ca912e62cd5bdf22496eccf86db96a7d07e081781086cdbe1cc5f30ad367"
+    },
+    "main.pdf": {
+      "bytes": 436064,
+      "sha256": "862477523fdd50029a98de472a78d11f3cc5a5c33c5d538426ba4796c68f45dc"
+    },
+    "source-package.zip": {
+      "bytes": 162776,
+      "sha256": "09610569e81f5c690194d683dc1ba0dfd2286bd02db485c1c2f10ad8472987c5"
+    }
+  }
+}

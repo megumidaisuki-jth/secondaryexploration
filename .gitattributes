@@ -22,3 +22,6 @@ tools/build_joconline_manuscript.py -text
 tools/render_joconline_word.ps1 -text
 manuscript/joconline-expanded/** -text whitespace=cr-at-eol
 manuscript/joconline-expanded/figures/*.svg whitespace=cr-at-eol,-blank-at-eol
+manuscript/joconline-latex/** -text whitespace=cr-at-eol
+tools/build_joconline_latex.py -text
+tools/package_joconline_latex.py -text

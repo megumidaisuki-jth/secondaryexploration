@@ -1,5 +1,14 @@
 # Manuscript workspace
 
+## 中文双栏 LaTeX 稿（2026-10-03）
+
+最新排版交付为 [10 页双栏稿](joconline-latex/main.pdf)，附
+[LaTeX 源码](joconline-latex/main.tex)、[源码包](joconline-latex/source-package.zip)
+和 [使用说明](joconline-latex/README.md)。这是《通信学报》风格的作者稿，非官方模板。
+保留 16 个编号公式、2 个算法、3 幅图、3 张表和 15 条参考文献；
+从扩展母稿中删去 18 段重复说明，完整映射保存在 compression-map.json，原稿不变。
+未新增实验或推断。下一步建议见 [补强建议](joconline-latex/supplement-recommendations.md)。
+
 ## 中文扩展稿（2026-09-30）
 
 当前推荐阅读 [中文扩展稿](joconline-expanded/manuscript-zh.md) 及同目录可编辑 Word。
