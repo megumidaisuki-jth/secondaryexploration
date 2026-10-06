@@ -1,0 +1,35 @@
+{
+  "schema": "da-fhs5-posthoc-v1",
+  "frozen_before_direct_effect_calculation_date": "2026-10-07",
+  "interpretation": "post-hoc exploratory reanalysis; not original confirmatory family",
+  "source_sha256": {
+    "formal": "853ea5fb14a16ce246285acaa011582cde324deabfcac528941a51343aae6d9e",
+    "confirmation": "d48700a5001e80d65a871c0fd99072b260fcf24e4e216dd35c0e670f845bab6b"
+  },
+  "node_counts": [30, 60, 120, 240],
+  "models": ["barabasi_albert", "er_gnm", "sbm_fixed_count"],
+  "parents_per_model": 20,
+  "traces_per_parent": 7,
+  "metrics": ["normalized_restricted_tau_nopath", "failure_risk"],
+  "effect": "DA minus FHS5; positive time and negative risk are favorable",
+  "bootstrap_replicates": 20000,
+  "chunk_size": 500,
+  "bootstrap_seed": 2026100701,
+  "rng": "Python random.Random seeded by SHA256 of seed|phase|node_count|replicate|model; randrange(20) 20 times per stratum; indices shared across both metrics",
+  "quantile": "inverse empirical CDF nearest rank ceil(B*p), one-based; no interpolation",
+  "new_family_comparisons": 16,
+  "family_alpha": [1, 20],
+  "adjusted_tail_probability": [1, 640],
+  "adjusted_one_based_order_indices": [32, 19969],
+  "unadjusted_one_based_order_indices": [500, 19500],
+  "weights": "seven traces equally within parent; twenty parents equally within model; three model means equally; phases and node sizes never pooled",
+  "missing_or_invalid_input": "stop without exclusion or imputation",
+  "precision": "integer bootstrap numerators and exact rational denominators; floats for display only",
+  "limitations": [
+    "Nominal Bonferroni family level 95 percent across these 16 intervals only; not finite-sample exact bootstrap coverage.",
+    "Does not extend the original 40-comparison family or use its gates.",
+    "Both phases were previously inspected; agreement is post-hoc cross-phase consistency, not new preregistered confirmation.",
+    "A degenerate interval at zero is not proof of population equivalence.",
+    "This compares trained topology-initialization schemes, not an isolated causal topology effect."
+  ]
+}
