@@ -25,3 +25,13 @@ manuscript/joconline-expanded/figures/*.svg whitespace=cr-at-eol,-blank-at-eol
 manuscript/joconline-latex/** -text whitespace=cr-at-eol
 tools/build_joconline_latex.py -text
 tools/package_joconline_latex.py -text
+
+# Preserve S1/S2 byte-bound checkpoints and source hashes across Windows checkouts.
+configs/supplement/da-fhs5-posthoc-v1.json -text
+results/supplement/da-fhs5-posthoc-v1/** -text whitespace=cr-at-eol,-blank-at-eol
+tools/supplement_da_fhs5.py -text
+tools/verify_supplement_da_fhs5.py -text
+tools/summarize_supplement_scopes.py -text
+tools/plot_supplement_da_fhs5.py -text
+tools/seal_supplement_da_fhs5.py -text
+tests/test_supplement_da_fhs5.py -text
