@@ -21,7 +21,8 @@ SOURCES=['.gitattributes','configs/supplement/initialization-ablation-v1.json',
     'tests/test_supplement_initialization.py','tests/test_supplement_initialization_pipeline.py',
     'tools/supplement_initialization_common.py','tools/prepare_supplement_initialization.py',
     'tools/run_supplement_initialization.py','tools/verify_supplement_initialization.py',
-    'tools/preflight_supplement_initialization.py','tools/pipeline_supplement_initialization.py']
+    'tools/preflight_supplement_initialization.py','tools/pipeline_supplement_initialization.py',
+    'tools/schedule_supplement_initialization_v2.py','tests/test_supplement_initialization_scheduler_v2.py']
 
 def git(*args,input=None):
     return subprocess.run(['git',*args],cwd=ROOT,input=input,capture_output=True,check=True).stdout
@@ -134,7 +135,7 @@ def run_pipeline():
     with (OUT/'PIPELINE.lock').open('xb') as f: f.write(encode({'pid':os.getpid(),'argv':sys.argv}))
     try:
         if (OUT/'PAUSE').exists(): status('paused-safe-checkpoint'); return
-        invoke('generating-uniform-runs','run_supplement_initialization.py',['--workers','2'])
+        invoke('generating-uniform-runs','schedule_supplement_initialization_v2.py',['--workers','2'])
         if (OUT/'PAUSE').exists(): status('paused-safe-checkpoint'); return
         p=json.loads((OUT/'progress.json').read_bytes()); catalog=json.loads((OUT/'catalogue.json').read_bytes())
         assert p['state']=='computed-pending-separate-replay' and p['unique_units_computed']==catalog['unique_units']
