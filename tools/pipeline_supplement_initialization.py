@@ -11,7 +11,7 @@ from pathlib import Path
 import subprocess
 import sys
 import time
-from tools.supplement_initialization_common import ROOT,OUT,sha,save,encode,atomic,load
+from tools.supplement_initialization_common import ROOT,OUT,sha,save,encode,atomic,load,core_snapshot
 
 DIAG=ROOT/'results/diagnostics/S5-initialization-pipeline-v1'
 EXCLUDE={'PAUSE','RUNNING.lock','VERIFYING.lock','PIPELINE.lock','pipeline-status.json',
@@ -50,6 +50,16 @@ def ensure_idle():
     for name in ['RUNNING.lock','VERIFYING.lock']:
         assert not (OUT/name).exists(),f'Active or unresolved stale lock: {name}; do not delete it blindly.'
 
+def validate_preflight_snapshot(snapshot):
+    for row in snapshot['files']:
+        # These are operational receipts (PID, invocation duration), overwritten on
+        # legitimate cache reuse. Their old bytes remain in Git, but are not frozen
+        # scientific inputs. Chunk/results/replay proofs and all sources remain bound.
+        local=Path(row['path']).parts
+        if 'run-progress' in local or 'execution-receipts' in local: continue
+        data=(ROOT/row['path']).read_bytes()
+        assert len(data)==row['bytes'] and sha(data)==row['sha256'],f"Preflight snapshot changed: {row['path']}"
+
 def validate_verified():
     catalog=json.loads((OUT/'catalogue.json').read_bytes()); v=json.loads((OUT/'verification.json').read_bytes())
     assert v['status']=='passed' and v['parents_verified']==480
@@ -59,11 +69,14 @@ def validate_verified():
         result,rhash=load(OUT/'runs'/row['unit_id']/'result.json.gz')
         assert proof['result_payload_sha256']==rhash and proof['unit_payload_sha256']==row['payload_sha256']
         assert proof['status'] in ['passed-existing-O-reuse','passed-separate-common-ticket-replay']
+        for index,h in enumerate(proof.get('chunk_payload_sha256',[])):
+            assert load(OUT/'runs'/row['unit_id']/'chunks'/f'{index*100:06d}.json.gz')[1]==h
     return catalog
 
 def seal_upload(stage):
     ensure_idle()
-    assert json.loads((OUT/'preflight.json').read_bytes())['status']=='passed'
+    preflight=json.loads((OUT/'preflight.json').read_bytes())
+    assert preflight['status']=='passed' and preflight['core_snapshot']==core_snapshot()
     if stage=='verified-simulation': validate_verified()
     assert git('branch','--show-current').decode().strip()=='codex/research-contract'
     assert git('remote','get-url','origin').decode().strip().removesuffix('.git')=='https://github.com/megumidaisuki-jth/secondaryexploration'
@@ -117,9 +130,7 @@ def run_pipeline():
     ensure_idle(); DIAG.mkdir(parents=True,exist_ok=True)
     assert json.loads((OUT/'preflight.json').read_bytes())['status']=='passed'
     snapshot=json.loads((OUT/'snapshot-preflight.json').read_bytes())
-    for row in snapshot['files']:
-        data=(ROOT/row['path']).read_bytes()
-        assert len(data)==row['bytes'] and sha(data)==row['sha256'],f"Preflight snapshot changed: {row['path']}"
+    validate_preflight_snapshot(snapshot)
     with (OUT/'PIPELINE.lock').open('xb') as f: f.write(encode({'pid':os.getpid(),'argv':sys.argv}))
     try:
         if (OUT/'PAUSE').exists(): status('paused-safe-checkpoint'); return

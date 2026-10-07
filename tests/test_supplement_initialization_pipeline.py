@@ -44,4 +44,16 @@ class PipelineTests(unittest.TestCase):
             self.assertFalse((root/'PIPELINE.lock').exists())
             self.assertEqual(json.loads((root/'pipeline-status.json').read_bytes())['state'],'stopped-on-error')
 
+    def test_resume_binds_inputs_but_not_mutable_invocation_receipts(self):
+        with tempfile.TemporaryDirectory() as d,patch.object(p,'ROOT',Path(d)):
+            root=Path(d); paths=['inputs/x.json','run-progress/x.json','execution-receipts/x.json']
+            rows=[]
+            for name in paths:
+                path=root/name; path.parent.mkdir(parents=True,exist_ok=True); path.write_bytes(b'original')
+                rows.append({'path':name,'bytes':8,'sha256':p.sha(b'original')})
+            (root/paths[1]).write_bytes(b'new PID'); (root/paths[2]).write_bytes(b'new duration')
+            p.validate_preflight_snapshot({'files':rows})
+            (root/paths[0]).write_bytes(b'changed scientific input')
+            with self.assertRaises(AssertionError): p.validate_preflight_snapshot({'files':rows})
+
 if __name__=='__main__': unittest.main()
