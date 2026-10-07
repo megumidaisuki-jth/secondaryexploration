@@ -45,3 +45,13 @@ tools/verify_supplement_service_cost_v1.py -text
 tools/report_supplement_service_cost.py -text
 tools/seal_supplement_service_cost.py -text
 tests/test_supplement_service_cost.py -text
+
+# Preserve exact S4 event/paired-window checkpoints and source fingerprints.
+configs/supplement/short-window-posthoc-v1.json -text
+results/supplement/short-window-posthoc-v1/** -text whitespace=cr-at-eol,-blank-at-eol
+tools/supplement_short_window.py -text
+tools/verify_supplement_short_window.py -text
+tools/report_supplement_short_window.py -text
+tools/qa_supplement_short_window.py -text
+tools/seal_supplement_short_window.py -text
+tests/test_supplement_short_window.py -text

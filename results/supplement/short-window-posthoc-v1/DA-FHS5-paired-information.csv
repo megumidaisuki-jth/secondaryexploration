@@ -1,0 +1,17 @@
+phase,node_count,window,trace_pairs,both_no_event_within_window,at_least_one_observed_event,nonzero_time_difference_pairs,nonzero_risk_difference_pairs
+confirmation,30,full,420,409,11,6,5
+confirmation,30,half,420,419,1,0,0
+confirmation,60,full,420,409,11,2,0
+confirmation,60,half,420,418,2,0,0
+confirmation,120,full,420,402,18,1,0
+confirmation,120,half,420,419,1,0,0
+confirmation,240,full,420,395,25,0,0
+confirmation,240,half,420,418,2,0,0
+formal,30,full,420,412,8,5,0
+formal,30,half,420,418,2,1,1
+formal,60,full,420,411,9,2,1
+formal,60,half,420,419,1,0,0
+formal,120,full,420,400,20,2,2
+formal,120,half,420,416,4,0,0
+formal,240,full,420,405,15,0,0
+formal,240,half,420,415,5,0,0

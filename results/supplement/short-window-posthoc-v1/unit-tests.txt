@@ -1,0 +1,13 @@
+test_administrative_censor_stays_unobserved (tests.test_supplement_short_window.ShortWindowTests.test_administrative_censor_stays_unobserved) ... ok
+test_bracket_averaged_after_clipping (tests.test_supplement_short_window.ShortWindowTests.test_bracket_averaged_after_clipping) ... ok
+test_change_normalization_and_exact_quantiles (tests.test_supplement_short_window.ShortWindowTests.test_change_normalization_and_exact_quantiles) ... ok
+test_clip_individual_times_not_contrast (tests.test_supplement_short_window.ShortWindowTests.test_clip_individual_times_not_contrast) ... ok
+test_event_at_boundary_is_observed (tests.test_supplement_short_window.ShortWindowTests.test_event_at_boundary_is_observed) ... ok
+test_invalid_censor_or_extended_horizon_rejected (tests.test_supplement_short_window.ShortWindowTests.test_invalid_censor_or_extended_horizon_rejected) ... ok
+test_shared_stratified_indices (tests.test_supplement_short_window.ShortWindowTests.test_shared_stratified_indices) ... ok
+test_survival_area_separate_checker (tests.test_supplement_short_window.ShortWindowTests.test_survival_area_separate_checker) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.176s
+
+OK

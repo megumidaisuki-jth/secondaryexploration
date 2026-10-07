@@ -1,0 +1,35 @@
+{
+  "pause_state": {
+    "bootstrap_chunks": 0,
+    "bootstrap_percent": 0,
+    "elapsed_seconds_this_invocation": 0.781,
+    "extracted_blocks": 4,
+    "extraction_percent": 0.833,
+    "state": "paused-safe-checkpoint",
+    "total_blocks": 480,
+    "total_bootstrap_chunks": 320
+  },
+  "parents": [
+    {
+      "path": "formal-n0030-r0000-barabasi_albert.json",
+      "sha256": "4f6c81533307e8a7bafabc7049df866496408d0c719ab9c02226e59aea018fea",
+      "bytes": 6361
+    },
+    {
+      "path": "formal-n0030-r0000-er_gnm.json",
+      "sha256": "435cfc7dcc9fd20788dbf5d800e2ba384e67a4d78556c2588db0b9708ed7c042",
+      "bytes": 8452
+    },
+    {
+      "path": "formal-n0030-r0000-sbm_fixed_count.json",
+      "sha256": "6be56fcabf04224c27f9f2639d8fc0ae9444b43060b8211a432360afd434eb23",
+      "bytes": 8476
+    },
+    {
+      "path": "formal-n0030-r0001-barabasi_albert.json",
+      "sha256": "140e46bffbb18d27db368728497de8d5c405d185bc028a6f72bd05e623471b61",
+      "bytes": 7769
+    }
+  ],
+  "method": "Executor stopped after 4 new units; resume must preserve these byte hashes."
+}

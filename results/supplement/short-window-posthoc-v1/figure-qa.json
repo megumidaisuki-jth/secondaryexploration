@@ -1,0 +1,60 @@
+{
+  "QA_script_sha256": "cfb4d519862ae1145ec581a18601801ac1faad3a4985c085585a6c19dbb17da6",
+  "csv_absolute_rows": 384,
+  "csv_change_rows": 240,
+  "csv_event_rows": 28238,
+  "csv_parent_rows": 28800,
+  "csv_window_rows": 480,
+  "exact_CSV_reconciliation": true,
+  "files": {
+    "DA-FHS5-paired-information.csv": "ff94563d09a7ca8805ad84d472dcd360ca4ab4fcbe05ae780c720a260533fc2b",
+    "S4-DA-FHS5-window-effects-and-changes.pdf": "0518ee15c7fafc635a7defdce1045d2ba90fc891c44de52be0959589b7c20916",
+    "S4-DA-FHS5-window-effects-and-changes.png": "b2165206a19ceee4b0fd93acc57fb057baeefdae6512d43c4c916965964866df",
+    "S4-DA-FHS5-window-effects-and-changes.svg": "b8e09687f20aaf0a9b697e332d8d2357bf9c65ddb8288932a45c259332ddbc9c",
+    "S4-DA-FHS5-window-effects-and-changes.tiff": "75503475e22e41b51349cebcff89d35918bf3026c114aa9f6f59a6b76f91c4ec",
+    "S4-matched-binary-window-effects.pdf": "0925e5097f8501e6b8d824d504354e9084d9a29187ddbb4ff06d7049c68b9c35",
+    "S4-matched-binary-window-effects.png": "c10a0672cf0e30b07f9b24669fbcc18e87eed6f92bda497aa638d912a9ce07c7",
+    "S4-matched-binary-window-effects.svg": "4a2c6da73817286f2ee576880ce3b19885a4e55d610eb19789992ce26d50532c",
+    "S4-matched-binary-window-effects.tiff": "35f9e4f2f235ccbb565ea77c2e2843c74abf2b761cdf3624ff1fc430f8f03fa9",
+    "absolute-window-means.csv": "5c6d367923777e019117367f3012479a222873f1145cd8710ad5ea25980045a8",
+    "event-timing-summary.csv": "151c7c9426f2be7509676a832fef0f8559a931b8a07045c2997ebbbc2e4a556d",
+    "figure-qa.md": "4491efdffafd63cc9fee34e04926c8b0c51455187b98a0c1815e8e83d01595d9",
+    "paired-window-changes.csv": "c1af3f3b9d5af7338ee35add15692149b8cb0832bbe541def526da984a725fb2",
+    "parent-window-contrasts.csv": "ab5be63c8e4ff4e5347b42a2f69fe786b931c5062d44310076acf77c5982f112",
+    "results.json": "d3f71492b74e114af4a9cb61a4abf7edb71afafff1be280f984db5524036d214",
+    "saved-event-observations.csv": "321822d68c1fbd377313596c412ab8fed43380e4fbbaab015d338dce971dd118",
+    "window-contrasts.csv": "52f0a015f3e58492f043ccbdc4e23db6a2f8bf4308ebee7ba6136d73a26665a8"
+  },
+  "formats": [
+    {
+      "name": "S4-matched-binary-window-effects",
+      "pdf_fonts": "embedded TrueType, selectable text",
+      "pdf_height_mm": 190.0000000000161,
+      "pdf_width_mm": 169.99999999999028,
+      "png_dpi": 300,
+      "svg_text": "editable",
+      "tiff_dpi": 600
+    },
+    {
+      "name": "S4-DA-FHS5-window-effects-and-changes",
+      "pdf_fonts": "embedded TrueType, selectable text",
+      "pdf_height_mm": 114.99999999999861,
+      "pdf_width_mm": 169.99999999999028,
+      "png_dpi": 300,
+      "svg_text": "editable",
+      "tiff_dpi": 600
+    }
+  ],
+  "manual_visual_inspection": "Both final matplotlib PNGs inspected; no clipped labels or overlapping panels.",
+  "paired_trace_measurements": 3360,
+  "source_preflight": {
+    "counts": {
+      "FAIL": 0,
+      "PASS": 13,
+      "WARN": 1
+    },
+    "ready": true,
+    "strict": false
+  },
+  "status": "passed-visual-and-source-QA"
+}
