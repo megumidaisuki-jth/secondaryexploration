@@ -35,3 +35,13 @@ tools/summarize_supplement_scopes.py -text
 tools/plot_supplement_da_fhs5.py -text
 tools/seal_supplement_da_fhs5.py -text
 tests/test_supplement_da_fhs5.py -text
+
+# Preserve S3 scientific source tables, extraction receipts and bootstrap bytes.
+configs/supplement/service-cost-posthoc-v1.json -text
+results/supplement/service-cost-posthoc-v1/** -text whitespace=cr-at-eol,-blank-at-eol
+tools/supplement_service_cost.py -text
+tools/verify_supplement_service_cost.py -text
+tools/verify_supplement_service_cost_v1.py -text
+tools/report_supplement_service_cost.py -text
+tools/seal_supplement_service_cost.py -text
+tests/test_supplement_service_cost.py -text

@@ -1,0 +1,28 @@
+{
+  "schema": "service-cost-posthoc-v1",
+  "date": "2026-10-07",
+  "interpretation": "Post-hoc descriptive service-cost reanalysis; pointwise bootstrap intervals, no confirmatory superiority decisions",
+  "source_sha256": {
+    "formal": "853ea5fb14a16ce246285acaa011582cde324deabfcac528941a51343aae6d9e",
+    "confirmation": "d48700a5001e80d65a871c0fd99072b260fcf24e4e216dd35c0e670f845bab6b"
+  },
+  "node_counts": [30, 60, 120, 240],
+  "models": ["barabasi_albert", "er_gnm", "sbm_fixed_count"],
+  "families": ["demand-aware", "fhs3", "fhs5", "nch"],
+  "metrics": ["accepted_request_count", "accepted_value", "traversed_hyperedge_count", "signaled_participant_slots", "unique_signaled_participants", "quadratic_coordination_exposure", "arity_log2_exposure"],
+  "exact_integer_metrics": 6,
+  "arity_log2_exposure": "sum histogram count * arity * log2(arity), float64 sensitivity proxy; not an exact integer core endpoint",
+  "weights": "7 held-out traces equally per parent; 20 parents equally per model; 3 models equally per size; 4:3 ID:shift combined; phases and sizes separate; registered binary bracket arms equally within source panel",
+  "ratio": "E[C]/E[S] with identical parent/model weights; cost per accepted request, not E[C/S] and not cost per accepted value",
+  "normalization": "accepted count, value and total cost also reported per attempted request C/H and S/H; H=12*n",
+  "bootstrap_seed": 2026100703,
+  "bootstrap_replicates": 20000,
+  "chunk_size": 500,
+  "interval": "pointwise unadjusted 95% percentile intervals; inverse ECDF nearest rank, one-based 500 and 19500; not simultaneous intervals",
+  "pairing": "shared parent-stratified resampling across all arms and costs; contrasts are source minus its registered binary panel, plus DA minus FHS5",
+  "undefined": "zero service denominator is null; report trace/parent zero counts and undefined bootstrap count; any undefined draw disables that cell interval rather than conditioning by deletion",
+  "checkpoint": "one raw block at a time; gzip bootstrap sums in 500-replicate chunks; exclusive lock; PAUSE boundary; hashes bind config/code/runtime/evidence",
+  "maximum_binary_arms": 2,
+  "new_simulations": 0,
+  "limitations": ["Route exposure proxies do not measure real communication bytes, latency, fees or cryptographic implementation cost.", "Totals depend on achieved service; interpreting lower total cost alone as efficiency is invalid.", "Intervals are exploratory and pointwise; no p-values, multiplicity-adjusted decisions, causal claims or population equivalence claims.", "Arity-log2 exposure and its intervals use floating point; exact rational estimates retained for integer metrics.", "This audit checks saved routes and arithmetic, not routing optimality or a new blinded simulation replay."]
+}

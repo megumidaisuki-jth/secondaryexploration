@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-07",
+  "visual_review": "passed",
+  "reviewed": ["figure-s3-service-cost.png", "figure-s3-paired-cost.png"],
+  "panels": {"joint_service_cost": 8, "paired_cost": 3},
+  "displayed_points": {"joint_service_cost": 64, "paired_cost": 96},
+  "all_sizes_families_phases_retained": true,
+  "observations_excluded": 0,
+  "jitter_or_data_coordinate_changes": false,
+  "overlap_handling": "DA triangle and FHS5 square at their true coordinates; different geometry/size retains near-overlapping points",
+  "checks": ["All panel labels, axis labels and legends readable without clipping", "Forest zero references retained", "Forest means and interval locations checked against sign/range pattern", "Joint-plot source versus binary roles identified by fill and paired links", "Source data crosschecked against all verified numerical results", "Unadjusted pointwise intervals explicitly labelled; no simultaneous superiority decisions", "No claim of real protocol bytes, latency or implementation cost"],
+  "figure_preflight": {"PASS": 13, "WARN": 1, "FAIL": 0},
+  "preflight_warning": "170 mm existing-manuscript width, not generic Nature 89/183 mm; supplemental preview, not latest journal specification certification",
+  "unit_tests_passed": 6,
+  "pause_resume": "Main executor safely stopped after four complete parent blocks and resumed at the fifth; all subsequent extraction/bootstrap units saved atomically",
+  "statistical_review": "60 independent parents per phase/size, 20 per model; seven nested traces and registered binary brackets averaged before ratios; phases separate; all zero-denominator counts are zero",
+  "numeric_review": "All six integer bootstrap columns agree exactly across independent summation implementations; arity-log2 sensitivity accumulation agrees within documented gamma160 forward-error bound",
+  "audit_scope": "same-analyst separate arithmetic implementation, not independent blinded scientific replay"
+}

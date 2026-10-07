@@ -1,0 +1,17 @@
+{
+  "status": "stopped-on-floating-tolerance-gate",
+  "date": "2026-10-07",
+  "verifier_sha256": "5f84f335922a4624e733cac018f9b3949f80ae41aead15806706f40701d9bebe",
+  "saved_verifier": "tools/verify_supplement_service_cost_v1.py",
+  "exact_route_blocks_passed": 480,
+  "complete_bootstrap_cells_passed": ["formal-n0030", "formal-n0060", "formal-n0120"],
+  "failure_cell": "formal-n0240",
+  "quantity": "unscaled arity-log2 bootstrap accumulation sums",
+  "original_absolute_tolerance": 1e-7,
+  "failure_max_absolute_difference": 1.78813934e-7,
+  "failure_max_relative_difference": 1.02003052e-15,
+  "integer_columns": "exact equality checks passed before the floating gate",
+  "response": "Preserve calculation, raw-block receipts, failed gate and checker source; revise only floating acceptance to a nonnegative-summation forward-error bound; recompute all 160000 bootstrap replicates in verifier v2",
+  "route_receipt_reuse_rule": "Same verify_raw function source, same prior full-code hash, same extracted-parent hash, and rechecked raw-byte SHA-256; no routing simulation repeated",
+  "new_simulations": 0
+}

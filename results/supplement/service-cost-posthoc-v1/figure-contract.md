@@ -1,0 +1,13 @@
+# S3 figure contract, 2026-10-07
+
+Purpose: show the achieved service alongside route-exposure cost, so that a lower total exposure is not mistaken for better service efficiency. These are exploratory descriptive figures; they do not assert simultaneous superiority or equivalence.
+
+Evidence chain: the joint-service figure places mean success fraction against E[participant slots]/E[successful requests], by size and phase, for all four registered source families and their own equally averaged resource-matched binary panels. The paired forest figure displays E[C_source]/E[S_source] minus E[C_binary]/E[S_binary] for traversal, participant-slot and quadratic exposures. All four sizes and families appear; the full five-cost table includes unique-participant and arity-log2 sensitivity components.
+
+Archetype: quantitative grid. Backend: saved Python preference, matplotlib. No templates adapted. Plot contract uses the existing manuscript's 170 mm double-column width, as an internal supplementary preview rather than a claim of current journal specification compliance. SVG editable text, PDF TrueType fonts, TIFF 600 dpi, PNG 300 dpi. Minimum regular font 5 pt. In the joint plot, color and shape encode family, fill encodes source versus binary; DA and FHS5 near-overlap is retained at true coordinates using different marker geometry/size. In the forest, shape/fill encodes phase; all zero differences retained.
+
+Independent units: 60 parent graphs per size and phase, 20 per model. Seven traces nested within each parent; binary brackets averaged within the source panel before parent aggregation. Phases remain separate. The same parent-stratified resampling indices apply to all service and cost fields. Vertical/forest bars are unadjusted pointwise 95% percentile intervals from 20,000 replicates; no significance stars or p-values. No simultaneous 95% coverage is claimed. X coordinates are descriptive success fractions without X error bars; the plots are not joint 95% confidence regions.
+
+Zero-denominator ratios are undefined; none is silently dropped. Their frequencies are retained in the results. Any undefined bootstrap draw disables that ratio interval and is counted. No experimental samples are excluded. These counts and exposures are proxies, not measured latency, communication bytes, fees, or real cryptographic overhead.
+
+Source-data files: figure-s3-arms.csv, figure-s3-contrasts.csv and parent-source-data.csv, all linked to verified results and hash inventory. Final rendered images must be visually checked for point/interval placement, zero references, axis clipping and readability before delivery.
