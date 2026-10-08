@@ -1,0 +1,31 @@
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "C:\Users\jiate\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\concurrent\futures\process.py", line 264, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\second\tools\run_supplement_initialization.py", line 93, in execute_record
+    save(current,{'state':'chunk-checkpoint','completed_requests':offset,'horizon':H,'percent':round(offset/H*100,3),'last_chunk_sha256':previous,'pid':os.getpid(),
+  File "E:\second\tools\supplement_initialization_common.py", line 21, in save
+    def save(path,v): atomic(path,encode(v))
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\second\tools\supplement_initialization_common.py", line 20, in atomic
+    os.replace(tmp,path)
+PermissionError: [WinError 5] 拒绝访问。: 'E:\\second\\results\\supplement\\initialization-ablation-v1\\run-progress\\e5c0e4acf543ddba3b4f6a022b820996cf087e9eb5af331d4dd0a1f86219787a.json.14180.08fb8ce253fc40a38c104551ee72edd6.tmp' -> 'E:\\second\\results\\supplement\\initialization-ablation-v1\\run-progress\\e5c0e4acf543ddba3b4f6a022b820996cf087e9eb5af331d4dd0a1f86219787a.json'
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\second\tools\schedule_supplement_initialization_v2.py", line 126, in <module>
+    p.add_argument('--maximum-units',type=int); p.add_argument('--stop-after-chunks',type=int); run(p.parse_args())
+                                                                                                ^^^^^^^^^^^^^^^^^^^
+  File "E:\second\tools\schedule_supplement_initialization_v2.py", line 105, in run
+    row=active.pop(future); uid=row['unit_id']; record=future.result(); completed+=int(record['state']=='computed')
+                                                       ^^^^^^^^^^^^^^^
+  File "C:\Users\jiate\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jiate\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+PermissionError: [WinError None] 拒绝访问。: 'E:\\second\\results\\supplement\\initialization-ablation-v1\\run-progress\\e5c0e4acf543ddba3b4f6a022b820996cf087e9eb5af331d4dd0a1f86219787a.json.14180.08fb8ce253fc40a38c104551ee72edd6.tmp' -> 'E:\\second\\results\\supplement\\initialization-ablation-v1\\run-progress\\e5c0e4acf543ddba3b4f6a022b820996cf087e9eb5af331d4dd0a1f86219787a.json'
