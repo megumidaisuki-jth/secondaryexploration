@@ -1,0 +1,33 @@
+{
+  "status": "all-bound-files-byte-verified",
+  "sources": {
+    "S1-S2": {
+      "manifest": "results/supplement/da-fhs5-posthoc-v1/delivery-manifest.json",
+      "sha256": "63c41f0f7837165d75702511592ca3ef08e4cb97633cf3ccde69e8863e945f94",
+      "files_checked": 345,
+      "bytes_checked": 4710323
+    },
+    "S3": {
+      "manifest": "results/supplement/service-cost-posthoc-v1/delivery-manifest.json",
+      "sha256": "a5a80196b0bb59edc863038919a5e4591d57671f4312385383bdf9d807fa6eae",
+      "files_checked": 2600,
+      "bytes_checked": 39553089
+    },
+    "S4": {
+      "manifest": "results/supplement/short-window-posthoc-v1/delivery-manifest.json",
+      "sha256": "cda593202da1100ac63b81bfa01c59b5c73fc630c25cecb62a8696c5b4a56854",
+      "files_checked": 1648,
+      "bytes_checked": 35751831
+    },
+    "S5": {
+      "manifest": "results/supplement/initialization-ablation-figures-v1/manifest.json",
+      "sha256": "441b22cae9ac29d2cbf115f08e064aa0bba029f0b84aa58f0b1e835a721859aa",
+      "files_checked": 36,
+      "bytes_checked": 5004258
+    }
+  },
+  "base_tex_sha256": "53e42210b18bb1f664b028818a881336b938b036f41971de2db210273e5a25cc",
+  "new_simulations": 0,
+  "new_bootstrap_replicates": 0,
+  "scope": "Source/report integrity check; not a new scientific blind audit"
+}

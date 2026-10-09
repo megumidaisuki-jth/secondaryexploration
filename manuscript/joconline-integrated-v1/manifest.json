@@ -1,0 +1,186 @@
+{
+  "schema": "S1-S5-manuscript-integration-v1",
+  "status": "report-and-visual-QA-complete",
+  "pages": {
+    "main": 11,
+    "supplement": 10
+  },
+  "new_simulations": 0,
+  "new_bootstrap_replicates": 0,
+  "independent_blinded_review": false,
+  "reporting_tests_passed": 4,
+  "figures_byte_reused": 8,
+  "accuracy_corrections_preserved": 14,
+  "files": [
+    {
+      "path": "manuscript/joconline-integrated-v1/.gitattributes",
+      "bytes": 60,
+      "sha256": "139d76fd2a3725837a207b9e5ab861dfae452cf9969650e9707f4394b905de8a"
+    },
+    {
+      "path": "manuscript/joconline-integrated-v1/.gitignore",
+      "bytes": 31,
+      "sha256": "0aa707ad712ae3cd366ea3eb007c52f26e1c5ab20ea0de5b3e5263e21b5e9b12"
+    },
+    {
+      "path": "manuscript/joconline-integrated-v1/claim-evidence-map.md",
+      "bytes": 3596,
+      "sha256": "c6e157289d09b7faa021d0bcf591e58adc44a1483ad6c5e992a1bdad2d59d506"
+    },
+    {
+      "path": "manuscript/joconline-integrated-v1/figures/figure-1-design.pdf",
+      "bytes": 55072,
+      "sha256": "f569c0f18aa543dd695773b3c240e055b1601209cb4cb8d387c8af7bdd645483"
+    },
+    {
+      "path": "manuscript/joconline-integrated-v1/figures/figure-2-global-contrasts.pdf",
+      "bytes": 45232,
+      "sha256": "60ff3bbc083e0c3afcfcddb153167aef013c3f1b38168adaa3f655476550fd00"
+    },
+    {
+      "path": "manuscript/joconline-integrated-v1/figures/figure-3-replication-matrix.pdf",
+      "bytes": 34862,
+      "sha256": "2fc2ca912e62cd5bdf22496eccf86db96a7d07e081781086cdbe1cc5f30ad367"
+    },
+    {
+      "path": "manuscript/joconline-integrated-v1/figures/s1-direct.pdf",
+      "bytes": 45358,
+      "sha256": "89a381364b954a0eb2e133938931145a2bbe9e7eeaebfbd5f49388a6a7f93379"
+    },
+    {
+      "path": "manuscript/joconline-integrated-v1/figures/s3-paired-cost.pdf",
+      "bytes": 60851,
+      "sha256": "f28a7d39f19691ef8622a2ce49c3cde423cf27c395763e15fa3c76b9239e5d61"
+    },
+    {
+      "path": "manuscript/joconline-integrated-v1/figures/s3-service-cost.pdf",
+      "bytes": 49603,
+      "sha256": "6dea51d10b0b5a014dd1e9ff49533a6819e5011610a36cb7ca2d0f87a484b82c"
+    },
+    {
+      "path": "manuscript/joconline-integrated-v1/figures/s4-binary-window.pdf",
+      "bytes": 69560,
+      "sha256": "0925e5097f8501e6b8d824d504354e9084d9a29187ddbb4ff06d7049c68b9c35"
+    },
+    {
+      "path": "manuscript/joconline-integrated-v1/figures/s4-direct-window.pdf",
+      "bytes": 55671,
+      "sha256": "0518ee15c7fafc635a7defdce1045d2ba90fc891c44de52be0959589b7c20916"
+    },
+    {
+      "path": "manuscript/joconline-integrated-v1/figures/s5-arm-means.pdf",
+      "bytes": 20228,
+      "sha256": "aca5be4615219a338e31a23ea98a231f01fe9415783617353c51c5ff39142cc5"
+    },
+    {
+      "path": "manuscript/joconline-integrated-v1/figures/s5-initialization.pdf",
+      "bytes": 20937,
+      "sha256": "44c720f5d9fbfbbecb0bf2c58aa18b567a99d8a36790ccf314c0af0c741731a5"
+    },
+    {
+      "path": "manuscript/joconline-integrated-v1/figures/s5-topology-interaction.pdf",
+      "bytes": 24185,
+      "sha256": "e46ccfd6badf3781038e8c5bf7809b5fcf4211f6996228a8bb5ef5a0b7a284b9"
+    },
+    {
+      "path": "manuscript/joconline-integrated-v1/integration-sections.tex",
+      "bytes": 2860,
+      "sha256": "b5c5b6d2b606c168f617682843d331ee888bf2f344e24c0dd7a7d48eea71eadb"
+    },
+    {
+      "path": "manuscript/joconline-integrated-v1/main.pdf",
+      "bytes": 451766,
+      "sha256": "edd4aca95ae2a988ca0d3cb170cdf5c854ce6577b9ead5f958926a1926b51091"
+    },
+    {
+      "path": "manuscript/joconline-integrated-v1/main.tex",
+      "bytes": 63623,
+      "sha256": "b2805a9fb588c7f62e3028157c3456e69e88756438a429309b967272a911bbf9"
+    },
+    {
+      "path": "manuscript/joconline-integrated-v1/qa.md",
+      "bytes": 3537,
+      "sha256": "51a23e199cb86ebff6b82e68f452872cff7716b4ea34c58bc5d43d9f1960573b"
+    },
+    {
+      "path": "manuscript/joconline-integrated-v1/README.md",
+      "bytes": 1498,
+      "sha256": "24d24c349a6e4bce416683786d14e8b65ec27deaabd4ffd7897dd7259c2ad428"
+    },
+    {
+      "path": "manuscript/joconline-integrated-v1/source-data/S1_S2-results.json",
+      "bytes": 10358,
+      "sha256": "a7dd69a1c0d88a720ab9939cff24436383e73df19a3a7fb3aef2374e07b5b174"
+    },
+    {
+      "path": "manuscript/joconline-integrated-v1/source-data/S1_S2-s2-descriptive.json",
+      "bytes": 38672,
+      "sha256": "71f4ec2c4542fbe64f73436cf915120b89584436055124e50385ba12de355f1b"
+    },
+    {
+      "path": "manuscript/joconline-integrated-v1/source-data/S1_S2-verification.json",
+      "bytes": 522,
+      "sha256": "6389172ad3d1355ab83a0905cab7d82c7ea40e29fe083e9e5f6deb8580f055b1"
+    },
+    {
+      "path": "manuscript/joconline-integrated-v1/source-data/S3-results.json",
+      "bytes": 181200,
+      "sha256": "b759654c0b88bb55322b75a2927a566f2f8a54448800fe21c92ce50befc3fabf"
+    },
+    {
+      "path": "manuscript/joconline-integrated-v1/source-data/S3-verification.json",
+      "bytes": 801,
+      "sha256": "49c5681b97c386e59225c814ce438c2795f4bf3d51a6f895b49616601c42866e"
+    },
+    {
+      "path": "manuscript/joconline-integrated-v1/source-data/S4-results.json",
+      "bytes": 211831,
+      "sha256": "d3f71492b74e114af4a9cb61a4abf7edb71afafff1be280f984db5524036d214"
+    },
+    {
+      "path": "manuscript/joconline-integrated-v1/source-data/S4-verification.json",
+      "bytes": 926,
+      "sha256": "c9ea9c2630750dc40f2215512a08f49d968779b644976f049771c186d469bdc3"
+    },
+    {
+      "path": "manuscript/joconline-integrated-v1/source-data/S5-results.json",
+      "bytes": 143705,
+      "sha256": "9ec1511cb22aa037f4573946d994179f95d9cbc2c7b0c331304934e7b5e737d2"
+    },
+    {
+      "path": "manuscript/joconline-integrated-v1/source-data/S5-verification.json",
+      "bytes": 674,
+      "sha256": "c8e6ae71a2882874361752943aea42146342201b04081f4de6bf11219ab91d9b"
+    },
+    {
+      "path": "manuscript/joconline-integrated-v1/source-package.zip",
+      "bytes": 1412427,
+      "sha256": "99aade068f6178afa67b9ed5dcc47076bdb542c696baf2f9a06f1b78532b0782"
+    },
+    {
+      "path": "manuscript/joconline-integrated-v1/source-validation.json",
+      "bytes": 1290,
+      "sha256": "caa438220ca026d6c67387607b2b2d160f4ec5114ecc35a2581156391405477d"
+    },
+    {
+      "path": "manuscript/joconline-integrated-v1/supplement.pdf",
+      "bytes": 444231,
+      "sha256": "e9a2f62fdab88842d283f65421643a70918d03d70b477db6659f0ca3456f788f"
+    },
+    {
+      "path": "manuscript/joconline-integrated-v1/supplement.tex",
+      "bytes": 12605,
+      "sha256": "ca92bac5d9b9c98f9e3157be65a0b7eadd0614b454022e02a64df1c5b94e4167"
+    },
+    {
+      "path": "tests/test_supplement_initialization_integration.py",
+      "bytes": 5065,
+      "sha256": "ea8d9efc0656089ddc81c4b4e2434f615acf54cdadc93dfd32107b8a3438f361"
+    },
+    {
+      "path": "tools/integrate_supplement_initialization_manuscript.py",
+      "bytes": 21372,
+      "sha256": "f80f99b11dec908394dcde40a6e4093d73c0fd103ef8af267ea309af18ec4798"
+    }
+  ]
+}
