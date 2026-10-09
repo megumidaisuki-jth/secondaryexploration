@@ -1,0 +1,163 @@
+{
+  "schema": "S5-figures-and-manuscript-v1",
+  "status": "display-and-author-artifacts-verified",
+  "source_results_sha256": "9ec1511cb22aa037f4573946d994179f95d9cbc2c7b0c331304934e7b5e737d2",
+  "arithmetic_proof_sha256": "c8e6ae71a2882874361752943aea42146342201b04081f4de6bf11219ab91d9b",
+  "original_tex_sha256": "5940108b1f3d1c9cd3cc047fa06f828e9af270e9436a1356655713cb440f3282",
+  "pages": {
+    "main": 11,
+    "supplement": 3
+  },
+  "marks_verified": 144,
+  "tests_passed": 4,
+  "new_simulations": 0,
+  "new_bootstrap_replicates": 0,
+  "independent_blinded_scientific_review": false,
+  "visual_review": "3 figure PNGs, 11 main pages, 3 supplementary pages inspected by main analyst",
+  "files": {
+    ".gitattributes": {
+      "bytes": 3754,
+      "sha256": "50e9e62ab0fb2e28a775ad8bd2bc235ca509a516be62a294756b860d0da0e571"
+    },
+    "manuscript/joconline-s5-revision-v1/.gitignore": {
+      "bytes": 18,
+      "sha256": "824e9e041a5e289daf892d3b5aca80afbb434e9b075b1c412c11174caf51a4d6"
+    },
+    "manuscript/joconline-s5-revision-v1/figure-contract.md": {
+      "bytes": 3574,
+      "sha256": "43b46df81ea910a60296efc59556b7e8485c19db7900e88137e740cfc82ed02c"
+    },
+    "manuscript/joconline-s5-revision-v1/figures/figure-1-design.pdf": {
+      "bytes": 55072,
+      "sha256": "f569c0f18aa543dd695773b3c240e055b1601209cb4cb8d387c8af7bdd645483"
+    },
+    "manuscript/joconline-s5-revision-v1/figures/figure-2-global-contrasts.pdf": {
+      "bytes": 45232,
+      "sha256": "60ff3bbc083e0c3afcfcddb153167aef013c3f1b38168adaa3f655476550fd00"
+    },
+    "manuscript/joconline-s5-revision-v1/figures/figure-3-replication-matrix.pdf": {
+      "bytes": 34862,
+      "sha256": "2fc2ca912e62cd5bdf22496eccf86db96a7d07e081781086cdbe1cc5f30ad367"
+    },
+    "manuscript/joconline-s5-revision-v1/figures/s5-arm-means.pdf": {
+      "bytes": 20228,
+      "sha256": "aca5be4615219a338e31a23ea98a231f01fe9415783617353c51c5ff39142cc5"
+    },
+    "manuscript/joconline-s5-revision-v1/figures/s5-initialization.pdf": {
+      "bytes": 20937,
+      "sha256": "44c720f5d9fbfbbecb0bf2c58aa18b567a99d8a36790ccf314c0af0c741731a5"
+    },
+    "manuscript/joconline-s5-revision-v1/figures/s5-topology-interaction.pdf": {
+      "bytes": 24185,
+      "sha256": "e46ccfd6badf3781038e8c5bf7809b5fcf4211f6996228a8bb5ef5a0b7a284b9"
+    },
+    "manuscript/joconline-s5-revision-v1/main.pdf": {
+      "bytes": 463153,
+      "sha256": "cc2f0de97101520610fec342b24559de4121e3ed288dc55ca1b016a1816750a2"
+    },
+    "manuscript/joconline-s5-revision-v1/main.tex": {
+      "bytes": 61413,
+      "sha256": "53e42210b18bb1f664b028818a881336b938b036f41971de2db210273e5a25cc"
+    },
+    "manuscript/joconline-s5-revision-v1/qa.md": {
+      "bytes": 3209,
+      "sha256": "7742392fc2d2f91066151ba370633d071ffb28c373b591bc18b4548b54426859"
+    },
+    "manuscript/joconline-s5-revision-v1/README.md": {
+      "bytes": 2361,
+      "sha256": "9a738d5721c00cb90a2707191731428ba1fbeb9164a369e18378d7332520e385"
+    },
+    "manuscript/joconline-s5-revision-v1/revision-map.json": {
+      "bytes": 1451,
+      "sha256": "8dab3930dd509b75133260c9005de24610fdabd0cc6e054fd605ef4670fdc2ee"
+    },
+    "manuscript/joconline-s5-revision-v1/s5-main-section.tex": {
+      "bytes": 2852,
+      "sha256": "20359012c8d7593d6a29061b1ed1caa6a63081278e595a83dbefed1ab8832678"
+    },
+    "manuscript/joconline-s5-revision-v1/s5-section.tex": {
+      "bytes": 3640,
+      "sha256": "bb281ec97314981841a3a6182ae42b556490bdbae0b4b4beeda1172c45e3db48"
+    },
+    "manuscript/joconline-s5-revision-v1/source-package.zip": {
+      "bytes": 223351,
+      "sha256": "1889931bfe66dcc67922d465918a2ac07704db6fe760b27b251d1740c8ce3308"
+    },
+    "manuscript/joconline-s5-revision-v1/supplement.pdf": {
+      "bytes": 119421,
+      "sha256": "6dbd1c61ca4922319ad12c027ff2c4c43263a3d2dfdd444ce4718ab8faf225ec"
+    },
+    "manuscript/joconline-s5-revision-v1/supplement.tex": {
+      "bytes": 5520,
+      "sha256": "718b7cba6e201c3cb745a4bd39d69d71c586bbcb73a44625fc12452901057891"
+    },
+    "results/supplement/initialization-ablation-figures-v1/display-ledger.json": {
+      "bytes": 63330,
+      "sha256": "77ff0495ab92ae6405a434300ef900b66c4325c7ffe5f1981282f4228d6ebd47"
+    },
+    "results/supplement/initialization-ablation-figures-v1/s5-arm-means.pdf": {
+      "bytes": 20228,
+      "sha256": "aca5be4615219a338e31a23ea98a231f01fe9415783617353c51c5ff39142cc5"
+    },
+    "results/supplement/initialization-ablation-figures-v1/s5-arm-means.png": {
+      "bytes": 351846,
+      "sha256": "6fc2817c6e99e96d84fbf014f1d5f92a86e1cc9de87309eab4f9bb8b5f683427"
+    },
+    "results/supplement/initialization-ablation-figures-v1/s5-arm-means.svg": {
+      "bytes": 37942,
+      "sha256": "22153404ab2d8b1f6de5d2817eb99f05940526c9b012f08cc5a568b749747420"
+    },
+    "results/supplement/initialization-ablation-figures-v1/s5-arm-means.tiff": {
+      "bytes": 677514,
+      "sha256": "29e6cd7c85969f972da3fdbaf86f6e5be179136cf976936fb8223a31057c418c"
+    },
+    "results/supplement/initialization-ablation-figures-v1/s5-initialization.pdf": {
+      "bytes": 20937,
+      "sha256": "44c720f5d9fbfbbecb0bf2c58aa18b567a99d8a36790ccf314c0af0c741731a5"
+    },
+    "results/supplement/initialization-ablation-figures-v1/s5-initialization.png": {
+      "bytes": 306390,
+      "sha256": "1fa9e47ad1fe874e861cab8e5e0d7b422743ffaf7484554640648ca32d428ceb"
+    },
+    "results/supplement/initialization-ablation-figures-v1/s5-initialization.svg": {
+      "bytes": 56727,
+      "sha256": "7860ce29988496d1034a19a98b6355b778e8a783733fed1a9faec28b75f47846"
+    },
+    "results/supplement/initialization-ablation-figures-v1/s5-initialization.tiff": {
+      "bytes": 684134,
+      "sha256": "fd1238780399fec42113039caa4fafcefbac73495ee8590ba6bbec8b4c090c59"
+    },
+    "results/supplement/initialization-ablation-figures-v1/s5-topology-interaction.pdf": {
+      "bytes": 24185,
+      "sha256": "e46ccfd6badf3781038e8c5bf7809b5fcf4211f6996228a8bb5ef5a0b7a284b9"
+    },
+    "results/supplement/initialization-ablation-figures-v1/s5-topology-interaction.png": {
+      "bytes": 442333,
+      "sha256": "d1ed5371739efad71b0777b5fe822aa21240300671d8703c6375163af4d935f1"
+    },
+    "results/supplement/initialization-ablation-figures-v1/s5-topology-interaction.svg": {
+      "bytes": 86979,
+      "sha256": "0a26128b72fcfe5659f26524d94b3fed145cd454e44cf4da5468e8df69597a63"
+    },
+    "results/supplement/initialization-ablation-figures-v1/s5-topology-interaction.tiff": {
+      "bytes": 966640,
+      "sha256": "24d4d3ce1ec6d8d3f4707a5a788cb8c5e47d94e88b2da60f35abb88fef9e1595"
+    },
+    "results/supplement/initialization-ablation-figures-v1/source-data.json": {
+      "bytes": 143705,
+      "sha256": "9ec1511cb22aa037f4573946d994179f95d9cbc2c7b0c331304934e7b5e737d2"
+    },
+    "tests/test_s5_manuscript_figures.py": {
+      "bytes": 3939,
+      "sha256": "259cf0c07669e7fbe4670b32972269007104dd218eb8a5e9ce5ca57e3b9589e7"
+    },
+    "tools/build_s5_manuscript_figures.py": {
+      "bytes": 18008,
+      "sha256": "2f8b2f8ab37f69ff7f5d719febd2733a580e86235bfe5e6d0a6cf927949adf5d"
+    },
+    "tools/seal_s5_manuscript_figures.py": {
+      "bytes": 5188,
+      "sha256": "f3b88730573eb16b34b1da57f576f2d0cbc4a92fce941727732d13fb3adeaa08"
+    }
+  }
+}

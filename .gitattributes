@@ -63,3 +63,10 @@ results/supplement/initialization-ablation-v1/** -text whitespace=cr-at-eol,-bla
 docs/plans/2026-10-07-S5*.md -text
 tools/*supplement_initialization*.py -text
 tests/test_supplement_initialization*.py -text
+
+# Preserve the byte-bound S5 display and revised author manuscript bundle.
+results/supplement/initialization-ablation-figures-v1/** -text whitespace=cr-at-eol,-blank-at-eol
+manuscript/joconline-s5-revision-v1/** -text whitespace=cr-at-eol,-blank-at-eol
+tools/build_s5_manuscript_figures.py -text
+tools/seal_s5_manuscript_figures.py -text
+tests/test_s5_manuscript_figures.py -text

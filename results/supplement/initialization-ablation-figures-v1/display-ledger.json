@@ -1,0 +1,3028 @@
+{
+  "results_sha256": "9ec1511cb22aa037f4573946d994179f95d9cbc2c7b0c331304934e7b5e737d2",
+  "axes": [
+    {
+      "figure": "s5-arm-means",
+      "xlabel": "节点数 n（独立规模条件）",
+      "ylabel": "Y 均值（放大，非零起点）",
+      "xlim": [
+        -0.5,
+        3.5
+      ],
+      "ylim": [
+        0.98,
+        1.001
+      ]
+    },
+    {
+      "figure": "s5-arm-means",
+      "xlabel": "节点数 n（独立规模条件）",
+      "ylabel": "Y 均值（放大，非零起点）",
+      "xlim": [
+        -0.5,
+        3.5
+      ],
+      "ylim": [
+        0.98,
+        1.001
+      ]
+    },
+    {
+      "figure": "s5-arm-means",
+      "xlabel": "节点数 n（独立规模条件）",
+      "ylabel": "F 均值（%）",
+      "xlim": [
+        -0.5,
+        3.5
+      ],
+      "ylim": [
+        0.0,
+        6.5
+      ]
+    },
+    {
+      "figure": "s5-arm-means",
+      "xlabel": "节点数 n（独立规模条件）",
+      "ylabel": "F 均值（%）",
+      "xlim": [
+        -0.5,
+        3.5
+      ],
+      "ylim": [
+        0.0,
+        6.5
+      ]
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "xlabel": "Y 差（无量纲）",
+      "ylabel": "节点数 n",
+      "xlim": [
+        -0.0011703703703703702,
+        0.004292063492063492
+      ],
+      "ylim": [
+        3.5,
+        -0.5
+      ]
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "xlabel": "F 差（百分点）",
+      "ylabel": "节点数 n",
+      "xlim": [
+        -3.142857142857143,
+        1.0
+      ],
+      "ylim": [
+        3.5,
+        -0.5
+      ]
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "xlabel": "Y 差（无量纲）",
+      "ylabel": "节点数 n",
+      "xlim": [
+        -0.0011703703703703702,
+        0.004292063492063492
+      ],
+      "ylim": [
+        3.5,
+        -0.5
+      ]
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "xlabel": "F 差（百分点）",
+      "ylabel": "节点数 n",
+      "xlim": [
+        -3.142857142857143,
+        1.0
+      ],
+      "ylim": [
+        3.5,
+        -0.5
+      ]
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "xlabel": "Y 差（无量纲）",
+      "ylabel": "节点数 n",
+      "xlim": [
+        -0.0011703703703703702,
+        0.004292063492063492
+      ],
+      "ylim": [
+        3.5,
+        -0.5
+      ]
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "xlabel": "F 差（百分点）",
+      "ylabel": "节点数 n",
+      "xlim": [
+        -3.142857142857143,
+        1.0
+      ],
+      "ylim": [
+        3.5,
+        -0.5
+      ]
+    },
+    {
+      "figure": "s5-initialization",
+      "xlabel": "O - U：Y 差（无量纲）",
+      "ylabel": "节点数 n",
+      "xlim": [
+        -0.020678968253968255,
+        0.0022563492063492068
+      ],
+      "ylim": [
+        3.5,
+        -0.5
+      ]
+    },
+    {
+      "figure": "s5-initialization",
+      "xlabel": "O - U：Y 差（无量纲）",
+      "ylabel": "节点数 n",
+      "xlim": [
+        -0.020678968253968255,
+        0.0022563492063492068
+      ],
+      "ylim": [
+        3.5,
+        -0.5
+      ]
+    },
+    {
+      "figure": "s5-initialization",
+      "xlabel": "O - U：F 差（百分点）",
+      "ylabel": "节点数 n",
+      "xlim": [
+        -0.8,
+        3.895238095238095
+      ],
+      "ylim": [
+        3.5,
+        -0.5
+      ]
+    },
+    {
+      "figure": "s5-initialization",
+      "xlabel": "O - U：F 差（百分点）",
+      "ylabel": "节点数 n",
+      "xlim": [
+        -0.8,
+        3.895238095238095
+      ],
+      "ylim": [
+        3.5,
+        -0.5
+      ]
+    }
+  ],
+  "marks": [
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "formal",
+      "node_count": 30,
+      "metric": "normalized_restricted_tau_nopath",
+      "arm": "DA-U",
+      "plotted": 0.9958862433862434
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "formal",
+      "node_count": 60,
+      "metric": "normalized_restricted_tau_nopath",
+      "arm": "DA-U",
+      "plotted": 0.9981349206349206
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "formal",
+      "node_count": 120,
+      "metric": "normalized_restricted_tau_nopath",
+      "arm": "DA-U",
+      "plotted": 0.993546626984127
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "formal",
+      "node_count": 240,
+      "metric": "normalized_restricted_tau_nopath",
+      "arm": "DA-U",
+      "plotted": 0.9860482804232804
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "formal",
+      "node_count": 30,
+      "metric": "normalized_restricted_tau_nopath",
+      "arm": "FHS5-U",
+      "plotted": 0.9938095238095238
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "formal",
+      "node_count": 60,
+      "metric": "normalized_restricted_tau_nopath",
+      "arm": "FHS5-U",
+      "plotted": 0.9981316137566137
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "formal",
+      "node_count": 120,
+      "metric": "normalized_restricted_tau_nopath",
+      "arm": "FHS5-U",
+      "plotted": 0.9934871031746032
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "formal",
+      "node_count": 240,
+      "metric": "normalized_restricted_tau_nopath",
+      "arm": "FHS5-U",
+      "plotted": 0.9860482804232804
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "formal",
+      "node_count": 30,
+      "metric": "normalized_restricted_tau_nopath",
+      "arm": "DA-O",
+      "plotted": 0.9958531746031746
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "formal",
+      "node_count": 60,
+      "metric": "normalized_restricted_tau_nopath",
+      "arm": "DA-O",
+      "plotted": 0.995760582010582
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "formal",
+      "node_count": 120,
+      "metric": "normalized_restricted_tau_nopath",
+      "arm": "DA-O",
+      "plotted": 0.9866236772486773
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "formal",
+      "node_count": 240,
+      "metric": "normalized_restricted_tau_nopath",
+      "arm": "DA-O",
+      "plotted": 0.9855332341269841
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "formal",
+      "node_count": 30,
+      "metric": "normalized_restricted_tau_nopath",
+      "arm": "FHS5-O",
+      "plotted": 0.993994708994709
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "formal",
+      "node_count": 60,
+      "metric": "normalized_restricted_tau_nopath",
+      "arm": "FHS5-O",
+      "plotted": 0.9956746031746032
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "formal",
+      "node_count": 120,
+      "metric": "normalized_restricted_tau_nopath",
+      "arm": "FHS5-O",
+      "plotted": 0.9867080026455026
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "formal",
+      "node_count": 240,
+      "metric": "normalized_restricted_tau_nopath",
+      "arm": "FHS5-O",
+      "plotted": 0.9855332341269841
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "confirmation",
+      "node_count": 30,
+      "metric": "normalized_restricted_tau_nopath",
+      "arm": "DA-U",
+      "plotted": 0.9955092592592593
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "confirmation",
+      "node_count": 60,
+      "metric": "normalized_restricted_tau_nopath",
+      "arm": "DA-U",
+      "plotted": 0.9943055555555556
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "confirmation",
+      "node_count": 120,
+      "metric": "normalized_restricted_tau_nopath",
+      "arm": "DA-U",
+      "plotted": 0.991727843915344
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "confirmation",
+      "node_count": 240,
+      "metric": "normalized_restricted_tau_nopath",
+      "arm": "DA-U",
+      "plotted": 0.9884292328042328
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "confirmation",
+      "node_count": 30,
+      "metric": "normalized_restricted_tau_nopath",
+      "arm": "FHS5-U",
+      "plotted": 0.9943386243386243
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "confirmation",
+      "node_count": 60,
+      "metric": "normalized_restricted_tau_nopath",
+      "arm": "FHS5-U",
+      "plotted": 0.9943220899470899
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "confirmation",
+      "node_count": 120,
+      "metric": "normalized_restricted_tau_nopath",
+      "arm": "FHS5-U",
+      "plotted": 0.9916848544973546
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "confirmation",
+      "node_count": 240,
+      "metric": "normalized_restricted_tau_nopath",
+      "arm": "FHS5-U",
+      "plotted": 0.9884292328042328
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "confirmation",
+      "node_count": 30,
+      "metric": "normalized_restricted_tau_nopath",
+      "arm": "DA-O",
+      "plotted": 0.9942592592592593
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "confirmation",
+      "node_count": 60,
+      "metric": "normalized_restricted_tau_nopath",
+      "arm": "DA-O",
+      "plotted": 0.9938921957671958
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "confirmation",
+      "node_count": 120,
+      "metric": "normalized_restricted_tau_nopath",
+      "arm": "DA-O",
+      "plotted": 0.9908333333333333
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "confirmation",
+      "node_count": 240,
+      "metric": "normalized_restricted_tau_nopath",
+      "arm": "DA-O",
+      "plotted": 0.982853835978836
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "confirmation",
+      "node_count": 30,
+      "metric": "normalized_restricted_tau_nopath",
+      "arm": "FHS5-O",
+      "plotted": 0.9933531746031746
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "confirmation",
+      "node_count": 60,
+      "metric": "normalized_restricted_tau_nopath",
+      "arm": "FHS5-O",
+      "plotted": 0.9940443121693122
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "confirmation",
+      "node_count": 120,
+      "metric": "normalized_restricted_tau_nopath",
+      "arm": "FHS5-O",
+      "plotted": 0.9907903439153439
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "confirmation",
+      "node_count": 240,
+      "metric": "normalized_restricted_tau_nopath",
+      "arm": "FHS5-O",
+      "plotted": 0.982853835978836
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "formal",
+      "node_count": 30,
+      "metric": "failure_risk",
+      "arm": "DA-U",
+      "plotted": 1.9047619047619049
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "formal",
+      "node_count": 60,
+      "metric": "failure_risk",
+      "arm": "DA-U",
+      "plotted": 1.1904761904761905
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "formal",
+      "node_count": 120,
+      "metric": "failure_risk",
+      "arm": "DA-U",
+      "plotted": 3.0952380952380953
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "formal",
+      "node_count": 240,
+      "metric": "failure_risk",
+      "arm": "DA-U",
+      "plotted": 3.3333333333333335
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "formal",
+      "node_count": 30,
+      "metric": "failure_risk",
+      "arm": "FHS5-U",
+      "plotted": 1.9047619047619049
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "formal",
+      "node_count": 60,
+      "metric": "failure_risk",
+      "arm": "FHS5-U",
+      "plotted": 1.1904761904761905
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "formal",
+      "node_count": 120,
+      "metric": "failure_risk",
+      "arm": "FHS5-U",
+      "plotted": 3.0952380952380953
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "formal",
+      "node_count": 240,
+      "metric": "failure_risk",
+      "arm": "FHS5-U",
+      "plotted": 3.3333333333333335
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "formal",
+      "node_count": 30,
+      "metric": "failure_risk",
+      "arm": "DA-O",
+      "plotted": 1.9047619047619049
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "formal",
+      "node_count": 60,
+      "metric": "failure_risk",
+      "arm": "DA-O",
+      "plotted": 1.9047619047619049
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "formal",
+      "node_count": 120,
+      "metric": "failure_risk",
+      "arm": "DA-O",
+      "plotted": 4.523809523809524
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "formal",
+      "node_count": 240,
+      "metric": "failure_risk",
+      "arm": "DA-O",
+      "plotted": 3.571428571428571
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "formal",
+      "node_count": 30,
+      "metric": "failure_risk",
+      "arm": "FHS5-O",
+      "plotted": 1.9047619047619049
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "formal",
+      "node_count": 60,
+      "metric": "failure_risk",
+      "arm": "FHS5-O",
+      "plotted": 2.142857142857143
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "formal",
+      "node_count": 120,
+      "metric": "failure_risk",
+      "arm": "FHS5-O",
+      "plotted": 4.523809523809524
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "formal",
+      "node_count": 240,
+      "metric": "failure_risk",
+      "arm": "FHS5-O",
+      "plotted": 3.571428571428571
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "confirmation",
+      "node_count": 30,
+      "metric": "failure_risk",
+      "arm": "DA-U",
+      "plotted": 0.9523809523809524
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "confirmation",
+      "node_count": 60,
+      "metric": "failure_risk",
+      "arm": "DA-U",
+      "plotted": 2.142857142857143
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "confirmation",
+      "node_count": 120,
+      "metric": "failure_risk",
+      "arm": "DA-U",
+      "plotted": 3.8095238095238098
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "confirmation",
+      "node_count": 240,
+      "metric": "failure_risk",
+      "arm": "DA-U",
+      "plotted": 4.285714285714286
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "confirmation",
+      "node_count": 30,
+      "metric": "failure_risk",
+      "arm": "FHS5-U",
+      "plotted": 2.380952380952381
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "confirmation",
+      "node_count": 60,
+      "metric": "failure_risk",
+      "arm": "FHS5-U",
+      "plotted": 2.142857142857143
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "confirmation",
+      "node_count": 120,
+      "metric": "failure_risk",
+      "arm": "FHS5-U",
+      "plotted": 3.8095238095238098
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "confirmation",
+      "node_count": 240,
+      "metric": "failure_risk",
+      "arm": "FHS5-U",
+      "plotted": 4.285714285714286
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "confirmation",
+      "node_count": 30,
+      "metric": "failure_risk",
+      "arm": "DA-O",
+      "plotted": 1.4285714285714286
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "confirmation",
+      "node_count": 60,
+      "metric": "failure_risk",
+      "arm": "DA-O",
+      "plotted": 2.619047619047619
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "confirmation",
+      "node_count": 120,
+      "metric": "failure_risk",
+      "arm": "DA-O",
+      "plotted": 4.285714285714286
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "confirmation",
+      "node_count": 240,
+      "metric": "failure_risk",
+      "arm": "DA-O",
+      "plotted": 5.952380952380952
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "confirmation",
+      "node_count": 30,
+      "metric": "failure_risk",
+      "arm": "FHS5-O",
+      "plotted": 2.619047619047619
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "confirmation",
+      "node_count": 60,
+      "metric": "failure_risk",
+      "arm": "FHS5-O",
+      "plotted": 2.619047619047619
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "confirmation",
+      "node_count": 120,
+      "metric": "failure_risk",
+      "arm": "FHS5-O",
+      "plotted": 4.285714285714286
+    },
+    {
+      "figure": "s5-arm-means",
+      "kind": "mean",
+      "phase": "confirmation",
+      "node_count": 240,
+      "metric": "failure_risk",
+      "arm": "FHS5-O",
+      "plotted": 5.952380952380952
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 30,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "DA-U-minus-FHS5-U",
+      "scale": 1,
+      "plotted": [
+        0.000496031746031746,
+        0.002076719576719577,
+        0.003915343915343915
+      ],
+      "exact": {
+        "estimate": [
+          157,
+          75600
+        ],
+        "lower": [
+          1,
+          2016
+        ],
+        "upper": [
+          37,
+          9450
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 60,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "DA-U-minus-FHS5-U",
+      "scale": 1,
+      "plotted": [
+        0.0,
+        3.306878306878307e-06,
+        9.92063492063492e-06
+      ],
+      "exact": {
+        "estimate": [
+          1,
+          302400
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          1,
+          100800
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 120,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "DA-U-minus-FHS5-U",
+      "scale": 1,
+      "plotted": [
+        0.0,
+        5.9523809523809524e-05,
+        0.00017857142857142857
+      ],
+      "exact": {
+        "estimate": [
+          1,
+          16800
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          1,
+          5600
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 240,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "DA-U-minus-FHS5-U",
+      "scale": 1,
+      "plotted": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          0,
+          1
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 30,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "DA-U-minus-FHS5-U",
+      "scale": 1,
+      "plotted": [
+        0.00021164021164021165,
+        0.0011706349206349206,
+        0.002420634920634921
+      ],
+      "exact": {
+        "estimate": [
+          59,
+          50400
+        ],
+        "lower": [
+          1,
+          4725
+        ],
+        "upper": [
+          61,
+          25200
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 60,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "DA-U-minus-FHS5-U",
+      "scale": 1,
+      "plotted": [
+        -0.00010912698412698413,
+        -1.6534391534391536e-05,
+        5.9523809523809524e-05
+      ],
+      "exact": {
+        "estimate": [
+          -1,
+          60480
+        ],
+        "lower": [
+          -11,
+          100800
+        ],
+        "upper": [
+          1,
+          16800
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 120,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "DA-U-minus-FHS5-U",
+      "scale": 1,
+      "plotted": [
+        0.0,
+        4.298941798941799e-05,
+        0.00012896825396825398
+      ],
+      "exact": {
+        "estimate": [
+          13,
+          302400
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          13,
+          100800
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 240,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "DA-U-minus-FHS5-U",
+      "scale": 1,
+      "plotted": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          0,
+          1
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 30,
+      "metric": "failure_risk",
+      "comparison": "DA-U-minus-FHS5-U",
+      "scale": 100,
+      "plotted": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          0,
+          1
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 60,
+      "metric": "failure_risk",
+      "comparison": "DA-U-minus-FHS5-U",
+      "scale": 100,
+      "plotted": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          0,
+          1
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 120,
+      "metric": "failure_risk",
+      "comparison": "DA-U-minus-FHS5-U",
+      "scale": 100,
+      "plotted": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          0,
+          1
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 240,
+      "metric": "failure_risk",
+      "comparison": "DA-U-minus-FHS5-U",
+      "scale": 100,
+      "plotted": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          0,
+          1
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 30,
+      "metric": "failure_risk",
+      "comparison": "DA-U-minus-FHS5-U",
+      "scale": 100,
+      "plotted": [
+        -2.857142857142857,
+        -1.4285714285714286,
+        -0.2380952380952381
+      ],
+      "exact": {
+        "estimate": [
+          -1,
+          70
+        ],
+        "lower": [
+          -1,
+          35
+        ],
+        "upper": [
+          -1,
+          420
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 60,
+      "metric": "failure_risk",
+      "comparison": "DA-U-minus-FHS5-U",
+      "scale": 100,
+      "plotted": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          0,
+          1
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 120,
+      "metric": "failure_risk",
+      "comparison": "DA-U-minus-FHS5-U",
+      "scale": 100,
+      "plotted": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          0,
+          1
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 240,
+      "metric": "failure_risk",
+      "comparison": "DA-U-minus-FHS5-U",
+      "scale": 100,
+      "plotted": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          0,
+          1
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 30,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "DA-O-minus-FHS5-O",
+      "scale": 1,
+      "plotted": [
+        0.00037037037037037035,
+        0.0018584656084656085,
+        0.003683862433862434
+      ],
+      "exact": {
+        "estimate": [
+          281,
+          151200
+        ],
+        "lower": [
+          1,
+          2700
+        ],
+        "upper": [
+          557,
+          151200
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 60,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "DA-O-minus-FHS5-O",
+      "scale": 1,
+      "plotted": [
+        0.0,
+        8.597883597883598e-05,
+        0.0002546296296296296
+      ],
+      "exact": {
+        "estimate": [
+          13,
+          151200
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          11,
+          43200
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 120,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "DA-O-minus-FHS5-O",
+      "scale": 1,
+      "plotted": [
+        -0.00025297619047619046,
+        -8.432539682539683e-05,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          -17,
+          201600
+        ],
+        "lower": [
+          -17,
+          67200
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 240,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "DA-O-minus-FHS5-O",
+      "scale": 1,
+      "plotted": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          0,
+          1
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 30,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "DA-O-minus-FHS5-O",
+      "scale": 1,
+      "plotted": [
+        1.3227513227513228e-05,
+        0.000906084656084656,
+        0.0021164021164021165
+      ],
+      "exact": {
+        "estimate": [
+          137,
+          151200
+        ],
+        "lower": [
+          1,
+          75600
+        ],
+        "upper": [
+          2,
+          945
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 60,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "DA-O-minus-FHS5-O",
+      "scale": 1,
+      "plotted": [
+        -0.0004398148148148148,
+        -0.00015211640211640213,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          -23,
+          151200
+        ],
+        "lower": [
+          -19,
+          43200
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 120,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "DA-O-minus-FHS5-O",
+      "scale": 1,
+      "plotted": [
+        0.0,
+        4.298941798941799e-05,
+        0.00012896825396825398
+      ],
+      "exact": {
+        "estimate": [
+          13,
+          302400
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          13,
+          100800
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 240,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "DA-O-minus-FHS5-O",
+      "scale": 1,
+      "plotted": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          0,
+          1
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 30,
+      "metric": "failure_risk",
+      "comparison": "DA-O-minus-FHS5-O",
+      "scale": 100,
+      "plotted": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          0,
+          1
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 60,
+      "metric": "failure_risk",
+      "comparison": "DA-O-minus-FHS5-O",
+      "scale": 100,
+      "plotted": [
+        -0.7142857142857143,
+        -0.2380952380952381,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          -1,
+          420
+        ],
+        "lower": [
+          -1,
+          140
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 120,
+      "metric": "failure_risk",
+      "comparison": "DA-O-minus-FHS5-O",
+      "scale": 100,
+      "plotted": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          0,
+          1
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 240,
+      "metric": "failure_risk",
+      "comparison": "DA-O-minus-FHS5-O",
+      "scale": 100,
+      "plotted": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          0,
+          1
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 30,
+      "metric": "failure_risk",
+      "comparison": "DA-O-minus-FHS5-O",
+      "scale": 100,
+      "plotted": [
+        -2.619047619047619,
+        -1.1904761904761905,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          -1,
+          84
+        ],
+        "lower": [
+          -11,
+          420
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 60,
+      "metric": "failure_risk",
+      "comparison": "DA-O-minus-FHS5-O",
+      "scale": 100,
+      "plotted": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          0,
+          1
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 120,
+      "metric": "failure_risk",
+      "comparison": "DA-O-minus-FHS5-O",
+      "scale": 100,
+      "plotted": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          0,
+          1
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 240,
+      "metric": "failure_risk",
+      "comparison": "DA-O-minus-FHS5-O",
+      "scale": 100,
+      "plotted": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          0,
+          1
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 30,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "interaction-O-minus-U",
+      "scale": 1,
+      "plotted": [
+        -0.0007010582010582011,
+        -0.00021825396825396825,
+        9.259259259259259e-05
+      ],
+      "exact": {
+        "estimate": [
+          -11,
+          50400
+        ],
+        "lower": [
+          -53,
+          75600
+        ],
+        "upper": [
+          1,
+          10800
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 60,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "interaction-O-minus-U",
+      "scale": 1,
+      "plotted": [
+        0.0,
+        8.267195767195767e-05,
+        0.000248015873015873
+      ],
+      "exact": {
+        "estimate": [
+          1,
+          12096
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          1,
+          4032
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 120,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "interaction-O-minus-U",
+      "scale": 1,
+      "plotted": [
+        -0.00043154761904761905,
+        -0.00014384920634920634,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          -29,
+          201600
+        ],
+        "lower": [
+          -29,
+          67200
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 240,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "interaction-O-minus-U",
+      "scale": 1,
+      "plotted": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          0,
+          1
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 30,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "interaction-O-minus-U",
+      "scale": 1,
+      "plotted": [
+        -0.0007936507936507937,
+        -0.00026455026455026457,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          -1,
+          3780
+        ],
+        "lower": [
+          -1,
+          1260
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 60,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "interaction-O-minus-U",
+      "scale": 1,
+      "plotted": [
+        -0.00037037037037037035,
+        -0.00013558201058201059,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          -41,
+          302400
+        ],
+        "lower": [
+          -1,
+          2700
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 120,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "interaction-O-minus-U",
+      "scale": 1,
+      "plotted": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          0,
+          1
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 240,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "interaction-O-minus-U",
+      "scale": 1,
+      "plotted": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          0,
+          1
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 30,
+      "metric": "failure_risk",
+      "comparison": "interaction-O-minus-U",
+      "scale": 100,
+      "plotted": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          0,
+          1
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 60,
+      "metric": "failure_risk",
+      "comparison": "interaction-O-minus-U",
+      "scale": 100,
+      "plotted": [
+        -0.7142857142857143,
+        -0.2380952380952381,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          -1,
+          420
+        ],
+        "lower": [
+          -1,
+          140
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 120,
+      "metric": "failure_risk",
+      "comparison": "interaction-O-minus-U",
+      "scale": 100,
+      "plotted": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          0,
+          1
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 240,
+      "metric": "failure_risk",
+      "comparison": "interaction-O-minus-U",
+      "scale": 100,
+      "plotted": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          0,
+          1
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 30,
+      "metric": "failure_risk",
+      "comparison": "interaction-O-minus-U",
+      "scale": 100,
+      "plotted": [
+        0.0,
+        0.2380952380952381,
+        0.7142857142857143
+      ],
+      "exact": {
+        "estimate": [
+          1,
+          420
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          1,
+          140
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 60,
+      "metric": "failure_risk",
+      "comparison": "interaction-O-minus-U",
+      "scale": 100,
+      "plotted": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          0,
+          1
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 120,
+      "metric": "failure_risk",
+      "comparison": "interaction-O-minus-U",
+      "scale": 100,
+      "plotted": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          0,
+          1
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-topology-interaction",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 240,
+      "metric": "failure_risk",
+      "comparison": "interaction-O-minus-U",
+      "scale": 100,
+      "plotted": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          0,
+          1
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-initialization",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 30,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "DA-O-minus-DA-U",
+      "scale": 1,
+      "plotted": [
+        -8.597883597883598e-05,
+        -3.306878306878307e-05,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          -1,
+          30240
+        ],
+        "lower": [
+          -13,
+          151200
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-initialization",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 60,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "DA-O-minus-DA-U",
+      "scale": 1,
+      "plotted": [
+        -0.007123015873015873,
+        -0.0023743386243386243,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          -359,
+          151200
+        ],
+        "lower": [
+          -359,
+          50400
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-initialization",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 120,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "DA-O-minus-DA-U",
+      "scale": 1,
+      "plotted": [
+        -0.019097222222222224,
+        -0.006922949735449735,
+        -5.6216931216931215e-05
+      ],
+      "exact": {
+        "estimate": [
+          -4187,
+          604800
+        ],
+        "lower": [
+          -11,
+          576
+        ],
+        "upper": [
+          -17,
+          302400
+        ]
+      }
+    },
+    {
+      "figure": "s5-initialization",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 240,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "DA-O-minus-DA-U",
+      "scale": 1,
+      "plotted": [
+        -0.0015451388888888889,
+        -0.0005150462962962963,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          -89,
+          172800
+        ],
+        "lower": [
+          -89,
+          57600
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-initialization",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 30,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "FHS5-O-minus-FHS5-U",
+      "scale": 1,
+      "plotted": [
+        -0.00012566137566137565,
+        0.00018518518518518518,
+        0.0006746031746031747
+      ],
+      "exact": {
+        "estimate": [
+          1,
+          5400
+        ],
+        "lower": [
+          -19,
+          151200
+        ],
+        "upper": [
+          17,
+          25200
+        ]
+      }
+    },
+    {
+      "figure": "s5-initialization",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 60,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "FHS5-O-minus-FHS5-U",
+      "scale": 1,
+      "plotted": [
+        -0.007288359788359788,
+        -0.002457010582010582,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          -743,
+          302400
+        ],
+        "lower": [
+          -551,
+          75600
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-initialization",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 120,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "FHS5-O-minus-FHS5-U",
+      "scale": 1,
+      "plotted": [
+        -0.018986441798941798,
+        -0.006779100529100529,
+        0.0001421957671957672
+      ],
+      "exact": {
+        "estimate": [
+          -41,
+          6048
+        ],
+        "lower": [
+          -11483,
+          604800
+        ],
+        "upper": [
+          43,
+          302400
+        ]
+      }
+    },
+    {
+      "figure": "s5-initialization",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 240,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "FHS5-O-minus-FHS5-U",
+      "scale": 1,
+      "plotted": [
+        -0.0015451388888888889,
+        -0.0005150462962962963,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          -89,
+          172800
+        ],
+        "lower": [
+          -89,
+          57600
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-initialization",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 30,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "DA-O-minus-DA-U",
+      "scale": 1,
+      "plotted": [
+        -0.003564814814814815,
+        -0.00125,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          -1,
+          800
+        ],
+        "lower": [
+          -77,
+          21600
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-initialization",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 60,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "DA-O-minus-DA-U",
+      "scale": 1,
+      "plotted": [
+        -0.0009358465608465609,
+        -0.00041335978835978834,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          -5,
+          12096
+        ],
+        "lower": [
+          -283,
+          302400
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-initialization",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 120,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "DA-O-minus-DA-U",
+      "scale": 1,
+      "plotted": [
+        -0.002683531746031746,
+        -0.000894510582010582,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          -541,
+          604800
+        ],
+        "lower": [
+          -541,
+          201600
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-initialization",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 240,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "DA-O-minus-DA-U",
+      "scale": 1,
+      "plotted": [
+        -0.012887731481481481,
+        -0.005575396825396825,
+        -0.000705191798941799
+      ],
+      "exact": {
+        "estimate": [
+          -281,
+          50400
+        ],
+        "lower": [
+          -2227,
+          172800
+        ],
+        "upper": [
+          -853,
+          1209600
+        ]
+      }
+    },
+    {
+      "figure": "s5-initialization",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 30,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "FHS5-O-minus-FHS5-U",
+      "scale": 1,
+      "plotted": [
+        -0.0034854497354497352,
+        -0.0009854497354497354,
+        0.0005291005291005291
+      ],
+      "exact": {
+        "estimate": [
+          -149,
+          151200
+        ],
+        "lower": [
+          -527,
+          151200
+        ],
+        "upper": [
+          1,
+          1890
+        ]
+      }
+    },
+    {
+      "figure": "s5-initialization",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 60,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "FHS5-O-minus-FHS5-U",
+      "scale": 1,
+      "plotted": [
+        -0.0008101851851851852,
+        -0.0002777777777777778,
+        7.275132275132275e-05
+      ],
+      "exact": {
+        "estimate": [
+          -1,
+          3600
+        ],
+        "lower": [
+          -7,
+          8640
+        ],
+        "upper": [
+          11,
+          151200
+        ]
+      }
+    },
+    {
+      "figure": "s5-initialization",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 120,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "FHS5-O-minus-FHS5-U",
+      "scale": 1,
+      "plotted": [
+        -0.002683531746031746,
+        -0.000894510582010582,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          -541,
+          604800
+        ],
+        "lower": [
+          -541,
+          201600
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-initialization",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 240,
+      "metric": "normalized_restricted_tau_nopath",
+      "comparison": "FHS5-O-minus-FHS5-U",
+      "scale": 1,
+      "plotted": [
+        -0.012887731481481481,
+        -0.005575396825396825,
+        -0.000705191798941799
+      ],
+      "exact": {
+        "estimate": [
+          -281,
+          50400
+        ],
+        "lower": [
+          -2227,
+          172800
+        ],
+        "upper": [
+          -853,
+          1209600
+        ]
+      }
+    },
+    {
+      "figure": "s5-initialization",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 30,
+      "metric": "failure_risk",
+      "comparison": "DA-O-minus-DA-U",
+      "scale": 100,
+      "plotted": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          0,
+          1
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-initialization",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 60,
+      "metric": "failure_risk",
+      "comparison": "DA-O-minus-DA-U",
+      "scale": 100,
+      "plotted": [
+        0.0,
+        0.7142857142857143,
+        2.142857142857143
+      ],
+      "exact": {
+        "estimate": [
+          1,
+          140
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          3,
+          140
+        ]
+      }
+    },
+    {
+      "figure": "s5-initialization",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 120,
+      "metric": "failure_risk",
+      "comparison": "DA-O-minus-DA-U",
+      "scale": 100,
+      "plotted": [
+        0.0,
+        1.4285714285714286,
+        3.571428571428571
+      ],
+      "exact": {
+        "estimate": [
+          1,
+          70
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          1,
+          28
+        ]
+      }
+    },
+    {
+      "figure": "s5-initialization",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 240,
+      "metric": "failure_risk",
+      "comparison": "DA-O-minus-DA-U",
+      "scale": 100,
+      "plotted": [
+        0.0,
+        0.2380952380952381,
+        0.7142857142857143
+      ],
+      "exact": {
+        "estimate": [
+          1,
+          420
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          1,
+          140
+        ]
+      }
+    },
+    {
+      "figure": "s5-initialization",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 30,
+      "metric": "failure_risk",
+      "comparison": "FHS5-O-minus-FHS5-U",
+      "scale": 100,
+      "plotted": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact": {
+        "estimate": [
+          0,
+          1
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "figure": "s5-initialization",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 60,
+      "metric": "failure_risk",
+      "comparison": "FHS5-O-minus-FHS5-U",
+      "scale": 100,
+      "plotted": [
+        0.0,
+        0.9523809523809524,
+        2.619047619047619
+      ],
+      "exact": {
+        "estimate": [
+          1,
+          105
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          11,
+          420
+        ]
+      }
+    },
+    {
+      "figure": "s5-initialization",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 120,
+      "metric": "failure_risk",
+      "comparison": "FHS5-O-minus-FHS5-U",
+      "scale": 100,
+      "plotted": [
+        0.0,
+        1.4285714285714286,
+        3.571428571428571
+      ],
+      "exact": {
+        "estimate": [
+          1,
+          70
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          1,
+          28
+        ]
+      }
+    },
+    {
+      "figure": "s5-initialization",
+      "kind": "interval",
+      "phase": "formal",
+      "node_count": 240,
+      "metric": "failure_risk",
+      "comparison": "FHS5-O-minus-FHS5-U",
+      "scale": 100,
+      "plotted": [
+        0.0,
+        0.2380952380952381,
+        0.7142857142857143
+      ],
+      "exact": {
+        "estimate": [
+          1,
+          420
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          1,
+          140
+        ]
+      }
+    },
+    {
+      "figure": "s5-initialization",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 30,
+      "metric": "failure_risk",
+      "comparison": "DA-O-minus-DA-U",
+      "scale": 100,
+      "plotted": [
+        0.0,
+        0.4761904761904762,
+        1.1904761904761905
+      ],
+      "exact": {
+        "estimate": [
+          1,
+          210
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          1,
+          84
+        ]
+      }
+    },
+    {
+      "figure": "s5-initialization",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 60,
+      "metric": "failure_risk",
+      "comparison": "DA-O-minus-DA-U",
+      "scale": 100,
+      "plotted": [
+        0.0,
+        0.4761904761904762,
+        1.1904761904761905
+      ],
+      "exact": {
+        "estimate": [
+          1,
+          210
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          1,
+          84
+        ]
+      }
+    },
+    {
+      "figure": "s5-initialization",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 120,
+      "metric": "failure_risk",
+      "comparison": "DA-O-minus-DA-U",
+      "scale": 100,
+      "plotted": [
+        0.0,
+        0.4761904761904762,
+        1.4285714285714286
+      ],
+      "exact": {
+        "estimate": [
+          1,
+          210
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          1,
+          70
+        ]
+      }
+    },
+    {
+      "figure": "s5-initialization",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 240,
+      "metric": "failure_risk",
+      "comparison": "DA-O-minus-DA-U",
+      "scale": 100,
+      "plotted": [
+        0.2380952380952381,
+        1.6666666666666667,
+        3.571428571428571
+      ],
+      "exact": {
+        "estimate": [
+          1,
+          60
+        ],
+        "lower": [
+          1,
+          420
+        ],
+        "upper": [
+          1,
+          28
+        ]
+      }
+    },
+    {
+      "figure": "s5-initialization",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 30,
+      "metric": "failure_risk",
+      "comparison": "FHS5-O-minus-FHS5-U",
+      "scale": 100,
+      "plotted": [
+        -0.4761904761904762,
+        0.2380952380952381,
+        0.9523809523809524
+      ],
+      "exact": {
+        "estimate": [
+          1,
+          420
+        ],
+        "lower": [
+          -1,
+          210
+        ],
+        "upper": [
+          1,
+          105
+        ]
+      }
+    },
+    {
+      "figure": "s5-initialization",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 60,
+      "metric": "failure_risk",
+      "comparison": "FHS5-O-minus-FHS5-U",
+      "scale": 100,
+      "plotted": [
+        0.0,
+        0.4761904761904762,
+        1.1904761904761905
+      ],
+      "exact": {
+        "estimate": [
+          1,
+          210
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          1,
+          84
+        ]
+      }
+    },
+    {
+      "figure": "s5-initialization",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 120,
+      "metric": "failure_risk",
+      "comparison": "FHS5-O-minus-FHS5-U",
+      "scale": 100,
+      "plotted": [
+        0.0,
+        0.4761904761904762,
+        1.4285714285714286
+      ],
+      "exact": {
+        "estimate": [
+          1,
+          210
+        ],
+        "lower": [
+          0,
+          1
+        ],
+        "upper": [
+          1,
+          70
+        ]
+      }
+    },
+    {
+      "figure": "s5-initialization",
+      "kind": "interval",
+      "phase": "confirmation",
+      "node_count": 240,
+      "metric": "failure_risk",
+      "comparison": "FHS5-O-minus-FHS5-U",
+      "scale": 100,
+      "plotted": [
+        0.2380952380952381,
+        1.6666666666666667,
+        3.571428571428571
+      ],
+      "exact": {
+        "estimate": [
+          1,
+          60
+        ],
+        "lower": [
+          1,
+          420
+        ],
+        "upper": [
+          1,
+          28
+        ]
+      }
+    }
+  ],
+  "figures": {
+    "s5-arm-means": {
+      "width_mm": 170,
+      "height_mm": 114
+    },
+    "s5-topology-interaction": {
+      "width_mm": 170,
+      "height_mm": 158
+    },
+    "s5-initialization": {
+      "width_mm": 170,
+      "height_mm": 114
+    }
+  },
+  "complete_combined_comparisons": 80,
+  "complete_combined_arm_means": 64,
+  "subscope_comparisons_in_source": 160,
+  "subscope_arm_means_in_source": 128,
+  "new_simulations": 0,
+  "new_bootstrap_replicates": 0,
+  "backend": "Python/matplotlib",
+  "python_version": "3.12.14",
+  "matplotlib_version": "3.11.2"
+}
