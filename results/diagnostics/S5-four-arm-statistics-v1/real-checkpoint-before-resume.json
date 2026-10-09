@@ -1,0 +1,1 @@
+{"bytes":5355,"new_simulations":0,"path":"results/supplement/initialization-ablation-analysis-v1/checkpoints/formal-n0030-00000.json.gz","sha256":"cebc33c4a39e672cdb29bb709f8f342f485204978571ba3d126ffc8789b50890","state":{"bootstrap_percent":0.312,"completed_bootstrap_chunks":1,"elapsed_seconds":15.828,"state":"paused-safe-checkpoint","total_bootstrap_chunks":320}}
