@@ -1,0 +1,2 @@
+# Preserve the exact bytes recorded in the editorial revision manifest.
+test_joconline_submission_revision.py -text
