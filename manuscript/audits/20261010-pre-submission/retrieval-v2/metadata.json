@@ -1,0 +1,2377 @@
+{
+  "source_path": "E:\\second\\manuscript\\joconline-integrated-v1\\main.tex",
+  "source_sha256": "b2805a9fb588c7f62e3028157c3456e69e88756438a429309b967272a911bbf9",
+  "created_utc": "2026-10-10T02:12:34.736543+00:00",
+  "references": [
+    {
+      "key": "r1",
+      "manuscript": "PAPADIS N, TASSIULAS L. Blockchain-based payment channel networks: challenges and recent advances[J]. IEEE Access, 2020, 8: 227596-227609. DOI: 10.1109/ACCESS.2020.3046020.",
+      "doi": "10.1109/ACCESS.2020.3046020",
+      "crossref_receipt": {
+        "url": "https://api.crossref.org/works/10.1109%2FACCESS.2020.3046020",
+        "retrieved_utc": "2026-10-10T02:12:24.600205+00:00",
+        "ok": false,
+        "error": "HTTP Error 429: Too Many Requests"
+      }
+    },
+    {
+      "key": "r2",
+      "manuscript": "徐秀, 田安琪, 何瑞雯. 基于区块链的支付信道网络：挑战与发展[J]. 通信学报, 2024, 45(Z1): 97-104. DOI: 10.11959/j.issn.1000-436x.2024217.",
+      "doi": "10.11959/j.issn.1000-436x.2024217",
+      "crossref_receipt": {
+        "url": "https://api.crossref.org/works/10.11959%2Fj.issn.1000-436x.2024217",
+        "retrieved_utc": "2026-10-10T02:12:24.604213+00:00",
+        "ok": false,
+        "error": "HTTP Error 404: Not Found"
+      }
+    },
+    {
+      "key": "r3",
+      "manuscript": "SIVARAMAN V, VENKATAKRISHNAN S B, RUAN K, et al. High throughput cryptocurrency routing in payment channel networks[C]//Proceedings of the 17th USENIX Symposium on Networked Systems Design and Implementation. Santa Clara, USA: USENIX Association, 2020: 777-796.",
+      "doi": null
+    },
+    {
+      "key": "r4",
+      "manuscript": "WANG P, XU H, JIN X, et al. Flash: efficient dynamic routing for offchain networks[C]//Proceedings of the 15th International Conference on Emerging Networking Experiments and Technologies. Orlando, USA: ACM, 2019: 370-381. DOI: 10.1145/3359989.3365411.",
+      "doi": "10.1145/3359989.3365411",
+      "crossref_receipt": {
+        "url": "https://api.crossref.org/works/10.1145%2F3359989.3365411",
+        "retrieved_utc": "2026-10-10T02:12:24.604928+00:00",
+        "ok": true,
+        "status": 200,
+        "resolved_url": "https://api.crossref.org/works/10.1145%2F3359989.3365411",
+        "response_sha256": "2f3bc46214a2ed238db919cc66b527f6ec0effc7dce678f6de98b19c061192a6",
+        "response_bytes": 11135
+      },
+      "crossref_metadata": {
+        "DOI": "10.1145/3359989.3365411",
+        "title": [
+          "Flash"
+        ],
+        "author": [
+          {
+            "given": "Peng",
+            "family": "Wang",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "City University of Hong Kong, Hong Kong, China"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Hong",
+            "family": "Xu",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "City University of Hong Kong, Hong Kong, China"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Xin",
+            "family": "Jin",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Johns Hopkins University"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Tao",
+            "family": "Wang",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "New York University and University of Hong Kong"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "container-title": [
+          "Proceedings of the 15th International Conference on Emerging Networking Experiments And Technologies"
+        ],
+        "publisher": "ACM",
+        "type": "proceedings-article",
+        "page": "370-381",
+        "published": {
+          "date-parts": [
+            [
+              2019,
+              12,
+              3
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2019,
+              12,
+              3
+            ]
+          ]
+        },
+        "published-online": {
+          "date-parts": [
+            [
+              2019,
+              12,
+              3
+            ]
+          ]
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2019,
+              12,
+              3
+            ]
+          ]
+        },
+        "event": {
+          "name": "CoNEXT '19: The 15th International Conference on emerging Networking EXperiments and Technologies",
+          "location": "Orlando Florida",
+          "acronym": "CoNEXT '19",
+          "sponsor": [
+            "SIGCOMM ACM Special Interest Group on Data Communication"
+          ]
+        },
+        "URL": "https://doi.org/10.1145/3359989.3365411",
+        "link": [
+          {
+            "URL": "https://dl.acm.org/doi/10.1145/3359989.3365411",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://dl.acm.org/doi/pdf/10.1145/3359989.3365411",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ]
+      }
+    },
+    {
+      "key": "r5",
+      "manuscript": "KHALIL R, GERVAIS A. Revive: rebalancing off-blockchain payment networks[C]//Proceedings of the 2017 ACM SIGSAC Conference on Computer and Communications Security. Dallas, USA: ACM, 2017: 439-453. DOI: 10.1145/3133956.3134033.",
+      "doi": "10.1145/3133956.3134033",
+      "crossref_receipt": {
+        "url": "https://api.crossref.org/works/10.1145%2F3133956.3134033",
+        "retrieved_utc": "2026-10-10T02:12:25.456266+00:00",
+        "ok": true,
+        "status": 200,
+        "resolved_url": "https://api.crossref.org/works/10.1145%2F3133956.3134033",
+        "response_sha256": "ada00a786ec9231ae07df187e141c10d93c2bdace6c9311e4e3f77144a7cc6aa",
+        "response_bytes": 9488
+      },
+      "crossref_metadata": {
+        "DOI": "10.1145/3133956.3134033",
+        "title": [
+          "Revive"
+        ],
+        "author": [
+          {
+            "given": "Rami",
+            "family": "Khalil",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "ETH Zurich, Zurich, Switzerland"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Arthur",
+            "family": "Gervais",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "ETH Zurich, Zurich, Switzerland"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "container-title": [
+          "Proceedings of the 2017 ACM SIGSAC Conference on Computer and Communications Security"
+        ],
+        "publisher": "ACM",
+        "type": "proceedings-article",
+        "page": "439-453",
+        "published": {
+          "date-parts": [
+            [
+              2017,
+              10,
+              30
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2017,
+              10,
+              30
+            ]
+          ]
+        },
+        "published-online": {
+          "date-parts": [
+            [
+              2017,
+              10,
+              30
+            ]
+          ]
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2017,
+              10,
+              30
+            ]
+          ]
+        },
+        "event": {
+          "name": "CCS '17: 2017 ACM SIGSAC Conference on Computer and Communications Security",
+          "location": "Dallas Texas USA",
+          "acronym": "CCS '17",
+          "sponsor": [
+            "SIGSAC ACM Special Interest Group on Security, Audit, and Control"
+          ]
+        },
+        "URL": "https://doi.org/10.1145/3133956.3134033",
+        "link": [
+          {
+            "URL": "https://dl.acm.org/doi/10.1145/3133956.3134033",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://dl.acm.org/doi/pdf/10.1145/3133956.3134033",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ]
+      }
+    },
+    {
+      "key": "r6",
+      "manuscript": "AVARIKIOTI G, WANG Y, WATTENHOFER R. Algorithmic channel design[C]//29th International Symposium on Algorithms and Computation. Dagstuhl: Schloss Dagstuhl–Leibniz-Zentrum für Informatik, 2018, 123: 16:1-16:12. DOI: 10.4230/LIPIcs.ISAAC.2018.16.",
+      "doi": "10.4230/LIPIcs.ISAAC.2018.16",
+      "crossref_receipt": {
+        "url": "https://api.crossref.org/works/10.4230%2FLIPIcs.ISAAC.2018.16",
+        "retrieved_utc": "2026-10-10T02:12:25.480640+00:00",
+        "ok": false,
+        "error": "HTTP Error 404: Not Found"
+      }
+    },
+    {
+      "key": "r7",
+      "manuscript": "KHAMIS J, ROTTENSTREICH O. Demand-aware channel topologies for off-chain payments[C]//2021 International Conference on COMmunication Systems \\& NETworkS. Piscataway: IEEE, 2021: 272-280. DOI: 10.1109/COMSNETS51098.2021.9352899.",
+      "doi": "10.1109/COMSNETS51098.2021.9352899",
+      "crossref_receipt": {
+        "url": "https://api.crossref.org/works/10.1109%2FCOMSNETS51098.2021.9352899",
+        "retrieved_utc": "2026-10-10T02:12:25.608328+00:00",
+        "ok": true,
+        "status": 200,
+        "resolved_url": "https://api.crossref.org/works/10.1109%2FCOMSNETS51098.2021.9352899",
+        "response_sha256": "4a6a1532f13a75c95dbe1aae692462ef6b52a538b4a04c211781635cd620dbf9",
+        "response_bytes": 6565
+      },
+      "crossref_metadata": {
+        "DOI": "10.1109/comsnets51098.2021.9352899",
+        "title": [
+          "Demand-aware Channel Topologies for Off-chain Payments"
+        ],
+        "author": [
+          {
+            "given": "Julia",
+            "family": "Khamis",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Ori",
+            "family": "Rottenstreich",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "container-title": [
+          "2021 International Conference on COMmunication Systems &amp; NETworkS (COMSNETS)"
+        ],
+        "publisher": "IEEE",
+        "type": "proceedings-article",
+        "page": "272-280",
+        "published": {
+          "date-parts": [
+            [
+              2021,
+              1,
+              5
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2021,
+              1,
+              5
+            ]
+          ]
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2021,
+              1,
+              5
+            ]
+          ]
+        },
+        "event": {
+          "name": "2021 International Conference on COMmunication Systems & NETworkS (COMSNETS)",
+          "location": "Bangalore, India",
+          "start": {
+            "date-parts": [
+              [
+                2021,
+                1,
+                5
+              ]
+            ]
+          },
+          "end": {
+            "date-parts": [
+              [
+                2021,
+                1,
+                9
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.1109/comsnets51098.2021.9352899",
+        "link": [
+          {
+            "URL": "http://xplorestaging.ieee.org/ielx7/9352735/9352808/09352899.pdf?arnumber=9352899",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ]
+      }
+    },
+    {
+      "key": "r8",
+      "manuscript": "KHAMIS J, KOTZER A, ROTTENSTREICH O. Topologies for blockchain payment channel networks: models and constructions[J]. IEEE/ACM Transactions on Networking, 2024, 32(6): 4781-4797. DOI: 10.1109/TNET.2024.3445274.",
+      "doi": "10.1109/TNET.2024.3445274",
+      "crossref_receipt": {
+        "url": "https://api.crossref.org/works/10.1109%2FTNET.2024.3445274",
+        "retrieved_utc": "2026-10-10T02:12:26.252455+00:00",
+        "ok": true,
+        "status": 200,
+        "resolved_url": "https://api.crossref.org/works/10.1109%2FTNET.2024.3445274",
+        "response_sha256": "a784f5410b80841166244fd9b1bbe584a51eb61c91c62609cc8933f1f708b56d",
+        "response_bytes": 7909
+      },
+      "crossref_metadata": {
+        "DOI": "10.1109/tnet.2024.3445274",
+        "title": [
+          "Topologies for Blockchain Payment Channel Networks: Models and Constructions"
+        ],
+        "author": [
+          {
+            "given": "Julia",
+            "family": "Khamis",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Technion&#x2014;Israel Institute of Technology, Haifa, Israel"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Arad",
+            "family": "Kotzer",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Technion&#x2014;Israel Institute of Technology, Haifa, Israel"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-4064-1238",
+            "authenticated-orcid": false,
+            "given": "Ori",
+            "family": "Rottenstreich",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Technion&#x2014;Israel Institute of Technology, Haifa, Israel"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "container-title": [
+          "IEEE/ACM Transactions on Networking"
+        ],
+        "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+        "type": "journal-article",
+        "volume": "32",
+        "issue": "6",
+        "page": "4781-4797",
+        "published": {
+          "date-parts": [
+            [
+              2024,
+              12
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2024,
+              12
+            ]
+          ]
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2024,
+              12
+            ]
+          ]
+        },
+        "URL": "https://doi.org/10.1109/tnet.2024.3445274",
+        "link": [
+          {
+            "URL": "http://xplorestaging.ieee.org/ielx8/90/10807683/10679611.pdf?arnumber=10679611",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ]
+      }
+    },
+    {
+      "key": "r9",
+      "manuscript": "PODIATCHEV Y, ORDA A, ROTTENSTREICH O. Survivable payment channel networks[J]. IEEE Transactions on Network and Service Management, 2024, 21(6): 6218-6232. DOI: 10.1109/TNSM.2024.3456229.",
+      "doi": "10.1109/TNSM.2024.3456229",
+      "crossref_receipt": {
+        "url": "https://api.crossref.org/works/10.1109%2FTNSM.2024.3456229",
+        "retrieved_utc": "2026-10-10T02:12:26.266726+00:00",
+        "ok": true,
+        "status": 200,
+        "resolved_url": "https://api.crossref.org/works/10.1109%2FTNSM.2024.3456229",
+        "response_sha256": "f268d64c32a14c5c399fe9d518b1f1d57d4eb16982f9acde3b6abb9a5e96360d",
+        "response_bytes": 6111
+      },
+      "crossref_metadata": {
+        "DOI": "10.1109/tnsm.2024.3456229",
+        "title": [
+          "Survivable Payment Channel Networks"
+        ],
+        "author": [
+          {
+            "given": "Yekaterina",
+            "family": "Podiatchev",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Viterbi Department of Electrical and Computer Engineering, Technion - Israel Institute of Technology, Haifa, Israel"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-5561-6599",
+            "authenticated-orcid": false,
+            "given": "Ariel",
+            "family": "Orda",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Viterbi Department of Electrical and Computer Engineering, Technion - Israel Institute of Technology, Haifa, Israel"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-4064-1238",
+            "authenticated-orcid": false,
+            "given": "Ori",
+            "family": "Rottenstreich",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Viterbi Department of Electrical and Computer Engineering and the Taub Department of Computer Science, Technion - Israel Institute of Technology, Haifa, Israel"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "container-title": [
+          "IEEE Transactions on Network and Service Management"
+        ],
+        "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+        "type": "journal-article",
+        "volume": "21",
+        "issue": "6",
+        "page": "6218-6232",
+        "published": {
+          "date-parts": [
+            [
+              2024,
+              12
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2024,
+              12
+            ]
+          ]
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2024,
+              12
+            ]
+          ]
+        },
+        "URL": "https://doi.org/10.1109/tnsm.2024.3456229",
+        "link": [
+          {
+            "URL": "http://xplorestaging.ieee.org/ielx8/4275028/10807691/10673999.pdf?arnumber=10673999",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ]
+      }
+    },
+    {
+      "key": "r10",
+      "manuscript": "KOTZER A, LADÓCZKI B, TAPOLCAI J, et al. Addressing scalability issues of blockchains with hypergraph payment networks[J]. IEEE Transactions on Network and Service Management, 2025, 22(3): 2427-2440. DOI: 10.1109/TNSM.2025.3542960.",
+      "doi": "10.1109/TNSM.2025.3542960",
+      "crossref_receipt": {
+        "url": "https://api.crossref.org/works/10.1109%2FTNSM.2025.3542960",
+        "retrieved_utc": "2026-10-10T02:12:26.375683+00:00",
+        "ok": true,
+        "status": 200,
+        "resolved_url": "https://api.crossref.org/works/10.1109%2FTNSM.2025.3542960",
+        "response_sha256": "e1fe27bcbb5d78c95d9e1d8c2e02f490139fe6a23a4f430e38a0dce6f81518ad",
+        "response_bytes": 10656
+      },
+      "crossref_metadata": {
+        "DOI": "10.1109/tnsm.2025.3542960",
+        "title": [
+          "Addressing Scalability Issues of Blockchains With Hypergraph Payment Networks"
+        ],
+        "author": [
+          {
+            "given": "Arad",
+            "family": "Kotzer",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Department of Computer Science, Technion&#x2014;Israel Institute of Technology, Haifa, Israel"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Bence",
+            "family": "Ladóczki",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Telecommunications and Artificial Intelligence, Budapest University of Technology and Economics, Budapest, Hungary"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-3512-9504",
+            "authenticated-orcid": false,
+            "given": "János",
+            "family": "Tapolcai",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Telecommunications and Artificial Intelligence, Budapest University of Technology and Economics, Budapest, Hungary"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-4064-1238",
+            "authenticated-orcid": false,
+            "given": "Ori",
+            "family": "Rottenstreich",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Electrical and Computer Engineering, and Department of Computer Science, Technion&#x2014;Israel Institute of Technology, Haifa, Israel"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "container-title": [
+          "IEEE Transactions on Network and Service Management"
+        ],
+        "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+        "type": "journal-article",
+        "volume": "22",
+        "issue": "3",
+        "page": "2427-2440",
+        "published": {
+          "date-parts": [
+            [
+              2025,
+              6
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2025,
+              6
+            ]
+          ]
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025,
+              6
+            ]
+          ]
+        },
+        "URL": "https://doi.org/10.1109/tnsm.2025.3542960",
+        "link": [
+          {
+            "URL": "http://xplorestaging.ieee.org/ielx8/4275028/11027486/10896831.pdf?arnumber=10896831",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ]
+      }
+    },
+    {
+      "key": "r11",
+      "manuscript": "CORCORAN P, LEWIS R. Path planning in payment channel networks with multi-party channels[J]. Distributed Ledger Technologies: Research and Practice, 2025, 4(4): 1-14. DOI: 10.1145/3702248.",
+      "doi": "10.1145/3702248",
+      "crossref_receipt": {
+        "url": "https://api.crossref.org/works/10.1145%2F3702248",
+        "retrieved_utc": "2026-10-10T02:12:27.038543+00:00",
+        "ok": true,
+        "status": 200,
+        "resolved_url": "https://api.crossref.org/works/10.1145%2F3702248",
+        "response_sha256": "de72deffe39f59db1802ce128c0136d3a640f846586fb11955d54f9f2465d5c2",
+        "response_bytes": 8605
+      },
+      "crossref_metadata": {
+        "DOI": "10.1145/3702248",
+        "title": [
+          "Path Planning in Payment Channel Networks with Multi-Party Channels"
+        ],
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0001-9731-3385",
+            "authenticated-orcid": false,
+            "given": "Padraig",
+            "family": "Corcoran",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Cardiff University, Cardiff, UK"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-1046-811X",
+            "authenticated-orcid": false,
+            "given": "Rhyd",
+            "family": "Lewis",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Cardiff University, Cardiff, UK"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "container-title": [
+          "Distributed Ledger Technologies: Research and Practice"
+        ],
+        "publisher": "Association for Computing Machinery (ACM)",
+        "type": "journal-article",
+        "volume": "4",
+        "issue": "4",
+        "page": "1-14",
+        "published": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              8
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              31
+            ]
+          ]
+        },
+        "published-online": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              8
+            ]
+          ]
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              8
+            ]
+          ]
+        },
+        "URL": "https://doi.org/10.1145/3702248",
+        "link": [
+          {
+            "URL": "https://dl.acm.org/doi/pdf/10.1145/3702248",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ]
+      }
+    },
+    {
+      "key": "r12",
+      "manuscript": "HUANG L, HUO C, GE C, et al. AERO: an adaptive and efficient routing for off-chain payment channel networks[J]. Computer Networks, 2025, 257: 111009. DOI: 10.1016/j.comnet.2024.111009.",
+      "doi": "10.1016/j.comnet.2024.111009",
+      "crossref_receipt": {
+        "url": "https://api.crossref.org/works/10.1016%2Fj.comnet.2024.111009",
+        "retrieved_utc": "2026-10-10T02:12:27.096919+00:00",
+        "ok": true,
+        "status": 200,
+        "resolved_url": "https://api.crossref.org/works/10.1016%2Fj.comnet.2024.111009",
+        "response_sha256": "10588c4cef057eae1b1cedff3bdaa38f89e6c7af43233ebcb1323d1ce179cbf1",
+        "response_bytes": 12403
+      },
+      "crossref_metadata": {
+        "DOI": "10.1016/j.comnet.2024.111009",
+        "title": [
+          "AERO: An adaptive and efficient routing for off-chain payment channel networks"
+        ],
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-0133-6994",
+            "authenticated-orcid": false,
+            "given": "Longxia",
+            "family": "Huang",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Changzhi",
+            "family": "Huo",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Chengzhi",
+            "family": "Ge",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-8988-269X",
+            "authenticated-orcid": false,
+            "given": "Mengmeng",
+            "family": "Yang",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "container-title": [
+          "Computer Networks"
+        ],
+        "publisher": "Elsevier BV",
+        "type": "journal-article",
+        "volume": "257",
+        "page": "111009",
+        "article-number": "111009",
+        "published": {
+          "date-parts": [
+            [
+              2025,
+              2
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2025,
+              2
+            ]
+          ]
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025,
+              2
+            ]
+          ]
+        },
+        "URL": "https://doi.org/10.1016/j.comnet.2024.111009",
+        "link": [
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S1389128624008417?httpAccept=text/xml",
+            "content-type": "text/xml",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S1389128624008417?httpAccept=text/plain",
+            "content-type": "text/plain",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          }
+        ]
+      }
+    },
+    {
+      "key": "r13",
+      "manuscript": "CHATTERJEE K, KŘIŠŤAN J M, SCHMID S, et al. Boosting payment channel network liquidity with topology optimization and transaction selection[C]//39th International Symposium on Distributed Computing. Dagstuhl: Schloss Dagstuhl–Leibniz-Zentrum für Informatik, 2025, 356: 23:1-23:22. DOI: 10.4230/LIPIcs.DISC.2025.23.",
+      "doi": "10.4230/LIPIcs.DISC.2025.23",
+      "crossref_receipt": {
+        "url": "https://api.crossref.org/works/10.4230%2FLIPIcs.DISC.2025.23",
+        "retrieved_utc": "2026-10-10T02:12:27.268219+00:00",
+        "ok": false,
+        "error": "HTTP Error 404: Not Found"
+      }
+    },
+    {
+      "key": "r14",
+      "manuscript": "PICKHARDT R. A mathematical theory of payment channel networks[EB/OL]. (2026-01-08)[2026-09-29]. \\url{https://arxiv.org/abs/2601.04835}. 预印本.",
+      "doi": null
+    },
+    {
+      "key": "r15",
+      "manuscript": "YU W, XU M, ZHANG Y, et al. Starfish: rebalancing multi-party off-chain payment channels[EB/OL]. (2026-09-21)[2026-09-29]. \\url{https://arxiv.org/abs/2504.20536v2}. 修订预印本.",
+      "doi": null
+    }
+  ],
+  "discovery": [
+    {
+      "source": "OpenAlex discovery only",
+      "query": "hypergraph payment networks",
+      "retrieved_utc": "2026-10-10T02:12:28.081458+00:00",
+      "year_from": 2024,
+      "limit": 15,
+      "ok": true,
+      "results": [
+        {
+          "title": "Addressing Scalability Issues of Blockchains With Hypergraph Payment Networks",
+          "doi": "10.1109/tnsm.2025.3542960",
+          "authors": [
+            "Arad Kotzer",
+            "Bence Ladóczki",
+            "János Tapolcai",
+            "Ori Rottenstreich"
+          ],
+          "year": 2025,
+          "publication_date": "2025-02-20",
+          "cited_by_count": 1,
+          "journal": "IEEE Transactions on Network and Service Management",
+          "abstract": "Payment channels are auspicious candidates in layer-2 solutions to reduce the number of on-chain transactions on traditional blockchains and increase transaction throughput. To construct payment channels, peers lock funds on 2-of-2 multisig addresses and open channels between one another to transact via instant peer-to-peer transactions. Transactions between peers without a direct channel are made possible by routing the payment over a series of adjacent channels. In certain cases, this can lead",
+          "openalex_id": "https://openalex.org/W4407782766",
+          "relevance_score": 173.44075
+        },
+        {
+          "title": "Hypergraph based Multi-Party Payment Channel",
+          "doi": "10.48550/arxiv.2512.11775",
+          "authors": [
+            "Nainwal, Ayush",
+            "Kamble, Atharva",
+            "Awathare, Nitin"
+          ],
+          "year": 2025,
+          "publication_date": "2025-12-12",
+          "cited_by_count": 0,
+          "journal": "arXiv (Cornell University)",
+          "abstract": "Public blockchains inherently offer low throughput and high latency, motivating off-chain scalability solutions such as Payment Channel Networks (PCNs). However, existing PCNs suffer from liquidity fragmentation-funds locked in one channel cannot be reused elsewhere-and channel depletion, both of which limit routing efficiency and reduce transaction success rates. Multi-party channel (MPC) constructions mitigate these issues, but they typically rely on leaders or coordinators, creating single po",
+          "openalex_id": "https://openalex.org/W7115561957",
+          "relevance_score": 58.65226
+        },
+        {
+          "title": "Clearing in Liability Networks via Sheaves on Directed Hypergraphs",
+          "doi": "10.48550/arxiv.2605.15778",
+          "authors": [
+            "Robert Ghrist"
+          ],
+          "year": 2026,
+          "publication_date": "2026-05-15",
+          "cited_by_count": 0,
+          "journal": "arXiv (Cornell University)",
+          "abstract": "We associate to a decorated liability network a liability sheaf on a directed hypergraph whose hyperedges separate the distribution of payments from the collection of receipts. Clearing configurations are precisely the global sections of this sheaf, and the global-section object is canonically the equalizer of the identity and a clearing operator $Φ=A\\circ D$ factored into collective distribution $D$ and aggregation $A$; an institution-edge duality identifies it equivalently with the equalizer o",
+          "openalex_id": "https://openalex.org/W7161555469",
+          "relevance_score": 43.689552
+        },
+        {
+          "title": "Path Planning in Payment Channel Networks with Multi-Party Channels",
+          "doi": "10.1145/3702248",
+          "authors": [
+            "Padraig Corcoran",
+            "Rhyd Lewis"
+          ],
+          "year": 2024,
+          "publication_date": "2024-10-28",
+          "cited_by_count": 0,
+          "journal": "Distributed Ledger Technologies Research and Practice",
+          "abstract": "Payment Channel Networks (PCNs) provide a means to improve the scaling of cryptocurrency payments by allowing peers to make payments between themselves in an efficient manner. To make a payment between two peers, the task of path planning must first be performed to determine a path in the PCN connecting the peers before the payment is performed using this path. To date, existing research has focused on the problem of performing path planning in PCNs that contain two-party channels. It has been h",
+          "openalex_id": "https://openalex.org/W4403810787",
+          "relevance_score": 39.63327
+        },
+        {
+          "title": "Threshold Hypergraphs, Hyper-PolyGraphs, and Their Extensions",
+          "doi": "10.31224/4838",
+          "authors": [
+            "Takaaki Fujita"
+          ],
+          "year": 2025,
+          "publication_date": "2025-07-13",
+          "cited_by_count": 0,
+          "journal": "",
+          "abstract": "Modern graph theory investigates the interplay of vertices and edges to represent complex relationships and connectivity patterns [1, 2]. Hypergraphs extend this paradigm by allowing hyperedges to join any number of vertices in a single relation [3], and superhypergraphs further enrich these models via iterated powerset constructions that capture multi-layered, hierarchical connections among edges [4, 5]. Threshold Graphs form a classical family built by iteratively adding either isolated vertic",
+          "openalex_id": "https://openalex.org/W4412376361",
+          "relevance_score": 35.55651
+        },
+        {
+          "title": "It Takes Two to Tango, but More to Assess Systemic Risk: Credit Networks Through the Lens of Hypergraphs",
+          "doi": null,
+          "authors": [
+            "Federico Forte"
+          ],
+          "year": 2026,
+          "publication_date": "2026-07-12",
+          "cited_by_count": 0,
+          "journal": "arXiv (Cornell University)",
+          "abstract": "This paper provides the first analysis of credit relationships between financial institutions and firms through the lens of hypergraphs. Unlike traditional network approaches, which rely on pairwise connections, this framework explicitly represents the shared exposure of multiple financial institutions to the same firm as a simultaneous multilateral relationship. The approach is applied empirically to Credit Registry data from the Central Bank of Argentina, covering the period from August 2023 t",
+          "openalex_id": "https://openalex.org/W7168433382",
+          "relevance_score": 34.79116
+        },
+        {
+          "title": "Topological Generalizations of Graphs: Integrating Hypergraph and Superhypergraph Perspectives",
+          "doi": "10.47000/tjmcs.1729279",
+          "authors": [
+            "Takaaki Fujita",
+            "Florentín Smarandache"
+          ],
+          "year": 2025,
+          "publication_date": "2025-12-30",
+          "cited_by_count": 1,
+          "journal": "Turkish Journal of Mathematics and Computer Science",
+          "abstract": "A hypergraph is a generalization of a graph in which edges—called hyperedges—can connect any number of vertices, not just two. A superhypergraph further extends this framework by introducing recursive powerset constructions, enabling the representation of hierarchical relationships among hyperedges themselves. A topological graph is a graph embedded in the plane, where each vertex is represented by a distinct point and each edge is drawn as a continuous curve connecting its endpoints. A topologi",
+          "openalex_id": "https://openalex.org/W7117550182",
+          "relevance_score": 33.9802
+        },
+        {
+          "title": "A HYPERGRAPH-ENHANCED CONSENSUS WITH SEMANTIC-AWARE GRADIENT-DRIVEN GOSSIP PROTOCOL FOR HIGH-PERFORMANCE BLOCKCHAIN NETWORK",
+          "doi": "10.12732/ijam.v38i8s.618",
+          "authors": [
+            "Ravindra Janardan Lawande"
+          ],
+          "year": 2025,
+          "publication_date": "2025-10-26",
+          "cited_by_count": 0,
+          "journal": "International Journal of Apllied Mathematics",
+          "abstract": "Blockchain (BC) technology has gained much interest due to its inherent qualities of security, immutability and decentralization. Despite these benefits, standard BC networks continue to face a number of difficulties, including the vulnerability of conventional leader-based consensus procedures to targeted leader assaults, high block propagation delay, and duplicate network traffic. To overcome these shortcomings, this paper proposes a unique unified framework that combines a hyper-delegated-lea",
+          "openalex_id": "https://openalex.org/W4415605922",
+          "relevance_score": 33.691315
+        },
+        {
+          "title": "Hypergraph embedding of payment transactions and causal allocation optimization for improving SME ESG performance in green supply chain finance in the Greater Bay Area",
+          "doi": "10.1145/3788910.3788973",
+          "authors": [
+            "Mengxing Jiang",
+            "Yantao Li",
+            "Zexing Zhang",
+            "Zhuobei Yu"
+          ],
+          "year": 2025,
+          "publication_date": "2025-11-07",
+          "cited_by_count": 0,
+          "journal": "",
+          "abstract": "Green supply chain finance (GSCF) plays a pivotal role in advancing SME sustainability under China's “Dual Carbon” agenda. Yet, traditional evaluation methods struggle to capture the intricate green influence propagation in multi-party transaction networks and lack causal mechanisms to guide resource allocation, resulting in inefficient capital deployment and untapped emission reduction potential. This paper addresses these gaps by developing an integrated framework that synergizes hypergraph re",
+          "openalex_id": "https://openalex.org/W7130605431",
+          "relevance_score": 33.227753
+        },
+        {
+          "title": "EHHN: An Event-driven Heterogeneous Hypergraph Network for Object-Centric Next Activity Prediction",
+          "doi": "10.48550/arxiv.2607.01785",
+          "authors": [
+            "Jiaxing Wang",
+            "K. Chen",
+            "Zhubin Han",
+            "Hou, Chenyu",
+            "Bin Cao"
+          ],
+          "year": 2026,
+          "publication_date": "2026-07-02",
+          "cited_by_count": 0,
+          "journal": "arXiv (Cornell University)",
+          "abstract": "Next activity prediction helps service-oriented processes anticipate upcoming steps before delays, exceptions, or service-level risks occur. Most existing methods assume classical single-case event logs, whereas real service processes often involve events shared by multiple typed business objects. Object-centric event logs (OCELs) capture such interactions, but current predictors remain limited. Flattening-based approaches lose cross-object context, and native OCEL graph-based approaches encode ",
+          "openalex_id": "https://openalex.org/W7167203897",
+          "relevance_score": 30.176067
+        },
+        {
+          "title": "Telecommunications Fraud Detection via Dual Hypergraph Neural Network under Multi-Dimensional Sparsity",
+          "doi": "10.3724/2096-7004.di.2026.0104",
+          "authors": [
+            "Jiyuan Li",
+            "Jianwu Dang",
+            "Na Jiang",
+            "Yang Jing-yu"
+          ],
+          "year": 2026,
+          "publication_date": "2026-06-16",
+          "cited_by_count": 0,
+          "journal": "Data Intelligence",
+          "abstract": "With the increasing sophistication and concealment of telecommunication fraud, traditional detection technologies face significant challenges. Graph Neural Networks (GNNs) offer a new paradigm for addressing these challenges by concurrently modeling user nodes and their communication links to learn highorder representations of latent interaction patterns. However, their performance in practical applications is severely constrained by the ”multi-dimensional sparsity” inherent in telecommunication",
+          "openalex_id": "https://openalex.org/W7164892478",
+          "relevance_score": 29.061695
+        },
+        {
+          "title": "A Mathematical Theory of Payment Channel Networks",
+          "doi": "10.48550/arxiv.2601.04835",
+          "authors": [
+            "Rene Pickhardt"
+          ],
+          "year": 2026,
+          "publication_date": "2026-01-08",
+          "cited_by_count": 0,
+          "journal": "arXiv (Cornell University)",
+          "abstract": "We introduce a geometric theory of payment channel networks that centers the polytope $W_G$ of feasible wealth distributions; liquidity states $L_G$ project onto $W_G$ via strict circulations. A payment is feasible iff the post-transfer wealth stays in $W_G$. This yields a simple throughput law: if $ζ$ is on-chain settlement bandwidth and $ρ$ the expected fraction of infeasible payments, the sustainable off-chain bandwidth satisfies $S = ζ/ ρ$. Feasibility admits a cut-interval view: for any nod",
+          "openalex_id": "https://openalex.org/W7119941708",
+          "relevance_score": 28.328077
+        },
+        {
+          "title": "HyperAgent: Planning and Acting over Tool-Schema Hypergraphs for Tool-Use LLM Agents",
+          "doi": "10.48550/arxiv.2608.02650",
+          "authors": [
+            "Zian Zhai",
+            "Xingyu Tan",
+            "Gaowang Zou",
+            "Xiaoyang Wang",
+            "Wenjie Zhang"
+          ],
+          "year": 2026,
+          "publication_date": "2026-07-31",
+          "cited_by_count": 0,
+          "journal": "arXiv (Cornell University)",
+          "abstract": "Large language model (LLM) agents increasingly rely on external tools to complete complex real-world tasks. However, reliable tool-use planning remains challenging due to the limitations of implicit reasoning and the evolving nature of real-world execution environments. Existing tool-use agents typically rely on LLMs to infer tool compositions from textual descriptions, which can lead to inefficient exploration and unreliable execution in complex tasks. To address these challenges, we model tool",
+          "openalex_id": "https://openalex.org/W7172495384",
+          "relevance_score": 28.191862
+        },
+        {
+          "title": "Hypergraph-based contrastive learning for enhanced fraud detection",
+          "doi": "10.3389/frai.2025.1703135",
+          "authors": [
+            "Qinhong Wang",
+            "Yiming Shen",
+            "Husheng Dong"
+          ],
+          "year": 2025,
+          "publication_date": "2025-11-26",
+          "cited_by_count": 3,
+          "journal": "Frontiers in Artificial Intelligence",
+          "abstract": "The proliferation of digital platforms has enabled fraudsters to deploy sophisticated camouflage techniques, such as multi-hop collaborative attacks, to evade detection. Traditional Graph Neural Networks (GNNs) often fail to capture these complex high-order patterns due to limitations including homophily assumption failures, severe label imbalance, and noise amplification during deep aggregation. To address these challenges, we propose the Hypergraph-based Contrastive Learning Network (HCLNet), ",
+          "openalex_id": "https://openalex.org/W4416719022",
+          "relevance_score": 27.858088
+        },
+        {
+          "title": "Exploiting Hypergraph Topologies: Advancing Explainable AI for Predicting Drug Synergies",
+          "doi": "10.52783/jisem.v10i32s.5400",
+          "authors": [
+            "Bareq Kadhim Faraj, Amir Lakizadeh"
+          ],
+          "year": 2025,
+          "publication_date": "2025-04-05",
+          "cited_by_count": 0,
+          "journal": "Journal of Information Systems Engineering & Management",
+          "abstract": "Background: Considering the importance of drug therapy as a dominant approach in cancer treatment, monotherapy has been successful in advancing disease treatments, but its effectiveness can be limited due to different drug responses. To overcome these challenges, the drug combination strategy involving the use of multiple drugs to treat a specific disease has been advocated. Objective: The objective of this research was to investigate the use of Hyper Graph Neural Networks (HGNNs) in modeling an",
+          "openalex_id": "https://openalex.org/W4409281021",
+          "relevance_score": 25.07929
+        }
+      ]
+    },
+    {
+      "source": "OpenAlex discovery only",
+      "query": "multi-party payment channel liquidity reliability",
+      "retrieved_utc": "2026-10-10T02:12:29.653839+00:00",
+      "year_from": 2024,
+      "limit": 15,
+      "ok": true,
+      "results": [
+        {
+          "title": "Hypergraph based Multi-Party Payment Channel",
+          "doi": "10.48550/arxiv.2512.11775",
+          "authors": [
+            "Nainwal, Ayush",
+            "Kamble, Atharva",
+            "Awathare, Nitin"
+          ],
+          "year": 2025,
+          "publication_date": "2025-12-12",
+          "cited_by_count": 0,
+          "journal": "arXiv (Cornell University)",
+          "abstract": "Public blockchains inherently offer low throughput and high latency, motivating off-chain scalability solutions such as Payment Channel Networks (PCNs). However, existing PCNs suffer from liquidity fragmentation-funds locked in one channel cannot be reused elsewhere-and channel depletion, both of which limit routing efficiency and reduce transaction success rates. Multi-party channel (MPC) constructions mitigate these issues, but they typically rely on leaders or coordinators, creating single po",
+          "openalex_id": "https://openalex.org/W7115561957",
+          "relevance_score": 56.512302
+        },
+        {
+          "title": "A Mathematical Theory of Payment Channel Networks",
+          "doi": "10.48550/arxiv.2601.04835",
+          "authors": [
+            "Rene Pickhardt"
+          ],
+          "year": 2026,
+          "publication_date": "2026-01-08",
+          "cited_by_count": 0,
+          "journal": "arXiv (Cornell University)",
+          "abstract": "We introduce a geometric theory of payment channel networks that centers the polytope $W_G$ of feasible wealth distributions; liquidity states $L_G$ project onto $W_G$ via strict circulations. A payment is feasible iff the post-transfer wealth stays in $W_G$. This yields a simple throughput law: if $ζ$ is on-chain settlement bandwidth and $ρ$ the expected fraction of infeasible payments, the sustainable off-chain bandwidth satisfies $S = ζ/ ρ$. Feasibility admits a cut-interval view: for any nod",
+          "openalex_id": "https://openalex.org/W7119941708",
+          "relevance_score": 53.989155
+        },
+        {
+          "title": "Path Planning in Payment Channel Networks with Multi-Party Channels",
+          "doi": "10.1145/3702248",
+          "authors": [
+            "Padraig Corcoran",
+            "Rhyd Lewis"
+          ],
+          "year": 2024,
+          "publication_date": "2024-10-28",
+          "cited_by_count": 0,
+          "journal": "Distributed Ledger Technologies Research and Practice",
+          "abstract": "Payment Channel Networks (PCNs) provide a means to improve the scaling of cryptocurrency payments by allowing peers to make payments between themselves in an efficient manner. To make a payment between two peers, the task of path planning must first be performed to determine a path in the PCN connecting the peers before the payment is performed using this path. To date, existing research has focused on the problem of performing path planning in PCNs that contain two-party channels. It has been h",
+          "openalex_id": "https://openalex.org/W4403810787",
+          "relevance_score": 53.28518
+        },
+        {
+          "title": "On the Lifecycle of a Lightning Network Payment Channel",
+          "doi": "10.48550/arxiv.2409.15930",
+          "authors": [
+            "Florian Grötschla",
+            "Lioba Heimbach",
+            "Severin Richner",
+            "Roger P. Wattenhofer"
+          ],
+          "year": 2024,
+          "publication_date": "2024-09-24",
+          "cited_by_count": 1,
+          "journal": "arXiv (Cornell University)",
+          "abstract": "The Bitcoin Lightning Network, launched in 2018, serves as a layer 2 scaling solution for Bitcoin. The Lightning Network allows users to establish channels between each other and subsequently exchange off-chain payments. Together, these channels form a network that facilitates payments between parties even if they do not have a channel in common. The Lightning Network has gained popularity over the past five years as it offers an attractive alternative to on-chain transactions by substantially r",
+          "openalex_id": "https://openalex.org/W4403787250",
+          "relevance_score": 37.773796
+        },
+        {
+          "title": "SoK: Payment Channel Networks",
+          "doi": "10.48550/arxiv.2407.20968",
+          "authors": [
+            "Kartick Kolachala",
+            "Mohammed Ababneh",
+            "Roopa Vishwanathan"
+          ],
+          "year": 2024,
+          "publication_date": "2024-07-30",
+          "cited_by_count": 0,
+          "journal": "arXiv (Cornell University)",
+          "abstract": "Payment Channel Networks (PCNs) have been proposed as an alternative solution to the scalability, throughput, and cost overhead problems associated with blockchain transactions. By facilitating offchain execution of transactions, PCNs significantly reduce the burden on the blockchain, leading to faster transaction processing, reduced transaction fees, and enhanced privacy. Despite these advantages, the current state-of-the-art in PCNs presents a variety of challenges that require further explora",
+          "openalex_id": "https://openalex.org/W4401203370",
+          "relevance_score": 34.663326
+        },
+        {
+          "title": "Self-Balancing Semi-Hierarchical Payment Channel Networks for Central Bank Digital Currencies",
+          "doi": "10.1109/percomworkshops59983.2024.10503409",
+          "authors": [
+            "Marco Cianchetti Benedetti",
+            "Francesco De Sclavis",
+            "Marco Favorito",
+            "Giuseppe Galano",
+            "Sara Giammusso"
+          ],
+          "year": 2024,
+          "publication_date": "2024-03-11",
+          "cited_by_count": 5,
+          "journal": "IEEE International Conference on Pervasive Computing and Communications Workshops and other Affiliated Events (PerCom Workshops)",
+          "abstract": "We introduce a family of PCNs (Payment Channel Networks) characterized by a semi-hierarchical topology and a custom set of channel rebalancing strategies. This family exhibits two interesting benefits, if used as a platform for large-scale, instant, retail payment systems, such as CBDCs (Central Bank Digital Currencies): Technically, the solution offers state-of-the-art guarantees of fault-tolerance and integrity, while providing a latency and throughput comparable to centralized systems; from a",
+          "openalex_id": "https://openalex.org/W4395029274",
+          "relevance_score": 30.938568
+        },
+        {
+          "title": "Adaptive Multipath Proofs for Privacy Protection and Security in Payment Channel Networks",
+          "doi": "10.3390/math14071199",
+          "authors": [
+            "Wenqi Li",
+            "Zijie Pan",
+            "Yunqing Yang"
+          ],
+          "year": 2026,
+          "publication_date": "2026-04-03",
+          "cited_by_count": 0,
+          "journal": "Mathematics",
+          "abstract": "Payment channel networks enable scalable off-chain payments, but their practical deployment remains constrained by a persistent tension among routing efficiency, liquidity visibility, transaction privacy, and settlement security. Existing multipath routing mechanisms can improve payment success under fragmented liquidity, yet they often expose sensitive balance information, leak structural features of payment routes, and enlarge the attack surface for probing, channel exhaustion, and selective f",
+          "openalex_id": "https://openalex.org/W7150131010",
+          "relevance_score": 30.182678
+        },
+        {
+          "title": "Balance Disclosure in Payment Channel Networks Using Noiseless Privacy",
+          "doi": "10.1145/3770861",
+          "authors": [
+            "Padraig Corcoran",
+            "‪Irena Spasić"
+          ],
+          "year": 2025,
+          "publication_date": "2025-10-06",
+          "cited_by_count": 0,
+          "journal": "Distributed Ledger Technologies Research and Practice",
+          "abstract": "Payment Channel Networks (PCNs) represent an emerging approach to improving the scalability of cryptocurrencies. A PCN provides the ability to consolidate a larger set of payments into a smaller set where individual payments are immediately confirmed. It consists of a network of payment channels between pairs of peers, where each channel has a total capacity that is split into two directional balances, determining the maximum payment amount that can be forwarded in either direction. If two peers",
+          "openalex_id": "https://openalex.org/W4414873755",
+          "relevance_score": 28.113897
+        },
+        {
+          "title": "Employing the Structural Power to Achieve Supply-Demand Balanced Payment Channel Networks",
+          "doi": "10.48550/arxiv.2609.03600",
+          "authors": [
+            "Shuyao Xiao",
+            "Shengling Wang",
+            "Hongwei Shi",
+            "Weicheng Wang",
+            "Anlin Chen"
+          ],
+          "year": 2026,
+          "publication_date": "2026-09-03",
+          "cited_by_count": 0,
+          "journal": "arXiv (Cornell University)",
+          "abstract": "Blockchain technology faces scalability challenges because transactions must be validated and recorded across the network. Payment channel networks (PCNs) improve efficiency by moving transactions off-chain and recording only critical interactions on the mainnet. However, PCNs require pre-deposited channel balances (supply) to match transaction demands (demand), and insufficient balances cause supply shortages. Existing approaches, including transaction path optimization and channel balance allo",
+          "openalex_id": "https://openalex.org/W7208715623",
+          "relevance_score": 27.328207
+        },
+        {
+          "title": "Programmable payments for industry 4.0: a state channel–based trigger solution",
+          "doi": "10.3389/fbloc.2025.1563960",
+          "authors": [
+            "Ricky Lamberty",
+            "Daniel Kirste",
+            "Alexander Poddey"
+          ],
+          "year": 2025,
+          "publication_date": "2025-05-15",
+          "cited_by_count": 2,
+          "journal": "Frontiers in Blockchain",
+          "abstract": "The rise of Distributed Ledger Technology (DLT) is revolutionizing financial systems, introducing innovations such as programmable payments, and allowing Machine-to-Machine (M2M) payments, which are essential for Industry 4.0. Despite their potential, DLT-based financial systems face barriers, including operational efficiency, regulatory uncertainty, limited institutional acceptance, and challenges in integrating with conventional financial systems. Trigger solutions emerge as a promising approa",
+          "openalex_id": "https://openalex.org/W4410417222",
+          "relevance_score": 27.12774
+        },
+        {
+          "title": "Recent Advances in Global Payment Channel Networks: A Systematic Literature Review",
+          "doi": "10.21203/rs.3.rs-7705514/v1",
+          "authors": [
+            "Danila Valko",
+            "Jorge Marx Gómez"
+          ],
+          "year": 2025,
+          "publication_date": "2025-09-26",
+          "cited_by_count": 2,
+          "journal": "Research Square",
+          "abstract": "",
+          "openalex_id": "https://openalex.org/W4414552941",
+          "relevance_score": 27.079788
+        },
+        {
+          "title": "An Analysis of the Correctness and Computational Complexity of Path Planning in Payment Channel Networks",
+          "doi": "10.48550/arxiv.2501.11419",
+          "authors": [
+            "Padraig Corcoran",
+            "Rhyd Lewis"
+          ],
+          "year": 2025,
+          "publication_date": "2025-01-20",
+          "cited_by_count": 1,
+          "journal": "arXiv (Cornell University)",
+          "abstract": "Payment Channel Networks (PCNs) are a method for improving the scaling and latency of cryptocurrency transactions. For a payment to be made between two peers in a PCN, a feasible low-fee path in the network must be planned. Many PCN path planning algorithms use a search algorithm that is a variant of Dijkstra's algorithm. In this article, we prove the correctness and computational complexity of this algorithm. Specifically, we show that, if the PCN satisfies a consistency property relating to th",
+          "openalex_id": "https://openalex.org/W4406735523",
+          "relevance_score": 26.406176
+        },
+        {
+          "title": "AI-Enabled Fraud Detection Ecosystem Model for Securing International Payment Channels",
+          "doi": "10.62225/2583049x.2025.5.6.5284",
+          "authors": [
+            "Michael Olumuyiwa Adesuyi",
+            "Olawole Akomolafe",
+            "Babajide Oluwaseun Olaogun",
+            "Victor Ukara Ndukwe",
+            "Joy Kweku Sakyi"
+          ],
+          "year": 2025,
+          "publication_date": "2025-11-22",
+          "cited_by_count": 0,
+          "journal": "International Journal of Advanced Multidisciplinary Research and Studies",
+          "abstract": "The exponential growth of international digital payment systems has created unprecedented opportunities for financial fraud, necessitating advanced detection mechanisms that can operate across diverse regulatory environments and payment protocols. This research presents a comprehensive AI-enabled fraud detection ecosystem model specifically designed for securing international payment channels through integrated machine learning algorithms, behavioral analytics, and real-time threat intelligence ",
+          "openalex_id": "https://openalex.org/W4416570970",
+          "relevance_score": 26.036234
+        },
+        {
+          "title": "A Multi-Party, Multi-Blockchain Atomic Swap Protocol with Universal Adaptor Secret",
+          "doi": "10.48550/arxiv.2406.16822",
+          "authors": [
+            "Shengewei You",
+            "Joshi, Aditya",
+            "Andrey Kuehlkamp",
+            "Jarek Nabrzyski"
+          ],
+          "year": 2024,
+          "publication_date": "2024-06-24",
+          "cited_by_count": 0,
+          "journal": "arXiv (Cornell University)",
+          "abstract": "The increasing complexity of digital asset transactions across multiple blockchains necessitates a robust atomic swap protocol that can securely handle more than two participants. Traditional atomic swap protocols, including those based on adaptor signatures, are vulnerable to malicious dropout attacks, which break atomicity and compromise the security of the transaction. This paper presents a novel multi-party atomic swap protocol that operates almost entirely off-chain, requiring only a single",
+          "openalex_id": "https://openalex.org/W4400024832",
+          "relevance_score": 25.66094
+        },
+        {
+          "title": "Identifying the MPC-Liquidity Gradient in High-Quality Data",
+          "doi": "10.48550/arxiv.2607.07055",
+          "authors": [
+            "Mikael Carlsson",
+            "Marco D'Amico",
+            "Erik Öberg",
+            "Oskar N. Skans",
+            "Karl Walentin"
+          ],
+          "year": 2026,
+          "publication_date": "2026-07-08",
+          "cited_by_count": 0,
+          "journal": "arXiv (Cornell University)",
+          "abstract": "We estimate the gradient of the Marginal Propensity to Consume (MPC) with respect to liquidity using a new estimator designed for administrative data with negligible measurement error in income. We derive a state-dependent consumption pass-through equation from the canonical buffer-stock model, and show that the pass-through coefficient of this equation can be used to construct tight bounds on the MPC conditional on the relevant state. We recover latent permanent and transitory income shocks wit",
+          "openalex_id": "https://openalex.org/W7167822663",
+          "relevance_score": 25.576464
+        }
+      ]
+    },
+    {
+      "source": "OpenAlex discovery only",
+      "query": "payment channel resource matching topology",
+      "retrieved_utc": "2026-10-10T02:12:31.119516+00:00",
+      "year_from": 2024,
+      "limit": 15,
+      "ok": true,
+      "results": [
+        {
+          "title": "Assessing Routing Algorithms for Payment Channel Networks",
+          "doi": "10.1145/3643566",
+          "authors": [
+            "David Lobmaier",
+            "Rafael Konlechner",
+            "Stefan Schulte",
+            "Ingo M. Weber"
+          ],
+          "year": 2024,
+          "publication_date": "2024-01-31",
+          "cited_by_count": 2,
+          "journal": "Distributed Ledger Technologies Research and Practice",
+          "abstract": "Payment Channel Networks (PCNs) are a promising approach to overcome scalability issues of blockchains. To achieve efficient payments in PCNs, it is necessary to route transactions between a payer and a payee. Especially in large-scale PCNs, multi-hop routing becomes necessary, since transactions need to be relayed by nodes. For this, a scalable routing algorithm is needed, which fits the individual objectives of PCN users. In this article, we study whether routing protocols from the field of Wi",
+          "openalex_id": "https://openalex.org/W4391391014",
+          "relevance_score": 30.31053
+        },
+        {
+          "title": "Sustained Participation as a Security Resource: The Bounded Participation Channel",
+          "doi": "10.48550/arxiv.2609.35300",
+          "authors": [
+            "Homayoun Maleki",
+            "Nekane Sainz",
+            "Jon Legarda",
+            "Igor Santos-Grueiro"
+          ],
+          "year": 2026,
+          "publication_date": "2026-09-28",
+          "cited_by_count": 0,
+          "journal": "arXiv (Cornell University)",
+          "abstract": "Can sustained, per-identity participation be engineered into a security resource? Most anti-Sybil defenses price identity creation rather than identity survival. Once admitted, an adversary may sustain many identities without paying a recurring cost. We introduce the Bounded Participation Channel (BPC), a formal primitive for repeatedly verifying participation window by window. BPC issues fresh, identity-bound challenges under a strict deadline and enforces four structural properties: identity b",
+          "openalex_id": "https://openalex.org/W7214701760",
+          "relevance_score": 24.604292
+        },
+        {
+          "title": "Failure Propagation in SAP MultiBank Payment Batches Due to Unsynchronized Secure Channel Negotiations",
+          "doi": "10.58346/jisis.2025.i2.036",
+          "authors": [
+            "Naren Swamy Jamithireddy"
+          ],
+          "year": 2025,
+          "publication_date": "2025-05-30",
+          "cited_by_count": 0,
+          "journal": "Journal of Internet Services and Information Security",
+          "abstract": "In SAP MultiBank systems, the payment batch processing failures are usually due to out-of-sync secure channel negotiations between the corporate SAP treasury systems and the banking interfaces that are integrated and connected. This research looks into the failure timing impacts of secure channel handshake intervals such as the time-to-first-byte, SSL certificate validation delays, and out-of-sync cryptographic negotiations occurring asynchronously. Using transaction logs, synthetic datasets, an",
+          "openalex_id": "https://openalex.org/W4412915651",
+          "relevance_score": 23.469706
+        },
+        {
+          "title": "Future Resource Bank for ISAC: Achieving Fast and Stable Win-Win Matching for Both Individuals and Coalitions",
+          "doi": "10.1109/jsac.2025.3608114",
+          "authors": [
+            "Houyi Qi",
+            "Minghui Liwang",
+            "Seyyedali Hosseinalipour",
+            "Liqun Fu",
+            "Sai Zou"
+          ],
+          "year": 2025,
+          "publication_date": "2025-09-10",
+          "cited_by_count": 2,
+          "journal": "IEEE Journal on Selected Areas in Communications",
+          "abstract": "Future wireless networks must support emerging applications where environmental awareness is as critical as data transmission. Integrated Sensing and Communication (ISAC) enables this vision by allowing base stations (BSs) to allocate bandwidth and power to mobile users (MUs) for communications and cooperative sensing. However, this resource allocation is highly challenging due to:(i)dynamic resource demands from MUs and resource supply from BSs, and(ii)the selfishness of MUs and BSs. To address",
+          "openalex_id": "https://openalex.org/W4414110773",
+          "relevance_score": 20.536945
+        },
+        {
+          "title": "To the Youtube market. Organization, revenue, topology",
+          "doi": "10.3917/res.246.0043",
+          "authors": [
+            "Bilel Benbouzid",
+            "Olivier Alexandre",
+            "Arnaud Lelievre",
+            "Bertrand Roudier"
+          ],
+          "year": 2024,
+          "publication_date": "2024-12-17",
+          "cited_by_count": 4,
+          "journal": "Réseaux",
+          "abstract": "YouTube est un objet en apparence sans limite et en perpétuelle évolution. À partir d’une analyse de données inédites de l’un des principaux intermédiaires de YouTube en France, cet article met en avant trois résultats. Premièrement, la partie marchande de YouTube ne représente que 10% des chaînes ciblées comme constitutives du YouTube français. Deuxièmement, ce segment marchand s’avère hétérogène, allant de hauts à de faibles revenus. Troisièmement, l’analyse conduit à dégager quatre régions de",
+          "openalex_id": "https://openalex.org/W4405474095",
+          "relevance_score": 19.884388
+        },
+        {
+          "title": "Impact of Network Topologies on Blockchain Performance",
+          "doi": "10.1145/3701717.3730540",
+          "authors": [
+            "Vincenzo P. Di Perna",
+            "Marco Bernardo",
+            "Francesco Fabris",
+            "Sebastião Amaro",
+            "Miguel Matos"
+          ],
+          "year": 2025,
+          "publication_date": "2025-06-09",
+          "cited_by_count": 3,
+          "journal": "ACM International Conference on Distributed and Event-Based Systems (DEBS)",
+          "abstract": "Since blockchains are increasingly adopted in real-world applications, it is of paramount importance to evaluate their performance across diverse scenarios.Although the network infrastructure plays a fundamental role, its impact on performance remains largely unexplored.Some studies evaluate blockchain in cloud environments, but this approach is costly and difficult to reproduce.We propose a cost-effective and reproducible environment that supports both cluster-based setups and emulation capabil",
+          "openalex_id": "https://openalex.org/W4412477055",
+          "relevance_score": 19.820135
+        },
+        {
+          "title": "Decision Topologies in Functionally Differentiated Societies - the cases of projects and AI",
+          "doi": "10.14267/phd.2026036",
+          "authors": [
+            "Erik B. W. Aal"
+          ],
+          "year": 2026,
+          "publication_date": "2026-05-18",
+          "cited_by_count": 0,
+          "journal": "",
+          "abstract": "This dissertation argues that dominant organisational paradigms provide important but ultimately insufficient foundations for understanding decision-making in contemporary organisations. It shows that action-centred and actor-oriented models rest on implicit assumptions of rationality, hierarchy, and goal-directed agency. As a consequence, they fall short in explaining organisational persistence and how decision dynamics evolve in response to societal volatility. Building on Niklas Luhmann’s soc",
+          "openalex_id": "https://openalex.org/W7168975626",
+          "relevance_score": 16.440962
+        },
+        {
+          "title": "Idempotency Mechanisms in Digital Payment Systems: Preventing Duplicate Transaction Processing",
+          "doi": "10.48047/jocaaa.2025.34.11.02",
+          "authors": [
+            "Jayaseelan Shanmugam"
+          ],
+          "year": 2025,
+          "publication_date": "2025-10-25",
+          "cited_by_count": 0,
+          "journal": "Journal of Computational Analysis and Applications",
+          "abstract": "The risk of duplicate transaction processing is prominent in the evolving payment environment, where a network failure, timeout code error, or query retry can mistakenly cause multiple computations for a single transaction.Idempotency is a solid way to solve this problem to ensure that the same outcome occurs every time a payment request is submitted by a merchant to the merchant payment platform (regardless of how many requests are submitted) without any additional charge to the customer.By est",
+          "openalex_id": "https://openalex.org/W4416157343",
+          "relevance_score": 16.148796
+        },
+        {
+          "title": "On Optimizing Resource Allocation: A Comparative Review of Resource Allocation Strategies in HetNets",
+          "doi": "10.32604/cmes.2025.059541",
+          "authors": [
+            "Iztok Humar",
+            "Mojca Volk",
+            "Jeta Dobruna",
+            "Zana Limani Fazliu"
+          ],
+          "year": 2025,
+          "publication_date": "2025-01-01",
+          "cited_by_count": 1,
+          "journal": "Computer Modeling in Engineering & Sciences",
+          "abstract": "Resource allocation remains a challenging issue in communication networks, and its complexity is continuously increasing with the densification of the networks. With the evolution of new wireless technologies such as Fifth Ge... | Find, read and cite all the research you need on Tech Science Press",
+          "openalex_id": "https://openalex.org/W4407192824",
+          "relevance_score": 16.095121
+        },
+        {
+          "title": "Budget Constrained Update Ordering for Containerized Payment API Services Under Release Risk Budgets",
+          "doi": null,
+          "authors": [
+            "Greta Vogel",
+            "Dylan Foster"
+          ],
+          "year": 2026,
+          "publication_date": "2026-06-05",
+          "cited_by_count": 0,
+          "journal": "International Journal of Data Sciences and Intelligent Systems",
+          "abstract": "The rapid transition of financial services towards cloud-native architectures has established containerized microservices as the de facto standard for deploying payment application programming interfaces. While containerization offers unprecedented scalability and modularity, managing the continuous integration and continuous deployment pipelines for highly sensitive financial systems presents significant operational challenges. A critical issue arises when updating these payment clusters under ",
+          "openalex_id": "https://openalex.org/W7220820886",
+          "relevance_score": 15.598429
+        },
+        {
+          "title": "TopoFarm: A Topology-Annotated Panoptic Dataset for Unauthorized Farmland Excavation Scene Representation",
+          "doi": "10.3390/ijgi15030093",
+          "authors": [
+            "Shunxi Yin",
+            "Wanzeng Liu",
+            "Jun Chen",
+            "Jiaxin Ren",
+            "Jiadong Zhang"
+          ],
+          "year": 2026,
+          "publication_date": "2026-02-25",
+          "cited_by_count": 1,
+          "journal": "ISPRS International Journal of Geo-Information",
+          "abstract": "Unauthorized farmland excavation is a prominent manifestation of farmland non-agriculturalization, and its effective monitoring depends on structured representations of objects and their spatial interactions in complex scenes. However, the existing computer vision research mainly focuses on object-level recognition or scene-level classification, while lacking datasets that explicitly model topological relationships in farmland excavation scenarios. To address this limitation, this paper presents",
+          "openalex_id": "https://openalex.org/W7131348260",
+          "relevance_score": 15.373446
+        },
+        {
+          "title": "AI-Driven Predictive Modeling for Customer Acquisition in Digital Payment Platforms",
+          "doi": "10.63125/fvtbwz35",
+          "authors": [
+            "Noor Alam Siddiqui"
+          ],
+          "year": 2026,
+          "publication_date": "2026-06-01",
+          "cited_by_count": 0,
+          "journal": "",
+          "abstract": "This study examines the impact of predictive modeling on customer acquisition rates in digital payment platforms, addressing the practical problem that many fintech firms generate large volumes of transaction and behavioral data but still struggle to convert those data into efficient customer acquisition strategies. The purpose of the research is to determine whether predictive modeling, supported by machine learning based transaction analysis, improves customer targeting efficiency and acquisit",
+          "openalex_id": "https://openalex.org/W7166355634",
+          "relevance_score": 15.104443
+        },
+        {
+          "title": "Geographical Peer Matching for P2P Energy Sharing",
+          "doi": "10.1109/access.2024.3524091",
+          "authors": [
+            "Romaric Duvignau",
+            "Vincenzo Massimiliano Gulisano",
+            "Marina Papatriantafilou",
+            "Ralf Klasing"
+          ],
+          "year": 2024,
+          "publication_date": "2024-12-30",
+          "cited_by_count": 4,
+          "journal": "IEEE Access",
+          "abstract": "Significant cost reductions attract ever more households to invest in small-scale renewable electricity generation and storage. Such distributed resources are not used in the most effective way when only used individually, as sharing them provides even greater cost savings. Energy Peer-to-Peer (P2P) systems have thus been shown to be beneficial for prosumers and consumers through reductions in energy cost while also being attractive to grid or service providers. However, many practical challenge",
+          "openalex_id": "https://openalex.org/W4405907085",
+          "relevance_score": 15.057314
+        },
+        {
+          "title": "Examining user behavior with machine learning for effective mobile peer-to-peer payment adoption",
+          "doi": "10.1186/s40854-024-00625-3",
+          "authors": [
+            "Blanco-Oliver Antonio",
+            "Lara-Rubio Juan",
+            "Irimia-Diéguez Ana",
+            "Liébana-Cabanillas Francisco"
+          ],
+          "year": 2024,
+          "publication_date": "2024-03-01",
+          "cited_by_count": 28,
+          "journal": "Financial Innovation",
+          "abstract": "Abstract Disruptive innovations caused by FinTech (i.e., technology-assisted customized financial services) have brought digital peer-to-peer (P2P) payments to the fore. In this challenging environment and based on theories about customer behavior in response to technological innovations, this paper identifies the drivers of consumer adoption of mobile P2P payments and develops a machine learning model to predict the use of this thriving payment option. To do so, we use a unique data set with in",
+          "openalex_id": "https://openalex.org/W4392477274",
+          "relevance_score": 14.945951
+        },
+        {
+          "title": "Integrating AI and Big Data for Real-Time Payment Processing in Digital Banking",
+          "doi": "10.70179/c7rg5a81",
+          "authors": [
+            "Jai Kiran Reddy Burugulla"
+          ],
+          "year": 2026,
+          "publication_date": "2026-02-24",
+          "cited_by_count": 1,
+          "journal": "Journal of Artificial Intelligence and Big Data Disciplines",
+          "abstract": "Real-time traffic congestion is a challenging problem in smartcities. An Intelligent Transportation System (ITS) is a big data application integrating sensor hardware and network technologies, which can intelligently capture traffic information, efficiently transform data into knowledge, and organize and manage transportation resources. Urban Traffic Control (UTC) is a critical component of ITS, analyzing real-time traffic information and coordinating traffic signal timing plans to optimize traf",
+          "openalex_id": "https://openalex.org/W7133235520",
+          "relevance_score": 14.88012
+        }
+      ]
+    }
+  ],
+  "extra": {
+    "arxiv-two-identifiers": {
+      "url": "https://export.arxiv.org/api/query?id_list=2601.04835,2504.20536v2&max_results=2",
+      "retrieved_utc": "2026-10-10T02:12:33.279943+00:00",
+      "ok": true,
+      "status": 200,
+      "resolved_url": "https://export.arxiv.org/api/query?id_list=2601.04835,2504.20536v2&max_results=2",
+      "response_sha256": "342167cfa809082d35ecf0e53d36c7450b31487f7826ebe1d334deeaa21c3f75",
+      "response_bytes": 5617,
+      "atom": "<?xml version='1.0' encoding='UTF-8'?>\n<feed xmlns:opensearch=\"http://a9.com/-/spec/opensearch/1.1/\" xmlns:arxiv=\"http://arxiv.org/schemas/atom\" xmlns=\"http://www.w3.org/2005/Atom\">\n  <id>https://arxiv.org/api/lxDGzNTpjYmQY9onnY/QCtdQSPY</id>\n  <title>arXiv Query: search_query=&amp;id_list=2601.04835,2504.20536v2&amp;start=0&amp;max_results=2</title>\n  <updated>2026-10-10T02:11:52Z</updated>\n  <link href=\"https://arxiv.org/api/query?search_query=&amp;start=0&amp;max_results=2&amp;id_list=2601.04835,2504.20536v2\" type=\"application/atom+xml\"/>\n  <opensearch:itemsPerPage>2</opensearch:itemsPerPage>\n  <opensearch:totalResults>2</opensearch:totalResults>\n  <opensearch:startIndex>0</opensearch:startIndex>\n  <entry>\n    <id>http://arxiv.org/abs/2504.20536v2</id>\n    <title>Starfish: Rebalancing Multi-Party Off-Chain Payment Channels</title>\n    <updated>2026-09-21T07:46:54Z</updated>\n    <link href=\"https://arxiv.org/abs/2504.20536v2\" rel=\"alternate\" type=\"text/html\"/>\n    <link href=\"https://arxiv.org/pdf/2504.20536v2\" rel=\"related\" type=\"application/pdf\" title=\"pdf\"/>\n    <summary>Blockchain technology has revolutionized the way transactions are executed, but scalability remains a major challenge. Payment Channel Network (PCN), as a Layer-2 scaling solution, has been proposed to address this issue. However, skewed payments can deplete the balance of one party within a channel, restricting the ability of PCNs to transact through a path and subsequently reducing the transaction success rate. To address this issue, the technology of rebalancing has been proposed. However, existing rebalancing strategies in PCNs are limited in their efficiency and applicability under realistic network topologies. Cycle-based approaches only enable rebalancing among nodes that form cycles, while non-cycle-based approaches incur high on-chain operation costs. In this study, we propose Starfish, a rebalancing approach designed for the locally star-like structures formed by high-degree routing hubs and their incident channels in real-world PCNs. By leveraging a hub-centric structure, Starfish reduces the on-chain overhead of rebalancing from quadratic to linear in the number of channels, achieving high rebalancing efficiency. We formally prove the security of Starfish and conduct comparative experiments against existing rebalancing techniques to demonstrate its effectiveness.</summary>\n    <category term=\"cs.CR\" scheme=\"http://arxiv.org/schemas/atom\"/>\n    <published>2025-04-29T08:30:33Z</published>\n    <arxiv:comment>18 pages, 8 figures. Accepted for publication in High-Confidence Computing (HCC)</arxiv:comment>\n    <arxiv:primary_category term=\"cs.CR\"/>\n    <author>\n      <name>Wenxuan Yu</name>\n    </author>\n    <author>\n      <name>Minghui Xu</name>\n    </author>\n    <author>\n      <name>Yuanzhe Zhang</name>\n    </author>\n    <author>\n      <name>Guangyong Shang</name>\n    </author>\n    <author>\n      <name>Guangpeng Qi</name>\n    </author>\n    <author>\n      <name>Dongliang Duan</name>\n    </author>\n    <author>\n      <name>Shan Wang</name>\n    </author>\n    <author>\n      <name>Kun Li</name>\n    </author>\n    <author>\n      <name>Yue Zhang</name>\n    </author>\n  </entry>\n  <entry>\n    <id>http://arxiv.org/abs/2601.04835v1</id>\n    <title>A Mathematical Theory of Payment Channel Networks</title>\n    <updated>2026-01-08T11:12:58Z</updated>\n    <link href=\"https://arxiv.org/abs/2601.04835v1\" rel=\"alternate\" type=\"text/html\"/>\n    <link href=\"https://arxiv.org/pdf/2601.04835v1\" rel=\"related\" type=\"application/pdf\" title=\"pdf\"/>\n    <summary>We introduce a geometric theory of payment channel networks that centers the polytope $W_G$ of feasible wealth distributions; liquidity states $L_G$ project onto $W_G$ via strict circulations. A payment is feasible iff the post-transfer wealth stays in $W_G$. This yields a simple throughput law: if $ζ$ is on-chain settlement bandwidth and $ρ$ the expected fraction of infeasible payments, the sustainable off-chain bandwidth satisfies $S = ζ/ ρ$.\n  Feasibility admits a cut-interval view: for any node set S, the wealth of S must lie in an interval whose width equals the cut capacity $C(δ(S))$. Using this, we show how multi-party channels (coinpools / channel factories) expand $W_G$. Modeling a k-party channel as a k-uniform hyperedge widens every cut in expectation, so $W_G$ grows monotonically with k; for single nodes the expected accessible wealth scales linearly with $k/n$.\n  We also analyze depletion. Under linear, asymmetric fees, cost-minimizing flow within a wealth fiber pushes cycles to the boundary, generically depleting channels except for a residual spanning forest. Three mitigation levers follow: (i) symmetric fees per direction, (ii) convex/tiered fees (effective flow control but at odds with source routing without liquidity disclosure), and (iii) coordinated replenishment (choose an optimal circulation within a fiber).\n  Together, these results explain why two-party meshes struggle to scale and why multi-party primitives are more capital-efficient, yielding higher expected payment bandwidth. They also show how fee design and coordination keep operation inside the feasible region, improving reliability.</summary>\n    <category term=\"cs.NI\" scheme=\"http://arxiv.org/schemas/atom\"/>\n    <category term=\"cs.CR\" scheme=\"http://arxiv.org/schemas/atom\"/>\n    <published>2026-01-08T11:12:58Z</published>\n    <arxiv:comment>21 pages (23 with appendix), 15 figures</arxiv:comment>\n    <arxiv:primary_category term=\"cs.NI\"/>\n    <author>\n      <name>Rene Pickhardt</name>\n    </author>\n  </entry>\n</feed>\n"
+    },
+    "crossref-star-fish-title": {
+      "url": "https://api.crossref.org/works?query.title=Starfish%20Rebalancing%20Multi-Party%20Off-Chain%20Payment%20Channels&rows=5",
+      "retrieved_utc": "2026-10-10T02:12:33.569450+00:00",
+      "ok": true,
+      "status": 200,
+      "resolved_url": "https://api.crossref.org/works?query.title=Starfish%20Rebalancing%20Multi-Party%20Off-Chain%20Payment%20Channels&rows=5",
+      "response_sha256": "e51a8e7bc37bbe706ee9855a170fb5d3d44afe3ee1a43e893b41262eed498c72",
+      "response_bytes": 49896,
+      "metadata": [
+        {
+          "DOI": "10.1016/j.hcc.2026.100443",
+          "title": [
+            "Starfish: Rebalancing multi-party off-chain payment channels"
+          ],
+          "author": [
+            {
+              "ORCID": "https://orcid.org/0009-0005-7544-8410",
+              "authenticated-orcid": false,
+              "given": "Wenxuan",
+              "family": "Yu",
+              "sequence": "first",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Minghui",
+              "family": "Xu",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "ORCID": "https://orcid.org/0009-0007-1149-6098",
+              "authenticated-orcid": false,
+              "given": "Yuanzhe",
+              "family": "Zhang",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Guangyong",
+              "family": "Shang",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Guangpeng",
+              "family": "Qi",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Dongliang",
+              "family": "Duan",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Shan",
+              "family": "Wang",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Kun",
+              "family": "Li",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Yue",
+              "family": "Zhang",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            }
+          ],
+          "container-title": [
+            "High-Confidence Computing"
+          ],
+          "published": {
+            "date-parts": [
+              [
+                2026,
+                9
+              ]
+            ]
+          },
+          "page": "100443",
+          "article-number": "100443"
+        },
+        {
+          "DOI": "10.1016/j.future.2024.01.012",
+          "title": [
+            "A secure multi-party payment channel on-chain and off-chain supervisable scheme"
+          ],
+          "author": [
+            {
+              "given": "Ke",
+              "family": "Xiao",
+              "sequence": "first",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "ORCID": "https://orcid.org/0000-0002-3811-8915",
+              "authenticated-orcid": false,
+              "given": "Jiayang",
+              "family": "Li",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "ORCID": "https://orcid.org/0000-0001-8971-3936",
+              "authenticated-orcid": false,
+              "given": "Yunhua",
+              "family": "He",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Xu",
+              "family": "Wang",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Chao",
+              "family": "Wang",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            }
+          ],
+          "container-title": [
+            "Future Generation Computer Systems"
+          ],
+          "published": {
+            "date-parts": [
+              [
+                2024,
+                5
+              ]
+            ]
+          },
+          "volume": "154",
+          "page": "330-343"
+        },
+        {
+          "DOI": "10.2139/ssrn.4511122",
+          "title": [
+            "A Secure Multi-Party Payment Channel On-Chain and Off-Chain Supervisable Scheme"
+          ],
+          "author": [
+            {
+              "given": "Ke",
+              "family": "Xiao",
+              "sequence": "first",
+              "affiliation": [],
+              "role": [
+                {
+                  "role": "author",
+                  "vocabulary": "crossref"
+                }
+              ]
+            },
+            {
+              "given": "Jiayang",
+              "family": "Li",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "role": "author",
+                  "vocabulary": "crossref"
+                }
+              ]
+            },
+            {
+              "given": "Yunhua",
+              "family": "He",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "role": "author",
+                  "vocabulary": "crossref"
+                }
+              ]
+            },
+            {
+              "given": "Xu",
+              "family": "Wang",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "role": "author",
+                  "vocabulary": "crossref"
+                }
+              ]
+            },
+            {
+              "given": "Chao",
+              "family": "Wang",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "role": "author",
+                  "vocabulary": "crossref"
+                }
+              ]
+            }
+          ],
+          "published": {
+            "date-parts": [
+              [
+                2023
+              ]
+            ]
+          }
+        },
+        {
+          "DOI": "10.1109/dsn53405.2022.00017",
+          "title": [
+            "Cycle: Sustainable Off-Chain Payment Channel Network with Asynchronous Rebalancing"
+          ],
+          "author": [
+            {
+              "given": "Zicong",
+              "family": "Hong",
+              "sequence": "first",
+              "affiliation": [
+                {
+                  "name": "The Hong Kong Polytechnic University,Department of Computing,Hong Kong,China"
+                }
+              ],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Song",
+              "family": "Guo",
+              "sequence": "additional",
+              "affiliation": [
+                {
+                  "name": "The Hong Kong Polytechnic University,Department of Computing,Hong Kong,China"
+                }
+              ],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Rui",
+              "family": "Zhang",
+              "sequence": "additional",
+              "affiliation": [
+                {
+                  "name": "The Hong Kong Polytechnic University,Department of Computing,Hong Kong,China"
+                }
+              ],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Peng",
+              "family": "Li",
+              "sequence": "additional",
+              "affiliation": [
+                {
+                  "name": "The University of Aizu,School of Computer Science and Engineering,Aizuwakamatsu,Japan"
+                }
+              ],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Yufen",
+              "family": "Zhan",
+              "sequence": "additional",
+              "affiliation": [
+                {
+                  "name": "Beijing Institute of Technology,School of Automation,Beijing,China"
+                }
+              ],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Wuhui",
+              "family": "Chen",
+              "sequence": "additional",
+              "affiliation": [
+                {
+                  "name": "Sun Yat-sen University,School of Data and Computer Science,Guangzhou,China"
+                }
+              ],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            }
+          ],
+          "container-title": [
+            "2022 52nd Annual IEEE/IFIP International Conference on Dependable Systems and Networks (DSN)"
+          ],
+          "published": {
+            "date-parts": [
+              [
+                2022,
+                6
+              ]
+            ]
+          },
+          "page": "41-53"
+        },
+        {
+          "DOI": "10.1109/bdpc69980.2026.11608111",
+          "title": [
+            "Multi-Hop Privacy-Preserving Cross-Chain Payment Channels for Multi-Chain Ecosystems"
+          ],
+          "author": [
+            {
+              "given": "Chuan",
+              "family": "Zhang",
+              "sequence": "first",
+              "affiliation": [
+                {
+                  "name": "Beijing Institute of Technology",
+                  "place": [
+                    "Beijing, China"
+                  ]
+                }
+              ],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Jiayi",
+              "family": "Xu",
+              "sequence": "additional",
+              "affiliation": [
+                {
+                  "name": "Beijing Institute of Technology",
+                  "place": [
+                    "Beijing, China"
+                  ]
+                }
+              ],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Mengxuan",
+              "family": "Liu",
+              "sequence": "additional",
+              "affiliation": [
+                {
+                  "name": "Beijing Institute of Technology",
+                  "place": [
+                    "Beijing, China"
+                  ]
+                }
+              ],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Haotian",
+              "family": "Deng",
+              "sequence": "additional",
+              "affiliation": [
+                {
+                  "name": "Beijing Institute of Technology",
+                  "place": [
+                    "Beijing, China"
+                  ]
+                }
+              ],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Xuhao",
+              "family": "Ren",
+              "sequence": "additional",
+              "affiliation": [
+                {
+                  "name": "Beijing Institute of Technology",
+                  "place": [
+                    "Beijing, China"
+                  ]
+                }
+              ],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Licheng",
+              "family": "Wang",
+              "sequence": "additional",
+              "affiliation": [
+                {
+                  "name": "Beijing Institute of Technology",
+                  "place": [
+                    "Beijing, China"
+                  ]
+                }
+              ],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Liehuang",
+              "family": "Zhu",
+              "sequence": "additional",
+              "affiliation": [
+                {
+                  "name": "Beijing Institute of Technology",
+                  "place": [
+                    "Beijing, China"
+                  ]
+                }
+              ],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            }
+          ],
+          "container-title": [
+            "2026 4th International Conference on Big Data and Privacy Computing (BDPC)"
+          ],
+          "published": {
+            "date-parts": [
+              [
+                2026,
+                5
+              ]
+            ]
+          },
+          "page": "68-77"
+        }
+      ]
+    }
+  },
+  "limits": [
+    "Metadata verification does not establish claim support or priority",
+    "OpenAlex is discovery, not an independent publisher witness",
+    "No scientific endpoint data accessed"
+  ]
+}

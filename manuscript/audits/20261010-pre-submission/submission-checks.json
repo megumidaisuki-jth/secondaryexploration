@@ -1,0 +1,623 @@
+{
+  "source_path": "E:\\second\\manuscript\\joconline-integrated-v1\\main.tex",
+  "source_sha256": "b2805a9fb588c7f62e3028157c3456e69e88756438a429309b967272a911bbf9",
+  "title": "资源匹配下超图支付网络的服务可靠性",
+  "title_characters": 17,
+  "abstract_characters_including_punctuation": 216,
+  "abstract_han_characters": 183,
+  "english_abstract_words": 117,
+  "english_abstract_characters": 948,
+  "references": [
+    "r1",
+    "r2",
+    "r3",
+    "r4",
+    "r5",
+    "r6",
+    "r7",
+    "r8",
+    "r9",
+    "r10",
+    "r11",
+    "r12",
+    "r13",
+    "r14",
+    "r15"
+  ],
+  "first_citation_order": [
+    "r1",
+    "r2",
+    "r3",
+    "r4",
+    "r5",
+    "r6",
+    "r7",
+    "r8",
+    "r9",
+    "r10",
+    "r11",
+    "r12",
+    "r13",
+    "r14",
+    "r15"
+  ],
+  "all_references_cited": true,
+  "reference_order_correct": true,
+  "main_figure_widths_mm": [
+    "170",
+    "170",
+    "170"
+  ],
+  "explicit_placeholders": [
+    "【待填】",
+    "【待填】",
+    "【待核定】",
+    "【编辑部编定】",
+    "【to be completed】",
+    "【to be completed】",
+    "【姓名、电子邮箱待填】",
+    "【名称、编号及英文名称待填；无资助时删除此项】",
+    "【作者姓名、出生年、学位、单位、职称及主要研究方向待填；照片由作者提供】"
+  ],
+  "sources": {
+    "crossref-r1-retry": {
+      "url": "https://api.crossref.org/works/10.1109/ACCESS.2020.3046020",
+      "retrieved_utc": "2026-10-10T02:14:45.376276+00:00",
+      "ok": true,
+      "status": 200,
+      "resolved_url": "https://api.crossref.org/works/10.1109/ACCESS.2020.3046020",
+      "response_sha256": "3098573c97d85206a675729ea7f1c42055ef600cdcd9ee152d4ffd59b23cbc9e",
+      "response_bytes": 13232,
+      "metadata": {
+        "DOI": "10.1109/access.2020.3046020",
+        "title": [
+          "Blockchain-Based Payment Channel Networks: Challenges and Recent Advances"
+        ],
+        "subtitle": [],
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0001-8433-8233",
+            "authenticated-orcid": false,
+            "given": "Nikolaos",
+            "family": "Papadis",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Leandros",
+            "family": "Tassiulas",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "container-title": [
+          "IEEE Access"
+        ],
+        "volume": "8",
+        "page": "227596-227609",
+        "published": {
+          "date-parts": [
+            [
+              2020
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2020
+            ]
+          ]
+        },
+        "URL": "https://doi.org/10.1109/access.2020.3046020",
+        "link": [
+          {
+            "URL": "https://ieeexplore.ieee.org/ielam/6287639/8948470/9300150-aam.pdf",
+            "content-type": "application/pdf",
+            "content-version": "am",
+            "intended-application": "syndication"
+          },
+          {
+            "URL": "http://xplorestaging.ieee.org/ielx7/6287639/8948470/09300150.pdf?arnumber=9300150",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ]
+      }
+    },
+    "datacite-r6": {
+      "url": "https://api.datacite.org/dois/10.4230/LIPIcs.ISAAC.2018.16",
+      "retrieved_utc": "2026-10-10T02:14:46.201748+00:00",
+      "ok": true,
+      "status": 200,
+      "resolved_url": "https://api.datacite.org/dois/10.4230/LIPIcs.ISAAC.2018.16",
+      "response_sha256": "60d56edc59a2d1d734e78172319acda4550b3a308c43a521ebc5e14b519ea63c",
+      "response_bytes": 17531,
+      "metadata": {
+        "doi": "10.4230/lipics.isaac.2018.16",
+        "titles": [
+          {
+            "lang": "en",
+            "title": "Algorithmic Channel Design"
+          }
+        ],
+        "creators": [
+          {
+            "name": "Avarikioti, Georgia",
+            "nameType": "Personal",
+            "givenName": "Georgia",
+            "familyName": "Avarikioti",
+            "affiliation": [
+              "ETH Zurich, Switzerland"
+            ],
+            "nameIdentifiers": []
+          },
+          {
+            "name": "Wang, Yuyi",
+            "nameType": "Personal",
+            "givenName": "Yuyi",
+            "familyName": "Wang",
+            "affiliation": [
+              "ETH Zurich, Switzerland"
+            ],
+            "nameIdentifiers": []
+          },
+          {
+            "name": "Wattenhofer, Roger",
+            "nameType": "Personal",
+            "givenName": "Roger",
+            "familyName": "Wattenhofer",
+            "affiliation": [
+              "ETH Zurich, Switzerland"
+            ],
+            "nameIdentifiers": []
+          }
+        ],
+        "publicationYear": 2018,
+        "publisher": "Schloss Dagstuhl – Leibniz-Zentrum für Informatik",
+        "container": {
+          "type": "Series",
+          "identifier": "10.4230/LIPIcs.ISAAC.2018",
+          "identifierType": "DOI",
+          "title": "LIPIcs, Volume 123, ISAAC 2018",
+          "volume": "123",
+          "number": "16",
+          "firstPage": "16:1",
+          "lastPage": "16:12"
+        },
+        "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ISAAC.2018.16",
+        "types": {
+          "ris": "CPAPER",
+          "bibtex": "inproceedings",
+          "citeproc": "",
+          "schemaOrg": "Article",
+          "resourceTypeGeneral": "ConferencePaper"
+        }
+      }
+    },
+    "datacite-r13": {
+      "url": "https://api.datacite.org/dois/10.4230/LIPIcs.DISC.2025.23",
+      "retrieved_utc": "2026-10-10T02:14:47.910034+00:00",
+      "ok": true,
+      "status": 200,
+      "resolved_url": "https://api.datacite.org/dois/10.4230/LIPIcs.DISC.2025.23",
+      "response_sha256": "d781ae2ce8a819b7e02dac4a957b59ca3775d851f2f38a8e37f02eb01cae29ce",
+      "response_bytes": 28067,
+      "metadata": {
+        "doi": "10.4230/lipics.disc.2025.23",
+        "titles": [
+          {
+            "lang": "en",
+            "title": "Boosting Payment Channel Network Liquidity with Topology Optimization and Transaction Selection"
+          }
+        ],
+        "creators": [
+          {
+            "name": "Chatterjee, Krishnendu",
+            "nameType": "Personal",
+            "givenName": "Krishnendu",
+            "familyName": "Chatterjee",
+            "affiliation": [
+              "Institute of Science and Technology Austria (ISTA), Klosterneuburg, Austria"
+            ],
+            "nameIdentifiers": [
+              {
+                "schemeUri": "https://orcid.org",
+                "nameIdentifier": "https://orcid.org/0000-0002-4561-241X",
+                "nameIdentifierScheme": "ORCID"
+              }
+            ]
+          },
+          {
+            "name": "Křišťan, Jan Matyáš",
+            "nameType": "Personal",
+            "givenName": "Jan Matyáš",
+            "familyName": "Křišťan",
+            "affiliation": [
+              "Faculty of Information Technology, Czech Technical University, Prague, Czech Republic"
+            ],
+            "nameIdentifiers": [
+              {
+                "schemeUri": "https://orcid.org",
+                "nameIdentifier": "https://orcid.org/0000-0001-6657-0020",
+                "nameIdentifierScheme": "ORCID"
+              }
+            ]
+          },
+          {
+            "name": "Schmid, Stefan",
+            "nameType": "Personal",
+            "givenName": "Stefan",
+            "familyName": "Schmid",
+            "affiliation": [
+              "TU Berlin, Germany",
+              " Weizenbaum Institute, Berlin, Germany"
+            ],
+            "nameIdentifiers": [
+              {
+                "schemeUri": "https://orcid.org",
+                "nameIdentifier": "https://orcid.org/0000-0002-7798-1711",
+                "nameIdentifierScheme": "ORCID"
+              }
+            ]
+          },
+          {
+            "name": "Svoboda, Jakub",
+            "nameType": "Personal",
+            "givenName": "Jakub",
+            "familyName": "Svoboda",
+            "affiliation": [
+              "Institute of Science and Technology Austria (ISTA), Klosterneuburg, Austria"
+            ],
+            "nameIdentifiers": [
+              {
+                "schemeUri": "https://orcid.org",
+                "nameIdentifier": "https://orcid.org/0000-0002-1419-3267",
+                "nameIdentifierScheme": "ORCID"
+              }
+            ]
+          },
+          {
+            "name": "Yeo, Michelle",
+            "nameType": "Personal",
+            "givenName": "Michelle",
+            "familyName": "Yeo",
+            "affiliation": [
+              "National University of Singapore, Singapore"
+            ],
+            "nameIdentifiers": [
+              {
+                "schemeUri": "https://orcid.org",
+                "nameIdentifier": "https://orcid.org/0009-0001-3676-4809",
+                "nameIdentifierScheme": "ORCID"
+              }
+            ]
+          }
+        ],
+        "publicationYear": 2025,
+        "publisher": "Schloss Dagstuhl – Leibniz-Zentrum für Informatik",
+        "container": {
+          "type": "Series",
+          "identifier": "10.4230/LIPIcs.DISC.2025",
+          "identifierType": "DOI",
+          "title": "LIPIcs, Volume 356, DISC 2025",
+          "volume": "356",
+          "number": "23",
+          "firstPage": "23:1",
+          "lastPage": "23:22"
+        },
+        "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.DISC.2025.23",
+        "types": {
+          "ris": "CPAPER",
+          "bibtex": "inproceedings",
+          "citeproc": "",
+          "schemaOrg": "Article",
+          "resourceTypeGeneral": "ConferencePaper"
+        }
+      }
+    },
+    "starfish-published-doi": {
+      "url": "https://api.crossref.org/works/10.1016/j.hcc.2026.100443",
+      "retrieved_utc": "2026-10-10T02:14:49.589318+00:00",
+      "ok": true,
+      "status": 200,
+      "resolved_url": "https://api.crossref.org/works/10.1016/j.hcc.2026.100443",
+      "response_sha256": "b7481ae47d2c9411aad983a6ab3a0e964f4e576d17b8f88cd7d0086d9a163eb5",
+      "response_bytes": 14171,
+      "metadata": {
+        "DOI": "10.1016/j.hcc.2026.100443",
+        "title": [
+          "Starfish: Rebalancing multi-party off-chain payment channels"
+        ],
+        "subtitle": [],
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0009-0005-7544-8410",
+            "authenticated-orcid": false,
+            "given": "Wenxuan",
+            "family": "Yu",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Minghui",
+            "family": "Xu",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0009-0007-1149-6098",
+            "authenticated-orcid": false,
+            "given": "Yuanzhe",
+            "family": "Zhang",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Guangyong",
+            "family": "Shang",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Guangpeng",
+            "family": "Qi",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Dongliang",
+            "family": "Duan",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Shan",
+            "family": "Wang",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Kun",
+            "family": "Li",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Yue",
+            "family": "Zhang",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "container-title": [
+          "High-Confidence Computing"
+        ],
+        "page": "100443",
+        "article-number": "100443",
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              9
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              9
+            ]
+          ]
+        },
+        "URL": "https://doi.org/10.1016/j.hcc.2026.100443",
+        "link": [
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S2667295226000620?httpAccept=text/xml",
+            "content-type": "text/xml",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S2667295226000620?httpAccept=text/plain",
+            "content-type": "text/plain",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          }
+        ]
+      }
+    },
+    "journal-format": {
+      "url": "https://www.joconline.com.cn/zh/info/15279/",
+      "retrieved_utc": "2026-10-10T02:14:50.543185+00:00",
+      "ok": true,
+      "status": 200,
+      "resolved_url": "https://www.joconline.com.cn/zh/info/15279/",
+      "response_sha256": "9e31cd3d958e9183e81d5701d829f75e996594402c06884869dfb730bb3837c8",
+      "response_bytes": 134173
+    },
+    "journal-ethics": {
+      "url": "https://www.joconline.com.cn/zh/info/15282/",
+      "retrieved_utc": "2026-10-10T02:14:52.052501+00:00",
+      "ok": true,
+      "status": 200,
+      "resolved_url": "https://www.joconline.com.cn/zh/info/15282/",
+      "response_sha256": "de3d0c14d64bf760ef182ee82186c359b6663e3bf73e4c06196aee7757e96ac4",
+      "response_bytes": 133314
+    },
+    "arxiv-new-neighbors": {
+      "url": "https://export.arxiv.org/api/query?id_list=2512.11775v2,2609.03600v1&max_results=2",
+      "retrieved_utc": "2026-10-10T02:14:53.463050+00:00",
+      "ok": true,
+      "status": 200,
+      "resolved_url": "https://export.arxiv.org/api/query?id_list=2512.11775v2,2609.03600v1&max_results=2",
+      "response_sha256": "62b58f945011ee779cf2e91e8e2874c0fe21628e315beea9829b8b08956741c5",
+      "response_bytes": 5655,
+      "entries": [
+        {
+          "id": "http://arxiv.org/abs/2609.03600v1",
+          "title": "Employing the Structural Power to Achieve Supply-Demand Balanced Payment Channel Networks",
+          "published": "2026-09-03T09:47:21Z",
+          "updated": "2026-09-03T09:47:21Z",
+          "authors": [
+            "Shuyao Xiao",
+            "Shengling Wang",
+            "Hongwei Shi",
+            "Weicheng Wang",
+            "Anlin Chen"
+          ]
+        },
+        {
+          "id": "http://arxiv.org/abs/2512.11775v2",
+          "title": "Hypergraph based Multi-Party Payment Channel",
+          "published": "2025-12-12T18:37:28Z",
+          "updated": "2026-06-02T08:22:38Z",
+          "authors": [
+            "Ayush Nainwal",
+            "Atharva Kamble",
+            "Nitin Awathare"
+          ]
+        }
+      ]
+    },
+    "arxiv-query-hypergraph": {
+      "url": "https://export.arxiv.org/api/query?search_query=all:hypergraph%20AND%20all:payment&start=0&max_results=20&sortBy=submittedDate&sortOrder=descending",
+      "retrieved_utc": "2026-10-10T02:14:54.458217+00:00",
+      "ok": true,
+      "status": 200,
+      "resolved_url": "https://export.arxiv.org/api/query?search_query=all:hypergraph%20AND%20all:payment&start=0&max_results=20&sortBy=submittedDate&sortOrder=descending",
+      "response_sha256": "05df30a87db74128f192080737ccb036f0a1de5301b9c2ada53f2b2c944432ac",
+      "response_bytes": 12060,
+      "entries": [
+        {
+          "id": "http://arxiv.org/abs/2609.14744v2",
+          "title": "Runtime Authorization for Resources Acquired by AI Agents",
+          "published": "2026-09-13T19:16:44Z",
+          "updated": "2026-09-18T06:43:11Z",
+          "authors": [
+            "Genliang Zhu",
+            "Chu Wang"
+          ]
+        },
+        {
+          "id": "http://arxiv.org/abs/2605.15778v1",
+          "title": "Clearing in Liability Networks via Sheaves on Directed Hypergraphs",
+          "published": "2026-05-15T09:36:25Z",
+          "updated": "2026-05-15T09:36:25Z",
+          "authors": [
+            "Robert Ghrist"
+          ]
+        },
+        {
+          "id": "http://arxiv.org/abs/2512.11775v2",
+          "title": "Hypergraph based Multi-Party Payment Channel",
+          "published": "2025-12-12T18:37:28Z",
+          "updated": "2026-06-02T08:22:38Z",
+          "authors": [
+            "Ayush Nainwal",
+            "Atharva Kamble",
+            "Nitin Awathare"
+          ]
+        },
+        {
+          "id": "http://arxiv.org/abs/2203.02023v2",
+          "title": "High Welfare Matching Markets via Descending Price",
+          "published": "2022-03-03T21:17:13Z",
+          "updated": "2022-04-28T19:45:12Z",
+          "authors": [
+            "Robin Bowers",
+            "Bo Waggoner"
+          ]
+        },
+        {
+          "id": "http://arxiv.org/abs/1510.05396v1",
+          "title": "Hypergraph conditions for the solvability of the ergodic equation for zero-sum games",
+          "published": "2015-10-19T08:55:13Z",
+          "updated": "2015-10-19T08:55:13Z",
+          "authors": [
+            "Marianne Akian",
+            "Stéphane Gaubert",
+            "Antoine Hochart"
+          ]
+        }
+      ]
+    },
+    "starfish-publisher-redirect": {
+      "url": "https://doi.org/10.1016/j.hcc.2026.100443",
+      "retrieved_utc": "2026-10-10T02:14:55.087664+00:00",
+      "ok": true,
+      "status": 200,
+      "resolved_url": "https://linkinghub.elsevier.com/retrieve/pii/S2667295226000620",
+      "response_sha256": "25440762844b76f9d6ac59716fdb250b9a28dcf326a97908df911a2ac274f973",
+      "response_bytes": 2676
+    }
+  }
+}

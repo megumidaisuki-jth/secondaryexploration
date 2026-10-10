@@ -1,0 +1,58 @@
+{
+  "status": "bounded-audit-record-checks-pass",
+  "source_package_files_unchanged": 34,
+  "source_manifest": "E:\\second\\manuscript\\joconline-integrated-v1\\manifest.json",
+  "source_manifest_fingerprint": {
+    "bytes": 6966,
+    "sha256": "190a91e7ff9d580cd969da3fa9235b9f7ed9cf2d55d419a75dbb6639b5908efc"
+  },
+  "source_git_revision_before_audit": "97159973be2e75e6b805cad05832932e73ab6430",
+  "new_simulations": 0,
+  "new_bootstrap_replicates": 0,
+  "independent_scientific_review": false,
+  "submission_ready": false,
+  "checks": [
+    "15 references and 12 unique parsed DOIs",
+    "registry identity checks on successful lookups",
+    "reference first-citation order",
+    "static abstract/title/width measurements",
+    "old sealed package unchanged"
+  ],
+  "files": [
+    {
+      "path": "manuscript/audits/20261010-pre-submission/.gitattributes",
+      "bytes": 43,
+      "sha256": "aba0cf0b3b63effc5d62a64ddc5f74987176bafeb9bb0a3880f5ead8a8148fd1"
+    },
+    {
+      "path": "manuscript/audits/20261010-pre-submission/collect_metadata.py",
+      "bytes": 6049,
+      "sha256": "8501779ea0fe9552a59fac1b4653f2902d83b4683ce99c8f7ded24ac4f794203"
+    },
+    {
+      "path": "manuscript/audits/20261010-pre-submission/inspect_submission.py",
+      "bytes": 5103,
+      "sha256": "1492a2e8398bded272178fc45b80dd6363808493baae8a4662bc184cdd633af1"
+    },
+    {
+      "path": "manuscript/audits/20261010-pre-submission/verify_delivery.py",
+      "bytes": 3830,
+      "sha256": "36dc9fe65ff4d7a053b29f999542fb8e272aed71a397077df7766973cb357cb4"
+    },
+    {
+      "path": "manuscript/audits/20261010-pre-submission/review.md",
+      "bytes": 13293,
+      "sha256": "28109ccedd9dd08ec4972346a2bb05ed16e54f1556d23c5db8b18c4875de351d"
+    },
+    {
+      "path": "manuscript/audits/20261010-pre-submission/retrieval-v2/metadata.json",
+      "bytes": 103522,
+      "sha256": "9323a77e7a65fe8e56d956f7dbb89d592d25091c4cf8318ad18fdcb6746e26b7"
+    },
+    {
+      "path": "manuscript/audits/20261010-pre-submission/submission-checks.json",
+      "bytes": 19547,
+      "sha256": "1fdd80bc15878bc1c59dfef2048da355d92235fb129b013d1eb898a6e49a0ab6"
+    }
+  ]
+}
