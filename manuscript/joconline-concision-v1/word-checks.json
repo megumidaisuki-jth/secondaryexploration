@@ -1,0 +1,20 @@
+{
+  "main": {
+    "editable_math_objects": 185,
+    "display_equations": 20,
+    "images": 3,
+    "tables": 3,
+    "bytes": 404954,
+    "sha256": "91f89724345c1d861c4b4a9c520eb43843e34bb158c73d34dde242eeae622740",
+    "conversion_warnings": ""
+  },
+  "supplement": {
+    "editable_math_objects": 12,
+    "display_equations": 0,
+    "images": 8,
+    "tables": 2,
+    "bytes": 1206175,
+    "sha256": "08349f19671d1cd30a3addf9e24abb7cad253a75f9374089a4d4016f7f91023f",
+    "conversion_warnings": ""
+  }
+}

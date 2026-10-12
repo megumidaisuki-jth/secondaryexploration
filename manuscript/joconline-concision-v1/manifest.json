@@ -1,0 +1,258 @@
+{
+  "schema": "joconline-concision-v1",
+  "date": "2026-10-12",
+  "status": "editorial-and-visual-QA-complete-not-final-submission",
+  "pdf_pages": {
+    "main": 10,
+    "supplement": 10
+  },
+  "word_preview_pages": {
+    "main": 15,
+    "supplement": 9
+  },
+  "baseline_manifest_sha256": "28a6f17d7c79b093290cab7097fe0a8a22fad6c6c4b1b7053a309443a50ef784",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 60,
+      "sha256": "139d76fd2a3725837a207b9e5ab861dfae452cf9969650e9707f4394b905de8a"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 31,
+      "sha256": "0aa707ad712ae3cd366ea3eb007c52f26e1c5ab20ea0de5b3e5263e21b5e9b12"
+    },
+    {
+      "path": "changes.json",
+      "bytes": 66514,
+      "sha256": "bf1b654e40d2b685792df7823896a292b3881ef0d4f95740f3c1990ee76a540e"
+    },
+    {
+      "path": "changes.md",
+      "bytes": 62949,
+      "sha256": "6f7c78b823ab618cd56a2277745f0a17f45e4ac4e3768d207d61525cfbad886e"
+    },
+    {
+      "path": "concision-checks.json",
+      "bytes": 824,
+      "sha256": "31d117bab57cf31bb15a79b12e1a71579c3eb3e6ae823c86a137ce7e480641b6"
+    },
+    {
+      "path": "editorial-notes.md",
+      "bytes": 1261,
+      "sha256": "ded51742941989b3fb418ef425baac497077af3582ceb33254b47636916dd2eb"
+    },
+    {
+      "path": "figures/figure-1-design.pdf",
+      "bytes": 55072,
+      "sha256": "f569c0f18aa543dd695773b3c240e055b1601209cb4cb8d387c8af7bdd645483"
+    },
+    {
+      "path": "figures/figure-2-global-contrasts.pdf",
+      "bytes": 45232,
+      "sha256": "60ff3bbc083e0c3afcfcddb153167aef013c3f1b38168adaa3f655476550fd00"
+    },
+    {
+      "path": "figures/figure-3-replication-matrix.pdf",
+      "bytes": 34862,
+      "sha256": "2fc2ca912e62cd5bdf22496eccf86db96a7d07e081781086cdbe1cc5f30ad367"
+    },
+    {
+      "path": "figures/s1-direct.pdf",
+      "bytes": 45358,
+      "sha256": "89a381364b954a0eb2e133938931145a2bbe9e7eeaebfbd5f49388a6a7f93379"
+    },
+    {
+      "path": "figures/s3-paired-cost.pdf",
+      "bytes": 60851,
+      "sha256": "f28a7d39f19691ef8622a2ce49c3cde423cf27c395763e15fa3c76b9239e5d61"
+    },
+    {
+      "path": "figures/s3-service-cost.pdf",
+      "bytes": 49603,
+      "sha256": "6dea51d10b0b5a014dd1e9ff49533a6819e5011610a36cb7ca2d0f87a484b82c"
+    },
+    {
+      "path": "figures/s4-binary-window.pdf",
+      "bytes": 69560,
+      "sha256": "0925e5097f8501e6b8d824d504354e9084d9a29187ddbb4ff06d7049c68b9c35"
+    },
+    {
+      "path": "figures/s4-direct-window.pdf",
+      "bytes": 55671,
+      "sha256": "0518ee15c7fafc635a7defdce1045d2ba90fc891c44de52be0959589b7c20916"
+    },
+    {
+      "path": "figures/s5-arm-means.pdf",
+      "bytes": 20228,
+      "sha256": "aca5be4615219a338e31a23ea98a231f01fe9415783617353c51c5ff39142cc5"
+    },
+    {
+      "path": "figures/s5-initialization.pdf",
+      "bytes": 20937,
+      "sha256": "44c720f5d9fbfbbecb0bf2c58aa18b567a99d8a36790ccf314c0af0c741731a5"
+    },
+    {
+      "path": "figures/s5-topology-interaction.pdf",
+      "bytes": 24185,
+      "sha256": "e46ccfd6badf3781038e8c5bf7809b5fcf4211f6996228a8bb5ef5a0b7a284b9"
+    },
+    {
+      "path": "main.docx",
+      "bytes": 404954,
+      "sha256": "91f89724345c1d861c4b4a9c520eb43843e34bb158c73d34dde242eeae622740"
+    },
+    {
+      "path": "main.pdf",
+      "bytes": 433131,
+      "sha256": "582add5b90d200fd02cebe99784481d5886f193a4f9cb4b85d9a242e2f841419"
+    },
+    {
+      "path": "main.tex",
+      "bytes": 55187,
+      "sha256": "997c1fb9074906ac001d4c28bf3ad21a6262d799fb17522099b84da26c895edf"
+    },
+    {
+      "path": "qa.md",
+      "bytes": 2046,
+      "sha256": "d3efc361ec8535aedb8bc7d79e6f199fded448d3dcc2974dc38283862147995e"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1072,
+      "sha256": "c9d4bbdaccd6bdb01c59445ac2e7a8109fdfebf22cd1450c96b61757c989040f"
+    },
+    {
+      "path": "references.enw",
+      "bytes": 727,
+      "sha256": "ef37ef97c23e38b3f5d476d4f75adc5bd0431b5f3fe40b52f5388d51087b9cf5"
+    },
+    {
+      "path": "source-data/S1_S2-results.json",
+      "bytes": 10358,
+      "sha256": "a7dd69a1c0d88a720ab9939cff24436383e73df19a3a7fb3aef2374e07b5b174"
+    },
+    {
+      "path": "source-data/S1_S2-s2-descriptive.json",
+      "bytes": 38672,
+      "sha256": "71f4ec2c4542fbe64f73436cf915120b89584436055124e50385ba12de355f1b"
+    },
+    {
+      "path": "source-data/S1_S2-verification.json",
+      "bytes": 522,
+      "sha256": "6389172ad3d1355ab83a0905cab7d82c7ea40e29fe083e9e5f6deb8580f055b1"
+    },
+    {
+      "path": "source-data/S3-results.json",
+      "bytes": 181200,
+      "sha256": "b759654c0b88bb55322b75a2927a566f2f8a54448800fe21c92ce50befc3fabf"
+    },
+    {
+      "path": "source-data/S3-verification.json",
+      "bytes": 801,
+      "sha256": "49c5681b97c386e59225c814ce438c2795f4bf3d51a6f895b49616601c42866e"
+    },
+    {
+      "path": "source-data/S4-results.json",
+      "bytes": 211831,
+      "sha256": "d3f71492b74e114af4a9cb61a4abf7edb71afafff1be280f984db5524036d214"
+    },
+    {
+      "path": "source-data/S4-verification.json",
+      "bytes": 926,
+      "sha256": "c9ea9c2630750dc40f2215512a08f49d968779b644976f049771c186d469bdc3"
+    },
+    {
+      "path": "source-data/S5-results.json",
+      "bytes": 143705,
+      "sha256": "9ec1511cb22aa037f4573946d994179f95d9cbc2c7b0c331304934e7b5e737d2"
+    },
+    {
+      "path": "source-data/S5-verification.json",
+      "bytes": 674,
+      "sha256": "c8e6ae71a2882874361752943aea42146342201b04081f4de6bf11219ab91d9b"
+    },
+    {
+      "path": "supplement.docx",
+      "bytes": 1206175,
+      "sha256": "08349f19671d1cd30a3addf9e24abb7cad253a75f9374089a4d4016f7f91023f"
+    },
+    {
+      "path": "supplement.pdf",
+      "bytes": 430712,
+      "sha256": "52f72707d45f427370ff6e29e9f766569960430909867e2e1cadbc250682c6f5"
+    },
+    {
+      "path": "supplement.tex",
+      "bytes": 11443,
+      "sha256": "d539880f4a06df7278f8672a48466262d972e0b4d6bdaccf711e8dc8290f7375"
+    },
+    {
+      "path": "verify_concision.py",
+      "bytes": 9249,
+      "sha256": "7f8d6d47d0302a920c57f4edcf25c11700daec45b23f515fc91b74cbaba6881c"
+    },
+    {
+      "path": "word-checks.json",
+      "bytes": 502,
+      "sha256": "2ed88a6bbbab312f3da06eaa628ad06a20b0e436fa9e690a85df3cef0708f2a4"
+    },
+    {
+      "path": "word-figures/figure-1-design.png",
+      "bytes": 134122,
+      "sha256": "a0ccf65add8cb679595d8da55401e95e88d0e91e0d09ce7e2af2522cc3f6aea8"
+    },
+    {
+      "path": "word-figures/figure-2-global-contrasts.png",
+      "bytes": 84806,
+      "sha256": "f9514d30b66ea134ecb198ca4e1ed346ee5bb2f37bd29ec0b9a83c2eb3d4178c"
+    },
+    {
+      "path": "word-figures/figure-3-replication-matrix.png",
+      "bytes": 180086,
+      "sha256": "d72b61752da8ba6f5af5d199a975afa2c6afd32af25b9d6cfe4af797ac5d4a89"
+    },
+    {
+      "path": "word-figures/s1-direct.png",
+      "bytes": 104531,
+      "sha256": "4662cf4053ae1f6bc78fb1b8369bf27b5ee6e5bec87dae2811164660f9317ec9"
+    },
+    {
+      "path": "word-figures/s3-paired-cost.png",
+      "bytes": 120074,
+      "sha256": "e47497aba0fb85dbf390a9bca646a7174ad7297293902833fd061031636d47dc"
+    },
+    {
+      "path": "word-figures/s3-service-cost.png",
+      "bytes": 184437,
+      "sha256": "e3fa9211f71e76948dca2c1919ff16e1ab24ff91126c86a7af0cb584f85d2031"
+    },
+    {
+      "path": "word-figures/s4-binary-window.png",
+      "bytes": 288917,
+      "sha256": "588d584d69ff9978f23c8e9f4beee0d529bebf78cc1a4e2b0569d33a07ca6054"
+    },
+    {
+      "path": "word-figures/s4-direct-window.png",
+      "bytes": 141677,
+      "sha256": "314c84d2cb0f37f3e03b7ef2d6efc6f87c14901825c285770c17839148195084"
+    },
+    {
+      "path": "word-figures/s5-arm-means.png",
+      "bytes": 167434,
+      "sha256": "6103b3a90a24ce306334806571e9551ccda0b29380db915b19903d7eba9db686"
+    },
+    {
+      "path": "word-figures/s5-initialization.png",
+      "bytes": 130898,
+      "sha256": "de878e3d70ccb84dd2cc02cda77340382f6e7f5b0ea127a2150c59fafceef294"
+    },
+    {
+      "path": "word-figures/s5-topology-interaction.png",
+      "bytes": 190934,
+      "sha256": "bf82df3a81976c8ac9b8828dce3be9a082be1e64645ac5f1fe2465366bdaf9b1"
+    }
+  ],
+  "new_simulations": 0,
+  "new_bootstrap_replicates": 0
+}

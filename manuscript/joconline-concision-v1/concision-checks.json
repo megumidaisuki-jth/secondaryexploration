@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-12",
+  "baseline_verified_files": 46,
+  "baseline_manifest_sha256": "28a6f17d7c79b093290cab7097fe0a8a22fad6c6c4b1b7053a309443a50ef784",
+  "scope": "prose-only editorial revision",
+  "new_simulations": 0,
+  "new_bootstrap_replicates": 0,
+  "numbered_equations_preserved": 18,
+  "unnumbered_display_equations_preserved": 2,
+  "scientific_figures_byte_preserved": 11,
+  "scientific_json_byte_preserved": 9,
+  "all_table_cells_unchanged": true,
+  "bibliography_unchanged": true,
+  "change_hunks": 79,
+  "counts": {
+    "main": {
+      "original_han": 14433,
+      "revised_han": 11511,
+      "net_han_removed": 2922,
+      "reduction_percent": 20.25
+    },
+    "supplement": {
+      "original_han": 1863,
+      "revised_han": 1529,
+      "net_han_removed": 334,
+      "reduction_percent": 17.93
+    }
+  }
+}
