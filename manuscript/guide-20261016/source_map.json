@@ -1,0 +1,253 @@
+{
+  "schema": "paper-guide-source-map.v2",
+  "scientific_reanalysis_performed": false,
+  "teaching_examples_are_not_observations": true,
+  "inputs": [
+    {
+      "path": "manuscript/joconline-concision-v1/main.tex",
+      "bytes": 55187,
+      "sha256": "997c1fb9074906ac001d4c28bf3ad21a6262d799fb17522099b84da26c895edf"
+    },
+    {
+      "path": "manuscript/joconline-concision-v1/main.docx",
+      "bytes": 404954,
+      "sha256": "91f89724345c1d861c4b4a9c520eb43843e34bb158c73d34dde242eeae622740"
+    },
+    {
+      "path": "manuscript/joconline-concision-v1/supplement.tex",
+      "bytes": 11443,
+      "sha256": "d539880f4a06df7278f8672a48466262d972e0b4d6bdaccf711e8dc8290f7375"
+    },
+    {
+      "path": "manuscript/joconline-concision-v1/supplement.docx",
+      "bytes": 1206175,
+      "sha256": "08349f19671d1cd30a3addf9e24abb7cad253a75f9374089a4d4016f7f91023f"
+    },
+    {
+      "path": "manuscript/guide-20261006/超图支付网络论文详解_核心推导与图表证据.docx",
+      "bytes": 852516,
+      "sha256": "b0108cbc920e684e2bab025b5d85ba09f62e4d5cf5dd382c055dd34adaa3a740"
+    },
+    {
+      "path": "configs/formal/synthetic-formal-v1.json",
+      "bytes": 3644,
+      "sha256": "417f7e82c1eb18b811d7a654d49bbbb469db21969c0acb426f30540d1f9fdc55"
+    },
+    {
+      "path": "configs/confirmation/synthetic-confirmation-v1.json",
+      "bytes": 3668,
+      "sha256": "95555bd62fc7f8490596c2dad389799d73fa59dcb71cee57247da0a403b9a7fb"
+    },
+    {
+      "path": "manuscript/joconline-concision-v1/word-figures/s1-direct.png",
+      "bytes": 104531,
+      "sha256": "4662cf4053ae1f6bc78fb1b8369bf27b5ee6e5bec87dae2811164660f9317ec9"
+    },
+    {
+      "path": "manuscript/joconline-concision-v1/word-figures/s3-service-cost.png",
+      "bytes": 184437,
+      "sha256": "e3fa9211f71e76948dca2c1919ff16e1ab24ff91126c86a7af0cb584f85d2031"
+    },
+    {
+      "path": "manuscript/joconline-concision-v1/word-figures/s3-paired-cost.png",
+      "bytes": 120074,
+      "sha256": "e47497aba0fb85dbf390a9bca646a7174ad7297293902833fd061031636d47dc"
+    },
+    {
+      "path": "manuscript/joconline-concision-v1/word-figures/s4-binary-window.png",
+      "bytes": 288917,
+      "sha256": "588d584d69ff9978f23c8e9f4beee0d529bebf78cc1a4e2b0569d33a07ca6054"
+    },
+    {
+      "path": "manuscript/joconline-concision-v1/word-figures/s4-direct-window.png",
+      "bytes": 141677,
+      "sha256": "314c84d2cb0f37f3e03b7ef2d6efc6f87c14901825c285770c17839148195084"
+    },
+    {
+      "path": "manuscript/joconline-concision-v1/word-figures/s5-arm-means.png",
+      "bytes": 167434,
+      "sha256": "6103b3a90a24ce306334806571e9551ccda0b29380db915b19903d7eba9db686"
+    },
+    {
+      "path": "manuscript/joconline-concision-v1/word-figures/s5-topology-interaction.png",
+      "bytes": 190934,
+      "sha256": "bf82df3a81976c8ac9b8828dce3be9a082be1e64645ac5f1fe2465366bdaf9b1"
+    },
+    {
+      "path": "manuscript/joconline-concision-v1/word-figures/s5-initialization.png",
+      "bytes": 130898,
+      "sha256": "de878e3d70ccb84dd2cc02cda77340382f6e7f5b0ea127a2150c59fafceef294"
+    },
+    {
+      "path": "manuscript/joconline-concision-v1/source-data/S1_S2-results.json",
+      "bytes": 10358,
+      "sha256": "a7dd69a1c0d88a720ab9939cff24436383e73df19a3a7fb3aef2374e07b5b174"
+    },
+    {
+      "path": "manuscript/joconline-concision-v1/source-data/S1_S2-s2-descriptive.json",
+      "bytes": 38672,
+      "sha256": "71f4ec2c4542fbe64f73436cf915120b89584436055124e50385ba12de355f1b"
+    },
+    {
+      "path": "manuscript/joconline-concision-v1/source-data/S1_S2-verification.json",
+      "bytes": 522,
+      "sha256": "6389172ad3d1355ab83a0905cab7d82c7ea40e29fe083e9e5f6deb8580f055b1"
+    },
+    {
+      "path": "manuscript/joconline-concision-v1/source-data/S3-results.json",
+      "bytes": 181200,
+      "sha256": "b759654c0b88bb55322b75a2927a566f2f8a54448800fe21c92ce50befc3fabf"
+    },
+    {
+      "path": "manuscript/joconline-concision-v1/source-data/S3-verification.json",
+      "bytes": 801,
+      "sha256": "49c5681b97c386e59225c814ce438c2795f4bf3d51a6f895b49616601c42866e"
+    },
+    {
+      "path": "manuscript/joconline-concision-v1/source-data/S4-results.json",
+      "bytes": 211831,
+      "sha256": "d3f71492b74e114af4a9cb61a4abf7edb71afafff1be280f984db5524036d214"
+    },
+    {
+      "path": "manuscript/joconline-concision-v1/source-data/S4-verification.json",
+      "bytes": 926,
+      "sha256": "c9ea9c2630750dc40f2215512a08f49d968779b644976f049771c186d469bdc3"
+    },
+    {
+      "path": "manuscript/joconline-concision-v1/source-data/S5-results.json",
+      "bytes": 143705,
+      "sha256": "9ec1511cb22aa037f4573946d994179f95d9cbc2c7b0c331304934e7b5e737d2"
+    },
+    {
+      "path": "manuscript/joconline-concision-v1/source-data/S5-verification.json",
+      "bytes": 674,
+      "sha256": "c8e6ae71a2882874361752943aea42146342201b04081f4de6bf11219ab91d9b"
+    }
+  ],
+  "equations": [
+    {
+      "equation": 1,
+      "source": "manuscript/joconline-concision-v1/main.tex"
+    },
+    {
+      "equation": 2,
+      "source": "manuscript/joconline-concision-v1/main.tex"
+    },
+    {
+      "equation": 3,
+      "source": "manuscript/joconline-concision-v1/main.tex"
+    },
+    {
+      "equation": 4,
+      "source": "manuscript/joconline-concision-v1/main.tex"
+    },
+    {
+      "equation": 5,
+      "source": "manuscript/joconline-concision-v1/main.tex"
+    },
+    {
+      "equation": 6,
+      "source": "manuscript/joconline-concision-v1/main.tex"
+    },
+    {
+      "equation": 7,
+      "source": "manuscript/joconline-concision-v1/main.tex"
+    },
+    {
+      "equation": 8,
+      "source": "manuscript/joconline-concision-v1/main.tex"
+    },
+    {
+      "equation": 9,
+      "source": "manuscript/joconline-concision-v1/main.tex"
+    },
+    {
+      "equation": 10,
+      "source": "manuscript/joconline-concision-v1/main.tex"
+    },
+    {
+      "equation": 11,
+      "source": "manuscript/joconline-concision-v1/main.tex"
+    },
+    {
+      "equation": 12,
+      "source": "manuscript/joconline-concision-v1/main.tex"
+    },
+    {
+      "equation": 13,
+      "source": "manuscript/joconline-concision-v1/main.tex"
+    },
+    {
+      "equation": 14,
+      "source": "manuscript/joconline-concision-v1/main.tex"
+    },
+    {
+      "equation": 15,
+      "source": "manuscript/joconline-concision-v1/main.tex"
+    },
+    {
+      "equation": 16,
+      "source": "manuscript/joconline-concision-v1/main.tex"
+    },
+    {
+      "equation": 17,
+      "source": "manuscript/joconline-concision-v1/main.tex"
+    },
+    {
+      "equation": 18,
+      "source": "manuscript/joconline-concision-v1/main.tex"
+    }
+  ],
+  "supplement_anchors": [
+    {
+      "id": "eq17",
+      "source": "main.tex",
+      "equation": 17
+    },
+    {
+      "id": "eq18",
+      "source": "main.tex",
+      "equation": 18
+    },
+    {
+      "id": "figS1",
+      "source": "source-data/S1_S2-results.json",
+      "figure": "S1"
+    },
+    {
+      "id": "figS2",
+      "source": "source-data/S3-results.json",
+      "figure": "S2"
+    },
+    {
+      "id": "figS3",
+      "source": "source-data/S3-results.json",
+      "figure": "S3"
+    },
+    {
+      "id": "figS4",
+      "source": "source-data/S4-results.json",
+      "figure": "S4"
+    },
+    {
+      "id": "figS5",
+      "source": "source-data/S4-results.json",
+      "figure": "S5"
+    },
+    {
+      "id": "figS6",
+      "source": "source-data/S5-results.json",
+      "figure": "S6"
+    },
+    {
+      "id": "figS7",
+      "source": "source-data/S5-results.json",
+      "figure": "S7"
+    },
+    {
+      "id": "figS8",
+      "source": "source-data/S5-results.json",
+      "figure": "S8"
+    }
+  ]
+}
