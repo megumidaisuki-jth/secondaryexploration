@@ -1,0 +1,19 @@
+{
+  "schema": "structure-robustness-engineering.v1",
+  "purpose": "isolated engineering pilot; never pooled with scientific confirmation",
+  "seed_namespace": "structure-robustness-20261022-v1/engineering-only",
+  "node_counts": [60, 120],
+  "replicates_per_model_per_size": 1,
+  "horizon": 240,
+  "training_demand_horizon": 1440,
+  "regime_ids": ["test-uniform-id", "test-direction-reversed"],
+  "arms": ["fhs3", "fhs5", "fhs5-b0", "fhs5-random0", "fhs5-volume", "fhs5-reciprocity"],
+  "per_node_capital": 120,
+  "chunk_requests": 10,
+  "workers": 1,
+  "automatic_scientific_launch": false,
+  "output_root": "results/supplement/structure-robustness-engineering-v1",
+  "historical_parameter_source": "configs/formal/synthetic-formal-v1.json",
+  "parent_parameter_policy": "same 60/120 size cells and traffic kernels; new isolated seeds",
+  "after_completion": "stop at engineering gate; inspect timing, precision plan and implementation tests before freezing A"
+}
