@@ -1,0 +1,45 @@
+{
+  "schema": "structure-engineering-live-pause-resume-check.v1",
+  "scope": "engineering control only; not scientific confirmation or independent review",
+  "tests_passed": 17,
+  "pause": {
+    "pid": 30492,
+    "checkpointed_requests": 11730,
+    "total_requests": 24960,
+    "state": "paused-safe-checkpoint",
+    "runner_lock_live": false,
+    "utc": "2026-10-22T16:02:21.224726+00:00"
+  },
+  "resume": {
+    "pid": 18060,
+    "runner_lock_live": true,
+    "unchanged_checkpoint_sample_count": 6,
+    "unchanged_checkpoint_sample_verified": true
+  },
+  "sampled_files": [
+    {
+      "Path": "E:\\second\\results\\supplement\\structure-robustness-engineering-v1\\runs\\78ed261708c1f45f72b94364e07b3f0b971a9971dbcca224d26240f66933cbb0\\chunks\\000200.json.gz",
+      "Hash": "01D6A7471288C9AB79A2CA765597BDBEB405AC083F496ACD9A84197748A63F3D"
+    },
+    {
+      "Path": "E:\\second\\results\\supplement\\structure-robustness-engineering-v1\\runs\\78ed261708c1f45f72b94364e07b3f0b971a9971dbcca224d26240f66933cbb0\\chunks\\000190.json.gz",
+      "Hash": "12F482501FCA3C705DFFA0E8A1784D6E04DD4CCAB24403AD77062EE84DBC8AAD"
+    },
+    {
+      "Path": "E:\\second\\results\\supplement\\structure-robustness-engineering-v1\\runs\\78ed261708c1f45f72b94364e07b3f0b971a9971dbcca224d26240f66933cbb0\\chunks\\000180.json.gz",
+      "Hash": "7DB31B465D009CCE6AA0CAB26D9F7B3D6878B117AC94C384E02622CBAB6C228B"
+    },
+    {
+      "Path": "E:\\second\\results\\supplement\\structure-robustness-engineering-v1\\runs\\78ed261708c1f45f72b94364e07b3f0b971a9971dbcca224d26240f66933cbb0\\chunks\\000170.json.gz",
+      "Hash": "4FF044FF36813099DBE34E23A43C379522F9F3EE2F4F0A3353CE7E19D04F74C2"
+    },
+    {
+      "Path": "E:\\second\\results\\supplement\\structure-robustness-engineering-v1\\runs\\78ed261708c1f45f72b94364e07b3f0b971a9971dbcca224d26240f66933cbb0\\chunks\\000160.json.gz",
+      "Hash": "2FE76E7500BDC358383E6D7427775D5E2471C340546716A3AD179194CA50B8D9"
+    },
+    {
+      "Path": "E:\\second\\results\\supplement\\structure-robustness-engineering-v1\\runs\\78ed261708c1f45f72b94364e07b3f0b971a9971dbcca224d26240f66933cbb0\\chunks\\000150.json.gz",
+      "Hash": "7E3186DFA0A985B773B038DAB6F5F5E998B4E775D6139C025F4D616C71BA7D90"
+    }
+  ]
+}
