@@ -70,3 +70,13 @@ manuscript/joconline-s5-revision-v1/** -text whitespace=cr-at-eol,-blank-at-eol
 tools/build_s5_manuscript_figures.py -text
 tools/seal_s5_manuscript_figures.py -text
 tests/test_s5_manuscript_figures.py -text
+
+# Structural robustness: preserve frozen bytes for resumable execution.
+configs/supplement/structure-robustness*.json -text
+tools/structure_robustness*.py -text
+tools/preflight_structure_robustness_A.py -text
+tools/structure-robustness-control.ps1 -text
+tests/test_structure_robustness*.py -text
+results/diagnostics/structure-robustness-*/** -text whitespace=cr-at-eol,-blank-at-eol
+results/supplement/structure-robustness-*/** -text whitespace=cr-at-eol,-blank-at-eol
+results/archives/structure-robustness*.zip -text
